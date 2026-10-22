@@ -1,0 +1,28 @@
+/* กล่องตัดรูปปกของรางวัล - คู่กับ js/reward-cover-cropper.js */
+
+/* Cropper.js วัดขนาดจากกรอบนี้ จึงต้องมีความสูงที่แน่นอนตั้งแต่ก่อนรูปจะโหลด
+   ถ้าปล่อยให้สูงตามรูป จะได้กรอบสูงเป็นศูนย์ในจังหวะแรกแล้วคำนวณกรอบตัดเพี้ยน */
+.rwc-stage {
+    height: 55vh;
+    min-height: 260px;
+    max-height: 460px;
+    background: var(--bs-gray-200);
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+/* Cropper.js จะแทนที่ <img> นี้ด้วยโครงสร้างของมันเอง max-width:100% คือสิ่งที่
+   คู่มือของไลบรารีกำหนดไว้ ห้ามตั้ง width/height ตายตัวทับ */
+.rwc-stage > img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ตัวอย่างผลลัพธ์ - ขนาดเท่าไฟล์จริงที่จะถูกบันทึก ผู้ใช้จึงเห็นของจริงไม่ใช่รูปย่อ
+   สัดส่วนคุมด้วย aspect-ratio จาก config ผ่าน inline style ในไฟล์ blade */
+.rwc-preview {
+    overflow: hidden;
+    border-radius: .5rem;
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-gray-100);
+}

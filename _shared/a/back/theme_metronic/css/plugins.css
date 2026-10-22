@@ -1,0 +1,49 @@
+/* ═══════════════════════════════════════════════════════════════
+   AdminKit - Plugins: DataTable, Tom Select, Flatpickr, TinyMCE
+═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════
+   DATATABLE 2.x
+═══════════════════════════════════════ */
+.dt-search input,.dt-length select{border:1px solid var(--border)!important;border-radius:var(--radius-sm)!important;padding:6px 12px!important;font-size:13px!important;background:var(--card)!important;color:var(--text-1)!important;}
+.dt-search input:focus{border-color:var(--pri)!important;box-shadow:0 0 0 3px rgba(78,115,223,.15)!important;outline:none;}
+.dt-info{font-size:12.5px;color:var(--text-2);}
+
+table.dataTable{border-collapse:collapse!important;}
+table.dataTable thead th{font-size:12px;font-weight:600;color:var(--text-2);background:var(--surface)!important;border-bottom:2px solid var(--border)!important;border-top:1px solid var(--border)!important;padding:10px 14px!important;white-space:nowrap;}
+table.dataTable tbody td{padding:10px 14px!important;font-size:13px;color:var(--text-1);border-bottom:1px solid var(--border)!important;vertical-align:middle;}
+table.dataTable tbody tr:hover{background:rgba(78,115,223,.04)!important;}
+
+/* Pagination */
+.dt-paging{display:flex;gap:2px;align-items:center;justify-content:flex-end;padding-top:4px;}
+.dt-paging .dt-paging-button,.dt-paging .dt-paging-button:link,.dt-paging .dt-paging-button:visited,.dt-paging .dt-paging-button:active,.dt-paging .dt-paging-button:focus{all:unset!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:32px!important;height:32px!important;padding:0 6px!important;border-radius:var(--radius-sm)!important;background:transparent!important;color:var(--text-2)!important;font-family:'Prompt',sans-serif!important;font-size:13px!important;font-weight:500!important;cursor:pointer!important;transition:background .15s ease!important;box-sizing:border-box!important;user-select:none!important;outline:none!important;box-shadow:none!important;text-decoration:none!important;}
+.dt-paging .dt-paging-button:hover:not(.disabled):not(.current){background:var(--surface)!important;color:var(--text-1)!important;}
+.dt-paging .dt-paging-button.current,.dt-paging .dt-paging-button.current:link,.dt-paging .dt-paging-button.current:visited,.dt-paging .dt-paging-button.current:hover,.dt-paging .dt-paging-button.current:active,.dt-paging .dt-paging-button.current:focus{background:var(--pri)!important;color:#fff!important;font-weight:600!important;cursor:default!important;border-radius:var(--radius-sm)!important;}
+.dt-paging .dt-paging-button.disabled,.dt-paging .dt-paging-button.disabled:hover{opacity:.25!important;cursor:default!important;background:transparent!important;}
+
+/* ═══════════════════════════════════════
+   TOM SELECT
+═══════════════════════════════════════ */
+.ts-wrapper .ts-control{border:1px solid var(--border)!important;border-radius:var(--radius-sm)!important;min-height:36px!important;font-size:13px!important;background:var(--card)!important;color:var(--text-1)!important;padding:4px 10px!important;box-shadow:none!important;}
+.ts-wrapper.focus .ts-control{border-color:var(--pri)!important;box-shadow:0 0 0 3px rgba(78,115,223,.15)!important;}
+.ts-dropdown{border:1px solid var(--border)!important;border-radius:var(--radius-sm)!important;box-shadow:0 6px 20px rgba(0,0,0,.1)!important;background:var(--card)!important;color:var(--text-1)!important;font-size:13px!important;}
+.ts-dropdown .option.active{background:var(--pri)!important;color:#fff!important;}
+.ts-dropdown .option:hover{background:rgba(78,115,223,.08)!important;color:var(--text-1)!important;}
+.ts-dropdown .option.selected{background:rgba(78,115,223,.1)!important;color:var(--pri)!important;}
+.ts-wrapper .ts-control .item{background:rgba(78,115,223,.12)!important;color:var(--pri)!important;border-radius:4px!important;font-size:12px!important;}
+.ts-wrapper .clear-button,.ts-wrapper .remove{color:var(--text-2)!important;}
+.ts-wrapper .clear-button:hover,.ts-wrapper .remove:hover{color:var(--danger)!important;}
+
+/* ═══════════════════════════════════════
+   FLATPICKR
+═══════════════════════════════════════ */
+.flatpickr-calendar{border-radius:var(--radius)!important;box-shadow:0 6px 20px rgba(0,0,0,.1)!important;border:1px solid var(--border)!important;}
+
+/* ═══════════════════════════════════════
+   TINYMCE
+═══════════════════════════════════════ */
+.tox-tinymce{border:1px solid var(--border)!important;border-radius:var(--radius-sm)!important;}
+.tox .tox-menubar,.tox .tox-toolbar-overlord,.tox .tox-toolbar__primary{background:var(--surface)!important;border-bottom:1px solid var(--border)!important;}
+.tox .tox-toolbar__overflow{background:var(--surface)!important;border:1px solid var(--border)!important;}
+.tox .tox-statusbar{border-top:1px solid var(--border)!important;background:var(--surface)!important;color:var(--text-2)!important;}
+.tox .tox-edit-area__iframe{background:var(--card)!important;}

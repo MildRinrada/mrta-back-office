@@ -1,0 +1,34 @@
+
+    .ff-grid { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 24px; align-items: start; }
+    .ff-label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 600; color: var(--text-1); }
+    .ff-label .req { color: var(--danger, #e74a3b); }
+    .ff-help { margin-top: 4px; font-size: 11.5px; color: var(--text-2); }
+    .ff-err { margin-top: 4px; font-size: 12px; color: var(--danger, #e74a3b); }
+    .ff-counter { float: right; font-weight: 400; color: var(--text-3); font-size: 11.5px; }
+    .ff-settings { display: grid; grid-template-columns: minmax(0, 1fr) 120px; gap: 14px; padding: 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+    .ff-actions { display: flex; gap: 8px; margin-top: 20px; }
+
+    /* ตัวอย่างบนหน้าเว็บ - เลียนแบบกล่อง FAQ ของ /qa (front/css/qa.css) */
+    .ff-preview { position: sticky; top: 16px; }
+    .ff-preview-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; font-size: 12px; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: .04em; }
+    .ff-preview-head .badge { text-transform: none; letter-spacing: 0; }
+    .ff-site { border-radius: 10px; background: #f5f8fd; overflow: hidden; color: #002777; font-family: inherit; }
+    .ff-site-q { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 12px; padding: 14px 16px; }
+    .ff-site-ico { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 26px; border-radius: 7px 7px 7px 2px; background: #2d66cc; color: #fff; font-weight: 700; font-size: 14px; }
+    .ff-site-title { font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+    .ff-site-cat { font-size: 12.5px; color: #3a4668; white-space: nowrap; }
+    .ff-site-a { padding: 14px 16px 16px 58px; background: #dfe7f6; color: #1b2a5c; font-size: 13px; line-height: 1.8; overflow-wrap: anywhere; }
+    .ff-site-a > :first-child { margin-top: 0; }
+    .ff-site-a > :last-child { margin-bottom: 0; }
+    .ff-site-a p { margin: 0 0 .6em; }
+    .ff-site-a ul, .ff-site-a ol { margin: 0 0 .6em; padding-left: 1.4em; }
+    .ff-site-a a { color: #2d66cc; text-decoration: underline; }
+    .ff-editor .tox-tinymce { border-radius: 8px; border-color: var(--border); }
+    .is-invalid + .tox-tinymce, .ff-editor.is-invalid .tox-tinymce { border-color: var(--danger, #e74a3b); }
+    .ff-site.is-off { opacity: .5; }
+    .ff-placeholder { color: #8b93a7; font-style: italic; }
+
+    @media (max-width: 991.98px) {
+        .ff-grid { grid-template-columns: minmax(0, 1fr); }
+        .ff-preview { position: static; }
+    }

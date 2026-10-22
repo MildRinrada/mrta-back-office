@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ไม่มีในเวอร์ชันทดลอง</title>
+<style>
+    :root { --bg: #f4f6fb; --card: #ffffff; --fg: #1f2a44; --muted: #5b6780; --brand: #213069; --brand-fg: #ffffff; --line: #dfe4ee; }
+    @media (prefers-color-scheme: dark) {
+        :root { --bg: #11182a; --card: #1a2338; --fg: #e8edf7; --muted: #a8b3c9; --brand: #f5b301; --brand-fg: #1f2a44; --line: #2c3854; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px; background: var(--bg); color: var(--fg);
+        font: 16px/1.6 "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif; }
+    main { width: 100%; max-width: 460px; padding: 32px 28px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); text-align: center; }
+    h1 { margin: 0 0 8px; font-size: 22px; }
+    p { margin: 0 0 24px; color: var(--muted); }
+    .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    a, button { display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 8px; border: 1px solid var(--brand);
+        font: inherit; font-weight: 600; text-decoration: none; cursor: pointer; }
+    button { background: var(--brand); color: var(--brand-fg); }
+    a { background: transparent; color: var(--fg); border-color: var(--line); }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main>
+    <h1>หน้านี้ไม่มีในเวอร์ชันทดลอง</h1>
+    <p>เวอร์ชันทดลองมีเฉพาะหน้าหลังบ้านในสิทธิ์ผู้ดูแลระบบ หน้าบ้าน การส่งออกไฟล์ และบางหน้าที่ต้องเชื่อมต่อระบบจริงจะใช้ได้ในระบบจริงเท่านั้น</p>
+    <div class="actions">
+        <button type="button" onclick="history.length > 1 ? history.back() : location.href = '/portal/admin'">กลับหน้าก่อนหน้า</button>
+        <a href="/portal/admin">ไปหน้าแรกหลังบ้าน</a>
+    </div>
+</main>
+</body>
+</html>

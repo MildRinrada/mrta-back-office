@@ -1,0 +1,82 @@
+/* แบนเนอร์วิดีโอ / GIF - คู่กับ resources/views/shared/banner_media.blade.php และ banner-player.js
+   ใช้ทั้งหน้าบ้าน (สไลด์แบนเนอร์) และหลังบ้าน (ตัวอย่างในฟอร์ม/กล่องครอป) - ไฟล์นี้มีเหมือนกันทุกระบบที่มีแบนเนอร์
+
+   โครง:  .bm-frame (สัดส่วน = ขนาดแบนเนอร์)  >  .bm-box  >  img.bm-poster + video.bm-video | img.bm-gif
+   ครอปด้วย CSS: สื่อถูกขยายให้ส่วนที่ครอปพอดีกรอบพอดี แล้วเลื่อนด้วย left/top (style ที่ BannerMedia::cropStyle() คำนวณให้)
+   ส่วนนอกกรอบถูก overflow:hidden ตัดทิ้ง จึงเห็นเฉพาะส่วนที่แอดมินเลือกเป๊ะ ๆ */
+
+.bm-frame {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--bm-ratio, 16 / 9);
+    overflow: hidden;
+    background: #0f1a2e;
+}
+.bm-frame .bm-box {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+.bm-frame .bm-poster,
+.bm-frame .bm-media {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+}
+/* ครอปด้วย CSS - width/height/left/top มาจาก inline style (สัดส่วนเท่ากรอบอยู่แล้ว จึงใช้ fill ได้ไม่เพี้ยน) */
+.bm-frame .bm-media.is-cropped {
+    inset: auto;
+    object-fit: fill;
+}
+
+/* กรอบที่ความสูงถูกกำหนดจากหน้าเว็บ (ไม่ใช่สัดส่วนแบนเนอร์) - ขยายส่วนที่ครอปแบบ cover เหมือน object-fit: cover ของรูป
+   .bm-fill  = เต็มพื้นที่กล่องแม่ (เช่น hero ของ learnext - กล่องแม่ต้อง position:relative)
+   .bm-cover = อยู่ในโฟลว์ปกติ หน้าเว็บกำหนดความสูงเอง (เช่นสไลด์ portal ที่สูง clamp(340px, 36vw, 560px) เท่ารูป) */
+.bm-frame.bm-fill {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    aspect-ratio: auto;
+    background: transparent;
+}
+.bm-frame.bm-cover {
+    aspect-ratio: auto;
+}
+.bm-frame.bm-fill,
+.bm-frame.bm-cover {
+    container-type: size;
+}
+.bm-frame.bm-fill .bm-box,
+.bm-frame.bm-cover .bm-box {
+    inset: auto;
+    left: 50%;
+    top: 50%;
+    width: max(100cqw, calc(100cqh * var(--bm-r, 1.7778)));
+    aspect-ratio: var(--bm-ratio, 16 / 9);
+    transform: translate(-50%, -50%);
+}
+
+/* hero ที่มีพื้นหลังเป็นวิดีโอ (learnext x-hero slot media) - isolation สร้าง stacking context ให้ hero
+   วิดีโอ (z-index:-1) จึงอยู่เหนือพื้นหลังรูปของ hero แต่ใต้ชั้นไล่สี (::before) และข้อความ */
+.bm-hero { isolation: isolate; }
+.bm-hero > .bm-frame.bm-fill { z-index: -1; border-radius: inherit; }
+/* วิดีโอที่แอดมินเลือกมีโทนสีใดก็ได้ - ไล่สีเข้มจางทางซ้ายให้ข้อความสีขาวของ hero อ่านออกเสมอ */
+.bm-hero > .bm-frame.bm-fill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 32, 110, .55) 0%, rgba(0, 32, 110, .25) 50%, rgba(0, 32, 110, 0) 80%);
+    pointer-events: none;
+}
+
+/* ผู้ใช้ตั้งค่า "ลดการเคลื่อนไหว" - แสดงภาพปกแทน ไม่เล่นวิดีโอ (banner-player.js หยุดวิดีโอให้ด้วย)
+   GIF หยุดไม่ได้ จึงซ่อนแล้วแสดงเฟรมแรกที่เก็บไว้เป็นภาพปกแทน (ถ้ามี) */
+@media (prefers-reduced-motion: reduce) {
+    .bm-frame .bm-video { display: none; }
+    .bm-frame.has-poster .bm-gif { display: none; }
+}

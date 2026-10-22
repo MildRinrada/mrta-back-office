@@ -1,0 +1,784 @@
+/*-------------------------------------------------
+    Reward Main
+-------------------------------------------------*/
+.card-reward {
+    border-radius: 30px;
+}
+.circle-point {
+    background-color: var(--bs-secondary2);
+    position: absolute; 
+    border-radius: 50%;
+    width:140px;
+    height:140px;
+    text-align: center;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: white solid 3px;
+
+}
+.text-point {
+  margin-top: 25%;
+}
+.title-reward {
+    margin-top: 50px;
+}
+.link-reward {
+
+}
+.header-reward {
+    margin-left: 50%;
+}
+
+.btn-outline-primary {
+    border-radius: 2rem;
+    color: var(--bs-primary-700);
+    border: 1px solid var(--bs-primary-700);
+}
+
+
+
+.btn-outline-primary:hover {
+    border-radius: 2rem;
+    background-color: var(--bs-primary-700);
+    color: var(--bs-white);
+    border: 1px solid var(--bs-primary-700);
+}
+
+.cal-diff-150 {
+    margin-top: -150px !important;
+}
+
+.cal-diff-300 {
+    margin-top: -300px !important;
+}
+
+.cal-plus-150 {
+    margin-top: 150px !important;
+}
+.box-my-points {
+    font-size: 30px;
+    font-weight: 600;
+    padding-left: 15px;
+    /* ขาว ไม่ใช่เทา - กล่องนี้อยู่บนแบนเนอร์สีน้ำเงินเข้มอย่างเดียว (ใช้ที่เดียวในระบบ)
+       เส้นเทา #7B8189 จมหายไปกับพื้น มองแทบไม่เห็นว่ามีเส้นคั่นอยู่ */
+    border-left: 2px solid var(--bs-white);
+    line-height: normal;
+}
+.reward-main-header {
+    font-size: 30px;
+    width: fit-content;
+    line-height: 60px;
+    background:
+     linear-gradient(
+       to left,
+       var(--bs-body) 0, 
+       var(--bs-body) 20%,
+       var(--bs-secondary) 20%, 
+       var(--bs-secondary) 80%, 
+       var(--bs-body) 80%, 
+       var(--bs-body) ) bottom no-repeat;
+   background-size:100% 5px ;
+}
+@media (max-width:575px) {
+    .box-my-points {
+        margin-left: 0px;
+        border-left: 0;
+        text-align: center;
+    }
+}
+@media (max-width:767px) {
+    .header-reward {
+        margin-left: 0%;
+        text-align: center;
+    }
+    .cal-diff-150 {
+        margin:0 !important;
+    }
+    .cal-diff-300 {
+        margin:0 !important;
+    }
+    .cal-plus-150 {
+        margin:0 !important;
+    }
+}
+.bg-reward {
+    background-image: url('../image/reward/reward_banner_big.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100% !important;
+}
+.bg-reward-detail {
+    background-image: url('../image/reward/reward_banner_small.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100% !important;
+}
+.box-pionts{
+    overflow:auto;
+}
+
+/*-------------------------------------------------
+    Reward Store - หัวข้อ + การ์ดของรางวัล
+    (markup: frontend/reward/main + load_reward_item)
+
+    ห้ามเขียน style พวกนี้เป็น inline ในไฟล์ blade เหมือนของเดิม
+    เพราะ load_reward_item ถูก render ซ้ำผ่าน ajax ด้วย
+    ถ้าฝัง style ไว้ในนั้น จะถูกส่งซ้ำทุกรอบที่โหลดเพิ่ม
+-------------------------------------------------*/
+
+/* หัวข้อ ALL REWARDS - เป็นไฟล์ svg ที่มีทั้งตัวอักษรและขีดทแยงบน/ล่างในตัว
+   ไม่ประกอบด้วย css เพราะขีดทแยงสองเส้นเอียงคนละองศา ทำด้วย border ไม่ได้ */
+.rw-heading {
+    display: block;
+    width: 240px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* ── กรอบรูปปกของรางวัล ──
+   ใช้ร่วมกันทุกที่ที่โชว์ภาพปก: สไลด์ในหน้ารายละเอียด + การ์ด "ของรางวัลอื่น ๆ"
+   สัดส่วน 356:293 = ขนาดไฟล์ภาพปกจริงที่ระบบเก็บ
+
+   ของเดิมเขียน style ฝังใน blade ทีละจุด (max-height:360px บ้าง height:140px บ้าง)
+   รูปแต่ละจุดจึงสัดส่วนไม่ตรงกันเลย และเวลาจะแก้ต้องไล่หาทุกไฟล์
+   รวมมาเป็นคลาสเดียว แก้สัดส่วนที่นี่ที่เดียวได้ทั้งระบบ */
+.rw-media {
+    display: block;
+    width: 100%;
+    aspect-ratio: 356 / 293;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--bs-gray-100);
+
+    /* ต้องมีคู่กับ aspect-ratio เสมอ เผื่อกรอบนี้ไปเป็นลูกของ flex container
+       min-height ปริยายของ flex item เป็น auto = ความสูงจริงของรูปข้างใน
+       ถ้าไม่ปิด กรอบจะยืดตามรูปแล้ว aspect-ratio ถูกทับทิ้งทั้งอัน */
+    flex: 0 0 auto;
+    min-height: 0;
+}
+
+/* cover ไม่ใช่ contain - เต็มกรอบเสมอ ไม่เหลือแถบพื้นว่างบน-ล่าง
+   width/height 100% ต้องใส่ตรง ๆ ไม่ใช้ max-* เพราะ <img> มี attribute
+   width/height ติดมาด้วย (กัน layout shift) ถ้าใช้แค่ max-* attribute จะยังคุมอยู่ */
+.rw-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ไม่มีรูป - ไอคอนกลางกรอบ ขนาดกรอบเท่าเดิมเป๊ะ แถวจึงไม่เบี้ยว */
+.rw-media-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--bs-gray-500);
+}
+
+/* สไลด์ในหน้ารายละเอียด - จำกัดกว้างเท่าขนาดไฟล์จริง (356px)
+   ถ้าปล่อยเต็มคอลัมน์ (~570px) จะเป็นการขยายรูปเกินขนาดจริงจนเบลอ */
+.rw-media-detail {
+    max-width: 356px;
+    margin-inline: auto;
+}
+
+/* ── การ์ดของรางวัล ── */
+.rw-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--bs-white);
+    border: 1px solid var(--bs-gray-300);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: box-shadow .18s ease, transform .18s ease;
+}
+
+.rw-card:hover {
+    box-shadow: 0 10px 28px rgba(0, 39, 119, .13);
+    transform: translateY(-3px);
+}
+
+/* กรอบรูปสัดส่วนคงที่ 356:293 (สัดส่วนไฟล์ภาพปกจริงที่ระบบเก็บ)
+   ทุกใบจึงสูงเท่ากันทุกความกว้างจอ ไม่ว่ารูปที่อัปโหลดมาจะตั้งหรือนอน
+
+   flex:0 0 auto + min-height:0 ต้องมีคู่กับ aspect-ratio เสมอ
+   ตัวนี้เป็น flex item ของ .rw-card (flex-direction:column) ซึ่ง min-height
+   ปริยายเป็น auto = ความสูงจริงของรูปข้างใน ถ้าไม่ปิด กรอบจะยืดตามรูป
+   แล้ว aspect-ratio ถูกทับทิ้งทั้งอัน (รูปแนวตั้งก็ได้กรอบแนวตั้ง) */
+.rw-card-media {
+    flex: 0 0 auto;
+    min-height: 0;
+    aspect-ratio: 356 / 293;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    overflow: hidden;
+    background: var(--bs-white);
+}
+
+.rw-card-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rw-card-media .rw-card-noimg {
+    font-size: 3rem;
+    color: var(--bs-gray-500);
+}
+
+.rw-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: 4px 20px 20px;
+}
+
+/* ตัดสองบรรทัดเสมอ พร้อมจอง min-height ไว้ ชื่อสั้น/ยาวการ์ดจะได้สูงเท่ากัน */
+.rw-card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    min-height: 2.8em;
+    margin-bottom: 14px;
+
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--bs-primary-500);
+}
+
+.rw-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: auto;
+}
+
+/* ป้ายกับจำนวนแต้มเป็นคนละก้อน ตัดบรรทัดได้เฉพาะ "ระหว่าง" สองก้อนเท่านั้น
+   การ์ดกว้างพอ = บรรทัดเดียว, การ์ดแคบ (มือถือเรียง 2 ใบ) = สองบรรทัดที่อ่านรู้เรื่อง
+   ไม่มีทางได้ ": 20" ขึ้นต้นบรรทัดแบบตัดข้อความก้อนเดียวอีก
+
+   min-width:0 จำเป็นคู่กับ flex item เสมอ ค่าปริยายของ min-width คือ auto = กว้าง
+   เท่าเนื้อหา ทำให้ก้อนนี้หดต่ำกว่าความกว้างข้อความไม่ได้ แล้วไปดันไอคอนล้นการ์ดแทน */
+.rw-card-price {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 5px;
+    min-width: 0;
+
+    font-size: .98rem;
+    color: #656a71; /* เดิม var(--bs-gray-900) #7b8189 - เข้มขึ้นให้คอนทราสต์ผ่าน 4.5:1 บนการ์ดขาว */
+}
+
+.rw-card-price-label,
+.rw-card-point {
+    white-space: nowrap;
+}
+
+/* แต้มพอ = เขียว, แต้มไม่พอ = แดง - บอกได้ตั้งแต่หน้ารายการ ไม่ต้องกดเข้าไปดู */
+.rw-card-point {
+    font-weight: 600;
+    color: #0c804b; /* เขียวเดิม var(--bs-green) #10AE65 คอนทราสต์ 2.9:1 - เข้มขึ้นให้ผ่าน 4.5:1 */
+}
+
+/* แท็บประวัติแลกของรางวัล/ได้รับเหรียญ - ฟ้า bootstrap #0d6efd คอนทราสต์ 4.2:1 บนพื้นหน้า เข้มขึ้นให้ผ่าน 4.5:1 */
+.rw-history-tabs .nav-link:not(.active) {
+    color: #025bdf;
+}
+
+.rw-card-point-short {
+    color: var(--bs-secondary-900);
+}
+
+.rw-card-gift {
+    flex: 0 0 auto;
+    width: 52px;
+    height: 52px;
+}
+
+/* ── การ์ดใบเดียวกันนี้เมื่ออยู่ในคาร์รูเซล ──
+   owl มีกฎครอบว่า .owl-carousel .owl-item img { width: 100% } ซึ่งเหมาว่า "รูปทุกใบ
+   ในสไลด์คือรูปเต็มความกว้าง" ไอคอนของขวัญในการ์ดก็เป็น <img> จึงโดนยืดจาก 52px
+   ไปเกือบเต็มการ์ด (วัดได้ 238px) แล้วเบียด .rw-card-price จนเหลือ 62px
+   ข้อความ "Redeem : 20 Points" เลยตกเป็น 3 บรรทัด
+
+   กฎของ owl เจาะจง (0,3,0) มากกว่า .rw-card-gift (0,1,0) และไฟล์ owl ถูกโหลดทีหลัง
+   reward.css ด้วย จึงต้องเขียนให้เจาะจงกว่าเพื่อคืนขนาดจริงให้ไอคอน
+   ไม่ผูกกับ .rw-related-slider เพื่อให้การ์ดนี้ไปวางในคาร์รูเซลอื่นได้โดยไม่พังซ้ำ */
+.owl-carousel .owl-item img.rw-card-gift {
+    width: 52px;
+    height: 52px;
+}
+
+@media (max-width: 575.98px) {
+    .rw-card-body {
+        padding: 4px 14px 16px;
+    }
+
+    .rw-card-title {
+        font-size: .98rem;
+    }
+
+    .rw-card-gift,
+    .owl-carousel .owl-item img.rw-card-gift {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/*-------------------------------------------------
+    Reward Detail - หน้ารายละเอียดของรางวัล
+    (markup: frontend/reward/reward_detail/detail)
+-------------------------------------------------*/
+
+/* กล่องรูปฝั่งซ้าย: การ์ดขาวมีเงา ตัวรูปอยู่ในกรอบ .rw-media 356:293 ข้างใน */
+.rw-detail-gallery .rw-media-detail {
+    background: var(--bs-white);
+    box-shadow: 0 8px 28px rgba(0, 39, 119, .10);
+}
+
+/* ── สไลด์รูปของรางวัล (Owl Carousel ทีละ 1 ภาพ) ──
+
+   ปุ่มลูกศรวางคร่อมขอบซ้าย-ขวาของรูป ตัวห่อจึงต้องเผื่อที่ให้ไม่งั้นปุ่มจะทับรูป
+   ใช้ padding แทน margin ติดลบของปุ่ม เพราะ .rw-media-detail จำกัดกว้าง 356px
+   และจัดกึ่งกลางด้วย margin-inline:auto อยู่แล้ว - ระยะจากขอบรูปจึงไม่คงที่
+   ถ้าไปยึดขอบคอลัมน์ พอจอกว้างขึ้นปุ่มจะลอยห่างจากรูปเรื่อย ๆ */
+.rw-gallery-wrap {
+    position: relative;
+    /* 356 (ความกว้างจริงของไฟล์ภาพปก) + 56 สองข้างสำหรับปุ่มลูกศร
+       เผื่อที่ด้วย padding แทนการให้ปุ่มล้นออกนอกกรอบด้วย margin ติดลบ
+       ไม่งั้นพอจอแคบลงปุ่มจะล้ำไปทับคอลัมน์รายละเอียดฝั่งขวา */
+    max-width: 468px;
+    padding-inline: 56px;
+    margin-inline: auto;
+}
+
+/* owl ตั้ง .owl-item เป็น float ความสูงของแถวจึงมาจากสไลด์ ไม่ใช่ตัว carousel */
+.rw-detail-gallery .rw-gallery-item {
+    height: 100%;
+}
+
+/* ── ลูกศร ──
+   สีและทรงเดียวกับคาร์รูเซลหน้าแรกของ belib (.slider-wrap ใน front/css/carousel.css)
+   คือปุ่มทึบสีน้ำเงินเข้ม ไอคอนขาว มุมมน 10px ไม่ใช่ปุ่มขาวโปร่ง เพราะกรอบรูปเป็น
+   การ์ดพื้นขาว ปุ่มขาวโปร่งจะจมหายไปกับพื้นหลังจนมองไม่ออกว่ากดได้
+
+   .owl-nav ของ owl.theme.default เป็นบล็อกใต้สไลด์ ดันให้เป็นชั้นลอยทับสไลด์แทน
+   pointer-events:none ที่ตัวชั้น เพื่อให้ลากรูปตรงกลางได้ตามปกติ แล้วเปิดกลับ
+   เฉพาะที่ตัวปุ่ม ไม่งั้นแถบใสเต็มความกว้างจะกินการลากนิ้วของผู้ใช้ไปทั้งหมด */
+.rw-detail-gallery .owl-nav {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    pointer-events: none;
+}
+
+/* ── หมายเหตุเรื่องความจำเพาะของ selector ──
+   ต้องเขียน .rw-detail-gallery.owl-carousel / .owl-theme (สองคลาสบน element เดียวกัน)
+   ไม่ใช่ .rw-detail-gallery เฉย ๆ เพราะไฟล์ของ owl ถูกโหลดทีหลัง reward.css
+   (tpl_home วาง @stack('additional_css') ไว้ท้าย <head>) และมีกฎที่เจาะจงเท่ากันพอดี
+       owl.carousel.min.css : .owl-carousel .owl-nav button.owl-prev { background:0 0 }
+   ตัวที่มาทีหลังจึงชนะ ปุ่มเลยกลายเป็นพื้นใสตัวหนังสือสีเข้ม มองไม่ออกว่าเป็นปุ่ม
+   เติมคลาสของ owl เข้าไปอีกชั้นให้เจาะจงกว่า แทนการไล่ใส่ !important ทั้งบล็อก */
+.rw-detail-gallery.owl-carousel .owl-nav button.owl-prev,
+.rw-detail-gallery.owl-carousel .owl-nav button.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 46px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: var(--bs-primary-900);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(33, 48, 105, .25);
+    font-size: 20px;
+    line-height: 1;
+    pointer-events: auto;
+    transition: background .15s;
+}
+
+.rw-detail-gallery.owl-carousel .owl-nav button.owl-prev:hover,
+.rw-detail-gallery.owl-carousel .owl-nav button.owl-next:hover {
+    background: var(--bs-primary-700);
+}
+
+/* วางไว้นอกกรอบรูป ไม่ทับตัวสินค้า - อยู่ในช่อง padding ของ .rw-gallery-wrap พอดี */
+.rw-detail-gallery.owl-carousel .owl-nav button.owl-prev { left: -50px; }
+.rw-detail-gallery.owl-carousel .owl-nav button.owl-next { right: -50px; }
+
+/* ── จุดบอกตำแหน่ง ──
+   main.css มีกฎกลางที่บังคับจุด owl "ทุกที่ทั้งเว็บ" ให้เป็นสีขาวด้วย !important
+       .owl-theme .owl-dots .owl-dot span { background-color: var(--bs-white) !important }
+   ซึ่งทำไว้ให้แบนเนอร์หน้าแรกที่จุดลอยอยู่บนรูปพื้นเข้ม แต่หน้านี้จุดอยู่บนพื้นเว็บ
+   สีอ่อน จุดขาวจึงกลืนหายไปเลยจนดูเหมือนไม่มีจุด
+   ทับด้วยสีเทาที่นี่ - ต้องใช้ !important คู่กับ selector ที่เจาะจงกว่า เพราะสู้กับ
+   !important ด้วยความเจาะจงอย่างเดียวไม่ได้ (กฎ !important ชนะเสมอถ้าไม่ !important กลับ)
+   จงใจไม่ไปแก้กฎกลางใน main.css เพราะแบนเนอร์หน้าแรกยังต้องใช้จุดขาวอยู่ */
+.rw-detail-gallery.owl-theme .owl-dots {
+    margin-top: 18px;
+    line-height: 0;
+}
+
+.rw-detail-gallery.owl-theme .owl-dots .owl-dot span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: var(--bs-gray-700) !important;  /* #ADB4BE - เทาชัดบนพื้นอ่อน */
+    transition: background-color .2s, width .2s;
+}
+
+/* จุดที่เลือกอยู่ยืดเป็นแคปซูลสีน้ำเงินเข้ม บอกตำแหน่งได้แม้ผู้ใช้แยกสีไม่ออก */
+.rw-detail-gallery.owl-theme .owl-dots .owl-dot.active span {
+    width: 26px;
+    border-radius: 6px;
+    background-color: var(--bs-primary-900) !important;
+}
+
+.rw-detail-gallery.owl-theme .owl-dots .owl-dot:hover span {
+    background-color: var(--bs-gray-900) !important;  /* #7B8189 */
+}
+
+/* พื้นที่กดของจุดเลื่อนอย่างน้อย 24x24px (WCAG 2.5.8) - ตัวจุด (span) ยังเล็กเท่าเดิม
+   ใช้กับ slider ของรางวัลแนะนำด้านล่างด้วย */
+.rw-detail-gallery.owl-theme .owl-dots .owl-dot,
+.rw-related-slider.owl-theme .owl-dots .owl-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    min-height: 24px;
+    vertical-align: middle;
+}
+
+/* คอลัมน์แคบเกินกว่าจะเผื่อที่ไว้นอกรูปได้ ถ้าดันเผื่อต่อ รูปจะถูกบีบเล็กลงมาก
+   ตัด padding ทิ้งแล้วย้ายปุ่มมาลอยทับขอบรูปแทน ย่อขนาดและลดความทึบลงหน่อย
+   จะได้ไม่บังตัวสินค้า */
+@media (max-width: 991.98px) {
+    .rw-gallery-wrap {
+        max-width: 356px;
+        padding-inline: 0;
+    }
+
+    /* ต้องเจาะจงเท่ากับกฎจอใหญ่ด้านบน (.rw-detail-gallery.owl-carousel ...)
+       media query ไม่ได้เพิ่มความจำเพาะให้ selector ถ้าเขียนสั้นกว่าจะแพ้กฎจอใหญ่
+       แล้วปุ่มจะค้างอยู่นอกกรอบจนล้นออกนอกจอบนมือถือ */
+    .rw-detail-gallery.owl-carousel .owl-nav button.owl-prev,
+    .rw-detail-gallery.owl-carousel .owl-nav button.owl-next {
+        width: 36px;
+        height: 38px;
+        font-size: 17px;
+        background: rgba(33, 48, 105, .82);
+    }
+
+    .rw-detail-gallery.owl-carousel .owl-nav button.owl-prev { left: 8px; }
+    .rw-detail-gallery.owl-carousel .owl-nav button.owl-next { right: 8px; }
+}
+
+.rw-detail-title {
+    margin: 0 0 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--bs-primary-500);
+}
+
+/* ช่วงเวลา: ป้ายขอบมนเส้นแดง ตัวหนังสือแดง พื้นโปร่ง */
+.rw-detail-period {
+    display: inline-block;
+    margin-bottom: 22px;
+    padding: 10px 24px;
+    border: 1px solid var(--bs-secondary-900);
+    border-radius: 999px;
+    font-size: 1rem;
+    color: var(--bs-secondary-900);
+}
+
+.rw-detail-point {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.rw-detail-point-label {
+    font-size: 1rem;
+    color: var(--bs-primary-900);
+}
+
+.rw-detail-point-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--bs-green);
+}
+
+.rw-detail-point-unit {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--bs-primary-900);
+}
+
+.rw-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+    margin-bottom: 18px;
+    font-size: .88rem;
+    color: #656a71; /* เดิม var(--bs-gray-900) #7b8189 - เข้มขึ้นให้คอนทราสต์ผ่าน 4.5:1 */
+}
+
+.rw-detail-desc {
+    margin-bottom: 26px;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--bs-primary-900);
+}
+
+.rw-detail-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 54px;
+    padding: 12px 34px;
+
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--bs-white);
+
+    background: var(--bs-primary-500);
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color .15s ease;
+}
+
+.rw-detail-btn:hover:not(:disabled) {
+    background: var(--bs-primary-700);
+}
+
+.rw-detail-btn:disabled {
+    background: var(--bs-gray-700);
+    cursor: not-allowed;
+}
+
+.rw-detail-note {
+    margin-top: 12px;
+    font-size: .88rem;
+    color: #656a71; /* เดิม var(--bs-gray-900) #7b8189 - เข้มขึ้นให้คอนทราสต์ผ่าน 4.5:1 */
+}
+
+/* ── หัวข้อคั่นส่วน (สองสี + ทวิภาคแดง) ── */
+.rw-section-title {
+    margin: 0 0 24px;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.rw-section-title-a {
+    color: var(--bs-black);
+}
+
+.rw-section-title-b {
+    color: var(--bs-primary-500);
+}
+
+.rw-section-title-colon {
+    color: var(--bs-secondary-900);
+}
+
+.rw-related {
+    margin-top: 60px;
+}
+
+/* owl ตั้ง float ให้ .owl-item เอง ระยะห่างจึงต้องเป็น padding ของสไลด์
+   ไม่ใช่ gap (flex) แบบกริดปกติ และไม่ใช้ option margin ของ owl เพราะมันเป็น
+   margin-right ที่ทำให้เงาการ์ดใบริมโดนตัด และช่องไฟซ้าย-ขวาไม่เท่ากัน */
+.rw-related-slider .rw-related-slide {
+    padding: 0 12px;
+    height: 100%;
+}
+
+/* การ์ดสูงเท่ากันทั้งแถว ไม่ใช่สูงตามเนื้อหาแต่ละใบ
+   owl-stage เป็น flex ได้ก็ต่อเมื่อบังคับ ของเดิมมันเป็นบล็อกที่มี float ข้างใน */
+.rw-related-slider .owl-stage {
+    display: flex;
+    align-items: stretch;
+}
+
+.rw-related-slider .owl-item {
+    display: flex;
+    float: none;    /* ยกเลิก float ของ owl ไม่งั้น flex ข้างบนไม่มีผล */
+}
+
+/* จุดชุดนี้โดนกฎกลาง "จุด owl เป็นสีขาว !important" ใน main.css เหมือนกัน
+   (ดูคำอธิบายเต็มที่ .rw-detail-gallery ด้านบน) ต้องทับด้วย !important เช่นกัน */
+.rw-related-slider.owl-theme .owl-dots {
+    margin-top: 22px;
+    line-height: 0;
+}
+
+.rw-related-slider.owl-theme .owl-dots .owl-dot span {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: var(--bs-gray-700) !important;
+    transition: background-color .2s, width .2s;
+}
+
+.rw-related-slider.owl-theme .owl-dots .owl-dot.active span {
+    width: 26px;
+    border-radius: 6px;
+    background-color: var(--bs-primary-900) !important;
+}
+
+.rw-related-slider.owl-theme .owl-dots .owl-dot:hover span {
+    background-color: var(--bs-gray-900) !important;
+}
+
+/* ── กล่องข้อความ (modal) ของหน้ารายละเอียด ──
+   ทรงเดียวกันทุกอัน: แถบน้ำเงินบนสุด + หัวข้อตัวหนา + คำอธิบายสีจาง + ปุ่มคู่ */
+.rw-modal .modal-content {
+    border: 0;
+    border-radius: 14px;
+    overflow: hidden;   /* ให้แถบน้ำเงินโค้งตามมุมบนของกล่อง */
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .25);
+}
+
+.rw-modal-bar {
+    height: 14px;
+    background: var(--bs-primary-500);
+}
+
+.rw-modal-body {
+    padding: 40px 40px 44px;
+    text-align: center;
+}
+
+.rw-modal-title {
+    margin: 0 0 14px;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--bs-primary-500);
+}
+
+.rw-modal-text {
+    margin: 0 0 28px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--bs-primary-900);
+}
+
+.rw-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.rw-modal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 50px;
+    padding: 10px 28px;
+
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-decoration: none;
+
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+/* ปุ่มรอง - พื้นเทาอ่อน ตัวหนังสือเทา ไม่แย่งสายตาจากปุ่มหลัก */
+.rw-modal-btn-ghost {
+    background: var(--bs-gray-300);
+    color: #656a71; /* เดิม var(--bs-gray-900) #7b8189 - เข้มขึ้นให้คอนทราสต์ผ่าน 4.5:1 */
+}
+
+.rw-modal-btn-ghost:hover {
+    background: var(--bs-gray-500);
+    color: var(--bs-primary-900);
+}
+
+.rw-modal-btn-primary {
+    background: var(--bs-primary-500);
+    color: var(--bs-white);
+}
+
+.rw-modal-btn-primary:hover {
+    background: var(--bs-primary-700);
+    color: var(--bs-white);
+}
+
+@media (max-width: 575.98px) {
+    .rw-modal-body {
+        padding: 28px 20px 30px;
+    }
+
+    .rw-modal-title {
+        font-size: 1.4rem;
+    }
+
+    /* จอแคบ ปุ่มคู่เรียงซ้อนเต็มความกว้าง กดง่ายกว่าบีบให้อยู่แถวเดียว */
+    .rw-modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .rw-modal-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .rw-detail-title {
+        font-size: 1.5rem;
+    }
+
+    .rw-detail-point-value {
+        font-size: 1.6rem;
+    }
+
+    .rw-section-title {
+        font-size: 1.4rem;
+    }
+
+    .rw-related {
+        margin-top: 40px;
+    }
+
+    /* จอเล็กปุ่มเต็มความกว้างกดง่ายกว่าปุ่มลอยกลาง */
+    .rw-detail-btn {
+        width: 100%;
+    }
+}

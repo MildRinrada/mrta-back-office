@@ -1,0 +1,114 @@
+/* ต้นฉบับอยู่ที่ mrta-portal (public/back/theme_metronic/css/sidebar-mrta.css) - แก้ที่นั่นแล้วก๊อปมา
+   แถบเมนูหลังบ้านโทน รฟม. (น้ำเงินเข้ม + หัวฟ้าพร้อมโลโก้ + ปุ่มออกจากระบบด้านล่าง)
+   โหลดต่อจาก adminkit.css - ทับเฉพาะส่วนแถบเมนู
+   ธีมมืด (html[data-bs-theme="dark"] - ปุ่มสลับธีมบนแถบบน): พื้นเข้มโทนเดียวกับหน้าหลังบ้านมืดของ adminkit
+   หัวแถบไม่มีรูปก้อนเมฆ + โลโก้ตัวขาว (ดูท้ายไฟล์) */
+:root{
+    --sidebar-w:248px;
+    --sb-bg:linear-gradient(180deg,#0b2d8f 0%,#0a2575 55%,#081d5e 100%);
+    --sb-text:rgba(255,255,255,.88);
+    --sb-hover:rgba(255,255,255,.08);
+    --sb-active:#1d5cf0;
+}
+:root[data-theme="dark"],[data-bs-theme="dark"]{
+    --sb-bg:linear-gradient(180deg,#111c2c 0%,#0c1320 60%,#0a101b 100%);
+    --sb-head:#080e18;
+    --sb-text:rgba(232,237,242,.84);
+    --sb-hover:rgba(255,255,255,.06);
+    --sb-active:#1d4ed8;
+}
+
+.sidebar{background:var(--sb-bg);box-shadow:2px 0 12px rgba(8,29,94,.18);}
+
+/* หัวแถบ: รูปท้องฟ้าเดียวกับแถบบนของหน้าเว็บ (image/sidebar/header.png - ก๊อปจาก mrta-portal) - ช่วงซ้ายเป็นก้อนเมฆสว่าง วางโลโก้สีได้ */
+.sidebar-brand{height:64px;padding:0 16px;background:#002777 url('../image/sidebar/header.png') left top / auto 100% no-repeat;}
+.sidebar-brand .logo img.brand-logo{display:block;height:38px;max-width:200px;object-fit:contain;}
+.sidebar-brand .logo img.brand-logo-dark{display:none;}
+
+/* เมนู (ย่อขนาดลง ~85% ตามที่ขอ - ตัวหนังสือ 13px / แถว 8px) */
+.sidebar-nav{padding:10px 10px;}
+.sidebar-nav::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);}
+.nav-heading{color:rgba(255,255,255,.45);font-size:9.5px;padding:12px 10px 4px;}
+.sidebar-nav .nav-link{color:var(--sb-text);font-size:13px;padding:8px 10px;border-radius:7px;gap:10px;}
+.sidebar-nav .nav-link i{font-size:14px;width:18px;}
+.sidebar-nav .nav-link:hover{background:var(--sb-hover);color:#fff;}
+.sidebar-nav .nav-link.active,
+.sidebar-nav .nav-link-parent.open{background:var(--sb-active);color:#fff;font-weight:500;box-shadow:none;}
+.nav-link-parent .nav-arrow{opacity:.85;font-size:10px;}
+.nav-link-parent.open .nav-arrow{transform:rotate(-90deg);}
+
+/* เมนูย่อย: แผงเข้มกว่าเล็กน้อย ไม่มีไอคอน (ตามแบบ) */
+.nav-sub.open{background:rgba(3,14,52,.28);border-radius:0 0 8px 8px;margin:-2px 0 6px;padding:6px 0;}
+.nav-sub .nav-link{padding:7px 12px 7px 38px;font-size:12.5px;color:rgba(255,255,255,.82);box-shadow:none !important;}
+.nav-sub .nav-link i{display:none;}
+.nav-sub .nav-link.active{background:rgba(255,255,255,.12);color:#fff;}
+.nav-sub-heading{color:rgba(255,255,255,.45) !important;padding-left:38px !important;}
+
+/* ด้านล่าง: ปุ่มออกจากระบบชิดล่างสุด (เมนูเลื่อนอยู่ด้านบน) */
+/* แยกโซนด้วยพื้นเข้มกว่า + ปุ่มพื้นสว่างขอบชัด ไอคอนแดง ไม่ให้กลืนกับพื้นแถบ */
+.sb-footer{margin-top:auto;flex-shrink:0;padding:10px;background:rgba(2,10,40,.35);border-top:1px solid rgba(255,255,255,.12);}
+.sb-logout{display:flex;align-items:center;gap:10px;width:100%;padding:8px 12px;border:1px solid rgba(255,255,255,.38);border-radius:8px;background:rgba(255,255,255,.12);color:#fff;font-size:13px;font-weight:500;text-align:left;transition:background .15s,border-color .15s;}
+.sb-logout:hover{background:rgba(239,68,68,.22);border-color:rgba(252,165,165,.7);}
+.sb-logout i{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;background:rgba(239,68,68,.9);color:#fff;flex-shrink:0;}
+/* โปรไฟล์ใต้โลโก้ (includes/sidebar/brand): วงกลมขาว + ชื่อ / บทบาท / Online */
+.sb-profile{display:flex;align-items:center;gap:12px;flex-shrink:0;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.1);color:#fff;}
+.sb-profile-avatar{position:relative;flex-shrink:0;width:52px;height:52px;border-radius:50%;background:#fff;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;}
+.sb-profile-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.sb-profile-text{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.sb-profile-name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sb-profile-role{font-size:12px;color:rgba(255,255,255,.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sb-profile-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.85);}
+.sb-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 2px rgba(34,197,94,.25);}
+
+/* ═══ ธีมมืด ═══ */
+/* หัวแถบ: พื้นเข้มเรียบ (เอารูปก้อนเมฆออก) + โลโก้ตัวขาว (includes/sidebar/brand: .brand-logo-dark = logo-white.svg) */
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .sidebar{box-shadow:none;border-right:1px solid rgba(255,255,255,.06);}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .sidebar-brand{background:var(--sb-head);border-bottom:1px solid rgba(255,255,255,.06);}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .sidebar-brand .logo img.brand-logo-light{display:none;}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .sidebar-brand .logo img.brand-logo-dark{display:block;}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .sb-profile{border-bottom-color:rgba(255,255,255,.06);}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .nav-sub.open{background:rgba(0,0,0,.22);}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .sb-footer{background:rgba(0,0,0,.22);border-top-color:rgba(255,255,255,.06);}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .sb-logout{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);}
+
+/* ═══ แถบเลื่อนของทั้งหน้า - แบบเดียวกับหน้าเว็บ (mrta-portal front/css/main.css / learnext theme_mrta/css/main.css)
+   แถบเลื่อนของเมนูซ้าย (.sidebar-nav) เส้นบาง 3px ยังเป็นของตัวเอง เพราะ selector เจาะจงกว่า
+   ห้ามตั้ง scrollbar-color / scrollbar-width ที่ html หรือ body: ค่าสืบทอดลงไปถึง .main แล้ว Chrome จะไม่ใช้ ::-webkit-scrollbar (กลับเป็นแถบมีลูกศร) ═══ */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background-color: #e1e7ed; }
+::-webkit-scrollbar-thumb { min-height: 6px; border: 0; background-clip: padding-box; background-color: #4a4a4a; border-radius: 2px; }
+::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+::-webkit-scrollbar-corner { background-color: transparent; }
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) ::-webkit-scrollbar-track { background-color: #0f1923; }
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) ::-webkit-scrollbar-thumb { background-color: #4d6178; }
+/* เมนูซ้าย: ไม่แสดงแถบเลื่อน (ยังเลื่อนด้วยล้อเมาส์/ทัชแพดได้) - scrollbar-width ตั้งที่ .sidebar-nav เท่านั้น ไม่กระทบแถบของเนื้อหา */
+.sidebar-nav { scrollbar-width: none; -ms-overflow-style: none; }
+.sidebar-nav::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+/* ═══ กล่องเลือกรูปแบบไฟล์ส่งออก (js/lx-export.js) ═══ */
+.lx-xp-popup .lx-xp-hint{font-size:14px;color:#6b7280;margin-bottom:14px;}
+.lx-xp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.lx-xp-opt{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 8px;border:1px solid #dfe3ea;border-radius:10px;background:#fff;cursor:pointer;transition:border-color .15s,box-shadow .15s,transform .15s;}
+.lx-xp-opt:hover,.lx-xp-opt:focus-visible{border-color:#213069;box-shadow:0 0 0 3px rgba(33,48,105,.12);transform:translateY(-1px);outline:0;}
+.lx-xp-opt.is-last{border-color:#213069;}
+.lx-xp-opt i,.lx-xp-opt svg{font-size:26px;width:26px;height:26px;}
+.lx-xp-opt.is-excel i,.lx-xp-opt.is-excel svg{color:#1d7a46;}
+.lx-xp-opt.is-csv i,.lx-xp-opt.is-csv svg{color:#0e7490;}
+.lx-xp-opt.is-pdf i,.lx-xp-opt.is-pdf svg{color:#d82028;}
+.lx-xp-opt.is-word i,.lx-xp-opt.is-word svg{color:#2b579a;}
+.lx-xp-name{font-size:14px;font-weight:600;color:#1f2937;line-height:1.2;}
+.lx-xp-ext{font-size:12px;color:#6b7280;}
+@media (max-width:480px){.lx-xp-grid{grid-template-columns:repeat(2,1fr);}}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .lx-xp-opt{background:#16212e;border-color:#2c3b4d;}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .lx-xp-name{color:#e5e7eb;}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .lx-xp-opt:hover,:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .lx-xp-opt.is-last{border-color:#6f8fd8;}
+
+/* ═══ ข้อมูลส่วนบุคคลที่ปิดบัง + ปุ่มดูค่าเต็ม (App\Support\Pii::html / js/pii.js) ═══ */
+.pii-wrap{display:inline-flex;align-items:center;white-space:nowrap;}
+.pii{letter-spacing:.2px;}
+.pii.is-open{background:#fff7ed;border-radius:3px;padding:0 2px;}
+.pii-eye{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-left:4px;padding:0;border:0;border-radius:4px;background:transparent;color:#6b7280;cursor:pointer;vertical-align:middle;font-size:12px;}
+.pii-eye:hover,.pii-eye:focus-visible{background:rgba(33,48,105,.08);color:#213069;outline:0;}
+.pii-eye svg,.pii-eye i{width:13px;height:13px;}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .pii.is-open{background:#3b2a14;}
+:is(:root[data-theme="dark"],[data-bs-theme="dark"]) .pii-eye{color:#9fb0c6;}

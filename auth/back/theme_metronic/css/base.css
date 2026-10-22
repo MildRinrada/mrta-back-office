@@ -1,0 +1,119 @@
+/* ═══════════════════════════════════════════════════════════════
+   AdminKit - Base: Variables & Reset
+═══════════════════════════════════════════════════════════════ */
+
+/* ═══ VARIABLES ═══ */
+:root {
+    --sidebar-w: 240px;
+    --topbar-h: 56px;
+    --pri: #4e73df;
+    --pri-hover: #3a5ec8;
+    --success: #1cc88a;
+    --success-hover: #17a673;
+    --danger: #e74a3b;
+    --danger-hover: #c0392b;
+    --warning: #f6c23e;
+    --info: #36b9cc;
+    --purple: #8b5cf6;
+    --pink: #ec4899;
+    --orange: #f97316;
+    --teal: #14b8a6;
+    --surface: #f4f6f9;
+    --card: #ffffff;
+    --border: #e3e6f0;
+    --text-1: #2d3436;
+    --text-2: #636e72;
+    --text-3: #b2bec3;
+    --sb-bg: #1e2a3a;
+    --sb-head: #162032;
+    --sb-text: #8fa4bf;
+    --sb-hover: rgba(255, 255, 255, .06);
+    --sb-active: rgba(78, 115, 223, .25);
+    --radius: 8px;
+    --radius-sm: 6px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, .06);
+    --ease: all .2s ease;
+    --white: #fff;
+}
+
+[data-bs-theme="dark"] {
+    --surface: #0f1923;
+    --card: #1a2634;
+    --border: #2d3d4f;
+    --text-1: #e8edf2;
+    --text-2: #8fa4bf;
+    --text-3: #4d6178;
+    --sb-bg: #0c1320;
+    --sb-head: #080e18;
+    --shadow: 0 2px 8px rgba(0, 0, 0, .25);
+}
+
+/* ═══ RESET ═══ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Prompt', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--surface);
+    color: var(--text-1);
+    font-size: 18px;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* ═══ PAGE PRELOADER OVERLAY ═══ */
+#page-preloader {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, .45);
+    align-items: center;
+    justify-content: center;
+}
+#page-preloader.active {
+    display: flex;
+}
+#page-preloader .preloader-box {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 32px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+}
+#page-preloader .preloader-spinner {
+    width: 42px;
+    height: 42px;
+    border: 4px solid var(--border);
+    border-top-color: var(--pri);
+    border-radius: 50%;
+    animation: spin .75s linear infinite;
+}
+#page-preloader .preloader-text {
+    font-size: 14px;
+    color: var(--text-2);
+    font-weight: 500;
+}
+
+.fs-09 { font-size: 0.9rem !important; }
+.fs-10 { font-size: 1rem !important; }
+.fs-11 { font-size: 1.1rem !important; }
+.fs-12 { font-size: 1.2rem !important; }
+.fs-13 { font-size: 1.3rem !important; }
+.fs-14 { font-size: 1.4rem !important; }
+.fs-15 { font-size: 1.5rem !important; }
+.lh-15 { line-height: 1.5 !important; }
+.lh-20 { line-height: 2 !important; }
+.lh-25 { line-height: 2.5 !important; }
+.lh-30 { line-height: 3 !important; }
+.ls-none { list-style: none !important; }
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

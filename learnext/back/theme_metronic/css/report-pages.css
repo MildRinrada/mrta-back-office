@@ -1,0 +1,70 @@
+/* หน้ารายงานหลังบ้าน (admin/report/*) - ใส่ class .rp-page ที่ #main_content ของหน้า
+   ตัวกรองเรียงเป็นแถว ป้ายอยู่บนช่อง / ปุ่ม "ส่งออก Excel" อยู่มุมขวาของหัวการ์ด (section topbar_button) / ตารางตัวหนังสือเล็กลง
+   โครง HTML เดิม (.row > .form-inline-block.col-2 / #panel_custom_period / form#frm_export) ไม่ต้องแก้ - สคริปต์ของหน้าอ้างถึงอยู่ */
+
+/* ---------- การ์ดตัวกรอง (การ์ดแรกของหน้า) ---------- */
+.rp-page .kt-portlet__body > .row:has(> .form-inline-block) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px 14px;
+    margin: 0;
+}
+.rp-page .kt-portlet__body > .row > .form-inline-block,
+.rp-page #panel_custom_period > .form-inline-block {
+    flex: 0 1 210px;
+    width: auto;
+    max-width: none;
+    min-width: 150px;
+    padding: 0;
+    margin: 0;
+}
+.rp-page .kt-portlet__body > .row > .form-inline-block.d-none,
+.rp-page #panel_custom_period.d-none { display: none !important; }
+.rp-page #panel_custom_period {
+    display: flex;
+    flex: 0 1 380px;
+    gap: 10px;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+.rp-page #panel_custom_period > .form-inline-block { flex: 1 1 0; min-width: 140px; }
+.rp-page .form-inline-block > label,
+.rp-page #panel_custom_period label {
+    display: block;
+    margin: 0 0 4px !important;
+    color: var(--text-muted, #6b7280) !important;
+    font-size: 12.5px;
+    font-weight: 500;
+}
+.rp-page .form-inline-block select.form-control,
+.rp-page .form-inline-block input.form-control {
+    height: 36px;
+    margin: 0 !important;
+    font-size: 13.5px;
+}
+.rp-page .form-inline-block .input-group-append .input-group-text { height: 36px; }
+/* ---------- ปุ่ม "ส่งออก Excel" (มุมขวาของหัวการ์ด) - หน้าตาปุ่มเขียวเดิม เพิ่มแค่สถานะกำลังเตรียมไฟล์ ---------- */
+.rp-export-busy { display: none; }
+.rp-export.is-busy { cursor: progress; }
+.rp-export.is-busy .rp-export-text { display: none; }
+.rp-export.is-busy .rp-export-busy { display: inline; }
+
+/* ---------- ตาราง ---------- */
+.rp-page table.table { width: 100% !important; font-size: 13px; }
+.rp-page table.table th { font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+.rp-page table.table th,
+.rp-page table.table td { padding: 9px 10px; vertical-align: middle; }
+.rp-page table.table td { white-space: normal; word-break: break-word; }
+.rp-page table.table td:first-child,
+.rp-page table.table th:first-child { width: 1%; text-align: center; white-space: nowrap; }
+.rp-page .dataTables_wrapper { overflow-x: auto; }
+.rp-page .kt-widget31__progress { min-width: 100px; }
+.rp-page .progress.progress-sm { height: 6px; }
+
+@media (max-width: 767.98px) {
+    .rp-page .kt-portlet__body > .row > .form-inline-block,
+    .rp-page #panel_custom_period { flex: 1 1 100%; }
+}

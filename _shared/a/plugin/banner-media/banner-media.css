@@ -1,0 +1,81 @@
+/* กล่องครอปวิดีโอ/GIF ของฟอร์มแบนเนอร์ - คู่กับ banner-media.js และ shared/banner_media_crop_modal.blade.php
+   ไม่ใช้ตัวแปรสีของธีมใดธีมหนึ่ง เพราะแต่ละระบบนิยาม --bs-* / --pri ต่างกัน (ไฟล์นี้มีเหมือนกันทุกระบบที่มีแบนเนอร์) */
+
+/* Cropper.js วัดขนาดจากกรอบนี้ จึงต้องสูงแน่นอนตั้งแต่ก่อนภาพโหลด (เหมือน .imgc-stage ของกล่องตัดรูป) */
+.bmc-stage {
+    height: 52vh;
+    min-height: 260px;
+    max-height: 460px;
+    background: #EDF0F5;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+.bmc-stage > img {
+    display: block;
+    max-width: 100%;
+}
+
+.bmc-scrub {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-top: .6rem;
+}
+.bmc-scrub .form-range { flex: 1; }
+.bmc-scrub-label { font-size: 12.5px; white-space: nowrap; opacity: .8; margin: 0; }
+.bmc-time { font-size: 12px; font-variant-numeric: tabular-nums; min-width: 4.5em; text-align: right; opacity: .8; }
+
+.bmc-help { font-size: 12px; opacity: .78; margin-top: .45rem; }
+.bmc-help i { margin-right: .25rem; }
+
+.bmc-preview {
+    border-radius: .5rem;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.bmc-presets { display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
+.bmc-presets .form-check { margin: 0; }
+
+@media (max-height: 700px) {
+    .bmc-stage { height: 40vh; min-height: 200px; }
+}
+
+/* ตัวอย่างในฟอร์ม (กล่อง .lx-img-preview ของ image_input / กล่องพรีวิวของ belib) */
+.bm-has-media > img { display: none !important; }
+.bm-has-media .lx-img-empty { display: none !important; }
+.lx-img-preview .bm-frame {
+    width: min(100%, calc(var(--bm-pv-h, 120px) * var(--bm-r, 1.7778)));
+    border-radius: 6px;
+}
+.bm-form-frame { max-width: 640px; border-radius: 6px; border: 1px solid #ddd; }
+
+/* ป้าย "วิดีโอ / GIF" มุมรูปย่อ (ตารางแบนเนอร์ + ตัวอย่างในฟอร์ม) */
+.bm-thumb { position: relative; display: inline-block; line-height: 0; }
+.bm-badge {
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(15, 23, 42, .72);
+    pointer-events: none;
+}
+.bm-frame .bm-badge { z-index: 2; }
+.bm-frame .bm-novideo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 26px;
+    opacity: .85;
+}

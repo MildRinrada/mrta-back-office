@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><script>window.__DEMO={"sys": "portal", "path": "/admin/system-setting", "landing": false, "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-portal.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตั้งค่าระบบ | MRTA Learning Center</title>
+    
+    <script>
+        (function(){var m=document.cookie.match(/adminkit_theme=([^;]+)/);if(m)document.documentElement.setAttribute('data-bs-theme',m[1]);})();
+    </script>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778366" rel="stylesheet">
+<link href="/portal/back/theme_metronic/css/components.css?v=1792123906" rel="stylesheet">
+
+<link href="/portal/back/theme_metronic/css/admin-ui.css?v=1792121947" rel="stylesheet">
+
+<link href="/portal/back/theme_metronic/css/sidebar-mrta.css?v=1792640351" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/_shared/a/plugin/cropperjs/cropper.min.css">
+<link href="/portal/back/theme_metronic/css/system-setting.css?v=1791778245" rel="stylesheet">
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/portal/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/portal/front/image/logo/logo-footer.svg?v=1790050893" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    
+    <div class="nav-item">
+        <a href="/portal/admin" class="nav-link  startpreload">
+            <i class="fa-solid fa-house"></i>
+            <span>ภาพรวมสถิติ</span>
+        </a>
+    </div>
+    <div class="nav-item">
+    <a href="/portal/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+    
+    <div class="nav-heading">จัดการ</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-regular fa-comments"></i>
+        <span>ถาม-ตอบ &amp; ความคิดเห็น</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        
+                <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ถาม-ตอบ (Q&amp;A)</div>
+                <a href="/portal/admin/qa" class="nav-link  startpreload">
+            <i class="fa-solid fa-list-check"></i> คิวกลั่นกรองคำถามและคำตอบ
+        </a>
+        <a href="/portal/admin/qa/category" class="nav-link  startpreload">
+            <i class="fa-solid fa-folder-open"></i> จัดการหมวดหมู่คำถาม
+        </a>
+        <a href="/portal/admin/qa/archive" class="nav-link  startpreload">
+            <i class="fa-solid fa-box-archive"></i> ปิดคำถาม / จัดเก็บ
+        </a>
+                
+                <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ความคิดเห็นจากผู้ใช้</div>
+                                        <a href="/portal/admin/manage/comment" class="nav-link  startpreload">
+                <i class="fa-regular fa-comment"></i> ความคิดเห็น
+            </a>
+                                                    <a href="/portal/admin/manage/customer-review" class="nav-link  startpreload">
+                <i class="fa-regular fa-comment-dots"></i> รีวิวจากผู้ใช้
+            </a>
+                        </div>
+</div>
+
+
+<div class="nav-item">
+        <a href="/portal/admin/qa/faq" class="nav-link  startpreload">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>คำถามที่พบบ่อย (FAQ)</span>
+    </a>
+    </div>
+    <div class="nav-heading mt-2">USER &amp; PERMISSION</div>
+
+
+
+
+
+    <div class="nav-item">
+        <a href="/portal/admin/role" class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>สิทธิ์และบทบาทผู้ใช้งาน</span>
+        </a>
+    </div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/user-group" class="nav-link  startpreload">
+        <i class="fa-solid fa-users-gear"></i>
+        <span>กลุ่มผู้ใช้งาน</span>
+    </a>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-user"></i>
+        <span>ผู้ใช้งานและสิทธิ์</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/portal/admin/user" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> บัญชีผู้ใช้
+        </a>
+        <a href="/portal/admin/user/requests" class="nav-link  startpreload">
+            <i class="fa-solid fa-user-clock"></i> คำขอสมัครและการยืนยันอีเมล
+        </a>
+        <a href="/portal/admin/user/directory" class="nav-link  startpreload">
+            <i class="fa-solid fa-network-wired"></i> เชื่อมต่อ LDAP / AD / SSO
+        </a>
+        <a href="/portal/admin/user/mfa" class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i> ตั้งค่า MFA สำหรับทีมหลังบ้าน
+        </a>
+    </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-sitemap"></i>
+        <span>จัดการหน่วยงาน</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/portal/admin/department" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> หน่วยงานทั้งหมด
+        </a>
+        <a href="/portal/admin/department/sync" class="nav-link  startpreload">
+            <i class="fa-solid fa-arrows-rotate"></i> ซิงค์จาก AD/LDAP
+        </a>
+        <a href="/portal/admin/department/settings" class="nav-link  startpreload">
+            <i class="fa-solid fa-gear"></i> ตั้งค่าการซิงค์อัตโนมัติ
+        </a>
+        <a href="/portal/admin/department/logs" class="nav-link  startpreload">
+            <i class="fa-solid fa-clock-rotate-left"></i> ประวัติการซิงค์ (Log)
+        </a>
+    </div>
+</div>
+    <div class="nav-item">
+    <a href="/portal/admin/notifications" class="nav-link  startpreload">
+        <i class="fa-solid fa-bell"></i>
+        <span>การแจ้งเตือน</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">SETTING</div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/banner" class="nav-link  startpreload">
+        <i class="fa-solid fa-image"></i>
+        <span>แบนเนอร์</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    
+        <a href="/portal/admin/about-us" class="nav-link  startpreload">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>หน้าเกี่ยวกับเรา</span>
+    </a>
+    </div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/system-setting" class="nav-link active startpreload">
+        <i class="fa-solid fa-gear"></i>
+        <span>ตั้งค่าระบบ</span>
+    </a>
+</div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/translation" class="nav-link  startpreload">
+        <i class="fa-solid fa-language"></i>
+        <span>จัดการคำแปล</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">รายงาน</div>
+
+<div class="nav-item">
+    <a href="/portal/admin/report/statistics" class="nav-link  startpreload">
+        <i class="fa-solid fa-chart-column"></i>
+        <span>รายงานสถิติ</span>
+    </a>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>ผู้ใช้งาน &amp; Engagement</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การเยี่ยมชมเว็บ</div>
+        <a href="/portal/admin/report/user/visitor-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-globe"></i> ประวัติการเยี่ยมชมเว็บ
+        </a>
+        <a href="/portal/admin/report/user/visitor-log-by-user"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-user-clock"></i> การเยี่ยมชมแยกตามสมาชิก
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การเข้าสู่ระบบ</div>
+        <a href="/portal/admin/report/user/login-summary"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-right-to-bracket"></i> สรุปการเข้าสู่ระบบรายเดือน
+        </a>
+        <a href="/portal/admin/report/user/access-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i> บันทึกการเข้าสู่ระบบ
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การคลิกใช้งาน</div>
+        <a href="/portal/admin/report/user/logs-clicks"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-computer-mouse"></i> บันทึกการคลิกใช้งาน
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การวิเคราะห์</div>
+        <a href="/portal/admin/report/user/user-retention"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-repeat"></i> สถิติสมาชิกที่กลับมาใช้งาน
+        </a>
+        <a href="/portal/admin/report/user/session-depth"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-layer-group"></i> สถิติการใช้งานต่อครั้ง
+        </a>
+
+    </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>ตรวจสอบและ Compliance</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">บันทึกระบบ</div>
+        <a href="/portal/admin/report/audit/email-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-envelope-circle-check"></i> ประวัติการส่งอีเมล
+        </a>
+
+        
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ข้อมูลส่วนบุคคล (PDPA)</div>
+        <a href="/portal/admin/report/audit/pdpa-access-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-lock"></i> บันทึกการเข้าถึงข้อมูลส่วนบุคคล
+        </a>
+
+    </div>
+</div>
+    <div class="nav-item">
+    <a href="/portal/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+        </nav>    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <link rel="stylesheet" href="/_shared/inline/cfcd662ce6b1c449.css">
+<header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ -</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/portal/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        <!-- Notification Dropdown
+             แท็บ "แจ้งเตือน" = admin_notifications ของผู้ใช้ทุกระบบในเครือ (Workflow อนุมัติเนื้อหา TOR 3.5.4) - ผู้ใช้หลังบ้านทุกคน
+             แท็บ "ความปลอดภัย" = IP เสี่ยงสูง เฉพาะ Super Admin (สิทธิ์เดียวกับหน้า admin/security/threats)
+             แท็บเกินกำหนด/การจองเดิมเป็นงานยืม-คืนของ belib ถอดออกพร้อมโมดูลจัดการทรัพยากรแล้ว -->
+                <div class="dropdown noti-dropdown" id="notiDropdown">
+            <button class="topbar-btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="การแจ้งเตือน">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge-count" id="notiCount" style="display:none;">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end shadow-sm">
+                <div class="header-dropdown justify-content-between">
+                    <span class="header-txt-noti">การแจ้งเตือน</span>
+                    <a href="#" id="notiReadAll" class="text-decoration-none" style="font-size:12px;display:none;">
+                        <i class="fa-solid fa-check-double"></i> อ่านทั้งหมด
+                    </a>
+                </div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="notiInboxTab" data-bs-toggle="tab" data-bs-target="#notiInbox" type="button" role="tab">
+                            แจ้งเตือน
+                            <span class="badge bg-primary ms-1" id="countInbox" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                                    </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="notiInbox" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-solid fa-globe" style="width:16px;"></i> Portal
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/portal/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title"><div class="ss-head">
+    <h1 class="ss-head-title">ตั้งค่าระบบ</h1>
+    <nav class="ss-crumb" aria-label="breadcrumb">
+        <a href="/portal/admin">หน้าหลัก</a>
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        <span aria-current="page">ตั้งค่าระบบ</span>
+    </nav>
+</div>
+</div>
+            <div class="d-flex gap-2">
+                <button type="submit" form="frm_system_setting" id="ss_save" class="btn btn-primary ss-save">
+    <i class="fa-regular fa-floppy-disk"></i> บันทึกการตั้งค่า
+</button>
+            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        
+
+<ul class="nav ss-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="ss-tab-general" type="button" role="tab"
+            data-bs-toggle="tab" data-bs-target="#ss-general" data-tab="general" data-form="1"
+            aria-controls="ss-general" aria-selected="true">ทั่วไป</button>
+    </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link " id="ss-tab-connections" type="button" role="tab"
+            data-bs-toggle="tab" data-bs-target="#ss-connections" data-tab="connections" data-form="0"
+            aria-controls="ss-connections" aria-selected="false">การเชื่อมต่อภายนอก</button>
+    </li>
+        <li class="nav-item" role="presentation">
+        <button class="nav-link " id="ss-tab-other" type="button" role="tab"
+            data-bs-toggle="tab" data-bs-target="#ss-other" data-tab="other" data-form="0"
+            aria-controls="ss-other" aria-selected="false">อื่นๆ</button>
+    </li>
+    </ul>
+
+
+<form id="frm_system_setting" action="/portal/admin/system-setting/update" method="POST" enctype="multipart/form-data"
+      >
+<input type="hidden" name="_token" value="demo-token" autocomplete="off"><input type="hidden" name="_tab" id="ss_tab_input" value="general">
+
+<div class="tab-content">
+
+    
+    <div class="tab-pane fade show active" id="ss-general" role="tabpanel" aria-labelledby="ss-tab-general" tabindex="0">
+        
+        <div class="ss-general">
+            <div class="ss-general-main">
+
+                
+                <section class="ss-card ss-sec">
+                    <header class="ss-sec-head">
+                        <span class="ss-sec-icon" aria-hidden="true"><i class="fa-solid fa-globe"></i></span>
+                        <div>
+                            <h2 class="ss-card-title">ข้อมูลเว็บไซต์</h2>
+                            <p class="ss-sec-desc">ชื่อและคำอธิบายที่แสดงบนแท็บเบราว์เซอร์ ผลค้นหา และตอนแชร์ลิงก์</p>
+                        </div>
+                    </header>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label" for="site_name_th">ชื่อระบบ (ไทย)</label>
+                            <input type="text" id="site_name_th" name="site_name_th" maxlength="100" required
+                                class="form-control " value="MRTA Learning Center">
+                                                    </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="site_name_en">ชื่อระบบ (อังกฤษ)</label>
+                            <input type="text" id="site_name_en" name="site_name_en" maxlength="100" required
+                                class="form-control " value="MRTA Learning Center">
+                                                    </div>
+                        <div class="col-12 mt-1"><div class="ss-hint mt-0">แสดงบนแท็บเบราว์เซอร์ของหน้าเว็บและหลังบ้าน portal ตามภาษาที่ผู้ใช้เลือก และบนหน้าแจ้งปิดระบบของทุกระบบ</div></div>
+                        <div class="col-12">
+                            <label class="form-label" for="site_description">คำอธิบายระบบ</label>
+                            <div class="ss-textarea">
+                                <textarea id="site_description" name="site_description" rows="3" maxlength="255"
+                                    class="form-control "
+                                    placeholder="ห้องสมุดอิเล็กทรอนิกส์ รฟม. - ค้นหาและยืมอีบุ๊ก หนังสือเสียง นิตยสาร สื่อมัลติมีเดีย และข่าวตัดออนไลน์ ของการรถไฟฟ้าขนส่งมวลชนแห่งประเทศไทย"></textarea>
+                                <span class="ss-counter"><span id="ss_desc_count">0</span> / 255 ตัวอักษร</span>
+                            </div>
+                                                        <div class="ss-hint">คำอธิบายของหน้าเว็บ portal สำหรับ search engine และตอนแชร์ลิงก์ - เว้นว่างเพื่อใช้ข้อความเริ่มต้น</div>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <section class="ss-card ss-sec">
+                    <header class="ss-sec-head">
+                        <span class="ss-sec-icon" aria-hidden="true"><i class="fa-solid fa-palette"></i></span>
+                        <div>
+                            <h2 class="ss-card-title">โลโก้และสีของระบบ</h2>
+                            <p class="ss-sec-desc">แสดงที่แถบบนและส่วนท้ายของหน้าเว็บ (Portal, ข่าวสาร, KM, จองเข้าชม, e-Learning และหน้าเข้าสู่ระบบ) และหัวแถบเมนูหลังบ้านของทุกระบบ - ตัวอย่างด้านล่างคือหน้าตาจริงบนแถบเมนู</p>
+                        </div>
+                    </header>
+
+                    
+                                                                    <div class="ss-logo-row" data-logo="logo" data-default="/portal/front/image/logo/logo-footer.svg?v=1790050893" data-current=""
+                             data-state="default"
+                             >
+                            <div class="ss-logo-row-head">
+                                <span class="ss-logo-row-label">โลโก้หลัก</span>
+                                <span class="ss-logo-state" data-role="state" aria-live="polite"></span>
+                            </div>
+                                                            
+                                <div class="ss-logo-stages">
+                                    <figure class="ss-logo-fig">
+                                        <div class="ss-logo-stage is-light" data-img-pick="#logo"><img data-role="preview" src="/portal/front/image/logo/logo-footer.svg?v=1790050893" alt="โลโก้หลัก"><span class="img-pick-hover" aria-hidden="true">
+            <span>คลิกหรือลากรูปมาวาง</span>
+    </span>
+<button type="button" class="img-pick-cam" title="เปลี่ยนรูปภาพ" aria-label="เปลี่ยนรูปภาพ">
+    <i class="fa-solid fa-camera" aria-hidden="true"></i>
+</button>
+</div>
+                                        <figcaption>บนพื้นสว่าง</figcaption>
+                                    </figure>
+                                    <figure class="ss-logo-fig">
+                                        <div class="ss-logo-stage is-dark"><img data-role="preview-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt=""></div>
+                                        <figcaption>บนพื้นเข้ม</figcaption>
+                                    </figure>
+                                </div>
+                                                        <div class="ss-logo-actions">
+                                
+                                <button type="button" class="btn btn-sm btn-outline-primary ss-logo-btn" data-role="upload" aria-controls="logo">
+                                    <i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true"></i>
+                                    <span data-role="upload-text">อัปโหลดรูป</span>
+                                </button>
+                                <input type="file" id="logo" name="logo" hidden accept="image/png,image/jpeg,image/webp" tabindex="-1">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" data-role="recrop" hidden>
+                                    <i class="fa-solid fa-crop-simple" aria-hidden="true"></i> ครอบรูปใหม่
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" data-role="remove"  hidden >
+                                    <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> ใช้โลโก้เริ่มต้น
+                                </button>
+                                <button type="button" class="btn btn-sm btn-link" data-role="undo" hidden>ยกเลิก</button>
+                                <input type="hidden" name="logo_remove" value="0" data-role="remove-input">
+                            </div>
+                                                    </div>
+                                                                        <div class="form-check form-switch ss-logo-toggle">
+                                <input class="form-check-input" type="checkbox" role="switch" id="ssLogoDarkToggle"                                        aria-controls="ssLogoDarkRow" aria-describedby="ssLogoDarkHint">
+                                <label class="form-check-label" for="ssLogoDarkToggle">ใช้รูปแยกสำหรับพื้นเข้ม</label>
+                                <div class="ss-hint" id="ssLogoDarkHint">เปิดเมื่อโลโก้หลักเป็นสีเข้มจนมองไม่เห็นบนพื้นมืด - ใช้ที่หลังบ้านธีมมืด แถบบน เมนู และส่วนท้ายเว็บบนมือถือ และโหมดคอนทราสต์สูง (ไม่เปิด = ใช้โลโก้หลัก ส่วนโหมดคอนทราสต์สูงจะเป็นสีขาวล้วน)</div>
+                            </div>
+                                                <div class="ss-logo-row" data-logo="logo_dark" data-default="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" data-current=""
+                             data-state="same"
+                              id="ssLogoDarkRow"  hidden  >
+                            <div class="ss-logo-row-head">
+                                <span class="ss-logo-row-label">รูปสำหรับพื้นเข้ม</span>
+                                <span class="ss-logo-state" data-role="state" aria-live="polite"></span>
+                            </div>
+                                                            
+                                <div class="ss-logo-stage is-dark" data-img-pick="#logo_dark">
+                                    <img data-role="preview" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="รูปสำหรับพื้นเข้ม">
+                                    <span class="img-pick-hover" aria-hidden="true">
+            <span>คลิกหรือลากรูปมาวาง</span>
+    </span>
+<button type="button" class="img-pick-cam" title="เปลี่ยนรูปภาพ" aria-label="เปลี่ยนรูปภาพ">
+    <i class="fa-solid fa-camera" aria-hidden="true"></i>
+</button>
+                                </div>
+                                                        <div class="ss-logo-actions">
+                                
+                                <button type="button" class="btn btn-sm btn-outline-primary ss-logo-btn" data-role="upload" aria-controls="logo_dark">
+                                    <i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true"></i>
+                                    <span data-role="upload-text">อัปโหลดรูป</span>
+                                </button>
+                                <input type="file" id="logo_dark" name="logo_dark" hidden accept="image/png,image/jpeg,image/webp" tabindex="-1">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" data-role="recrop" hidden>
+                                    <i class="fa-solid fa-crop-simple" aria-hidden="true"></i> ครอบรูปใหม่
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" data-role="remove"  hidden >
+                                    <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> ใช้โลโก้เริ่มต้น
+                                </button>
+                                <button type="button" class="btn btn-sm btn-link" data-role="undo" hidden>ยกเลิก</button>
+                                <input type="hidden" name="logo_dark_remove" value="0" data-role="remove-input">
+                            </div>
+                                                    </div>
+                                        <div class="ss-hint">PNG, JPG หรือ WEBP ไม่เกิน 2 MB · ครอบรูปได้หลังเลือกไฟล์ · PNG/WEBP พื้นโปร่งใสจะแสดงทับพื้นแถบเมนูตามจริง</div>
+
+                    <div class="ss-sec-divider"></div>
+
+                    <label class="form-label" for="theme">รูปแบบธีม</label>
+                    <div class="ss-theme">
+                        <select id="theme" name="theme" class="form-select">
+                                                            <option value="blue" data-color="#4e73df" data-hover="#3a5ec8" data-rgb="78,115,223"
+                                    selected>ธีมหลัก (สีน้ำเงิน)</option>
+                                                            <option value="purple" data-color="#7c3aed" data-hover="#6d28d9" data-rgb="124,58,237"
+                                    >สีม่วง</option>
+                                                            <option value="green" data-color="#059669" data-hover="#047857" data-rgb="5,150,105"
+                                    >สีเขียว</option>
+                                                            <option value="orange" data-color="#ea580c" data-hover="#c2410c" data-rgb="234,88,12"
+                                    >สีส้ม</option>
+                                                            <option value="gray" data-color="#475569" data-hover="#334155" data-rgb="71,85,105"
+                                    >สีเทา</option>
+                                                    </select>
+                        <div class="ss-swatches">
+                                                            <button type="button" class="ss-swatch is-active" data-theme="blue"
+                                    style="--sw: #4e73df" title="ธีมหลัก (สีน้ำเงิน)"
+                                    aria-label="ธีมหลัก (สีน้ำเงิน)" aria-pressed="true"></button>
+                                                            <button type="button" class="ss-swatch " data-theme="purple"
+                                    style="--sw: #7c3aed" title="สีม่วง"
+                                    aria-label="สีม่วง" aria-pressed="false"></button>
+                                                            <button type="button" class="ss-swatch " data-theme="green"
+                                    style="--sw: #059669" title="สีเขียว"
+                                    aria-label="สีเขียว" aria-pressed="false"></button>
+                                                            <button type="button" class="ss-swatch " data-theme="orange"
+                                    style="--sw: #ea580c" title="สีส้ม"
+                                    aria-label="สีส้ม" aria-pressed="false"></button>
+                                                            <button type="button" class="ss-swatch " data-theme="gray"
+                                    style="--sw: #475569" title="สีเทา"
+                                    aria-label="สีเทา" aria-pressed="false"></button>
+                                                    </div>
+                    </div>
+                    <div class="ss-hint">สีหลักของหลังบ้าน portal (ปุ่ม ลิงก์ และเมนูที่เลือก) - เลือกแล้วเห็นตัวอย่างทันที</div>
+                </section>
+
+                
+                <section class="ss-card ss-sec">
+                    <header class="ss-sec-head">
+                        <span class="ss-sec-icon" aria-hidden="true"><i class="fa-solid fa-language"></i></span>
+                        <div>
+                            <h2 class="ss-card-title">ภาษา เวลา และรูปแบบการแสดงผล</h2>
+                            <p class="ss-sec-desc">ใช้กับวันที่ เวลา และตัวเลขที่แสดงใน portal (ช่องกรอกวันที่ยังเป็น วว/ดด/ปปปป เหมือนเดิม) - ระบบอื่นใช้รูปแบบของแต่ละระบบ</p>
+                        </div>
+                    </header>
+
+                    <div class="row g-3">
+                        <div class="col-md-5">
+                            <label class="form-label" for="default_locale">ภาษาเริ่มต้นของระบบ</label>
+                            <select id="default_locale" name="default_locale" class="form-select">
+                                                                    <option value="th" selected>ไทย (Thai)</option>
+                                                                    <option value="en" >อังกฤษ (English)</option>
+                                                            </select>
+                            <div class="ss-hint">ใช้กับผู้ที่ยังไม่เคยเลือกภาษา ในทุกระบบ - ผู้ที่เลือกภาษาแล้วใช้ภาษาที่เลือกไว้</div>
+                        </div>
+                        <div class="col-md-7">
+                            <label class="form-label" for="timezone">เขตเวลา (Time Zone)</label>
+                            <select id="timezone" name="timezone" class="form-select ">
+                                                                    <option value="Asia/Bangkok" selected>(UTC+07:00) Asia/Bangkok</option>
+                                                                    <option value="Asia/Ho_Chi_Minh" >(UTC+07:00) Asia/Ho_Chi_Minh</option>
+                                                                    <option value="Asia/Jakarta" >(UTC+07:00) Asia/Jakarta</option>
+                                                                    <option value="Asia/Singapore" >(UTC+08:00) Asia/Singapore</option>
+                                                                    <option value="Asia/Kuala_Lumpur" >(UTC+08:00) Asia/Kuala_Lumpur</option>
+                                                                    <option value="Asia/Manila" >(UTC+08:00) Asia/Manila</option>
+                                                                    <option value="Asia/Hong_Kong" >(UTC+08:00) Asia/Hong_Kong</option>
+                                                                    <option value="Asia/Shanghai" >(UTC+08:00) Asia/Shanghai</option>
+                                                                    <option value="Asia/Tokyo" >(UTC+09:00) Asia/Tokyo</option>
+                                                                    <option value="Asia/Seoul" >(UTC+09:00) Asia/Seoul</option>
+                                                                    <option value="Asia/Kolkata" >(UTC+05:30) Asia/Kolkata</option>
+                                                                    <option value="Asia/Dubai" >(UTC+04:00) Asia/Dubai</option>
+                                                                    <option value="Europe/London" >(UTC+01:00) Europe/London</option>
+                                                                    <option value="Europe/Paris" >(UTC+02:00) Europe/Paris</option>
+                                                                    <option value="America/New_York" >(UTC-04:00) America/New_York</option>
+                                                                    <option value="America/Los_Angeles" >(UTC-07:00) America/Los_Angeles</option>
+                                                                    <option value="Australia/Sydney" >(UTC+11:00) Australia/Sydney</option>
+                                                                    <option value="UTC" >(UTC+00:00) UTC</option>
+                                                            </select>
+                            <div class="ss-hint">เขตเวลาที่ใช้แสดงวันที่และเวลาในหน้าเว็บและหลังบ้านของ portal - ข้อมูลในฐานข้อมูลยังเก็บตามเวลาของเซิร์ฟเวอร์ (Asia/Bangkok) เพราะใช้ร่วมกับทุกระบบ</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label" for="date_format">รูปแบบวันที่</label>
+                            <select id="date_format" name="date_format" class="form-select">
+                                                                    <option value="d/m/Y" selected>22/10/2026 · DD/MM/YYYY (ค.ศ.)</option>
+                                                                    <option value="d/m/B" >22/10/2569 · DD/MM/YYYY (พ.ศ.)</option>
+                                                                    <option value="Y-m-d" >2026-10-22 · YYYY-MM-DD</option>
+                                                                    <option value="j M B" >22 ต.ค. 2569 · D MMM YYYY</option>
+                                                                    <option value="j F B" >22 ตุลาคม 2569 · D MMMM YYYY</option>
+                                                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label" for="time_format">รูปแบบเวลา</label>
+                            <select id="time_format" name="time_format" class="form-select">
+                                                                    <option value="H:i" selected>24 ชั่วโมง (HH:mm) · 17:38 น.</option>
+                                                                    <option value="H:i:s" >24 ชั่วโมง (HH:mm:ss) · 17:38:42 น.</option>
+                                                                    <option value="g:i A" >12 ชั่วโมง (AM/PM) · 5:38 หลังเที่ยง</option>
+                                                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label" for="number_format">รูปแบบตัวเลข</label>
+                            <select id="number_format" name="number_format" class="form-select">
+                                                                    <option value="comma_dot" selected>1,234,567.89</option>
+                                                                    <option value="dot_comma" >1.234.567,89</option>
+                                                                    <option value="space_dot" >1 234 567.89</option>
+                                                                    <option value="plain" >1234567.89</option>
+                                                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                
+                <section class="ss-card ss-sec">
+                    <header class="ss-sec-head">
+                        <span class="ss-sec-icon" aria-hidden="true"><i class="fa-solid fa-sliders"></i></span>
+                        <div>
+                            <h2 class="ss-card-title">ตัวเลือกของระบบ</h2>
+                            <p class="ss-sec-desc">เปิด/ปิดความสามารถของเว็บไซต์ - มีผลกับทุกระบบในเครือทันทีที่บันทึก</p>
+                        </div>
+                    </header>
+
+                    <div class="ss-opts">
+                                                    <div class="ss-opt">
+                                <span class="ss-opt-icon" aria-hidden="true"><i class="fa-solid fa-power-off"></i></span>
+                                <label class="ss-opt-text" for="opt_site_enabled">
+                                    <strong>เปิดใช้งานระบบ</strong>
+                                    <small>ปิดแล้วหน้าเว็บของทุกระบบแจ้งปิดให้บริการ (ผู้ดูแลยังเข้าได้)</small>
+                                </label>
+                                <div class="form-check form-switch ss-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="opt_site_enabled" name="site_enabled" value="1" checked>
+                                </div>
+                            </div>
+
+                            
+                                                                                <div class="ss-opt">
+                                <span class="ss-opt-icon" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                                <label class="ss-opt-text" for="opt_maintenance">
+                                    <strong>โหมดบำรุงรักษา (Maintenance Mode)</strong>
+                                    <small>ปิดทุกระบบชั่วคราวสำหรับผู้ใช้งานทั่วไป</small>
+                                </label>
+                                <div class="form-check form-switch ss-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="opt_maintenance" name="maintenance" value="1" >
+                                </div>
+                            </div>
+
+                                                            <div class="ss-opt-extra" id="ss_maintenance_box"  hidden >
+                                    <label class="form-label" for="maintenance_message">ข้อความที่แสดงระหว่างปิดปรับปรุง</label>
+                                    <textarea id="maintenance_message" name="maintenance_message" rows="2" maxlength="500"
+                                        class="form-control "
+                                        placeholder="เช่น ปิดปรับปรุงระบบวันที่ 1 ต.ค. เวลา 22:00 - 24:00 น. (เว้นว่างใช้ข้อความเริ่มต้น)"></textarea>
+                                                                    </div>
+                            
+                                                                                <div class="ss-opt">
+                                <span class="ss-opt-icon" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></span>
+                                <label class="ss-opt-text" for="opt_home_show_news">
+                                    <strong>แสดงข่าวสารบนหน้าแรก</strong>
+                                    <small>เนื้อหาเด่น ข่าวสารล่าสุด และกิจกรรม บนหน้าแรกของ portal</small>
+                                </label>
+                                <div class="form-check form-switch ss-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="opt_home_show_news" name="home_show_news" value="1" checked>
+                                </div>
+                            </div>
+
+                            
+                                                                                <div class="ss-opt">
+                                <span class="ss-opt-icon" aria-hidden="true"><i class="fa-regular fa-lightbulb"></i></span>
+                                <label class="ss-opt-text" for="opt_home_show_knowledge">
+                                    <strong>แสดงบทความคลังความรู้</strong>
+                                    <small>การ์ดบทความคลังความรู้ล่าสุดบนหน้าแรกของ portal</small>
+                                </label>
+                                <div class="form-check form-switch ss-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="opt_home_show_knowledge" name="home_show_knowledge" value="1" checked>
+                                </div>
+                            </div>
+
+                            
+                                                                                <div class="ss-opt">
+                                <span class="ss-opt-icon" aria-hidden="true"><i class="fa-solid fa-chart-column"></i></span>
+                                <label class="ss-opt-text" for="opt_home_show_stats">
+                                    <strong>แสดงแถบสถิติบนหน้าแรก</strong>
+                                    <small>จำนวนองค์ความรู้ หลักสูตร และผู้ใช้งาน บนหน้าแรกของ portal</small>
+                                </label>
+                                <div class="form-check form-switch ss-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="opt_home_show_stats" name="home_show_stats" value="1" checked>
+                                </div>
+                            </div>
+
+                            
+                                                                                <div class="ss-opt">
+                                <span class="ss-opt-icon" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></span>
+                                <label class="ss-opt-text" for="opt_track_usage">
+                                    <strong>เปิดใช้งานการจัดเก็บสถิติการใช้งาน</strong>
+                                    <small>เก็บข้อมูลการเข้าใช้และการคลิกของทุกระบบสำหรับหน้ารายงาน - ปิดแล้วหยุดบันทึกทุกระบบ</small>
+                                </label>
+                                <div class="form-check form-switch ss-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="opt_track_usage" name="track_usage" value="1" checked>
+                                </div>
+                            </div>
+
+                            
+                                                                                <div class="ss-opt">
+                                <span class="ss-opt-icon" aria-hidden="true"><i class="fa-regular fa-image"></i></span>
+                                <label class="ss-opt-text" for="opt_compress_images">
+                                    <strong>ย่อและบีบอัดรูปภาพที่อัปโหลด</strong>
+                                    <small>รูป JPG / PNG / WEBP / GIF ภาพนิ่ง / BMP ที่ใหญ่กว่า 300 KB ในทุกระบบ - ด้านยาวเกิน 2560 px ย่อลงตามสัดส่วนแล้วบีบอัด (ชนิดไฟล์เดิม) · เอกสาร วิดีโอ GIF เคลื่อนไหว และ SVG เก็บตามต้นฉบับ</small>
+                                </label>
+                                <div class="form-check form-switch ss-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="opt_compress_images" name="compress_images" value="1" >
+                                </div>
+                            </div>
+
+                            
+                                                    
+                        <div class="ss-opt">
+                            <span class="ss-opt-icon" aria-hidden="true"><i class="fa-regular fa-file-lines"></i></span>
+                            <label class="ss-opt-text" for="upload_max_mb">
+                                <strong>จำกัดขนาดไฟล์อัปโหลด (ต่อไฟล์)</strong>
+                                <small>เพดานของทุกระบบ ฟอร์มที่จำกัดไว้ต่ำกว่ายังใช้ค่าของตัวเอง · เซิร์ฟเวอร์รับได้สูงสุด 200 MB</small>
+                            </label>
+                            <select id="upload_max_mb" name="upload_max_mb" class="form-select ss-opt-select">
+                                                                    <option value="0" selected>
+                                        ตามแต่ละฟอร์ม
+                                    </option>
+                                                                    <option value="5" >
+                                        5 MB
+                                    </option>
+                                                                    <option value="10" >
+                                        10 MB
+                                    </option>
+                                                                    <option value="20" >
+                                        20 MB
+                                    </option>
+                                                                    <option value="50" >
+                                        50 MB
+                                    </option>
+                                                                    <option value="100" >
+                                        100 MB
+                                    </option>
+                                                            </select>
+                        </div>
+
+                        <div class="ss-opt">
+                            <span class="ss-opt-icon" aria-hidden="true"><i class="fa-solid fa-list-ul"></i></span>
+                            <label class="ss-opt-text" for="per_page">
+                                <strong>จำนวนรายการต่อหน้า (Default)</strong>
+                                <small>จำนวนแถวเริ่มต้นของตารางในหลังบ้าน portal (หลังบ้านของระบบอื่นตั้งของตัวเอง)</small>
+                            </label>
+                            <select id="per_page" name="per_page" class="form-select ss-opt-select">
+                                                                    <option value="10" >10 รายการ</option>
+                                                                    <option value="25" selected>25 รายการ</option>
+                                                                    <option value="50" >50 รายการ</option>
+                                                                    <option value="100" >100 รายการ</option>
+                                                            </select>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            
+            <aside class="ss-general-side">
+                <section class="ss-card">
+                    <h2 class="ss-card-title">ข้อมูลระบบ</h2>
+                    <dl class="ss-info">
+                        <div class="ss-info-row"><dt><i class="fa-solid fa-gear"></i> เวอร์ชันระบบ</dt><dd>v1.0.0</dd></div>
+                        <div class="ss-info-row"><dt><i class="fa-solid fa-database"></i> เวอร์ชันฐานข้อมูล</dt><dd>MariaDB 10.4.32</dd></div>
+                        <div class="ss-info-row"><dt><i class="fa-solid fa-code"></i> เวอร์ชัน PHP</dt><dd>8.5.9</dd></div>
+                        <div class="ss-info-row"><dt><i class="fa-solid fa-layer-group"></i> เฟรมเวิร์ก</dt><dd>Laravel 13.35.0</dd></div>
+                        <div class="ss-info-row"><dt><i class="fa-solid fa-hard-drive"></i> พื้นที่เก็บข้อมูลทั้งหมด</dt><dd>461.72 GB</dd></div>
+                        <div class="ss-info-row ss-info-row-top">
+                            <dt><i class="fa-solid fa-chart-pie"></i> พื้นที่ใช้งาน</dt>
+                            <dd>
+                                401.86 GB (87.04%)
+                                <span class="ss-bar" role="progressbar" aria-valuenow="87.04" aria-valuemin="0" aria-valuemax="100">
+                                    <span style="width: 87.04%"></span>
+                                </span>
+                            </dd>
+                        </div>
+                        <div class="ss-info-row"><dt><i class="fa-regular fa-clock"></i> อัปเดตล่าสุด</dt><dd>20/10/2026 11:56 น.</dd></div>
+                        <div class="ss-info-row"><dt><i class="fa-solid fa-user-gear"></i> ผู้ดูแลระบบ</dt><dd>Piyanuch Panyadee</dd></div>
+                    </dl>
+                    <button type="button" class="btn btn-outline-primary ss-info-btn" data-go-tab="other">
+                        <i class="fa-solid fa-circle-info"></i> ดูรายละเอียดระบบ
+                    </button>
+                </section>
+
+                <section class="ss-card">
+                    <h2 class="ss-card-title">เครื่องมือสำหรับผู้ดูแลระบบ</h2>
+                    <div class="ss-tools">
+                                                    <button type="button" class="ss-tool "
+                                data-tool="cache" data-url="/portal/admin/system-setting/clear-cache" data-confirm="1"
+                                data-label="ล้างแคชระบบ" data-confirm-text="ล้างแคชหน้าเว็บ ค่าคอนฟิก และเส้นทางของ portal - ไม่กระทบระบบอื่นและรายการบล็อก IP">
+                                <span class="ss-tool-icon" aria-hidden="true"><i class="fa-solid fa-broom"></i></span>
+                                <span class="ss-tool-text">
+                                    <strong>ล้างแคชระบบ</strong>
+                                    <small>ล้างแคชเพื่อเพิ่มประสิทธิภาพ</small>
+                                </span>
+                            </button>
+                                                    <button type="button" class="ss-tool "
+                                data-tool="database" data-url="/portal/admin/system-setting/check-database" data-confirm="0"
+                                data-label="ตรวจสอบฐานข้อมูล" data-confirm-text="system_setting.tools.database.confirm">
+                                <span class="ss-tool-icon" aria-hidden="true"><i class="fa-solid fa-database"></i></span>
+                                <span class="ss-tool-text">
+                                    <strong>ตรวจสอบฐานข้อมูล</strong>
+                                    <small>ตรวจสอบการเชื่อมต่อ ตาราง และ migration</small>
+                                </span>
+                            </button>
+                                                    <button type="button" class="ss-tool is-danger"
+                                data-tool="queue" data-url="/portal/admin/system-setting/restart-queue" data-confirm="1"
+                                data-label="รีสตาร์ทคิวงาน (Queue)" data-confirm-text="worker ที่ทำงานอยู่จะหยุดหลังทำงานชิ้นปัจจุบันเสร็จ แล้วตัวควบคุม (เช่น Supervisor) จะเปิดขึ้นมาใหม่ด้วยโค้ดและค่าตั้งล่าสุด">
+                                <span class="ss-tool-icon" aria-hidden="true"><i class="fa-solid fa-arrows-rotate"></i></span>
+                                <span class="ss-tool-text">
+                                    <strong>รีสตาร์ทคิวงาน (Queue)</strong>
+                                    <small>เริ่มการทำงานของคิวงานใหม่</small>
+                                </span>
+                            </button>
+                                            </div>
+                </section>
+            </aside>
+        </div>
+    </div>
+
+    
+    
+    <div class="tab-pane fade" id="ss-connections" role="tabpanel" aria-labelledby="ss-tab-connections" tabindex="0">
+        <section class="ss-card">
+            <div class="ss-card-head">
+                <h2 class="ss-card-title">ระบบที่เชื่อมต่อ (SSO)</h2>
+                <button type="button" id="ss_conn_check" class="btn btn-sm btn-outline-primary">
+                    <i class="fa-solid fa-rotate"></i> ตรวจสอบทั้งหมด
+                </button>
+            </div>
+            <p class="ss-card-sub">ที่อยู่ของแต่ละระบบตั้งที่ SSO_*_URL ในไฟล์ .env - ผู้ใช้ล็อกอินครั้งเดียวใช้ได้ทุกระบบ</p>
+            <div class="ss-conns">
+                                    <div class="ss-conn" data-conn="auth">
+                        <span class="ss-conn-icon" aria-hidden="true"><i class="fa-solid fa-key"></i></span>
+                        <div class="ss-conn-text">
+                            <strong>ระบบยืนยันตัวตน (Auth)</strong>
+                                                            <a href="/auth" target="_blank" rel="noopener">/auth</a>
+                                                    </div>
+                        <span class="ss-conn-status" data-status role="status">รอตรวจสอบ</span>
+                    </div>
+                                    <div class="ss-conn" data-conn="belib">
+                        <span class="ss-conn-icon" aria-hidden="true"><i class="fa-solid fa-book-open"></i></span>
+                        <div class="ss-conn-text">
+                            <strong>ห้องสมุดอิเล็กทรอนิกส์ (e-Library)</strong>
+                                                            <a href="/belib" target="_blank" rel="noopener">/belib</a>
+                                                    </div>
+                        <span class="ss-conn-status" data-status role="status">รอตรวจสอบ</span>
+                    </div>
+                                    <div class="ss-conn" data-conn="learnext">
+                        <span class="ss-conn-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></span>
+                        <div class="ss-conn-text">
+                            <strong>ระบบการเรียนรู้ออนไลน์ (e-Learning)</strong>
+                                                            <a href="/learnext" target="_blank" rel="noopener">/learnext</a>
+                                                    </div>
+                        <span class="ss-conn-status" data-status role="status">รอตรวจสอบ</span>
+                    </div>
+                                    <div class="ss-conn" data-conn="news">
+                        <span class="ss-conn-icon" aria-hidden="true"><i class="fa-regular fa-newspaper"></i></span>
+                        <div class="ss-conn-text">
+                            <strong>ข่าวสารและกิจกรรม</strong>
+                                                            <a href="/news" target="_blank" rel="noopener">/news</a>
+                                                    </div>
+                        <span class="ss-conn-status" data-status role="status">รอตรวจสอบ</span>
+                    </div>
+                                    <div class="ss-conn" data-conn="knowledge">
+                        <span class="ss-conn-icon" aria-hidden="true"><i class="fa-regular fa-lightbulb"></i></span>
+                        <div class="ss-conn-text">
+                            <strong>คลังความรู้ (Knowledge Center)</strong>
+                                                            <a href="/knowledge" target="_blank" rel="noopener">/knowledge</a>
+                                                    </div>
+                        <span class="ss-conn-status" data-status role="status">รอตรวจสอบ</span>
+                    </div>
+                                    <div class="ss-conn" data-conn="booking">
+                        <span class="ss-conn-icon" aria-hidden="true"><i class="fa-regular fa-calendar-check"></i></span>
+                        <div class="ss-conn-text">
+                            <strong>ระบบจองห้อง / กิจกรรม</strong>
+                                                            <a href="/booking" target="_blank" rel="noopener">/booking</a>
+                                                    </div>
+                        <span class="ss-conn-status" data-status role="status">รอตรวจสอบ</span>
+                    </div>
+                            </div>
+        </section>
+    </div>
+
+    
+    <div class="tab-pane fade" id="ss-other" role="tabpanel" aria-labelledby="ss-tab-other" tabindex="0">
+        <div class="ss-grid">
+            <section class="ss-card">
+                <h2 class="ss-card-title">PHP และเซิร์ฟเวอร์</h2>
+                <dl class="ss-info ss-info-mono">
+                                            <div class="ss-info-row"><dt>PHP</dt><dd>8.5.9 (cli)</dd></div>
+                                            <div class="ss-info-row"><dt>memory_limit</dt><dd>2048M</dd></div>
+                                            <div class="ss-info-row"><dt>upload_max_filesize</dt><dd>200M</dd></div>
+                                            <div class="ss-info-row"><dt>post_max_size</dt><dd>200M</dd></div>
+                                            <div class="ss-info-row"><dt>max_execution_time</dt><dd>0 s</dd></div>
+                                            <div class="ss-info-row"><dt>OS</dt><dd>Windows 10.0</dd></div>
+                                            <div class="ss-info-row"><dt>Web server</dt><dd>-</dd></div>
+                                    </dl>
+            </section>
+
+            <section class="ss-card">
+                <h2 class="ss-card-title">แอปพลิเคชัน</h2>
+                <dl class="ss-info ss-info-mono">
+                                            <div class="ss-info-row"><dt>APP_ENV</dt><dd>local</dd></div>
+                                            <div class="ss-info-row"><dt>APP_DEBUG</dt><dd>ปิด</dd></div>
+                                            <div class="ss-info-row"><dt>APP_URL</dt><dd>/portal</dd></div>
+                                            <div class="ss-info-row"><dt>Timezone</dt><dd>Asia/Bangkok → Asia/Bangkok</dd></div>
+                                            <div class="ss-info-row"><dt>Locale</dt><dd>th / en</dd></div>
+                                            <div class="ss-info-row"><dt>Cache</dt><dd>database</dd></div>
+                                            <div class="ss-info-row"><dt>Session</dt><dd>array (120 นาที)</dd></div>
+                                            <div class="ss-info-row"><dt>Queue</dt><dd>database</dd></div>
+                                            <div class="ss-info-row"><dt>Mail</dt><dd>log</dd></div>
+                                            <div class="ss-info-row"><dt>Filesystem</dt><dd>public</dd></div>
+                                    </dl>
+            </section>
+
+            <section class="ss-card">
+                <h2 class="ss-card-title">ส่วนขยาย PHP ที่ระบบใช้</h2>
+                <div class="ss-ext">
+                                            <span class="is-ok">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i> pdo_mysql
+                        </span>
+                                            <span class="is-ok">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i> mbstring
+                        </span>
+                                            <span class="is-ok">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i> openssl
+                        </span>
+                                            <span class="is-ok">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i> fileinfo
+                        </span>
+                                            <span class="is-ok">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i> gd
+                        </span>
+                                            <span class="is-ok">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i> intl
+                        </span>
+                                            <span class="is-ok">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i> zip
+                        </span>
+                                            <span class="is-ok">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i> curl
+                        </span>
+                                    </div>
+                <dl class="ss-info mt-3">
+                    <div class="ss-info-row">
+                        <dt>ลิงก์โฟลเดอร์ไฟล์อัปโหลด (public/storage)</dt>
+                        <dd class="text-success">
+                            พร้อมใช้งาน
+                        </dd>
+                    </div>
+                </dl>
+            </section>
+        </div>
+    </div>
+</div>
+</form>
+
+
+<div class="modal fade" id="ssLogoCrop" tabindex="-1" aria-labelledby="ssLogoCropTitle" aria-hidden="true">
+    
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-md-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="ssLogoCropTitle">ครอบรูปโลโก้</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ยกเลิก"></button>
+            </div>
+            <div class="modal-body ss-crop-body">
+                <div class="ss-crop-area"><img id="ssLogoCropImg" alt=""></div>
+                <div class="ss-crop-side">
+                    <p class="ss-hint mt-0 mb-0">ลากกรอบให้พอดีกับโลโก้ - พื้นลายตารางคือส่วนที่โปร่งใส (ไม่มีพื้นหลัง)</p>
+                    <div class="ss-crop-tools">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" id="ssLogoCropTrim"><i class="fa-solid fa-scissors" aria-hidden="true"></i> ตัดขอบว่างอัตโนมัติ</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" id="ssLogoCropFull"><i class="fa-solid fa-expand" aria-hidden="true"></i> ทั้งภาพ</button>
+                    </div>
+                    <div class="ss-crop-preview">
+                        <span class="ss-hint mt-0">ตัวอย่างบนแถบเมนู</span>
+                        <div class="ss-logo-stage is-light"><img id="ssLogoCropPrevLight" alt=""></div>
+                        <div class="ss-logo-stage is-dark"><img id="ssLogoCropPrevDark" alt=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+                <button type="button" class="btn btn-primary" id="ssLogoCropApply"><i class="fa-solid fa-check" aria-hidden="true"></i> ใช้รูปนี้</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ss-note" role="note">
+    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+    <span><strong>หมายเหตุ:</strong> การเปลี่ยนแปลงการตั้งค่าระบบบางรายการ อาจมีผลต่อการทำงานของระบบ กรุณาตรวจสอบก่อนบันทึก</span>
+</div>
+    </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    // pageLength = "จำนวนรายการต่อหน้า" ที่หน้าตั้งค่าระบบ - ตารางในหลังบ้านไม่ตั้ง pageLength เองแล้ว ให้ตามค่านี้ทั้งหมด
+    $.extend(true, $.fn.dataTable.defaults, {
+        language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."},
+        pageLength: 25
+    });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+
+<script>
+// สวิตช์ของ includes/form_switch: กดสวิตช์ → click radio ตัวที่ตรง (ค่าที่ส่ง/สคริปต์เดิมที่อ่าน radio ทำงานเหมือนเดิม)
+(function () {
+    function sync(box) {
+        if (!box) return;
+        var on = box.querySelector('.fsw-radio').checked;
+        var label = box.querySelector('.fsw-state');
+        box.querySelector('.fsw-proxy').checked = on;
+        box.classList.toggle('is-on', on);
+        if (label) label.textContent = on ? label.dataset.on : label.dataset.off;
+    }
+    window.fswSync = function (root) { (root || document).querySelectorAll('[data-fsw]').forEach(sync); };
+    document.addEventListener('change', function (e) {
+        var el = e.target;
+        if (!el.classList) return;
+        if (el.classList.contains('fsw-proxy')) {
+            var box = el.closest('[data-fsw]');
+            var target = box.querySelectorAll('.fsw-radio')[el.checked ? 0 : 1];
+            if (target && !target.checked) target.click();
+            sync(box);
+        } else if (el.classList.contains('fsw-radio')) {
+            sync(el.closest('[data-fsw]'));
+        }
+    });
+    document.addEventListener('reset', function (e) { setTimeout(function () { window.fswSync(e.target); }, 0); });
+})();
+</script>
+<script src="/_shared/inline/0978f1b846f5754d.js"></script>
+
+<link rel="stylesheet" href="/_shared/a/back/collab/collab.css?v=1792128162">
+    <script>
+        window.MRTA_COLLAB = {"mode":"edit","system":"portal","key":"portal:admin.systemSetting.index","channel":"presence-collab.ef3cb9e06e6b5c4886c9369c","index":"presence-collab-index.portal","openedAt":1792665522,"path":"\/admin\/system-setting","me":{"id":120,"name":"Piyanuch Panyadee","initials":"R","color":"#e11d48"},"ws":{"key":"demo","host":"ws.demo.invalid","port":8080,"tls":false},"authUrl":"\/portal\/admin\/collab\/auth","checkUrl":"\/portal\/admin\/collab\/check","text":{"here_one":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","here_many":":name \u0e41\u0e25\u0e30\u0e2d\u0e35\u0e01 :n \u0e04\u0e19 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","alone":"\u0e21\u0e35\u0e04\u0e38\u0e13\u0e04\u0e19\u0e40\u0e14\u0e35\u0e22\u0e27\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","joined":":name \u0e40\u0e02\u0e49\u0e32\u0e21\u0e32\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","left":":name \u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27","editing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49","typing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u2026","saved_banner":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27 \u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19.","reload":"\u0e42\u0e2b\u0e25\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14","conflict_title":"\u0e21\u0e35\u0e04\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e1b\u0e41\u0e25\u0e49\u0e27","conflict_text":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19. \u0e2b\u0e25\u0e31\u0e07\u0e08\u0e32\u0e01\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32 \u0e16\u0e49\u0e32\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e15\u0e48\u0e2d \u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48 :name \u0e41\u0e01\u0e49\u0e43\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27\u0e01\u0e31\u0e19\u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e02\u0e35\u0e22\u0e19\u0e17\u0e31\u0e1a","overwrite":"\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","row_editing":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49\u0e44\u0e02\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49","offline":"\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e41\u0e1a\u0e1a real-time \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e22\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e1b\u0e01\u0e15\u0e34 \u0e41\u0e25\u0e30\u0e23\u0e30\u0e1a\u0e1a\u0e22\u0e31\u0e07\u0e01\u0e31\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a\u0e43\u0e2b\u0e49"},"conflict":null};
+    </script>
+    <script src="/_shared/a/back/collab/pusher.min.js"></script>
+    <script src="/_shared/a/back/collab/collab.js?v=1792128553"></script>
+
+<div class="modal fade" id="scReauthModal" tabindex="-1" aria-labelledby="scReauthTitle" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content" id="scReauthForm" novalidate>
+            <div class="modal-header">
+                <h5 class="modal-title" id="scReauthTitle"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> ยืนยันตัวตนอีกครั้ง</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ยกเลิก"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-3" id="scReauthIntro">รายการนี้มีผลกับความปลอดภัยของระบบ กรุณายืนยันตัวตนก่อน (ใช้ได้ 5 นาที)</p>
+                <div class="mb-2" id="scReauthPwGroup">
+                    <label class="form-label" for="scReauthPassword">รหัสผ่าน</label>
+                    <input type="password" class="form-control" id="scReauthPassword" autocomplete="current-password">
+                </div>
+                <div class="text-center text-muted small my-2" id="scReauthOr">หรือ</div>
+                <div class="mb-2" id="scReauthCodeGroup">
+                    <label class="form-label" for="scReauthCode">รหัส 2FA 6 หลัก</label>
+                    <input type="text" class="form-control" id="scReauthCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="\d{6}">
+                </div>
+                <div class="alert alert-warning py-2 mb-0 d-none" id="scReauthNoMethod">บัญชีนี้ยืนยันด้วยรหัสผ่านในระบบไม่ได้ (เข้าด้วย AD / SSO) กรุณาเปิด 2FA ก่อน</div>
+                <div class="text-danger small mt-2" id="scReauthError" role="alert" aria-live="assertive"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">ยกเลิก</button>
+                <button type="submit" class="btn btn-primary" id="scReauthSubmit">ยืนยัน</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/_shared/inline/88bef9f02d46dfb7.js"></script>
+
+
+
+
+<script src="/_shared/a/plugin/cropperjs/cropper.min.js"></script>
+<script>
+(function () {
+    var csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    var text = {"saving":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01...","confirm":"\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","failed":"\u0e17\u0e33\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e44\u0e21\u0e48\u0e2a\u0e33\u0e40\u0e23\u0e47\u0e08 \u0e01\u0e23\u0e38\u0e13\u0e32\u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48\u0e2d\u0e35\u0e01\u0e04\u0e23\u0e31\u0e49\u0e07","sending":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e2a\u0e48\u0e07...","checking":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a...","creating":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e2a\u0e33\u0e23\u0e2d\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25...","download":"\u0e14\u0e32\u0e27\u0e19\u0e4c\u0e42\u0e2b\u0e25\u0e14","delete":"\u0e25\u0e1a","deleteConfirm":"\u0e25\u0e1a\u0e44\u0e1f\u0e25\u0e4c\u0e2a\u0e33\u0e23\u0e2d\u0e07\u0e19\u0e35\u0e49? \u0e01\u0e39\u0e49\u0e04\u0e37\u0e19\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49","withFiles":"+ \u0e44\u0e1f\u0e25\u0e4c","empty":"\u0e22\u0e31\u0e07\u0e44\u0e21\u0e48\u0e21\u0e35\u0e44\u0e1f\u0e25\u0e4c\u0e2a\u0e33\u0e23\u0e2d\u0e07"};
+    var urls = {"mailTest":"\/portal\/admin\/system-setting\/mail-test","connection":"\/portal\/admin\/system-setting\/check-connection","backup":"\/portal\/admin\/system-setting\/backup-info","backupCreate":"\/portal\/admin\/system-setting\/backups\/create","backupDelete":"\/portal\/admin\/system-setting\/backups\/delete"};
+    var backupRows = [];
+    var hasErrors = false;
+
+    function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+    }
+
+    // POST แบบ JSON - error ของ Laravel (422) ก็ตอบ JSON มาพร้อม message
+    function post(url, data) {
+        return fetch(url, {
+            method: 'POST',
+            headers: { 'X-CSRF-TOKEN': csrf, 'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+            body: JSON.stringify(data || {})
+        }).then(function (res) {
+            return res.json().catch(function () { return {}; }).then(function (json) {
+                if (!res.ok) { throw json; }
+                return json;
+            });
+        });
+    }
+
+    // ── แท็บ: จำแท็บไว้ที่ #hash / ปุ่มบันทึกแสดงเฉพาะแท็บที่มีค่าให้บันทึก ──
+    var saveBtn = document.getElementById('ss_save');
+    var tabInput = document.getElementById('ss_tab_input');
+    var loaded = {};
+
+    function showTab(key) {
+        var btn = document.getElementById('ss-tab-' + key);
+        if (btn) bootstrap.Tab.getOrCreateInstance(btn).show();
+    }
+
+    document.querySelectorAll('.ss-tabs [data-bs-toggle="tab"]').forEach(function (btn) {
+        btn.addEventListener('shown.bs.tab', function () {
+            var key = btn.dataset.tab;
+            saveBtn.classList.toggle('d-none', btn.dataset.form !== '1');
+            if (btn.dataset.form === '1') tabInput.value = key;
+            history.replaceState(null, '', '#' + key);
+            if (!loaded[key]) {
+                loaded[key] = true;
+                if (key === 'backup') loadBackupInfo();
+                if (key === 'connections') checkConnections();
+            }
+        });
+    });
+
+    document.querySelectorAll('[data-go-tab]').forEach(function (btn) {
+        btn.addEventListener('click', function () { showTab(btn.dataset.goTab); });
+    });
+
+    // มี error = ไปแท็บของช่องแรกที่ผิด / ไม่มี = แท็บตาม #hash
+    var firstError = hasErrors && document.querySelector('.tab-pane .is-invalid, .tab-pane .ss-field-error');
+    if (firstError) {
+        showTab(firstError.closest('.tab-pane').id.replace('ss-', ''));
+        setTimeout(function () { firstError.scrollIntoView({ block: 'center' }); }, 200);
+    } else if (location.hash) {
+        showTab(location.hash.slice(1));
+    }
+
+    // ── ฟอร์ม ──
+    var form = document.getElementById('frm_system_setting');
+    form.addEventListener('submit', function () {
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ' + esc(text.saving);
+    });
+
+    var desc = document.getElementById('site_description');
+    var descCount = document.getElementById('ss_desc_count');
+    desc.addEventListener('input', function () { descCount.textContent = desc.value.length; });
+
+    // ── โลโก้ (ธีมสว่าง / ธีมมืด) ──
+    // สถานะของแต่ละช่อง: uploaded (ใช้รูปที่อัปโหลด) / default (โลโก้ MRTA) / same (ธีมมืดใช้รูปเดียวกับธีมสว่าง)
+    //                     new (ครอบรูปใหม่แล้ว รอบันทึก) / removing (จะกลับไปใช้ค่าเริ่มต้นเมื่อบันทึก)
+    // ไฟล์ที่ครอบแล้วถูกเขียนกลับเข้า <input type=file> เดิมด้วย DataTransfer - ฟอร์มบันทึกตามปกติ
+    var logoText = {"uploaded":"\u0e43\u0e0a\u0e49\u0e42\u0e25\u0e42\u0e01\u0e49\u0e17\u0e35\u0e48\u0e2d\u0e31\u0e1b\u0e42\u0e2b\u0e25\u0e14","default":"\u0e43\u0e0a\u0e49\u0e42\u0e25\u0e42\u0e01\u0e49\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19 (MRTA)","same":"\u0e43\u0e0a\u0e49\u0e42\u0e25\u0e42\u0e01\u0e49\u0e2b\u0e25\u0e31\u0e01","new":"\u0e23\u0e39\u0e1b\u0e43\u0e2b\u0e21\u0e48 - \u0e01\u0e14\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19","removing":"\u0e08\u0e30\u0e01\u0e25\u0e31\u0e1a\u0e44\u0e1b\u0e43\u0e0a\u0e49\u0e42\u0e25\u0e42\u0e01\u0e49\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e01\u0e14\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01"};
+    var logoBtnText = { upload: "\u0e2d\u0e31\u0e1b\u0e42\u0e2b\u0e25\u0e14\u0e23\u0e39\u0e1b", change: "\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e23\u0e39\u0e1b" };
+    var cropText = {"title":"\u0e04\u0e23\u0e2d\u0e1a\u0e23\u0e39\u0e1b\u0e42\u0e25\u0e42\u0e01\u0e49","help":"\u0e25\u0e32\u0e01\u0e01\u0e23\u0e2d\u0e1a\u0e43\u0e2b\u0e49\u0e1e\u0e2d\u0e14\u0e35\u0e01\u0e31\u0e1a\u0e42\u0e25\u0e42\u0e01\u0e49 - \u0e1e\u0e37\u0e49\u0e19\u0e25\u0e32\u0e22\u0e15\u0e32\u0e23\u0e32\u0e07\u0e04\u0e37\u0e2d\u0e2a\u0e48\u0e27\u0e19\u0e17\u0e35\u0e48\u0e42\u0e1b\u0e23\u0e48\u0e07\u0e43\u0e2a (\u0e44\u0e21\u0e48\u0e21\u0e35\u0e1e\u0e37\u0e49\u0e19\u0e2b\u0e25\u0e31\u0e07)","trim":"\u0e15\u0e31\u0e14\u0e02\u0e2d\u0e1a\u0e27\u0e48\u0e32\u0e07\u0e2d\u0e31\u0e15\u0e42\u0e19\u0e21\u0e31\u0e15\u0e34","full":"\u0e17\u0e31\u0e49\u0e07\u0e20\u0e32\u0e1e","preview":"\u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e1a\u0e19\u0e41\u0e16\u0e1a\u0e40\u0e21\u0e19\u0e39","apply":"\u0e43\u0e0a\u0e49\u0e23\u0e39\u0e1b\u0e19\u0e35\u0e49","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","bad_type":"\u0e23\u0e2d\u0e07\u0e23\u0e31\u0e1a\u0e40\u0e09\u0e1e\u0e32\u0e30\u0e44\u0e1f\u0e25\u0e4c PNG, JPG \u0e2b\u0e23\u0e37\u0e2d WEBP","too_big":"\u0e23\u0e39\u0e1b\u0e17\u0e35\u0e48\u0e04\u0e23\u0e2d\u0e1a\u0e41\u0e25\u0e49\u0e27\u0e43\u0e2b\u0e0d\u0e48\u0e40\u0e01\u0e34\u0e19 2 MB - \u0e25\u0e2d\u0e07\u0e04\u0e23\u0e2d\u0e1a\u0e43\u0e2b\u0e49\u0e40\u0e25\u0e47\u0e01\u0e25\u0e07","failed":"\u0e40\u0e1b\u0e34\u0e14\u0e23\u0e39\u0e1b\u0e19\u0e35\u0e49\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e25\u0e2d\u0e07\u0e43\u0e0a\u0e49\u0e44\u0e1f\u0e25\u0e4c\u0e2d\u0e37\u0e48\u0e19"};
+    var LOGO_MAX_BYTES = 2 * 1024 * 1024;
+    var LOGO_TYPES = ['image/png', 'image/jpeg', 'image/webp'];
+    var logoRows = {};
+
+    function logoRow(el) {
+        var row = {
+            el: el,
+            field: el.dataset.logo,
+            input: el.querySelector('input[type=file]'),
+            preview: el.querySelector('[data-role="preview"]'),
+            previewDark: el.querySelector('[data-role="preview-dark"]'),   // ช่องโลโก้หลัก: ตัวอย่างบนพื้นเข้ม
+            stateEl: el.querySelector('[data-role="state"]'),
+            uploadBtn: el.querySelector('[data-role="upload"]'),
+            uploadText: el.querySelector('[data-role="upload-text"]'),
+            recrop: el.querySelector('[data-role="recrop"]'),
+            remove: el.querySelector('[data-role="remove"]'),
+            undo: el.querySelector('[data-role="undo"]'),
+            removeInput: el.querySelector('[data-role="remove-input"]'),
+            current: el.dataset.current || '',
+            fallback: el.dataset.default,
+            original: el.dataset.state,
+            state: el.dataset.state,
+            file: null,        // ไฟล์ที่ครอบแล้ว (ไว้คืนค่าเมื่อปิดกล่องครอบรูปโดยไม่ใช้รูป)
+            fileUrl: '',
+            source: null,      // ไฟล์ต้นฉบับล่าสุด (ไว้ "ครอบรูปใหม่")
+        };
+        logoRows[row.field] = row;
+        return row;
+    }
+
+    // รูปที่หัวแถบจะใช้จริงของช่องนั้น (ธีมมืดที่ไม่ได้ตั้ง = รูปของธีมสว่าง)
+    function logoEffective(row) {
+        if (row.state === 'new') return row.fileUrl;
+        if (row.state === 'uploaded') return row.current;
+        if (row.field === 'logo_dark') {
+            var light = logoRows.logo;
+            var lightUrl = light && (light.state === 'new' ? light.fileUrl : (light.state === 'uploaded' ? light.current : ''));
+            if (lightUrl) return lightUrl;
+        }
+        return row.fallback;
+    }
+
+    // รูปที่ใช้บนพื้นเข้มจริง: รูปแยก (เปิดสวิตช์และมีรูป) ไม่งั้นโลโก้หลัก ไม่ได้ตั้งเลย = โลโก้ขาวเริ่มต้น
+    function logoDarkEffective() {
+        var dark = logoRows.logo_dark;
+        if (dark && !dark.el.hidden && (dark.state === 'new' || dark.state === 'uploaded')) return logoEffective(dark);
+        return dark ? logoEffective(Object.assign({}, dark, { state: 'same' })) : logoEffective(logoRows.logo);
+    }
+
+    function logoRender(row) {
+        if (row.field === 'logo_dark' && row.state === 'default') row.state = 'same';
+        row.el.dataset.state = row.state;
+        row.preview.src = logoEffective(row);
+        row.stateEl.textContent = logoText[row.state] || '';
+        row.stateEl.className = 'ss-logo-state is-' + row.state;
+        row.uploadText.textContent = (row.current || row.state === 'new') ? logoBtnText.change : logoBtnText.upload;
+        row.recrop.hidden = !(row.state === 'new' && row.source);
+        // ช่องรูปแยกพื้นเข้ม: เลิกใช้ด้วยการปิดสวิตช์ ไม่มีปุ่ม "ใช้โลโก้เริ่มต้น"
+        row.remove.hidden = row.field === 'logo_dark' || !(row.state === 'uploaded' || (row.state === 'new' && row.current));
+        row.undo.hidden = !(row.state === 'new' || row.state === 'removing');
+        row.removeInput.value = row.state === 'removing' ? '1' : '0';
+        if (row.field === 'logo' && logoRows.logo_dark) logoRender(logoRows.logo_dark);
+        if (logoRows.logo && logoRows.logo.previewDark) logoRows.logo.previewDark.src = logoDarkEffective();
+    }
+
+    function logoSetFile(row, file) {
+        var dt = new DataTransfer();
+        if (file) dt.items.add(file);
+        row.input.files = dt.files;
+        if (row.fileUrl && (!file || file !== row.file)) URL.revokeObjectURL(row.fileUrl);
+        if (file !== row.file || !row.fileUrl) row.fileUrl = file ? URL.createObjectURL(file) : '';
+        row.file = file;
+    }
+
+    // ── กล่องครอบรูป ──
+    var cropModalEl = document.getElementById('ssLogoCrop');
+    var cropImg = document.getElementById('ssLogoCropImg');
+    var cropPrevLight = document.getElementById('ssLogoCropPrevLight');
+    var cropPrevDark = document.getElementById('ssLogoCropPrevDark');
+    var cropTrimBtn = document.getElementById('ssLogoCropTrim');
+    var cropper = null, cropRow = null, cropApplied = false, cropTrim = null, cropTimer = null;
+
+    function cropFail(msg) {
+        Swal.fire({ icon: 'warning', text: msg, confirmButtonColor: 'var(--pri)' });
+    }
+
+    // กรอบที่ตัดขอบโปร่งใสรอบโลโก้ออก (คำนวณจากรูปย่อไม่เกิน 600px เพื่อความเร็ว) - ไม่มีขอบโปร่งใส = null
+    function cropTrimBox(img) {
+        var scale = Math.min(1, 600 / Math.max(img.naturalWidth, img.naturalHeight));
+        var w = Math.max(1, Math.round(img.naturalWidth * scale)), h = Math.max(1, Math.round(img.naturalHeight * scale));
+        var c = document.createElement('canvas'); c.width = w; c.height = h;
+        var ctx = c.getContext('2d'); ctx.drawImage(img, 0, 0, w, h);
+        var d; try { d = ctx.getImageData(0, 0, w, h).data; } catch (e) { return null; }
+        var minX = w, minY = h, maxX = -1, maxY = -1;
+        for (var y = 0; y < h; y++) {
+            for (var x = 0; x < w; x++) {
+                if (d[(y * w + x) * 4 + 3] > 12) {
+                    if (x < minX) minX = x;
+                    if (x > maxX) maxX = x;
+                    if (y < minY) minY = y;
+                    if (y > maxY) maxY = y;
+                }
+            }
+        }
+        if (maxX < 0 || (minX === 0 && minY === 0 && maxX === w - 1 && maxY === h - 1)) return null;
+        var pad = 2;
+        return {
+            x: Math.max(0, (minX - pad) / scale), y: Math.max(0, (minY - pad) / scale),
+            width: Math.min(img.naturalWidth, (maxX - minX + 1 + pad * 2) / scale),
+            height: Math.min(img.naturalHeight, (maxY - minY + 1 + pad * 2) / scale),
+        };
+    }
+
+    function cropPreview() {
+        clearTimeout(cropTimer);
+        cropTimer = setTimeout(function () {
+            if (!cropper) return;
+            var canvas = cropper.getCroppedCanvas({ maxWidth: 400, maxHeight: 120 });
+            if (!canvas) return;
+            var url = canvas.toDataURL('image/png');
+            cropPrevLight.src = url;
+            cropPrevDark.src = url;
+        }, 80);
+    }
+
+    function cropOpen(row, file) {
+        if (LOGO_TYPES.indexOf(file.type) < 0) {
+            logoSetFile(row, row.file);
+            cropFail(cropText.bad_type);
+            return;
+        }
+        cropRow = row;
+        cropApplied = false;
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            cropImg.onerror = function () { logoSetFile(row, row.file); cropRow = null; cropFail(cropText.failed); };
+            cropImg.onload = function () {
+                cropTrim = cropTrimBox(cropImg);
+                cropTrimBtn.disabled = !cropTrim;
+                bootstrap.Modal.getOrCreateInstance(cropModalEl).show();
+            };
+            cropImg.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    cropModalEl.addEventListener('shown.bs.modal', function () {
+        if (cropper) cropper.destroy();
+        cropper = new Cropper(cropImg, {
+            viewMode: 1, autoCropArea: 1, background: true, dragMode: 'move', toggleDragModeOnDblclick: false,
+            ready: function () { if (cropTrim) cropper.setData(cropTrim); cropPreview(); },
+            crop: cropPreview,
+        });
+    });
+    cropModalEl.addEventListener('hidden.bs.modal', function () {
+        if (cropper) { cropper.destroy(); cropper = null; }
+        // ปิดกล่องโดยไม่กด "ใช้รูปนี้" = คืนไฟล์เดิมของช่อง (รูปที่ครอบไว้ก่อนหน้า หรือว่าง)
+        if (cropRow && !cropApplied) logoSetFile(cropRow, cropRow.file);
+        // คืนโฟกัสให้ปุ่มของช่องนั้นโดยไม่เลื่อนหน้า + ล้างรูปต้นฉบับ (รูปใหญ่ค้างในหน่วยความจำ)
+        if (cropRow) (cropRow.recrop.hidden ? cropRow.uploadBtn : cropRow.recrop).focus({ preventScroll: true });
+        cropImg.removeAttribute('src');
+        cropRow = null;
+    });
+    cropTrimBtn.addEventListener('click', function () { if (cropper && cropTrim) cropper.setData(cropTrim); });
+    document.getElementById('ssLogoCropFull').addEventListener('click', function () {
+        if (!cropper) return;
+        var img = cropper.getImageData();
+        cropper.setData({ x: 0, y: 0, width: img.naturalWidth, height: img.naturalHeight });
+    });
+    document.getElementById('ssLogoCropApply').addEventListener('click', function () {
+        if (!cropper || !cropRow) return;
+        var row = cropRow, btn = this;
+        // ผลลัพธ์เป็น PNG (คงพื้นโปร่งใส) ไม่เกิน 800 x 240 px - หัวแถบแสดงสูง 38px จึงคมพอแม้จอความละเอียดสูง
+        var canvas = cropper.getCroppedCanvas({ maxWidth: 800, maxHeight: 240, imageSmoothingEnabled: true, imageSmoothingQuality: 'high' });
+        btn.disabled = true;
+        canvas.toBlob(function (blob) {
+            btn.disabled = false;
+            if (!blob) { cropFail(cropText.failed); return; }
+            if (blob.size > LOGO_MAX_BYTES) { cropFail(cropText.too_big); return; }
+            logoSetFile(row, new File([blob], row.field + '.png', { type: 'image/png' }));
+            row.state = 'new';
+            cropApplied = true;
+            logoRender(row);
+            bootstrap.Modal.getOrCreateInstance(cropModalEl).hide();
+        }, 'image/png');
+    });
+
+    document.querySelectorAll('.ss-logo-row').forEach(function (el) {
+        var row = logoRow(el);
+        row.uploadBtn.addEventListener('click', function () { row.input.click(); });
+        row.input.addEventListener('change', function () {
+            var file = row.input.files[0];
+            if (!file) { logoSetFile(row, row.file); return; }
+            row.source = file;
+            cropOpen(row, file);
+        });
+        row.recrop.addEventListener('click', function () { if (row.source) cropOpen(row, row.source); });
+        row.remove.addEventListener('click', function () { logoSetFile(row, null); row.source = null; row.state = 'removing'; logoRender(row); });
+        row.undo.addEventListener('click', function () { logoSetFile(row, null); row.source = null; row.state = row.original; logoRender(row); });
+    });
+    // สวิตช์ "ใช้รูปแยกสำหรับพื้นเข้ม": ปิด = ซ่อนช่องอัปโหลดที่สอง (มีรูปแยกที่บันทึกไว้ = ลบเมื่อกดบันทึก) / เปิดกลับ = ใช้รูปเดิม
+    var darkToggle = document.getElementById('ssLogoDarkToggle');
+    if (darkToggle && logoRows.logo_dark) {
+        darkToggle.addEventListener('change', function () {
+            var d = logoRows.logo_dark;
+            d.el.hidden = !darkToggle.checked;
+            logoSetFile(d, null);
+            d.source = null;
+            d.state = darkToggle.checked ? d.original : (d.original === 'uploaded' ? 'removing' : 'same');
+            logoRender(d);
+        });
+    }
+    Object.keys(logoRows).forEach(function (k) { logoRender(logoRows[k]); });
+
+    // ธีม: select กับจุดสีเป็นค่าเดียวกัน + เปลี่ยนสีหน้านี้ให้ดูตัวอย่างทันที
+    var themeSelect = document.getElementById('theme');
+    var swatches = document.querySelectorAll('.ss-swatch');
+    function applyTheme() {
+        var opt = themeSelect.options[themeSelect.selectedIndex];
+        var root = document.documentElement.style;
+        root.setProperty('--pri', opt.dataset.color);
+        root.setProperty('--pri-hover', opt.dataset.hover);
+        root.setProperty('--sb-active', 'rgba(' + opt.dataset.rgb + ', .25)');
+        swatches.forEach(function (sw) {
+            var on = sw.dataset.theme === themeSelect.value;
+            sw.classList.toggle('is-active', on);
+            sw.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+    }
+    themeSelect.addEventListener('change', applyTheme);
+    swatches.forEach(function (sw) {
+        sw.addEventListener('click', function () {
+            themeSelect.value = sw.dataset.theme;
+            applyTheme();
+        });
+    });
+
+    // ข้อความปิดปรับปรุง แสดงเมื่อเปิดโหมดบำรุงรักษา
+    var maintenance = document.getElementById('opt_maintenance');
+    var maintenanceBox = document.getElementById('ss_maintenance_box');
+    maintenance.addEventListener('change', function () {
+        maintenanceBox.hidden = !maintenance.checked;
+        if (maintenance.checked) document.getElementById('maintenance_message').focus();
+    });
+
+    
+    // ── เครื่องมือผู้ดูแลระบบ ──
+    function resultHtml(items) {
+        if (!items || !items.length) return '';
+        return '<ul class="ss-swal-list">' + items.map(function (it) {
+            return '<li class="' + (it.ok ? 'is-ok' : 'is-warn') + '"><span>' + esc(it.label) + '</span><strong>' + esc(it.value) + '</strong></li>';
+        }).join('') + '</ul>';
+    }
+
+    function runTool(btn) {
+        Preloader.show();
+        post(btn.dataset.url).then(function (res) {
+            Preloader.hide();
+            return Swal.fire({ icon: res.ok ? 'success' : 'warning', title: res.message, html: resultHtml(res.items), confirmButtonColor: 'var(--pri)' })
+                .then(function () { if (btn.dataset.tool === 'reset' && res.ok) { Preloader.show(); location.reload(); } });
+        }).catch(function (err) {
+            Preloader.hide();
+            Swal.fire({ icon: 'error', title: (err && err.message) || text.failed });
+        });
+    }
+
+    document.querySelectorAll('.ss-tool').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            if (btn.dataset.confirm !== '1') { runTool(btn); return; }
+            Swal.fire({
+                title: btn.dataset.label,
+                text: btn.dataset.confirmText,
+                icon: btn.classList.contains('is-danger') ? 'warning' : 'question',
+                showCancelButton: true,
+                confirmButtonText: text.confirm,
+                cancelButtonText: text.cancel,
+                confirmButtonColor: btn.classList.contains('is-danger') ? '#d33' : 'var(--pri)',
+                cancelButtonColor: '#6c757d'
+            }).then(function (r) { if (r.isConfirmed) runTool(btn); });
+        });
+    });
+
+    
+    // ── ตรวจการเชื่อมต่อ: ทีละระบบ (ยิงพร้อมกันหลายตัวอาจแย่ง PHP worker ของเซิร์ฟเวอร์เดียวกันจนค้าง) ──
+    var connBtn = document.getElementById('ss_conn_check');
+    function setStatus(row, state, message) {
+        var el = row.querySelector('[data-status]');
+        var icon = { checking: 'fa-solid fa-spinner fa-spin', ok: 'fa-solid fa-circle-check', fail: 'fa-solid fa-circle-xmark' }[state];
+        el.className = 'ss-conn-status is-' + state;
+        el.innerHTML = '<i class="' + icon + '" aria-hidden="true"></i> ' + esc(message);
+    }
+    function checkConnections() {
+        var rows = Array.prototype.slice.call(document.querySelectorAll('.ss-conn'));
+        connBtn.disabled = true;
+        rows.forEach(function (row) { setStatus(row, 'checking', text.checking); });
+        rows.reduce(function (chain, row) {
+            return chain.then(function () {
+                return post(urls.connection, { key: row.dataset.conn })
+                    .then(function (res) { setStatus(row, res.ok ? 'ok' : 'fail', res.message); })
+                    .catch(function (err) { setStatus(row, 'fail', (err && err.message) || text.failed); });
+            });
+        }, Promise.resolve()).then(function () { connBtn.disabled = false; });
+    }
+    connBtn.addEventListener('click', checkConnections);
+})();
+</script>
+<script src="/_shared/inline/fc839f8fc1f6a789.js"></script>
+
+</body>
+</html>

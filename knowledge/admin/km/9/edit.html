@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><script>window.__DEMO={"sys": "knowledge", "path": "/admin/km/9/edit", "landing": false, "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-knowledge.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แก้ไขเนื้อหา | MRTA Learning Center</title>
+    <script>
+        (function(){var m=document.cookie.match(/adminkit_theme=([^;]+)/);if(m)document.documentElement.setAttribute('data-bs-theme',m[1]);})();
+    </script>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778367" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/components.css?v=1792130115" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/sidebar-mrta.css?v=1792640349" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/img-pick.css?v=1792125175" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/knowledge/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/_shared/a/back/theme_metronic/image/sidebar/logo.svg" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    
+    <div class="nav-item">
+    <a href="/knowledge/admin" class="nav-link  startpreload">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span>ภาพรวม</span>
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/knowledge/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+<div class="nav-heading mt-2">KNOWLEDGE</div>
+
+<div class="nav-item">
+    <a href="/knowledge/admin/km" class="nav-link active startpreload">
+        <i class="fa-solid fa-book-open-reader"></i>
+        <span>เนื้อหา</span>
+            </a>
+</div>
+<div class="nav-item">
+    <a href="/knowledge/admin/km/category" class="nav-link  startpreload">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>หมวดหมู่</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    <a href="/knowledge/admin/km/comment" class="nav-link  startpreload">
+        <i class="fa-regular fa-comments"></i>
+        <span>ความคิดเห็น</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">SETTING</div>
+<div class="nav-item">
+    <a href="/knowledge/admin/setting/knowledge" class="nav-link  startpreload">
+        <i class="fa-solid fa-sliders"></i>
+        <span>ตั้งค่า Knowledge Center</span>
+    </a>
+</div>
+    
+    <div class="nav-heading mt-2">AUDIT</div>
+<div class="nav-item">
+    <a href="/knowledge/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+    
+</nav>
+    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <link rel="stylesheet" href="/_shared/inline/cfcd662ce6b1c449.css">
+<header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ 22 ตุลาคม, 2026 17:38:17</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/knowledge/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        
+
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/portal/admin">
+                    <i class="fa-solid fa-globe" style="width:16px;color:var(--text-2);"></i> Portal
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;"></i> Knowledge Center
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/knowledge/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title">    <i class="fa-solid fa-book-open-reader"></i> Knowledge Center
+</div>
+            <div class="d-flex gap-2">
+                            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="card">
+            <div class="card-header">
+                <h5>    <i class="fa-solid fa-pen-to-square"></i> แก้ไขเนื้อหา
+</h5>
+                <div class="d-flex gap-1">
+    <a href="/knowledge/admin/km" class="btn btn-sm btn-light startpreload"><i class="fa-solid fa-arrow-left"></i> กลับ</a>
+            <a href="/knowledge/contents/9" class="btn btn-sm btn-outline-primary" target="_blank" rel="noopener">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> ดูหน้าเว็บ
+        </a>
+        <button type="submit" form="frm_km" class="btn btn-sm btn-primary"><i class="fa-solid fa-floppy-disk"></i> บันทึก</button>
+</div>
+            </div>
+            <div class="card-body">
+                
+
+<form id="frm_km" method="POST" enctype="multipart/form-data"
+      action="/knowledge/admin/km/9/update">
+    <input type="hidden" name="_token" value="demo-token" autocomplete="off">    <div class="row g-4">
+        
+        <div class="col-lg-8">
+            <div class="mb-3">
+                <label class="form-label fw-semibold d-block"><span class="text-danger">*</span> ประเภท</label>
+                <div class="d-flex flex-wrap gap-2" role="radiogroup">
+                                            <input type="radio" class="btn-check" name="type" id="type_article" value="article" autocomplete="off" >
+                        <label class="btn btn-sm btn-outline-primary" for="type_article"><i class="fa-regular fa-newspaper"></i> บทความ</label>
+                                            <input type="radio" class="btn-check" name="type" id="type_document" value="document" autocomplete="off" >
+                        <label class="btn btn-sm btn-outline-primary" for="type_document"><i class="fa-regular fa-file-lines"></i> เอกสารวิชาการ</label>
+                                            <input type="radio" class="btn-check" name="type" id="type_infographic" value="infographic" autocomplete="off" >
+                        <label class="btn btn-sm btn-outline-primary" for="type_infographic"><i class="fa-solid fa-chart-pie"></i> Infographic</label>
+                                            <input type="radio" class="btn-check" name="type" id="type_video" value="video" autocomplete="off" checked>
+                        <label class="btn btn-sm btn-outline-primary" for="type_video"><i class="fa-solid fa-play"></i> วิดีโอ</label>
+                                    </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold" for="title"><span class="text-danger">*</span> ชื่อเรื่อง</label>
+                <input type="text" class="form-control " id="title" name="title"
+                       value="วิดีโอ: การอพยพผู้โดยสารจากขบวนรถในอุโมงค์" maxlength="255" required autocomplete="off">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold" for="excerpt">คำโปรย</label>
+                <textarea class="form-control " id="excerpt" name="excerpt" rows="3" maxlength="1000"
+                          placeholder="สรุปสั้น ๆ 1-2 ประโยค แสดงบนการ์ดไฮไลท์และใต้ชื่อเรื่องในหน้ารายละเอียด">สาธิตขั้นตอนการอพยพอย่างปลอดภัยเมื่อขบวนรถหยุดค้างระหว่างสถานี</textarea>
+                <div class="form-text">ไม่กรอก = ตัดจากตอนต้นของเนื้อหาให้อัตโนมัติ</div>
+            </div>
+
+            <div class="mb-3" data-km-type="video">
+                <label class="form-label fw-semibold" for="video_url"><span class="text-danger">*</span> ลิงก์วิดีโอ</label>
+                <input type="url" class="form-control " id="video_url" name="video_url"
+                       value="" maxlength="500" placeholder="https://www.youtube.com/watch?v=..." autocomplete="off">
+                <div class="form-text">YouTube / Vimeo / Google Drive / Facebook - วางลิงก์ที่ก๊อปจากปุ่มแชร์ได้เลย ระบบแปลงเป็นลิงก์ฝังให้เอง (ไม่ใส่รูปปก = ใช้ภาพตัวอย่างของ YouTube)</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold" for="body">เนื้อหา</label>
+                <textarea id="body" name="body">&lt;p&gt;สาธิตขั้นตอนการอพยพอย่างปลอดภัยเมื่อขบวนรถหยุดค้างระหว่างสถานี&lt;/p&gt;&lt;p&gt;การทำงานในพื้นที่ระบบรางมีความเสี่ยงสูง ทุกขั้นตอนจึงต้องยึดมาตรฐานความปลอดภัยอย่างเคร่งครัด ตั้งแต่การขออนุญาตเข้าพื้นที่ การตัดกระแสไฟฟ้า ไปจนถึงการสื่อสารกับศูนย์ควบคุมการเดินรถ&lt;/p&gt;&lt;h3&gt;ประเด็นสำคัญ&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;ทำความเข้าใจหลักการและเหตุผลก่อนลงมือปฏิบัติ&lt;/li&gt;&lt;li&gt;ปฏิบัติตามขั้นตอนมาตรฐานและบันทึกผลทุกครั้ง&lt;/li&gt;&lt;li&gt;แลกเปลี่ยนประสบการณ์กับทีมเพื่อพัฒนาวิธีทำงานอย่างต่อเนื่อง&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;เนื้อหานี้จัดทำขึ้นเพื่อเป็นแหล่งเรียนรู้ภายในองค์กร ผู้อ่านสามารถแสดงความคิดเห็นหรือแชร์ประสบการณ์เพิ่มเติมได้ท้ายบทความ&lt;/p&gt;</textarea>
+            </div>
+        </div>
+
+        
+        <div class="col-lg-4">
+            <style>
+    .wf-steps{display:flex;gap:4px;margin:2px 0 12px;}
+    .wf-step{flex:1;text-align:center;font-size:11px;color:var(--text-3,#9aa0ac);}
+    .wf-step .bar{height:4px;border-radius:2px;background:var(--border,#e3e6f0);margin-bottom:4px;}
+    .wf-step.done .bar{background:var(--success,#1cc88a);}
+    .wf-step.now .bar{background:var(--pri,#4e73df);}
+    .wf-step.now{color:var(--text-1,#333);font-weight:600;}
+    .wf-note{background:var(--surface-1,rgba(0,0,0,.03));border-left:3px solid var(--warning,#f6c23e);border-radius:4px;padding:8px 10px;font-size:12.5px;}
+    .wf-note.is-reject{border-left-color:var(--danger,#e74a3b);}
+</style>
+<div class="border rounded p-3 mb-3" id="wf_panel">
+    <div class="d-flex justify-content-between align-items-center mb-2 gap-2">
+        <span class="fw-semibold" style="font-size:14px;"><i class="fa-solid fa-diagram-project text-primary"></i> ขั้นตอนอนุมัติ</span>
+                    <a href="/knowledge/admin/km/9/history" class="startpreload text-decoration-none" style="font-size:12.5px;">
+                <i class="fa-solid fa-clock-rotate-left"></i> ประวัติการแก้ไข
+            </a>
+            </div>
+
+    <div class="wf-steps" aria-hidden="true">
+                    <div class="wf-step done ">
+                <div class="bar"></div>ฉบับร่าง
+            </div>
+                    <div class="wf-step done ">
+                <div class="bar"></div>รอตรวจ
+            </div>
+                    <div class="wf-step done ">
+                <div class="bar"></div>อนุมัติแล้ว
+            </div>
+                    <div class="wf-step  now">
+                <div class="bar"></div>เผยแพร่
+            </div>
+            </div>
+
+    <div class="d-flex align-items-center gap-2 flex-wrap mb-2">
+        <span class="text-muted" style="font-size:12.5px;">สถานะปัจจุบัน</span>
+        <span class="badge rounded-pill text-bg-success " style="font-weight:500;"><i class="fa-solid fa-globe"></i> เผยแพร่</span>
+    </div>
+    <div class="text-muted mb-2" style="font-size:12px;">แสดงบนหน้าเว็บ (ตามวันเวลาเผยแพร่)</div>
+
+    
+            <div class="d-flex flex-wrap gap-1 mt-2">
+                                            <button type="button" class="btn btn-sm btn-outline-dark" data-wf-action="archive" onclick="wfAction(this)">
+                    <i class="fa-solid fa-box-archive"></i> เก็บถาวร
+                </button>
+                    </div>
+    
+    </div>
+
+
+            <div class="border rounded p-3 mb-3">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold" for="status">สถานะ</label>
+        <select class="form-select" id="status" name="status">
+                    <option value="0" >ฉบับร่าง</option>
+                    <option value="2" >รอตรวจ</option>
+                    <option value="3" >อนุมัติแล้ว</option>
+                    <option value="1" selected>เผยแพร่</option>
+                    <option value="4" >เก็บถาวร</option>
+            </select>
+    <div class="form-text">ผู้อนุมัติเลือกสถานะได้โดยตรง - หน้าเว็บแสดงเฉพาะ &quot;เผยแพร่&quot;</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold" for="published_at"><span class="text-danger">*</span> วันเวลาเผยแพร่</label>
+                    <input type="text" class="form-control " id="published_at" name="published_at"
+                           value="2026-09-30 11:14" placeholder="YYYY-MM-DD HH:MM" required autocomplete="off">
+                    <div class="form-text">ตั้งเป็นเวลาในอนาคต = เนื้อหาจะขึ้นหน้าเว็บเองเมื่อถึงเวลา</div>
+                </div>
+
+                <div class="form-check form-switch mb-0">
+                    <input type="hidden" name="is_highlight" value="0">
+                    <input class="form-check-input" type="checkbox" role="switch" id="is_highlight" name="is_highlight" value="1"
+                           >
+                    <label class="form-check-label" for="is_highlight">
+                        <i class="fa-solid fa-star text-warning"></i> ไฮไลท์ประจำเดือน
+                        <span class="d-block text-muted" style="font-size:12px;">สไลด์บนหน้าแรก - ไม่ได้ปักเลยสักรายการ ระบบใช้เนื้อหายอดนิยม 30 วันล่าสุดแทน</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold" for="km_category_id">หมวดหมู่</label>
+                <select class="form-select " id="km_category_id" name="km_category_id">
+                    <option value="">- ไม่มีหมวด -</option>
+                                            <option value="1" selected>
+                            ความปลอดภัยในระบบราง
+                        </option>
+                                            <option value="2" >
+                            วิศวกรรมและการบำรุงรักษา
+                        </option>
+                                            <option value="3" >
+                            การบริการผู้โดยสาร
+                        </option>
+                                            <option value="4" >
+                            การบริหารโครงการก่อสร้าง
+                        </option>
+                                            <option value="5" >
+                            เทคโนโลยีและนวัตกรรม
+                        </option>
+                                            <option value="6" >
+                            สิ่งแวดล้อมและชุมชน
+                        </option>
+                                    </select>
+                <div class="form-text"><a href="/knowledge/admin/km/category" target="_blank" rel="noopener">จัดการหมวดหมู่</a></div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold" for="tags">แท็ก</label>
+                <input type="text" class="form-control " id="tags" name="tags"
+                       value="ความปลอดภัย, เหตุฉุกเฉิน, อพยพ" maxlength="500" placeholder="เช่น ความปลอดภัย, BIM" autocomplete="off">
+                <div class="form-text">คั่นด้วยจุลภาค ( , ) ไม่เกิน 10 แท็ก - แท็กที่ใช้บ่อยขึ้นเป็น "แท็กยอดนิยม" บนหน้าเว็บ</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold" for="cover">รูปปก</label>
+                
+                <div>
+                    <div class="img-pick-wrap is-empty" data-img-pick>
+                        <img id="cover_preview" class="img-fluid rounded border" alt=""  style="max-height:200px;"
+                             onerror="this.closest('.img-pick-wrap').classList.add('is-empty')">
+                        <span class="img-pick-empty" style="width:320px;max-width:100%;height:auto;aspect-ratio:16/10;"><i class="fa-regular fa-image"></i>คลิกหรือลากรูปมาวาง</span>
+                        <input type="file" class="img-pick-input" tabindex="-1" id="cover" name="cover" accept="image/jpeg,image/png,image/webp,image/bmp">
+                        <span class="img-pick-hover" aria-hidden="true">คลิกหรือลากรูปมาวาง</span>
+<button type="button" class="img-pick-cam" title="เปลี่ยนรูปภาพ" aria-label="เปลี่ยนรูปภาพ">
+    <i class="fa-solid fa-camera" aria-hidden="true"></i>
+</button>
+                    </div>
+                </div>
+                                
+                <div class="form-text">jpg / png / webp / bmp ไม่เกิน 5 MB - แนะนำแนวนอน 16:10 (เช่น 1280 × 800)</div>
+                            </div>
+
+            <div class="mb-3" data-km-type="article document infographic">
+                <label class="form-label fw-semibold" for="file">ไฟล์แนบ</label>
+                <input type="file" class="form-control " id="file" name="file"
+                       accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.zip,.rar">
+                <div class="form-text">pdf / doc / docx / xls / xlsx / ppt / pptx / zip / rar ไม่เกิน 50 MB - มีปุ่มดาวน์โหลดในหน้ารายละเอียด</div>
+                            </div>
+
+                            <div class="border rounded p-3 mb-3" style="font-size:13px;">
+                    <div class="fw-semibold mb-2">สถิติ</div>
+                    <div class="row g-2 text-center mb-2">
+                        <div class="col-3"><div class="fw-bold">878</div><div class="text-muted">เข้าชม</div></div>
+                        <div class="col-3"><div class="fw-bold">2</div><div class="text-muted">ไลค์</div></div>
+                        <div class="col-3"><div class="fw-bold">0</div><div class="text-muted">ความคิดเห็น</div></div>
+                        <div class="col-3"><div class="fw-bold">5</div><div class="text-muted">คนแชร์</div></div>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="/knowledge/admin/km/9/engagement" class="btn btn-sm btn-light startpreload"><i class="fa-regular fa-thumbs-up"></i> ผู้กดไลค์ / การแชร์</a>
+                        <a href="/knowledge/admin/km/comment?content=9" class="btn btn-sm btn-light startpreload"><i class="fa-regular fa-comment"></i> ความคิดเห็น</a>
+                    </div>
+                    <hr class="my-2">
+                    <div class="text-muted">
+                        สร้าง 30 ก.ย. 2569 11:14
+                        
+                         โดย Piyanuch                         <br>อัปเดต 30 ก.ย. 2569 11:14
+                         โดย Piyanuch                     </div>
+                </div>
+                    </div>
+    </div>
+</form>
+            </div>
+        </div>
+
+            </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    $.extend(true, $.fn.dataTable.defaults, { language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."} });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+<script src="/_shared/inline/e7d005b618ca7beb.js"></script>
+
+
+<script src="/_shared/inline/73f5d66d14dcf0ca.js"></script>
+
+<link rel="stylesheet" href="/_shared/a/back/collab/collab.css?v=1792128177">
+    <script>
+        window.MRTA_COLLAB = {"mode":"edit","system":"knowledge","key":"knowledge:admin.km.edit:9","channel":"presence-collab.46ab0e3bfd3a61fd7bcc34ef","index":"presence-collab-index.knowledge","openedAt":1792665497,"path":"\/admin\/km\/9\/edit","me":{"id":120,"name":"Piyanuch Panyadee","initials":"R","color":"#e11d48"},"ws":{"key":"demo","host":"ws.demo.invalid","port":8080,"tls":false},"authUrl":"\/knowledge\/admin\/collab\/auth","checkUrl":"\/knowledge\/admin\/collab\/check","text":{"here_one":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","here_many":":name \u0e41\u0e25\u0e30\u0e2d\u0e35\u0e01 :n \u0e04\u0e19 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","alone":"\u0e21\u0e35\u0e04\u0e38\u0e13\u0e04\u0e19\u0e40\u0e14\u0e35\u0e22\u0e27\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","joined":":name \u0e40\u0e02\u0e49\u0e32\u0e21\u0e32\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","left":":name \u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27","editing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49","typing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u2026","saved_banner":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27 \u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19.","reload":"\u0e42\u0e2b\u0e25\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14","conflict_title":"\u0e21\u0e35\u0e04\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e1b\u0e41\u0e25\u0e49\u0e27","conflict_text":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19. \u0e2b\u0e25\u0e31\u0e07\u0e08\u0e32\u0e01\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32 \u0e16\u0e49\u0e32\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e15\u0e48\u0e2d \u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48 :name \u0e41\u0e01\u0e49\u0e43\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27\u0e01\u0e31\u0e19\u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e02\u0e35\u0e22\u0e19\u0e17\u0e31\u0e1a","overwrite":"\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","row_editing":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49\u0e44\u0e02\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49","offline":"\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e41\u0e1a\u0e1a real-time \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e22\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e1b\u0e01\u0e15\u0e34 \u0e41\u0e25\u0e30\u0e23\u0e30\u0e1a\u0e1a\u0e22\u0e31\u0e07\u0e01\u0e31\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a\u0e43\u0e2b\u0e49"},"conflict":null};
+    </script>
+    <script src="/_shared/a/back/collab/pusher.min.js"></script>
+    <script src="/_shared/a/back/collab/collab.js?v=1792128554"></script>
+
+
+
+
+<form id="wf_action_form" method="POST" action="/knowledge/admin/km/9/workflow" class="d-none">
+    <input type="hidden" name="_token" value="demo-token" autocomplete="off">    <input type="hidden" name="transition" value="">
+    <input type="hidden" name="note" value="">
+</form>
+<script src="/_shared/inline/16bb48795b87798d.js"></script>
+<script src="/_shared/inline/8cb1009efe25b77d.js"></script>
+<script>
+$(function () {
+    if (window.flatpickr) {
+        flatpickr('#published_at', {
+            enableTime: true,
+            time_24hr: true,
+            dateFormat: 'Y-m-d H:i',
+            allowInput: true,
+            locale: (flatpickr.l10ns && flatpickr.l10ns.th) ? 'th' : 'default',
+        });
+    }
+
+    // ช่องที่ใช้กับบางประเภท (ลิงก์วิดีโอ / ไฟล์แนบ) - ซ่อนแค่หน้าตา ค่าที่กรอกไว้ยังส่งไปตามเดิม
+    function syncType() {
+        var type = $('input[name="type"]:checked').val();
+        $('[data-km-type]').each(function () {
+            $(this).prop('hidden', String($(this).data('km-type')).split(' ').indexOf(type) === -1);
+        });
+        $('#video_url').prop('required', type === 'video');
+    }
+    $('input[name="type"]').on('change', syncType);
+    syncType();
+
+    // พรีวิวรูปปกที่เลือก
+    $('#cover').on('change', function () {
+        var file = this.files && this.files[0];
+        if (!file) return;
+        $('#cover_preview').attr('src', URL.createObjectURL(file));
+        $('#remove_cover').prop('checked', false);
+    });
+});
+</script>
+<script>
+    function logout() {
+        event.preventDefault();
+        Swal.fire({
+            title: "\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e23\u0e30\u0e1a\u0e1a?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: "\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e23\u0e30\u0e1a\u0e1a",
+            cancelButtonText: "\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01",
+            confirmButtonColor: '#e74a3b'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#logout_form').submit();
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

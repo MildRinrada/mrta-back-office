@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><script>window.__DEMO={"sys": "booking", "path": "/admin/booking/microsoft", "landing": false, "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-booking.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Bookings | MRTA Learning Center</title>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778367" rel="stylesheet">
+<link href="/booking/back/theme_metronic/css/components.css?v=1792130115" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/sidebar-mrta.css?v=1792640348" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/img-pick.css?v=1792127029" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/booking/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/_shared/a/back/theme_metronic/image/sidebar/logo.svg" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    <div class="nav-item">
+    <a href="/booking/admin/booking/dashboard"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span>ภาพรวม</span>
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/booking/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+<div class="nav-heading">จองเข้าชม</div>
+
+
+<div class="nav-item">
+    <a href="/booking/admin/booking/reservation"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-calendar-check"></i>
+        <span>รายการจองเข้าชม</span>
+    </a>
+</div>
+
+
+<div class="nav-item">
+    <a href="/booking/admin/booking/checkin"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-qrcode"></i>
+        <span>สแกน QR เช็คอิน</span>
+    </a>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-regular fa-clock"></i>
+        <span>ตั้งค่ารอบเข้าชม</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/booking/admin/booking/round" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> รอบเวลาทั้งหมด
+        </a>
+        
+                <a href="/booking/admin/booking/round/create" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรอบเวลา
+        </a>
+        <a href="/booking/admin/booking/closed-date" class="nav-link  startpreload">
+            <i class="fa-regular fa-calendar-xmark"></i> วันปิดทำการ
+        </a>
+        <a href="/booking/admin/booking/microsoft" class="nav-link active startpreload">
+            <i class="fa-brands fa-microsoft"></i> Microsoft Bookings
+        </a>
+            </div>
+</div>
+
+
+<div class="nav-heading mt-2">กิจกรรมพิเศษ</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-star"></i>
+        <span>จัดการกิจกรรม</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/booking/admin/booking/event" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> กิจกรรมทั้งหมด
+        </a>
+                <a href="/booking/admin/booking/event/create" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มกิจกรรม
+        </a>
+        <a href="/booking/admin/booking/event-category" class="nav-link  startpreload">
+            <i class="fa-solid fa-tags"></i> หมวดหมู่กิจกรรม
+        </a>
+                <a href="/booking/admin/booking/registration" class="nav-link  startpreload">
+            <i class="fa-solid fa-users"></i> ผู้ลงทะเบียน
+        </a>
+    </div>
+</div>
+
+
+<div class="nav-heading mt-2">เนื้อหาหน้าเว็บ</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-regular fa-file-lines"></i>
+        <span>เงื่อนไขและวิธีการจอง</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/booking/admin/booking/document" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> เอกสารทั้งหมด
+        </a>
+                <a href="/booking/admin/booking/document/create" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มเอกสาร
+        </a>
+            </div>
+</div>
+    <div class="nav-heading mt-2">SETTING</div>
+<div class="nav-item">
+    <a href="/booking/admin/setting/bookings" class="nav-link  startpreload">
+        <i class="fa-solid fa-sliders"></i>
+        <span>ตั้งค่าระบบจอง</span>
+    </a>
+</div>
+    
+    <div class="nav-heading mt-2">AUDIT</div>
+<div class="nav-item">
+    <a href="/booking/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+    
+</nav>
+    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <link rel="stylesheet" href="/_shared/inline/cfcd662ce6b1c449.css">
+<header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ 22 ตุลาคม, 2026 17:38:14</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/booking/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        <!-- Notification Dropdown
+             เข้าชมวันนี้ / ลงทะเบียนใหม่ = งานของระบบจอง (สิทธิ์ booking.reservation.view)
+             แจ้งเตือน = admin_notifications ของผู้ใช้ทุกระบบในเครือ (Workflow อนุมัติเนื้อหา TOR 3.5.4) - ผู้ใช้หลังบ้านทุกคน -->
+                <div class="dropdown noti-dropdown" id="notiDropdown">
+            <button class="topbar-btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="การแจ้งเตือน">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge-count" id="notiCount" style="display:none;">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end shadow-sm">
+                <div class="header-dropdown justify-content-between">
+                    <span class="header-txt-noti">การแจ้งเตือน</span>
+                    <a href="#" id="notiReadAll" class="text-decoration-none" style="font-size:12px;display:none;">
+                        <i class="fa-solid fa-check-double"></i> อ่านทั้งหมด
+                    </a>
+                </div>
+                <ul class="nav nav-tabs" id="notiTabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="notiTodayTab" data-bs-toggle="tab" data-bs-target="#notiToday" type="button" role="tab">
+                            เข้าชมวันนี้
+                            <span class="badge bg-primary ms-1" id="countToday" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="notiRegisterTab" data-bs-toggle="tab" data-bs-target="#notiRegister" type="button" role="tab">
+                            ลงทะเบียนใหม่
+                            <span class="badge bg-success ms-1" id="countRegister" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                                        <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="notiInboxTab" data-bs-toggle="tab" data-bs-target="#notiInbox" type="button" role="tab">
+                            แจ้งเตือน
+                            <span class="badge bg-warning text-dark ms-1" id="countInbox" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                    
+                </ul>
+                <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="notiToday" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="notiRegister" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                                        <div class="tab-pane fade " id="notiInbox" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/portal/admin">
+                    <i class="fa-solid fa-globe" style="width:16px;color:var(--text-2);"></i> Portal
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;"></i> จองเข้าชม
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/booking/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title">    <i class="fa-brands fa-microsoft"></i> การเชื่อมต่อ Microsoft Bookings
+</div>
+            <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-sm btn-primary" id="btn_test">
+        <i class="fa-solid fa-plug-circle-check"></i> ทดสอบการเชื่อมต่อ
+    </button>
+            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        
+
+    <div class="alert alert-warning">
+        <div class="fw-semibold mb-1"><i class="fa-solid fa-triangle-exclamation me-1"></i> ยังตั้งค่าไม่ครบ</div>
+        <div style="font-size:13px;">
+            ต้องใส่ค่าต่อไปนี้ในไฟล์ <code>.env</code> ของเซิร์ฟเวอร์ก่อน แล้วรัน <code>php artisan config:clear</code>
+            <ul class="mb-0 mt-1">
+                <li>Tenant ID (MS_BOOKINGS_TENANT_ID)</li><li>Client ID (MS_BOOKINGS_CLIENT_ID)</li><li>Client Secret (MS_BOOKINGS_CLIENT_SECRET)</li><li>Booking Business ID (MS_BOOKINGS_BUSINESS_ID)</li>            </ul>
+        </div>
+    </div>
+
+<div class="row g-3 mb-4">
+    
+            <div class="col-sm-6 col-xl-4">
+            <div class="stat-card" style="border-left-color:var(--success);">
+                <div class="stat-icon" style="background:rgba(28,200,138,.1);color:var(--success);">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                    <div class="stat-value">0</div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ซิงก์แล้ว (รายการ)</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-4">
+            <div class="stat-card" style="border-left-color:var(--warning);">
+                <div class="stat-icon" style="background:rgba(246,194,62,.1);color:var(--warning);">
+                    <i class="fa-regular fa-clock"></i>
+                </div>
+                <div>
+                    <div class="stat-value">2</div>
+                    <div style="font-size:12.5px;color:var(--text-2);">รอซิงก์ (รายการ)</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-4">
+            <div class="stat-card" style="border-left-color:var(--danger);">
+                <div class="stat-icon" style="background:rgba(231,74,59,.1);color:var(--danger);">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div>
+                    <div class="stat-value">0</div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ซิงก์ไม่สำเร็จ (รายการ)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row g-3">
+
+    
+    <div class="col-lg-5">
+        <div class="card h-100">
+            <div class="card-header"><h5><i class="fa-solid fa-gear"></i> ค่าที่ตั้งไว้</h5></div>
+            <div class="card-body">
+                <table class="table table-sm mb-0" style="font-size:13px;">
+                    <tbody>
+                        <tr><td class="text-muted" style="width:45%;">Tenant ID</td><td><code>-</code></td></tr>
+                        <tr><td class="text-muted">Client ID</td><td><code>-</code></td></tr>
+                        <tr><td class="text-muted">Client Secret</td><td>ยังไม่ได้ตั้ง</td></tr>
+                        <tr><td class="text-muted">Booking Business ID</td><td><code>-</code></td></tr>
+                        <tr><td class="text-muted">Service เริ่มต้น</td><td><code>(ยังไม่ตั้ง - ต้องผูกรายรอบ/รายกิจกรรมแทน)</code></td></tr>
+                        <tr><td class="text-muted">โซนเวลา</td><td>Asia/Bangkok</td></tr>
+                        <tr><td class="text-muted">อีเมลจาก Bookings</td><td>ปิด</td></tr>
+                        <tr><td class="text-muted">ให้ผู้จองแก้ไขเองได้</td><td>ปิด</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-light border mt-3 mb-0" style="font-size:12.5px;">
+                    <i class="fa-solid fa-shield-halved text-primary me-1"></i>
+                    ค่าเหล่านี้แก้ได้จากไฟล์ <code>.env</code> ของเซิร์ฟเวอร์เท่านั้น
+                    ไม่เปิดให้แก้จากหน้าเว็บ เพราะ client secret ไม่ควรถูกเก็บในฐานข้อมูล
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="col-lg-7">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5><i class="fa-solid fa-plug"></i> ผลการทดสอบการเชื่อมต่อ</h5>
+            </div>
+            <div class="card-body" id="test_result">
+                <div class="text-center py-5 text-muted" style="font-size:13px;">
+                    <i class="fa-solid fa-plug-circle-bolt d-block mx-auto mb-2" style="font-size:24px;"></i>
+                    กดปุ่ม "ทดสอบการเชื่อมต่อ" ด้านบนเพื่อตรวจสอบ credential<br>
+                    และดูรายการ Service ที่มีใน Microsoft Bookings
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fa-solid fa-link"></i> ผูก Service ของ Bookings กับรอบ/กิจกรรม</h5>
+                <span class="text-muted" style="font-size:12px;">ไม่ตั้ง = ใช้ Service เริ่มต้นจาก .env</span>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-light border" style="font-size:13px;">
+                    <i class="fa-solid fa-circle-info text-primary me-1"></i>
+                    หนึ่ง Service ใน Microsoft Bookings คือบริการหนึ่งอย่างที่คนจองได้
+                    ถ้าอยากให้แต่ละรอบเข้าชมหรือแต่ละกิจกรรมแยกกันในปฏิทิน ให้สร้าง Service แยกใน Bookings
+                    แล้วเอา Service ID มาใส่ที่นี่ (กดทดสอบการเชื่อมต่อเพื่อดูรายการ Service ที่มี)
+                </div>
+
+                <h6 class="fw-semibold mt-3">รอบเข้าชม</h6>
+                <div class="table-responsive">
+                    <table class="table table-sm align-middle" style="font-size:13px;">
+                        <thead class="bg-light">
+                            <tr><th style="width:26%;">รอบเวลา</th><th>Microsoft Service ID</th><th style="width:110px;"></th></tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td class="fw-semibold">09:00 - 10:30 น.</td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm js-service"
+                                               data-type="round" data-id="1"
+                                               value="" placeholder="ไม่ตั้ง = ใช้ค่าเริ่มต้น">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-light js-save-service" data-type="round" data-id="1">
+                                            <i class="fa-solid fa-floppy-disk"></i> บันทึก
+                                        </button>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td class="fw-semibold">11:00 - 12:30 น.</td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm js-service"
+                                               data-type="round" data-id="2"
+                                               value="" placeholder="ไม่ตั้ง = ใช้ค่าเริ่มต้น">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-light js-save-service" data-type="round" data-id="2">
+                                            <i class="fa-solid fa-floppy-disk"></i> บันทึก
+                                        </button>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td class="fw-semibold">13:30 - 15:00 น.</td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm js-service"
+                                               data-type="round" data-id="3"
+                                               value="" placeholder="ไม่ตั้ง = ใช้ค่าเริ่มต้น">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-light js-save-service" data-type="round" data-id="3">
+                                            <i class="fa-solid fa-floppy-disk"></i> บันทึก
+                                        </button>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td class="fw-semibold">15:30 - 17:00 น.</td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm js-service"
+                                               data-type="round" data-id="4"
+                                               value="" placeholder="ไม่ตั้ง = ใช้ค่าเริ่มต้น">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-light js-save-service" data-type="round" data-id="4">
+                                            <i class="fa-solid fa-floppy-disk"></i> บันทึก
+                                        </button>
+                                    </td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+
+                <h6 class="fw-semibold mt-4">กิจกรรมพิเศษ</h6>
+                <div class="table-responsive">
+                    <table class="table table-sm align-middle" style="font-size:13px;">
+                        <thead class="bg-light">
+                            <tr><th style="width:26%;">กิจกรรม</th><th>Microsoft Service ID</th><th style="width:110px;"></th></tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td class="fw-semibold">
+                                        อบรมหลักสูตร &quot;การพัฒนาทักษะด้านการสื่อสารในองค์กรยุคใหม่&quot;
+                                        <div class="text-muted" style="font-size:11.5px;">25 กันยายน 2569</div>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm js-service"
+                                               data-type="event" data-id="7"
+                                               value="" placeholder="ไม่ตั้ง = ใช้ค่าเริ่มต้น">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-light js-save-service" data-type="event" data-id="7">
+                                            <i class="fa-solid fa-floppy-disk"></i> บันทึก
+                                        </button>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td class="fw-semibold">
+                                        อบรมหลักสูตร &quot;การพัฒนาภาวะผู้นำในยุคดิจิทัล&quot;
+                                        <div class="text-muted" style="font-size:11.5px;">15 ตุลาคม 2569</div>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm js-service"
+                                               data-type="event" data-id="8"
+                                               value="" placeholder="ไม่ตั้ง = ใช้ค่าเริ่มต้น">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-light js-save-service" data-type="event" data-id="8">
+                                            <i class="fa-solid fa-floppy-disk"></i> บันทึก
+                                        </button>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td class="fw-semibold">
+                                        อบรมหลักสูตร &quot;การวิเคราะห์ข้อมูลเชิงลึกด้วยเครื่องมือสมัยใหม่&quot;
+                                        <div class="text-muted" style="font-size:11.5px;">22 พฤศจิกายน 2569</div>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control form-control-sm js-service"
+                                               data-type="event" data-id="9"
+                                               value="" placeholder="ไม่ตั้ง = ใช้ค่าเริ่มต้น">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-light js-save-service" data-type="event" data-id="9">
+                                            <i class="fa-solid fa-floppy-disk"></i> บันทึก
+                                        </button>
+                                    </td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fa-solid fa-triangle-exclamation"></i> รายการที่ซิงก์ไม่สำเร็จ</h5>
+                            </div>
+            <div class="card-body p-0">
+                                    <div class="text-center py-5 text-muted" style="font-size:13px;">
+                        <i class="fa-solid fa-circle-check d-block mx-auto mb-2" style="font-size:24px;color:var(--success);"></i>
+                        ไม่มีรายการค้าง ทุกใบซิงก์เรียบร้อย
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+</div>
+    </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    $.extend(true, $.fn.dataTable.defaults, { language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."} });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+<script src="/_shared/inline/2dda5ae9c3598f75.js"></script>
+
+
+<script src="/_shared/inline/73f5d66d14dcf0ca.js"></script>
+
+
+<link rel="stylesheet" href="/_shared/a/back/collab/collab.css?v=1792128177">
+    <script>
+        window.MRTA_COLLAB = {"mode":"index","system":"booking","key":null,"channel":null,"index":"presence-collab-index.booking","openedAt":1792665494,"path":"\/admin\/booking\/microsoft","me":{"id":120,"name":"Piyanuch Panyadee","initials":"R","color":"#e11d48"},"ws":{"key":"demo","host":"ws.demo.invalid","port":8080,"tls":false},"authUrl":"\/booking\/admin\/collab\/auth","checkUrl":"\/booking\/admin\/collab\/check","text":{"here_one":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","here_many":":name \u0e41\u0e25\u0e30\u0e2d\u0e35\u0e01 :n \u0e04\u0e19 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","alone":"\u0e21\u0e35\u0e04\u0e38\u0e13\u0e04\u0e19\u0e40\u0e14\u0e35\u0e22\u0e27\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","joined":":name \u0e40\u0e02\u0e49\u0e32\u0e21\u0e32\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","left":":name \u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27","editing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49","typing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u2026","saved_banner":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27 \u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19.","reload":"\u0e42\u0e2b\u0e25\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14","conflict_title":"\u0e21\u0e35\u0e04\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e1b\u0e41\u0e25\u0e49\u0e27","conflict_text":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19. \u0e2b\u0e25\u0e31\u0e07\u0e08\u0e32\u0e01\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32 \u0e16\u0e49\u0e32\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e15\u0e48\u0e2d \u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48 :name \u0e41\u0e01\u0e49\u0e43\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27\u0e01\u0e31\u0e19\u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e02\u0e35\u0e22\u0e19\u0e17\u0e31\u0e1a","overwrite":"\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","row_editing":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49\u0e44\u0e02\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49","offline":"\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e41\u0e1a\u0e1a real-time \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e22\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e1b\u0e01\u0e15\u0e34 \u0e41\u0e25\u0e30\u0e23\u0e30\u0e1a\u0e1a\u0e22\u0e31\u0e07\u0e01\u0e31\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a\u0e43\u0e2b\u0e49"},"conflict":null};
+    </script>
+    <script src="/_shared/a/back/collab/pusher.min.js"></script>
+    <script src="/_shared/a/back/collab/collab.js?v=1792128554"></script>
+
+
+
+
+<script>
+var CSRF = $('meta[name="csrf-token"]').attr('content');
+
+function post(url, data) {
+    return $.ajax({ url: url, method: 'POST', headers: { 'X-CSRF-TOKEN': CSRF }, data: data, showPreload: true });
+}
+
+$(function () {
+    // ── ทดสอบการเชื่อมต่อ ──
+    $('#btn_test').on('click', function () {
+        $('#test_result').html('<div class="text-center py-5"><span class="spinner-border"></span>'
+            + '<div class="mt-2 text-muted" style="font-size:13px;">กำลังขอ token และอ่านข้อมูลจาก Microsoft Graph...</div></div>');
+
+        post("/booking/admin/booking/microsoft/test", {})
+            .done(function (res) {
+                var html = '<div class="alert alert-success mb-3"><i class="fa-solid fa-circle-check me-1"></i> '
+                    + $('<span>').text(res.notify_msg).html() + '</div>';
+
+                html += '<table class="table table-sm" style="font-size:13px;"><tbody>'
+                    + '<tr><td class="text-muted" style="width:35%;">ชื่อธุรกิจ</td><td>' + $('<span>').text(res.business.name).html() + '</td></tr>'
+                    + '<tr><td class="text-muted">อีเมล</td><td>' + $('<span>').text(res.business.email).html() + '</td></tr>'
+                    + '</tbody></table>';
+
+                html += '<h6 class="fw-semibold mt-3">Service ที่มีใน Bookings</h6>';
+
+                if (!res.services.length) {
+                    html += '<div class="alert alert-warning mb-0" style="font-size:13px;">'
+                        + 'ยังไม่มี Service ใน Booking Business นี้ ต้องสร้างใน Microsoft Bookings ก่อน '
+                        + 'ไม่งั้นระบบจะสร้างนัดหมายไม่ได้</div>';
+                } else {
+                    html += '<div class="table-responsive"><table class="table table-sm" style="font-size:12.5px;">'
+                        + '<thead class="bg-light"><tr><th>ชื่อ Service</th><th>Service ID</th><th>ระยะเวลา</th><th>รับได้</th></tr></thead><tbody>';
+
+                    res.services.forEach(function (s) {
+                        html += '<tr><td>' + $('<span>').text(s.name).html() + '</td>'
+                            + '<td><code style="user-select:all;">' + $('<span>').text(s.id).html() + '</code></td>'
+                            + '<td>' + (s.default_minutes ? s.default_minutes + ' นาที' : '-') + '</td>'
+                            + '<td>' + (s.max_attendees || '-') + '</td></tr>';
+                    });
+
+                    html += '</tbody></table></div>'
+                        + '<div class="text-muted" style="font-size:12px;">คัดลอก Service ID ไปใส่ในตารางผูก Service ด้านล่างได้</div>';
+                }
+
+                $('#test_result').html(html);
+            })
+            .fail(function (xhr) {
+                var msg = (xhr.responseJSON && xhr.responseJSON.notify_msg) || 'เชื่อมต่อไม่สำเร็จ';
+                $('#test_result').html('<div class="alert alert-danger mb-0"><div class="fw-semibold mb-1">'
+                    + '<i class="fa-solid fa-circle-xmark me-1"></i> เชื่อมต่อไม่สำเร็จ</div>'
+                    + '<div style="font-size:13px;">' + $('<span>').text(msg).html() + '</div></div>');
+            });
+    });
+
+    // ── บันทึกการผูก service ──
+    $('.js-save-service').on('click', function () {
+        var btn  = $(this);
+        var type = btn.data('type');
+        var id   = btn.data('id');
+        var val  = $('.js-service[data-type="' + type + '"][data-id="' + id + '"]').val();
+
+        post("/booking/admin/booking/microsoft/map-service", { type: type, id: id, service_id: val })
+            .done(function (res) {
+                Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: res.notify_msg,
+                            showConfirmButton: false, timer: 2000 });
+            })
+            .fail(function () {
+                Swal.fire({ icon: 'error', title: 'บันทึกไม่สำเร็จ', confirmButtonText: 'ตกลง' });
+            });
+    });
+
+    // ── ซิงก์ซ้ำ ──
+    $('#btn_resync').on('click', function () {
+        post("/booking/admin/booking/microsoft/resync", {})
+            .done(function (res) {
+                Swal.fire({ icon: 'success', title: 'ซิงก์เสร็จแล้ว', text: res.notify_msg, confirmButtonText: 'ตกลง' })
+                    .then(function () { location.reload(); });
+            })
+            .fail(function (xhr) {
+                Swal.fire({ icon: 'error', title: 'ซิงก์ไม่สำเร็จ',
+                            text: (xhr.responseJSON && xhr.responseJSON.notify_msg) || 'กรุณาลองใหม่',
+                            confirmButtonText: 'ตกลง' });
+            });
+    });
+});
+</script>
+<script src="/_shared/inline/ff9481439ad3ce4b.js"></script>
+
+</body>
+</html>

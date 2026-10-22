@@ -1,0 +1,85 @@
+/* Certificate designer - ใช้ตัวแปรสีของ AdminKit (base.css) */
+.cd-topbar{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;justify-content:space-between;padding:0 0 12px;border-bottom:1px solid var(--border);margin-bottom:12px;}
+.cd-topbar-left{display:flex;gap:12px;flex:1 1 360px;min-width:0;}
+.cd-topbar-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.cd-field{flex:1 1 220px;min-width:0;}
+.cd-field-status{flex:0 0 140px;}
+.cd-field label{display:block;font-size:11.5px;color:var(--text-2);margin-bottom:3px;}
+.cd-zoom-label{min-width:58px;font-variant-numeric:tabular-nums;}
+
+.cd-shell{display:grid;grid-template-columns:200px minmax(0,1fr) 290px;gap:12px;min-height:calc(100vh - 230px);}
+.cd-palette,.cd-props{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:12px;overflow:auto;max-height:calc(100vh - 150px);position:sticky;top:70px;align-self:start;}
+.cd-panel-title{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--text-3);margin-bottom:8px;}
+.cd-pal-btn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1px solid var(--border);background:var(--card);color:var(--text-1);border-radius:var(--radius-sm);padding:8px 10px;margin-bottom:6px;font-size:13px;cursor:pointer;transition:var(--ease);}
+.cd-pal-btn:hover{border-color:var(--pri);background:rgba(78,115,223,.06);color:var(--pri);}
+.cd-pal-btn i{width:18px;text-align:center;font-size:14px;color:var(--pri);flex-shrink:0;}
+.cd-pal-btn span{display:block;line-height:1.2;min-width:0;}
+.cd-pal-btn small{display:block;font-size:10.5px;color:var(--text-3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cd-pal-sub{margin-top:-2px;font-size:12px;padding:6px 10px;}
+.cd-pal-auto i{color:var(--purple);}
+.cd-hint{font-size:11px;color:var(--text-3);line-height:1.4;margin-top:10px;}
+
+/* ผืน */
+.cd-stage{position:relative;background:#e9edf3;background-image:radial-gradient(rgba(0,0,0,.08) 1px,transparent 1px);background-size:16px 16px;border:1px solid var(--border);border-radius:var(--radius);overflow:auto;padding:24px;outline:none;user-select:none;touch-action:none;}
+[data-bs-theme="dark"] .cd-stage{background-color:#141d29;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);}
+.cd-stage.is-busy::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.5);cursor:progress;}
+.cd-stage.is-dragging,.cd-stage.is-dragging *{cursor:grabbing!important;}
+.cd-canvas-wrap{position:relative;margin:0 auto;box-shadow:0 6px 24px rgba(0,0,0,.18);background:#fff;}
+.cd-canvas{position:absolute;left:0;top:0;width:1123px;height:794px;transform-origin:0 0;background:#fff;overflow:hidden;}
+.cd-bg{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:fill;pointer-events:none;}
+.cd-items,.cd-guides{position:absolute;inset:0;}
+.cd-guides{pointer-events:none;}
+.cd-guide-v{position:absolute;top:0;bottom:0;width:0;border-left:1px dashed #ff3d7f;}
+.cd-guide-h{position:absolute;left:0;right:0;height:0;border-top:1px dashed #ff3d7f;}
+
+/* รายการ */
+.cd-item{position:absolute;box-sizing:border-box;cursor:grab;transform-origin:50% 50%;}
+.cd-item:hover{outline:1px dashed rgba(78,115,223,.7);}
+.cd-item.is-sel{outline:none;}
+.cd-text-inner{width:100%;height:100%;overflow:hidden;white-space:pre-wrap;word-break:keep-all;overflow-wrap:anywhere;}
+.cd-item.cd-empty{min-height:20px;outline:1px dashed rgba(0,0,0,.25);}
+.cd-item img{display:block;width:100%;height:100%;pointer-events:none;}
+.cd-qr-box{width:100%;height:100%;background:#fff;border:1px solid #c7ced8;display:flex;align-items:center;justify-content:center;background-image:linear-gradient(45deg,#dfe4ea 25%,transparent 25%,transparent 75%,#dfe4ea 75%),linear-gradient(45deg,#dfe4ea 25%,transparent 25%,transparent 75%,#dfe4ea 75%);background-size:20% 20%;background-position:0 0,10% 10%;}
+.cd-qr-box span{background:#fff;padding:2px 8px;font-size:12px;font-weight:700;color:#6b7a90;border-radius:4px;}
+
+/* กรอบเลือก + จุดจับ (ไม่ถูก scale) */
+.cd-selbox{position:absolute;left:0;top:0;border:1.5px solid var(--pri);pointer-events:none;transform-origin:50% 50%;z-index:5;}
+.cd-selbox .cd-handle{position:absolute;width:11px;height:11px;background:#fff;border:1.5px solid var(--pri);border-radius:2px;pointer-events:auto;box-shadow:0 1px 3px rgba(0,0,0,.25);}
+.cd-h-n{left:50%;top:-6px;margin-left:-6px;cursor:ns-resize;}
+.cd-h-s{left:50%;bottom:-6px;margin-left:-6px;cursor:ns-resize;}
+.cd-h-e{top:50%;right:-6px;margin-top:-6px;cursor:ew-resize;}
+.cd-h-w{top:50%;left:-6px;margin-top:-6px;cursor:ew-resize;}
+.cd-h-ne{top:-6px;right:-6px;cursor:nesw-resize;border-radius:50%;}
+.cd-h-sw{bottom:-6px;left:-6px;cursor:nesw-resize;border-radius:50%;}
+.cd-h-nw{top:-6px;left:-6px;cursor:nwse-resize;border-radius:50%;}
+.cd-h-se{bottom:-6px;right:-6px;cursor:nwse-resize;border-radius:50%;}
+.cd-sel-text .cd-h-n,.cd-sel-text .cd-h-s{border-radius:2px;}
+.cd-selbox .cd-h-rot{width:22px;height:22px;left:50%;top:-38px;margin-left:-11px;border-radius:50%;cursor:grab;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--pri);}
+.cd-rot-line{position:absolute;left:50%;top:-16px;height:16px;width:0;border-left:1.5px solid var(--pri);}
+.cd-sel-info{position:absolute;left:0;bottom:-22px;font-size:10.5px;background:var(--pri);color:#fff;padding:1px 6px;border-radius:3px;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.cd-shortcuts{position:sticky;left:0;bottom:0;margin:12px -24px -24px;padding:6px 14px;font-size:11px;color:var(--text-2);background:rgba(255,255,255,.85);border-top:1px solid var(--border);}
+[data-bs-theme="dark"] .cd-shortcuts{background:rgba(20,29,41,.9);}
+
+/* แผงคุณสมบัติ */
+.cd-props-body{font-size:13px;}
+.cd-prop-title{font-weight:600;font-size:13.5px;padding:6px 8px;background:rgba(78,115,223,.08);border-radius:var(--radius-sm);margin-bottom:8px;color:var(--pri);}
+.cd-lbl{display:block;font-size:11.5px;color:var(--text-2);margin:0 0 3px;}
+.cd-auto-note{font-size:12px;color:var(--text-2);background:var(--surface);border-radius:var(--radius-sm);padding:8px;}
+.cd-muted{color:var(--text-3);}
+.cd-empty-props{text-align:center;color:var(--text-3);font-size:12.5px;padding:24px 8px;line-height:1.5;}
+.cd-empty-props i{font-size:26px;display:block;margin-bottom:8px;opacity:.6;}
+.cd-props .btn-group .btn.active{background:var(--pri);border-color:var(--pri);color:#fff;}
+.cd-layers{max-height:260px;overflow:auto;border:1px solid var(--border);border-radius:var(--radius-sm);}
+.cd-layer{display:flex;align-items:center;gap:8px;padding:6px 10px;font-size:12.5px;cursor:pointer;border-bottom:1px solid var(--border);}
+.cd-layer:last-child{border-bottom:0;}
+.cd-layer i{width:14px;text-align:center;color:var(--text-3);font-size:11px;}
+.cd-layer:hover{background:var(--surface);}
+.cd-layer.is-active{background:rgba(78,115,223,.1);color:var(--pri);font-weight:600;}
+.cd-layer.is-active i{color:var(--pri);}
+
+/* ภาพย่อในตารางรายการ */
+.cert-thumb{width:72px;height:51px;object-fit:cover;border:1px solid var(--border);border-radius:4px;background:#fff;}
+.cert-thumb-empty{display:inline-flex;align-items:center;justify-content:center;color:var(--text-3);font-size:18px;}
+
+@media (max-width:1200px){.cd-shell{grid-template-columns:170px minmax(0,1fr) 250px;}}
+@media (max-width:992px){.cd-shell{grid-template-columns:1fr;}.cd-palette,.cd-props{position:static;max-height:none;}.cd-stage{min-height:70vh;}}

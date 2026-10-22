@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><script>window.__DEMO={"sys": "auth", "path": "/admin/pages/create", "landing": false, "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-auth.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เพิ่มหน้าเว็บ | MRTA Digital Library</title>
+    <script>
+        (function(){var m=document.cookie.match(/adminkit_theme=([^;]+)/);if(m)document.documentElement.setAttribute('data-bs-theme',m[1]);})();
+    </script>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/auth/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/auth/back/theme_metronic/css/layout.css?v=1791778369" rel="stylesheet">
+<link href="/auth/back/theme_metronic/css/components.css?v=1792124145" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/sidebar-mrta.css?v=1792640346" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/img-pick.css?v=1792122834" rel="stylesheet">
+
+	
+	</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/belib/home?lang=th" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/_shared/a/back/theme_metronic/image/sidebar/logo.svg" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/auth/images/default_avatar.png" alt="" onerror="this.onerror=null;this.src='/auth/images/default_avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    <div class="nav-item">
+    <a href="/auth/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+    
+    <div class="nav-heading">ของรางวัล</div>
+
+<div class="nav-item-sub">
+    <a href="#" class="nav-link nav-link-parent "
+        onclick="toggleSubMenu(this);return false;">
+        <i class="fa-solid fa-trophy"></i> คะแนนและของรางวัล
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <ul class="nav-sub ">
+        <li>
+            <a href="/auth/admin/reward-category"
+                class="nav-link  startpreload">
+                <i class="fa-solid fa-tag"></i> หมวดหมู่ของรางวัล
+            </a>
+        </li>
+        <li>
+            <a href="/auth/admin/reward"
+                class="nav-link  startpreload">
+                <i class="fa-solid fa-gift"></i> ของรางวัล
+            </a>
+        </li>
+        <li>
+            <a href="/auth/admin/coin-activity/edit"
+                class="nav-link  startpreload">
+                <i class="fa-solid fa-star"></i> คะแนนกิจกรรม
+            </a>
+        </li>
+        <li>
+            <a href="/auth/admin/redemption"
+                class="nav-link  startpreload">
+                <i class="fa-solid fa-hand-holding-heart"></i> ประวัติการแลกของรางวัล
+            </a>
+        </li>
+        <li>
+            <a href="/auth/admin/reward-earn/step-1"
+                class="nav-link  startpreload">
+                <i class="fa-solid fa-coins"></i> ประวัติการได้รับแต้ม
+            </a>
+        </li>
+        <li>
+            <a href="/auth/admin/reward/report/reward-popular"
+                class="nav-link  startpreload">
+                <i class="fa-solid fa-chart-bar"></i> ของรางวัลที่ได้รับความนิยม
+            </a>
+        </li>
+    </ul>
+</div>
+
+    
+    </nav>    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="sbLogout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+<script>
+    // แถบบนของ auth ไม่มี logout() - ใช้กล่องยืนยันแบบเดียวกับเมนูออกจากระบบในแถบบน
+    function sbLogout() {
+        Swal.fire({
+            titleText: 'ออกจากระบบ?', icon: 'question', showCancelButton: true,
+            confirmButtonText: 'ออกจากระบบ', cancelButtonText: 'ยกเลิก', confirmButtonColor: '#e74a3b'
+        }).then(function (result) {
+            if (result.isConfirmed) document.getElementById('form-logout').submit();
+        });
+    }
+</script>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ 22 ตุลาคม, 2026 17:37:45</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/auth/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/auth/images/default_avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-solid fa-house-lock" style="width:16px;"></i> Admin Center
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/portal/admin">
+                    <i class="fa-solid fa-globe" style="width:16px;color:var(--text-2);"></i> Portal
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="event.preventDefault();Swal.fire({title:'ออกจากระบบ?',icon:'question',showCancelButton:true,confirmButtonText:'ออกจากระบบ',cancelButtonText:'ยกเลิก',confirmButtonColor:'#e74a3b'}).then(function(result){if(result.isConfirmed){document.getElementById('form-logout').submit();}})"><i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<form id="form-logout" method="POST" action="/auth/logout" class="d-none">
+    <input type="hidden" name="_token" value="demo-token" autocomplete="off"></form>
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title">    <i class="fa-regular fa-file-lines"></i> จัดการหน้าเว็บ
+</div>
+            <div class="d-flex gap-2">
+                            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="card">
+            <div class="card-header">
+                <h5>    <i class="fa-solid fa-circle-info"></i>
+    เพิ่มหน้าเว็บ
+</h5>
+                    <a href="/auth/admin/pages" class="btn btn-sm btn-success startpreload">
+        <i class="fa-solid fa-arrow-left"></i> กลับ
+    </a>
+                </div>
+            <div class="card-body">
+                
+                
+
+
+<form id="frm_main"
+    action="/auth/admin/pages/store"
+    method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_token" value="demo-token" autocomplete="off">    <input type="hidden" name="save_option" id="save_option" value="1">
+    
+    <div class="row g-3">
+
+        
+        <div class="col-md-6">
+            <label class="form-label fw-semibold">
+                <sup><i class="fa-solid fa-asterisk text-danger" style="font-size:8px;"></i></sup> ชื่อหน้า (ภาษาไทย):
+            </label>
+            <input type="text" name="title_th" class="form-control required"
+                placeholder="กรอกชื่อหน้า (TH)"
+                value=""
+                autocomplete="off">
+                    </div>
+
+        
+        <div class="col-md-6">
+            <label class="form-label fw-semibold">
+                <sup><i class="fa-solid fa-asterisk text-danger" style="font-size:8px;"></i></sup> ชื่อหน้า (ภาษาอังกฤษ):
+            </label>
+            <input type="text" name="title_en" class="form-control required"
+                placeholder="กรอกชื่อหน้า (EN)"
+                value=""
+                autocomplete="off">
+                    </div>
+
+        
+        <div class="col-md-6">
+            <label class="form-label fw-semibold">Slug:</label>
+            <input type="text" name="slug" class="form-control "
+                placeholder="หากเว้นว่างจะสร้างอัตโนมัติ"
+                value=""
+                autocomplete="off">
+        </div>
+
+        
+        <div class="col-md-6">
+            <label class="form-label fw-semibold">URL อ้างอิง:</label>
+            <input type="text" name="ref_url" class="form-control"
+                placeholder="https://..."
+                value=""
+                autocomplete="off">
+        </div>
+
+        
+        <div class="col-12">
+            <label class="form-label fw-semibold">รูปภาพปก:</label>
+            
+            <div class="mt-1 img-pick-wrap is-empty" id="cover_preview_wrap" data-img-pick>
+                <img  id="cover_preview_img" alt=""
+                    style="height:120px;max-width:100%;object-fit:contain;border:1px solid var(--border);background:var(--surface);">
+                <span class="img-pick-empty"><i class="fa-regular fa-image"></i>คลิกหรือลากรูปมาวาง</span>
+                <input type="file" name="cover_file_path" id="cover_input" class="img-pick-input" tabindex="-1" accept="image/*">
+                <span class="img-pick-hover" aria-hidden="true">คลิกหรือลากรูปมาวาง</span>
+<button type="button" class="img-pick-cam" title="เปลี่ยนรูปภาพ" aria-label="เปลี่ยนรูปภาพ">
+    <i class="fa-solid fa-camera" aria-hidden="true"></i>
+</button>
+            </div>
+            <div class="mt-1" style="font-size:11px;color:var(--text-2);">ขนาดไฟล์รูปไม่ควรเกิน 5MB</div>
+        </div>
+
+        
+        <div class="col-12">
+            <label class="form-label fw-semibold">เนื้อหา (ภาษาไทย):</label>
+            <textarea name="description" id="description_th" class="tinymceinit"></textarea>
+        </div>
+
+        
+        <div class="col-12">
+            <label class="form-label fw-semibold">เนื้อหา (ภาษาอังกฤษ):</label>
+            <textarea name="description_en" id="description_en" class="tinymceinit"></textarea>
+        </div>
+
+        
+        <div class="col-12">
+            <label class="form-label fw-semibold">ไฟล์แนบ:</label>
+            <input type="file" name="attach_file[]" class="form-control" multiple
+                accept=".pdf,.txt,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.zip,.rar,.png,.gif,.jpg,.jpeg,.bmp,.mp4,.avi,.flv,.mpeg,.mpg,.wmv,.3gp,.mp3">
+            <div class="mt-1" style="font-size:11px;color:var(--text-2);">อัปโหลดได้หลายไฟล์ ไฟล์ละไม่เกิน 50 MB - รองรับเอกสาร .pdf .doc .docx .xls .xlsx .ppt .pptx .zip .rar .txt / รูปภาพ .jpg .jpeg .png .gif .bmp / วิดีโอ .mp4 .avi .flv .mpeg .wmv .3gp / เสียง .mp3</div>
+        </div>
+
+        
+        
+        
+
+        
+        <div class="col-12 mt-2">
+            <button type="button" id="btn_save" class="btn btn-primary" onclick="validateAndSave()">
+                <i class="fa-solid fa-floppy-disk me-1"></i>
+                บันทึก
+            </button>
+            <a href="/auth/admin/pages" class="btn btn-secondary ms-1 startpreload">ยกเลิก</a>
+        </div>
+
+    </div>
+</form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/auth/back/theme_metronic/js/adminkit.js"></script>
+
+<script>
+
+function initpreload(text = "\u0e01\u0e33\u0e25\u0e31\u0e07\u0e14\u0e33\u0e40\u0e19\u0e34\u0e19\u0e01\u0e32\u0e23...") {
+    var el = document.getElementById('page-preloader');
+    // el.querySelector('.preloader-text').textContent = text;
+    el.classList.add('active');
+}
+window.addEventListener('load', function () {
+    document.getElementById('page-preloader').classList.remove('active');
+});
+
+document.addEventListener('submit', function () {
+    initpreload();
+});
+
+document.addEventListener('click', function (e) {
+    if (e.target && e.target.classList.contains('submit-frm') && !e.target.classList.contains('disabled')) {
+        initpreload();
+    }
+
+    if (e.target && e.target.classList.contains('startpreload') && !e.target.classList.contains('disabled')) {
+        initpreload();
+    }
+});
+
+function closepreload() {
+    document.getElementById('page-preloader').classList.remove('active');
+}
+</script><script src="/_shared/inline/69bb4f18d2228e93.js"></script>
+
+<script src="/_shared/inline/73f5d66d14dcf0ca.js"></script>
+
+<script src="/_shared/inline/bd1982cceba29d20.js"></script>
+
+<script>
+// สวิตช์สถานะในตาราง (admin_status_switch): ไม่ให้ติ๊กเปลี่ยนเอง → เรียกฟังก์ชันเปิด/ปิดของหน้า (data-fn) ซึ่งยืนยัน บันทึก แล้วโหลดตารางใหม่
+$(document).on('click', '.js-row-switch', function (ev) {
+    ev.preventDefault();
+    var fn = window[this.dataset.fn || 'toggleStatus'];
+    if (typeof fn === 'function') fn(this);
+});
+</script>
+
+
+
+
+
+<script>
+    function validateAndSave() {
+        tinymce.triggerSave();
+        $('#frm_main').validate();
+        if ($('#frm_main').valid()) {
+            $('#btn_save').prop('disabled', true).html('<i class="fa-solid fa-spinner fa-spin me-1"></i> ' + "\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01...");
+            $('#frm_main').submit();
+        }
+    }
+
+    function deleteAttachment(id, title) {
+        Swal.fire({
+            title: "\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e01\u0e32\u0e23\u0e25\u0e1a?",
+            html: "\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e25\u0e1a\u0e44\u0e1f\u0e25\u0e4c :title?".replace(':title', () => '<strong>' + escapeHtml(title) + '</strong>'),
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#e74a3b',
+            cancelButtonColor: '#636e72',
+            confirmButtonText: '<i class="fa-solid fa-trash-can"></i> ' + "\u0e25\u0e1a",
+            cancelButtonText: "\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01",
+            reverseButtons: true,
+        }).then(function (result) {
+            if (result.isConfirmed) {
+                $.post($('#url_file_delete').val(),
+                    { id: id, _token: $('meta[name="csrf-token"]').attr('content') },
+                    function (resp) {
+                        var res = JSON.parse(resp);
+                        Swal.fire({ toast: true, position: 'top-end', icon: res.notify_type, title: res.notify_msg, showConfirmButton: false, timer: 2500 });
+                        if (res.status === 200) $('#attach_row_' + id).remove();
+                    }
+                );
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        tinymceinit();
+
+        $('#cover_input').on('change', function () {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#cover_preview_img').attr('src', e.target.result);
+                    $('#cover_preview_wrap').show();
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

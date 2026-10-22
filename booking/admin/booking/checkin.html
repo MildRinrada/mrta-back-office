@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><script>window.__DEMO={"sys": "booking", "path": "/admin/booking/checkin", "landing": false, "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-booking.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สแกน QR เช็คอิน | MRTA Learning Center</title>
+    <script>
+        (function(){var m=document.cookie.match(/adminkit_theme=([^;]+)/);if(m)document.documentElement.setAttribute('data-bs-theme',m[1]);})();
+    </script>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778367" rel="stylesheet">
+<link href="/booking/back/theme_metronic/css/components.css?v=1792130115" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/sidebar-mrta.css?v=1792640348" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/img-pick.css?v=1792127029" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/booking/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/_shared/a/back/theme_metronic/image/sidebar/logo.svg" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    <div class="nav-item">
+    <a href="/booking/admin/booking/dashboard"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span>ภาพรวม</span>
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/booking/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+<div class="nav-heading">จองเข้าชม</div>
+
+
+<div class="nav-item">
+    <a href="/booking/admin/booking/reservation"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-calendar-check"></i>
+        <span>รายการจองเข้าชม</span>
+    </a>
+</div>
+
+
+<div class="nav-item">
+    <a href="/booking/admin/booking/checkin"
+       class="nav-link active startpreload">
+        <i class="fa-solid fa-qrcode"></i>
+        <span>สแกน QR เช็คอิน</span>
+    </a>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-regular fa-clock"></i>
+        <span>ตั้งค่ารอบเข้าชม</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/booking/admin/booking/round" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> รอบเวลาทั้งหมด
+        </a>
+        
+                <a href="/booking/admin/booking/round/create" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรอบเวลา
+        </a>
+        <a href="/booking/admin/booking/closed-date" class="nav-link  startpreload">
+            <i class="fa-regular fa-calendar-xmark"></i> วันปิดทำการ
+        </a>
+        <a href="/booking/admin/booking/microsoft" class="nav-link  startpreload">
+            <i class="fa-brands fa-microsoft"></i> Microsoft Bookings
+        </a>
+            </div>
+</div>
+
+
+<div class="nav-heading mt-2">กิจกรรมพิเศษ</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-star"></i>
+        <span>จัดการกิจกรรม</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/booking/admin/booking/event" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> กิจกรรมทั้งหมด
+        </a>
+                <a href="/booking/admin/booking/event/create" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มกิจกรรม
+        </a>
+        <a href="/booking/admin/booking/event-category" class="nav-link  startpreload">
+            <i class="fa-solid fa-tags"></i> หมวดหมู่กิจกรรม
+        </a>
+                <a href="/booking/admin/booking/registration" class="nav-link  startpreload">
+            <i class="fa-solid fa-users"></i> ผู้ลงทะเบียน
+        </a>
+    </div>
+</div>
+
+
+<div class="nav-heading mt-2">เนื้อหาหน้าเว็บ</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-regular fa-file-lines"></i>
+        <span>เงื่อนไขและวิธีการจอง</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/booking/admin/booking/document" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> เอกสารทั้งหมด
+        </a>
+                <a href="/booking/admin/booking/document/create" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มเอกสาร
+        </a>
+            </div>
+</div>
+    <div class="nav-heading mt-2">SETTING</div>
+<div class="nav-item">
+    <a href="/booking/admin/setting/bookings" class="nav-link  startpreload">
+        <i class="fa-solid fa-sliders"></i>
+        <span>ตั้งค่าระบบจอง</span>
+    </a>
+</div>
+    
+    <div class="nav-heading mt-2">AUDIT</div>
+<div class="nav-item">
+    <a href="/booking/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+    
+</nav>
+    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <link rel="stylesheet" href="/_shared/inline/cfcd662ce6b1c449.css">
+<header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ 22 ตุลาคม, 2026 17:38:14</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/booking/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        <!-- Notification Dropdown
+             เข้าชมวันนี้ / ลงทะเบียนใหม่ = งานของระบบจอง (สิทธิ์ booking.reservation.view)
+             แจ้งเตือน = admin_notifications ของผู้ใช้ทุกระบบในเครือ (Workflow อนุมัติเนื้อหา TOR 3.5.4) - ผู้ใช้หลังบ้านทุกคน -->
+                <div class="dropdown noti-dropdown" id="notiDropdown">
+            <button class="topbar-btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="การแจ้งเตือน">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge-count" id="notiCount" style="display:none;">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end shadow-sm">
+                <div class="header-dropdown justify-content-between">
+                    <span class="header-txt-noti">การแจ้งเตือน</span>
+                    <a href="#" id="notiReadAll" class="text-decoration-none" style="font-size:12px;display:none;">
+                        <i class="fa-solid fa-check-double"></i> อ่านทั้งหมด
+                    </a>
+                </div>
+                <ul class="nav nav-tabs" id="notiTabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="notiTodayTab" data-bs-toggle="tab" data-bs-target="#notiToday" type="button" role="tab">
+                            เข้าชมวันนี้
+                            <span class="badge bg-primary ms-1" id="countToday" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="notiRegisterTab" data-bs-toggle="tab" data-bs-target="#notiRegister" type="button" role="tab">
+                            ลงทะเบียนใหม่
+                            <span class="badge bg-success ms-1" id="countRegister" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                                        <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="notiInboxTab" data-bs-toggle="tab" data-bs-target="#notiInbox" type="button" role="tab">
+                            แจ้งเตือน
+                            <span class="badge bg-warning text-dark ms-1" id="countInbox" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                    
+                </ul>
+                <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="notiToday" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="notiRegister" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                                        <div class="tab-pane fade " id="notiInbox" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/portal/admin">
+                    <i class="fa-solid fa-globe" style="width:16px;color:var(--text-2);"></i> Portal
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;"></i> จองเข้าชม
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/booking/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title">    <i class="fa-solid fa-qrcode"></i> สแกน QR เช็คอิน
+</div>
+            <div class="d-flex gap-2">
+                            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="card">
+            <div class="card-header">
+                <h5>    <i class="fa-solid fa-user-check"></i> เช็คอินหน้างาน (จองเข้าชม / กิจกรรมพิเศษ) - 22 ตุลาคม 2569
+</h5>
+                    <a href="/booking/admin/booking/reservation" class="btn btn-sm btn-light startpreload">
+        <i class="fa-regular fa-calendar-check"></i> รายการจองเข้าชม
+    </a>
+            </div>
+            <div class="card-body">
+                <style>
+    .ci-reader { position:relative; background:#0f172a; border-radius:12px; overflow:hidden; min-height:260px;
+                 display:flex; align-items:center; justify-content:center; color:#cbd5e1; }
+    .ci-reader video { width:100% !important; height:auto !important; display:block; }
+    /* ข้อความตอนยังไม่เปิดกล้อง: วางทับกลางกล่อง (กล่องวิดีโอ #qr-video กว้าง 100% เดิมดันข้อความไปชิดขวา) */
+    .ci-reader-idle { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+                      text-align:center; padding:24px 32px; font-size:13px; line-height:1.7; }
+    .ci-reader-idle i, .ci-reader-idle svg { font-size:42px; width:42px; height:42px; margin-bottom:10px; opacity:.6; }
+    .ci-result { border:1px solid var(--border); border-left-width:5px; border-radius:12px; padding:16px 18px; background:var(--card); }
+    .ci-result.ci-primary { border-left-color:var(--pri); }
+    .ci-result.ci-success { border-left-color:var(--success); }
+    .ci-result.ci-warning { border-left-color:var(--warning); }
+    .ci-result.ci-danger  { border-left-color:var(--danger); }
+    .ci-result-head { display:flex; gap:12px; align-items:flex-start; margin-bottom:14px; }
+    .ci-result-head > svg, .ci-result-head > i { font-size:30px; width:30px; height:30px; flex-shrink:0; margin-top:2px; }
+    .ci-primary .ci-result-head > :first-child { color:var(--pri); }
+    .ci-success .ci-result-head > :first-child { color:var(--success); }
+    .ci-warning .ci-result-head > :first-child { color:var(--warning); }
+    .ci-danger  .ci-result-head > :first-child { color:var(--danger); }
+    .ci-result-title { font-size:18px; font-weight:700; line-height:1.3; }
+    .ci-result-sub { font-size:13.5px; color:var(--text-2); line-height:1.6; }
+    .ci-danger .ci-result-sub { color:var(--danger); font-weight:600; }
+    .ci-warning .ci-result-sub { color:#a16207; font-weight:600; }
+    .ci-code { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:16px; margin-left:6px; }
+    .ci-table th { width:34%; color:var(--text-2); font-weight:500; font-size:13px; }
+    .ci-table td { font-size:13.5px; }
+    .ci-empty { border:1px dashed var(--border); border-radius:12px; padding:40px 20px; text-align:center; color:var(--text-2); font-size:13.5px; }
+    .ci-empty svg, .ci-empty i { font-size:36px; width:36px; height:36px; opacity:.45; margin-bottom:8px; }
+    .ci-recent td { font-size:13px; vertical-align:middle; }
+    /* หัวตารางเช็คอินล่าสุด: ขนาดเท่าตารางอื่นในหลังบ้าน (เดิมตัวใหญ่ตามค่า th ทั่วไป) */
+    .ci-recent thead th { font-size:12.5px; font-weight:600; color:var(--text-2); padding-top:10px; padding-bottom:10px; white-space:nowrap; }
+    /* การ์ดตัวเลข: สูงเท่ากันทุกใบ / ตัวเลขใช้ฟอนต์เดียวกับหน้า หน่วย (ใบ/คน) ตัวเล็กลง */
+    .ci-stats .stat-card { height:100%; align-items:center; }
+    .ci-stats .stat-value { font-family:inherit; font-size:24px; font-weight:700; line-height:1.2; letter-spacing:0; }
+    .ci-stats .stat-unit { font-size:14px; font-weight:600; color:var(--text-2); margin-left:4px; }
+</style>
+
+
+<div class="row g-3 mb-4 ci-stats">
+    
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card" style="border-left-color:var(--pri);" >
+                <div class="stat-icon" style="background:rgba(78,115,223,.1);color:var(--pri);">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+                <div>
+                    <div class="stat-value">0<span class="stat-unit">ใบ</span></div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ใบจองเข้าชมวันนี้ · 0 คน</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card" style="border-left-color:var(--success);"  id="stat_booking_checked" >
+                <div class="stat-icon" style="background:rgba(28,200,138,.1);color:var(--success);">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+                <div>
+                    <div class="stat-value">0 / 0</div>
+                    <div style="font-size:12.5px;color:var(--text-2);">เช็คอินเข้าชมแล้ว · ใบจอง</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card" style="border-left-color:var(--warning);" >
+                <div class="stat-icon" style="background:rgba(246,194,62,.1);color:var(--warning);">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div>
+                    <div class="stat-value">0<span class="stat-unit">คน</span></div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ลงทะเบียนกิจกรรมวันนี้ · 0 กิจกรรม</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card" style="border-left-color:var(--info, #36b9cc);"  id="stat_event_checked" >
+                <div class="stat-icon" style="background:rgba(54,185,204,.1);color:var(--info, #36b9cc);">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                    <div class="stat-value">0 / 0</div>
+                    <div style="font-size:12.5px;color:var(--text-2);">เช็คอินกิจกรรมแล้ว · คน</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row g-4">
+    
+    <div class="col-lg-5">
+        <div class="ci-reader">
+            
+            <div id="qr-video" class="w-100"></div>
+            <div class="ci-reader-idle" id="qr-idle">
+                <i class="fa-solid fa-camera"></i>
+                <div>กด "เปิดกล้องสแกน" แล้วหันกล้องไปที่ QR Code บนบัตรของผู้จอง<br>(ในอีเมลยืนยัน / ไฟล์ PDF / หน้าจอโทรศัพท์)</div>
+            </div>
+        </div>
+
+        <div id="camera_notice" class="alert alert-warning py-2 px-3 mt-2 mb-0 d-none" style="font-size:12.5px;"></div>
+
+        <div class="d-flex flex-wrap gap-2 mt-3">
+            <button type="button" class="btn btn-primary" id="btn_camera_start">
+                <i class="fa-solid fa-camera"></i> เปิดกล้องสแกน
+            </button>
+            <button type="button" class="btn btn-secondary d-none" id="btn_camera_stop">
+                <i class="fa-solid fa-stop"></i> ปิดกล้อง
+            </button>
+            <select id="ddl_camera" class="form-select w-auto d-none" aria-label="เลือกกล้อง"></select>
+            <label class="btn btn-outline-primary mb-0" for="qr_file">
+                <i class="fa-regular fa-image"></i> สแกนจากรูปภาพ
+            </label>
+            <input type="file" id="qr_file" accept="image/*" capture="environment" class="d-none">
+        </div>
+
+        <form id="frm_manual" class="mt-4" autocomplete="off">
+            <label class="form-label fw-semibold" for="txt_code">หรือกรอกรหัสการจอง / ยิงด้วยเครื่องอ่านบาร์โค้ด</label>
+            <div class="input-group">
+                <input type="text" id="txt_code" class="form-control" maxlength="500" autofocus
+                       placeholder="เช่น MRTA26100801 หรือ MRTA-2569-0001">
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> ค้นหา</button>
+            </div>
+        </form>
+
+        <div class="form-check form-switch mt-3">
+            <input class="form-check-input" type="checkbox" id="chk_auto">
+            <label class="form-check-label" for="chk_auto" style="font-size:13px;">
+                เช็คอินทันทีเมื่อสแกนพบบัตรที่ใช้ได้ (ไม่ต้องกดยืนยัน)
+            </label>
+        </div>
+    </div>
+
+    
+    <div class="col-lg-7">
+        <div id="checkin_result">
+            <div class="ci-empty">
+                <i class="fa-solid fa-qrcode"></i>
+                <div>ผลการสแกนจะแสดงที่นี่</div>
+                <div style="font-size:12px;">ระบบตรวจวันที่ สถานะการยกเลิก และการเช็คอินซ้ำให้อัตโนมัติ</div>
+            </div>
+        </div>
+
+        <h6 class="fw-bold mt-4 mb-2"><i class="fa-solid fa-clock-rotate-left"></i> เช็คอินล่าสุดวันนี้</h6>
+        <div class="table-responsive">
+            <table class="table table-hover ci-recent mb-0">
+                <thead class="bg-light">
+                    <tr><th style="width:80px;">เวลา</th><th>รหัส</th><th>ผู้จอง</th><th class="d-none d-md-table-cell">รายละเอียด</th></tr>
+                </thead>
+                <tbody id="recent_body">
+                                            <tr class="js-recent-empty"><td colspan="4" class="text-center text-muted py-3">ยังไม่มีการเช็คอินวันนี้</td></tr>
+                                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+
+            </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    $.extend(true, $.fn.dataTable.defaults, { language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."} });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+<script src="/_shared/inline/2dda5ae9c3598f75.js"></script>
+
+
+<script src="/_shared/inline/73f5d66d14dcf0ca.js"></script>
+
+
+<link rel="stylesheet" href="/_shared/a/back/collab/collab.css?v=1792128177">
+    <script>
+        window.MRTA_COLLAB = {"mode":"index","system":"booking","key":null,"channel":null,"index":"presence-collab-index.booking","openedAt":1792665494,"path":"\/admin\/booking\/checkin","me":{"id":120,"name":"Piyanuch Panyadee","initials":"R","color":"#e11d48"},"ws":{"key":"demo","host":"ws.demo.invalid","port":8080,"tls":false},"authUrl":"\/booking\/admin\/collab\/auth","checkUrl":"\/booking\/admin\/collab\/check","text":{"here_one":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","here_many":":name \u0e41\u0e25\u0e30\u0e2d\u0e35\u0e01 :n \u0e04\u0e19 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","alone":"\u0e21\u0e35\u0e04\u0e38\u0e13\u0e04\u0e19\u0e40\u0e14\u0e35\u0e22\u0e27\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","joined":":name \u0e40\u0e02\u0e49\u0e32\u0e21\u0e32\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","left":":name \u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27","editing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49","typing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u2026","saved_banner":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27 \u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19.","reload":"\u0e42\u0e2b\u0e25\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14","conflict_title":"\u0e21\u0e35\u0e04\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e1b\u0e41\u0e25\u0e49\u0e27","conflict_text":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19. \u0e2b\u0e25\u0e31\u0e07\u0e08\u0e32\u0e01\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32 \u0e16\u0e49\u0e32\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e15\u0e48\u0e2d \u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48 :name \u0e41\u0e01\u0e49\u0e43\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27\u0e01\u0e31\u0e19\u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e02\u0e35\u0e22\u0e19\u0e17\u0e31\u0e1a","overwrite":"\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","row_editing":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49\u0e44\u0e02\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49","offline":"\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e41\u0e1a\u0e1a real-time \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e22\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e1b\u0e01\u0e15\u0e34 \u0e41\u0e25\u0e30\u0e23\u0e30\u0e1a\u0e1a\u0e22\u0e31\u0e07\u0e01\u0e31\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a\u0e43\u0e2b\u0e49"},"conflict":null};
+    </script>
+    <script src="/_shared/a/back/collab/pusher.min.js"></script>
+    <script src="/_shared/a/back/collab/collab.js?v=1792128554"></script>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"
+        integrity="sha512-r6rDA7W6ZeQhvl8S7yRVQUKVHdexq+GAlNkNNqVC7YyIV+NwqCTJe2hDWCiffTyRNOeGEzRRJ9ifvRm/HCzGYg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+(function () {
+    var csrf = $('meta[name="csrf-token"]').attr('content');
+    var scanner = null;          // Html5Qrcode
+    var running = false;
+    var busy = false;            // กำลังถามเซิร์ฟเวอร์ - สแกนซ้ำระหว่างนี้ไม่นับ
+    var lastText = '', lastAt = 0;
+
+    // จำค่า "เช็คอินทันที" ไว้ในเครื่องนี้ (เครื่องประจำจุดลงทะเบียน)
+    try { $('#chk_auto').prop('checked', localStorage.getItem('bk_checkin_auto') === '1'); } catch (e) {}
+    $('#chk_auto').on('change', function () {
+        try { localStorage.setItem('bk_checkin_auto', this.checked ? '1' : '0'); } catch (e) {}
+    });
+
+    function notice(text) {
+        $('#camera_notice').toggleClass('d-none', !text).html(text || '');
+    }
+
+    function beep(ok) {
+        try {
+            var ctx = new (window.AudioContext || window.webkitAudioContext)();
+            var o = ctx.createOscillator(), g = ctx.createGain();
+            o.frequency.value = ok ? 880 : 220; o.connect(g); g.connect(ctx.destination);
+            g.gain.value = 0.08; o.start(); o.stop(ctx.currentTime + (ok ? 0.12 : 0.35));
+        } catch (e) {}
+    }
+
+    function showResult(res) {
+        $('#checkin_result').html(res.html);
+        // จอแคบ (มือถือ/แท็บเล็ต) ผลอยู่ใต้กล่องสแกน - เลื่อนลงไปให้เห็นทันที
+        if (window.innerWidth < 992) document.getElementById('checkin_result').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function showError(message) {
+        $('#checkin_result').html(
+            '<div class="ci-result ci-danger"><div class="ci-result-head"><i class="fa-solid fa-circle-xmark"></i>'
+            + '<div><div class="ci-result-title">ไม่พบบัตร</div><div class="ci-result-sub"></div></div></div></div>'
+        );
+        $('#checkin_result .ci-result-sub').text(message);
+    }
+
+    function addRecent(res) {
+        var $tr = $('<tr>');
+        var now = new Date();
+        var hh = ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+        $tr.append($('<td>').text(hh + ' น.'), $('<td class="fw-semibold">').text(res.code),
+                   $('<td>').text($('#checkin_result .ci-table tr:first td').text()),
+                   $('<td class="text-muted d-none d-md-table-cell">').text(res.type === 'event' ? 'กิจกรรม' : 'จองเข้าชม'));
+        $('#recent_body .js-recent-empty').remove();
+        $('#recent_body').prepend($tr);
+    }
+
+    // ตัวเลข "เช็คอินแล้ว x / y" บวกเพิ่มเฉพาะบัตรของวันนี้ (ปุ่มยืนยันขึ้นเฉพาะบัตรวันนี้อยู่แล้ว)
+    function bumpStat(sel, res) {
+        var $v = $(sel + ' .stat-value');
+        var m = $v.text().match(/^\s*([\d,]+)\s*\/\s*([\d,]+)/);
+        if (!m) return;
+        var done = parseInt(m[1].replace(/,/g, ''), 10) + 1;
+        $v.text(done.toLocaleString() + ' / ' + m[2]);
+    }
+
+    function lookup(text) {
+        text = $.trim(text || '');
+        if (!text || busy) return;
+
+        busy = true;
+        $('#checkin_result').html('<div class="ci-empty"><span class="spinner-border"></span></div>');
+
+        $.ajax({
+            url: "/booking/admin/booking/checkin/lookup",
+            method: 'POST',
+            headers: { 'X-CSRF-TOKEN': csrf },
+            data: { code: text },
+        }).done(function (res) {
+            showResult(res);
+            beep(res.can_checkin);
+            if (res.can_checkin && $('#chk_auto').is(':checked')) {
+                confirmCheckIn(res.type, res.id);
+            }
+        }).fail(function (xhr) {
+            beep(false);
+            var j = xhr.responseJSON || {};
+            showError(j.message || (j.errors && j.errors.code && j.errors.code[0]) || 'ค้นหาไม่สำเร็จ กรุณาลองใหม่อีกครั้ง');
+        }).always(function () {
+            busy = false;
+            $('#txt_code').val('').trigger('focus');
+        });
+    }
+
+    function confirmCheckIn(type, id) {
+        $('.js-ci-confirm').prop('disabled', true);
+
+        $.ajax({
+            url: "/booking/admin/booking/checkin/confirm",
+            method: 'POST',
+            headers: { 'X-CSRF-TOKEN': csrf },
+            data: { type: type, id: id },
+        }).done(function (res) {
+            showResult(res);
+            addRecent(res);
+            bumpStat(res.type === 'event' ? '#stat_event_checked' : '#stat_booking_checked', res);
+            beep(true);
+            Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: res.notify_msg,
+                        showConfirmButton: false, timer: 2200 });
+        }).fail(function (xhr) {
+            var j = xhr.responseJSON || {};
+            if (j.html) showResult(j);
+            beep(false);
+            Swal.fire({ icon: 'error', title: 'เช็คอินไม่สำเร็จ', text: j.notify_msg || j.message || 'กรุณาลองใหม่อีกครั้ง',
+                        confirmButtonText: 'ตกลง' });
+        });
+    }
+
+    $(document).on('click', '.js-ci-confirm', function () {
+        confirmCheckIn($(this).data('type'), $(this).data('id'));
+    });
+
+    $('#frm_manual').on('submit', function (e) {
+        e.preventDefault();
+        lookup($('#txt_code').val());
+    });
+
+    // ── กล้อง ──
+    function onScan(text) {
+        var now = Date.now();
+        // กล้องอ่าน QR เดิมซ้ำหลายครั้งต่อวินาที - QR เดิมภายใน 4 วินาทีไม่ส่งซ้ำ
+        if (text === lastText && now - lastAt < 4000) return;
+        lastText = text; lastAt = now;
+        lookup(text);
+    }
+
+    function cameraSupported() {
+        if (typeof Html5Qrcode === 'undefined') {
+            notice('โหลดตัวอ่าน QR ไม่สำเร็จ (ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต) - กรอกรหัสการจองแทนได้');
+            return false;
+        }
+        if (!window.isSecureContext || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            notice('<i class="fa-solid fa-triangle-exclamation"></i> เบราว์เซอร์อนุญาตให้ใช้กล้องเฉพาะเว็บที่เปิดผ่าน <strong>HTTPS</strong> เท่านั้น'
+                + ' - ใช้ปุ่ม "สแกนจากรูปภาพ" (บนมือถือจะเปิดกล้องถ่ายรูปให้) หรือกรอกรหัสการจองแทน');
+            return false;
+        }
+        return true;
+    }
+
+    function startCamera(cameraId) {
+        if (!cameraSupported()) return;
+        notice('');
+        scanner = scanner || new Html5Qrcode('qr-video', { verbose: false });
+
+        var source = cameraId ? { deviceId: { exact: cameraId } } : { facingMode: 'environment' };
+
+        scanner.start(source, { fps: 10, qrbox: function (w, h) { var s = Math.floor(Math.min(w, h) * 0.7); return { width: s, height: s }; } },
+                      onScan, function () {})
+            .then(function () {
+                running = true;
+                $('#qr-idle').addClass('d-none');
+                $('#btn_camera_start').addClass('d-none');
+                $('#btn_camera_stop').removeClass('d-none');
+
+                Html5Qrcode.getCameras().then(function (cams) {
+                    if (!cams || cams.length < 2) return;
+                    var $dd = $('#ddl_camera').empty().removeClass('d-none');
+                    cams.forEach(function (c, i) { $dd.append($('<option>').val(c.id).text(c.label || ('กล้อง ' + (i + 1)))); });
+                }).catch(function () {});
+            })
+            .catch(function (err) {
+                notice('<i class="fa-solid fa-triangle-exclamation"></i> เปิดกล้องไม่ได้ - กรุณาอนุญาตให้เว็บนี้ใช้กล้อง หรือใช้ปุ่ม "สแกนจากรูปภาพ" / กรอกรหัสแทน');
+                console.warn(err);
+            });
+    }
+
+    function stopCamera() {
+        if (!scanner || !running) return Promise.resolve();
+        return scanner.stop().then(function () {
+            running = false;
+            $('#qr-idle').removeClass('d-none');
+            $('#btn_camera_start').removeClass('d-none');
+            $('#btn_camera_stop, #ddl_camera').addClass('d-none');
+        }).catch(function () {});
+    }
+
+    $('#btn_camera_start').on('click', function () { startCamera(); });
+    $('#btn_camera_stop').on('click', stopCamera);
+    $('#ddl_camera').on('change', function () {
+        var id = this.value;
+        stopCamera().then(function () { startCamera(id); });
+    });
+
+    // ── สแกนจากรูปภาพ (ใช้ได้แม้เว็บไม่ได้เปิดผ่าน HTTPS) ──
+    $('#qr_file').on('change', function () {
+        var file = this.files && this.files[0];
+        this.value = '';
+        if (!file) return;
+        if (typeof Html5Qrcode === 'undefined') return cameraSupported();
+
+        stopCamera().then(function () {
+            scanner = scanner || new Html5Qrcode('qr-video', { verbose: false });
+            return scanner.scanFile(file, false);
+        }).then(function (text) {
+            lookup(text);
+        }).catch(function () {
+            beep(false);
+            showError('อ่าน QR Code จากรูปนี้ไม่ได้ กรุณาถ่ายให้ชัดและเห็น QR ทั้งหมด หรือกรอกรหัสการจองแทน');
+        });
+    });
+
+    $(window).on('beforeunload', function () { if (running) scanner.stop(); });
+})();
+</script>
+<script src="/_shared/inline/ff9481439ad3ce4b.js"></script>
+
+</body>
+</html>

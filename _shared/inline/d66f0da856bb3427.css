@@ -1,0 +1,44 @@
+
+        /* หน้าตั้งค่าทั้งหน้า (form.st-page): คำอธิบายใต้ช่องขนาดเดียวกับ hint ของการ์ด/แถวตัวเลข (form-text ทั่วไปของหลังบ้านเป็น 14px) */
+        .st-page .form-text { color: var(--text-2); font-size: 12.5px !important; line-height: 1.5; }
+        .st-page .form-label { font-weight: 600; }
+
+        /* การ์ดแบนเนอร์: แคบ = รูปบน ข้อความล่าง / is-wide (เต็มแถว) = รูปซ้าย ข้อความขวา */
+        .st-hero {
+            height: 100%;
+            padding: 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--card, #fff);
+        }
+        .st-hero-head {
+            margin-bottom: 12px;
+            color: var(--text-1);
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .st-hero-body { display: grid; gap: 16px; }
+        .st-hero-fields {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .st-hero-lang-name {
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 1px dashed var(--border);
+            color: var(--text-2);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .02em;
+            text-transform: uppercase;
+        }
+        .st-hero .form-label { color: var(--text-2); }
+        .st-hero textarea { resize: vertical; }
+        @media (min-width: 1200px) {
+            .st-hero.is-wide .st-hero-body { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px; }
+        }
+        @media (max-width: 575.98px) {
+            .st-hero-fields { grid-template-columns: 1fr; }
+        }
+    

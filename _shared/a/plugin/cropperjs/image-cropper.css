@@ -1,0 +1,45 @@
+/* กล่องตัดรูป — คู่กับ image-cropper.js และ resources/views/shared/image_crop_modal.blade.php
+   ใช้ทั้งหน้าบ้าน (my profile) และหลังบ้าน จึงอยู่ใน public/plugin/ ไม่ใช่ front/ หรือ back/
+   ตั้งใจไม่ใช้ตัวแปรสีของธีมใดธีมหนึ่ง เพราะสองฝั่งนิยาม --bs-* คนละชุดกัน */
+
+/* Cropper.js วัดขนาดจากกรอบนี้ จึงต้องมีความสูงที่แน่นอนตั้งแต่ก่อนรูปจะโหลด
+   ถ้าปล่อยให้สูงตามรูป จะได้กรอบสูงเป็นศูนย์ในจังหวะแรกแล้วคำนวณกรอบตัดเพี้ยน */
+.imgc-stage {
+    height: 55vh;
+    min-height: 260px;
+    max-height: 460px;
+    background: #EDF0F5;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+/* Cropper.js จะแทนที่ <img> นี้ด้วยโครงสร้างของมันเอง max-width:100% คือสิ่งที่
+   คู่มือของไลบรารีกำหนดไว้ ห้ามตั้ง width/height ตายตัวทับ */
+.imgc-stage > img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ตัวอย่างผลลัพธ์ — สัดส่วนคุมด้วย aspect-ratio ที่ blade ใส่มาทาง inline style
+   ผู้ใช้จึงเห็นกรอบจริงที่จะถูกบันทึก ไม่ใช่รูปย่อแบบเดา ๆ */
+.imgc-preview {
+    overflow: hidden;
+    border-radius: .5rem;
+    border: 1px solid rgba(0, 0, 0, .125);
+    background: #F6F8FB;
+}
+
+/* avatar ถูกแสดงเป็นวงกลมทุกที่บนเว็บ ช่องพรีวิวจึงต้องกลมตามด้วย
+   ไม่งั้นผู้ใช้จัดกรอบสี่เหลี่ยมมาสวย แล้วมุมภาพโดนตัดทิ้งตอนขึ้นจริง */
+.imgc-preview-round {
+    border-radius: 50%;
+}
+
+/* หน้าจอเตี้ย (โน้ตบุ๊ก 768px หรือมือถือแนวนอน) ถ้าเวทีสูง 55vh
+   ปุ่มยืนยันจะตกไปอยู่ใต้ขอบจอจนกดไม่ได้ */
+@media (max-height: 700px) {
+    .imgc-stage {
+        height: 42vh;
+        min-height: 200px;
+    }
+}

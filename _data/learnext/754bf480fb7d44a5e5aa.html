@@ -1,0 +1,29 @@
+<form id="frm_main" class="lx-form" action="/learnext/admin/materials/store" method="POST" enctype="multipart/form-data">
+	<input type="hidden" name="_token" value="demo-token" autocomplete="off">	<input type="hidden" name="type" value="Material">
+	<input type="hidden" name="mat_id" value="14">
+
+	<div class="row g-3">
+		<div class="col-12">
+			<label class="form-label" for="txt_title">ชื่อสื่อ<span class="req">*</span></label>
+			<input id="txt_title" name="title" type="text" class="form-control" maxlength="255" required autofocus autocomplete="off" value="สรุปภาพรวมโครงการก่อสร้างอุโมงค์รถไฟฟ้า (เอกสารประกอบการเรียน)">
+		</div>
+		<div class="col-lg-8">
+			<label class="form-label" for="file_doc">ไฟล์</label>
+			<input id="file_doc" name="modal_file_chapter_item_file" type="file" class="form-control" accept=".pdf,.txt,.zip,.rar,.jpg,.jpeg,.png,.gif,.bmp,.doc,.docx,.xls,.xlsx,.ppt,.pptx" >
+			<div class="lx-help">
+				<div><i class="fa-solid fa-circle-info"></i>รองรับ .pdf .doc .docx .xls .xlsx .ppt .pptx .zip .rar .txt และรูปภาพ .jpg .jpeg .png .gif .bmp ขนาดไม่เกิน 500 MB</div>
+				<div><i class="fa-solid fa-circle-info"></i>ไม่เลือกไฟล์ใหม่ = ใช้ไฟล์เดิม</div>			</div>
+							<div class="mt-2">
+					<span class="lx-sub d-inline-block mb-1">ไฟล์ปัจจุบัน</span><br>
+					<a href="/_shared/a/storage/sample/multimedia/tunnel-engineering.png" download="สรุปภาพรวมโครงการก่อสร้างอุโมงค์รถไฟฟ้า (เอกสารประกอบการเรียน).png" class="lx-file"><i class="fa-solid fa-file-lines"></i><span class="lx-file-name">สรุปภาพรวมโครงการก่อสร้างอุโมงค์รถไฟฟ้า (เอกสารประกอบการเรียน).png</span><span class="lx-file-size">(43.7 KB)</span></a>
+				</div>
+					</div>
+	</div>
+
+	<input type="hidden" id="save_option" name="save_option" value="1">
+<div class="lx-form-footer">
+	<span class="lx-footer-note">* จำเป็นต้องกรอก</span>
+	<a href="/learnext/admin/materials/list" class="btn btn-outline-secondary" data-lx-cancel>ยกเลิก</a>
+		<button type="button" id="btn_save" class="btn btn-primary" data-lx-save="1" onclick="lxSubmit(1, this)"><span class="spinner-border"></span><i class="fa-solid fa-check"></i> บันทึก</button>
+</div>
+</form>

@@ -1,0 +1,102 @@
+/* เวอร์ชันทดลองหลังบ้าน MRTA - แถบบอกสถานะ + ข้อความแจ้งเตือน (คู่กับ demo.js) */
+:root {
+    --demo-bg: #1f2a44;
+    --demo-fg: #ffffff;
+    --demo-muted: #c9d3e6;
+    --demo-ok: #1e7b4f;
+    --demo-accent: #f5b301;
+}
+
+#demo-ribbon {
+    position: fixed;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    z-index: 2147483000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: calc(100vw - 32px);
+    padding: 6px 8px 6px 14px;
+    border-radius: 999px;
+    background: var(--demo-bg);
+    color: var(--demo-fg);
+    font: 500 13px/1.4 "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
+}
+
+#demo-ribbon strong {
+    color: var(--demo-accent);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+#demo-ribbon span {
+    color: var(--demo-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#demo-ribbon button {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .12);
+    color: var(--demo-fg);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#demo-ribbon button:hover,
+#demo-ribbon button:focus-visible {
+    background: rgba(255, 255, 255, .25);
+    outline: 0;
+}
+
+#demo-toasts {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 2147483001;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: min(380px, calc(100vw - 32px));
+    pointer-events: none;
+}
+
+.demo-toast {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border-left: 4px solid var(--demo-accent);
+    background: var(--demo-bg);
+    color: var(--demo-fg);
+    font: 500 14px/1.5 "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .25);
+    transition: opacity .4s, transform .4s;
+}
+
+.demo-toast.is-ok {
+    border-left-color: #3ccf8e;
+}
+
+.demo-toast.is-out {
+    opacity: 0;
+    transform: translateY(-6px);
+}
+
+/* แถบยอมรับคุกกี้ของหน้าบ้าน: สคริปต์มาจากเซิร์ฟเวอร์จริง ปุ่มกดไม่ได้ในเวอร์ชันทดลอง */
+.cookie-nav,
+#cookieSidebar {
+    display: none !important;
+}
+
+@media (max-width: 575px) {
+    #demo-ribbon span {
+        display: none;
+    }
+}

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><script>window.__DEMO={"sys": "news", "path": "/admin/audit-log", "landing": false, "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-news.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Log | MRTA Learning Center</title>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778366" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/components.css?v=1792130116" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/sidebar-mrta.css?v=1792640351" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+<link href="/news/back/theme_metronic/css/img-pick.css?v=1792125284" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/news/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/_shared/a/back/theme_metronic/image/sidebar/logo.svg" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    <div class="nav-item">
+    <a href="/news/admin" class="nav-link  startpreload">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span>ภาพรวม</span>
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+<div class="nav-heading mt-2">เนื้อหา</div>
+
+<div class="nav-item">
+    <a href="/news/admin/news"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-newspaper"></i>
+        <span>ข่าวสาร</span>
+        
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/news/category" class="nav-link  startpreload">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>หมวดข่าว</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    <a href="/news/admin/event"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-calendar"></i>
+        <span>กิจกรรม</span>
+        
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/event/category" class="nav-link  startpreload">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>หมวดกิจกรรม</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    <a href="/news/admin/gallery"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-images"></i>
+        <span>ประมวลภาพ</span>
+        
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/gallery/category" class="nav-link  startpreload">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>หมวดประมวลภาพ</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">ตั้งค่า</div>
+<div class="nav-item">
+    <a href="/news/admin/setting/news" class="nav-link  startpreload">
+        <i class="fa-solid fa-sliders"></i>
+        <span>ตั้งค่าระบบข่าวสาร</span>
+    </a>
+</div>
+    
+    <div class="nav-heading mt-2">AUDIT</div>
+<div class="nav-item">
+    <a href="/news/admin/audit-log"
+       class="nav-link active startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+    
+</nav>
+    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ 22 ตุลาคม, 2026 17:38:36</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/news/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/portal/admin">
+                    <i class="fa-solid fa-globe" style="width:16px;color:var(--text-2);"></i> Portal
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-regular fa-newspaper" style="width:16px;"></i> ข่าวสารและกิจกรรม
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/news/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title"><i class="fa-solid fa-clipboard-list"></i> Audit Log
+</div>
+            <div class="d-flex gap-2">
+                <button type="button" id="btn_more_filter" class="btn btn-outline-secondary">
+    <i class="fa-solid fa-filter"></i> ตัวกรองเพิ่มเติม
+</button>
+<button type="button" id="btn_export" class="btn btn-success">
+    <i class="fa-solid fa-file-excel"></i> ส่งออก (Excel)
+</button>
+            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        
+
+<nav aria-label="breadcrumb" class="mb-3">
+    <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a href="/news/admin">หน้าหลัก</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Audit Log</li>
+    </ol>
+</nav>
+
+
+
+<div class="row g-3 mb-3">
+        <div class="col-6 col-md-4 col-xl">
+        <div class="stat-card h-100 flex-column align-items-start" style="border-left-color:var(--pri);">
+            <div class="stat-icon" style="background:rgba(78,115,223,.12);color:var(--pri);">
+                <i class="fa-solid fa-list"></i>
+            </div>
+            <div class="stat-label text-uppercase-none">รายการทั้งหมด</div>
+            <div class="d-flex align-items-baseline gap-2">
+                <span class="stat-value">1</span>
+                <span class="text-muted small">รายการ</span>
+            </div>
+            <a href="javascript:void(0);" class="small text-decoration-none btn-stat-filter mt-1"
+               data-filter="[]">
+                ดูทั้งหมด <i class="fa-solid fa-chevron-right" style="font-size:.65em;"></i>
+            </a>
+        </div>
+    </div>
+        <div class="col-6 col-md-4 col-xl">
+        <div class="stat-card h-100 flex-column align-items-start" style="border-left-color:var(--success);">
+            <div class="stat-icon" style="background:rgba(28,200,138,.12);color:var(--success);">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="stat-label text-uppercase-none">ผู้ใช้งานที่มีการใช้งาน</div>
+            <div class="d-flex align-items-baseline gap-2">
+                <span class="stat-value">1</span>
+                <span class="text-muted small">คน</span>
+            </div>
+            <a href="javascript:void(0);" class="small text-decoration-none btn-stat-filter mt-1"
+               data-filter="[]">
+                ดูทั้งหมด <i class="fa-solid fa-chevron-right" style="font-size:.65em;"></i>
+            </a>
+        </div>
+    </div>
+        <div class="col-6 col-md-4 col-xl">
+        <div class="stat-card h-100 flex-column align-items-start" style="border-left-color:var(--warning);">
+            <div class="stat-icon" style="background:rgba(246,194,62,.12);color:var(--warning);">
+                <i class="fa-solid fa-calendar-day"></i>
+            </div>
+            <div class="stat-label text-uppercase-none">วันนี้</div>
+            <div class="d-flex align-items-baseline gap-2">
+                <span class="stat-value">0</span>
+                <span class="text-muted small">รายการ</span>
+            </div>
+            <a href="javascript:void(0);" class="small text-decoration-none btn-stat-filter mt-1"
+               data-filter="{&quot;period&quot;:&quot;today&quot;}">
+                ดูรายละเอียด <i class="fa-solid fa-chevron-right" style="font-size:.65em;"></i>
+            </a>
+        </div>
+    </div>
+        <div class="col-6 col-md-4 col-xl">
+        <div class="stat-card h-100 flex-column align-items-start" style="border-left-color:#7c4dff;">
+            <div class="stat-icon" style="background:rgba(124,77,255,.12);color:#7c4dff;">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="stat-label text-uppercase-none">สัปดาห์นี้</div>
+            <div class="d-flex align-items-baseline gap-2">
+                <span class="stat-value">0</span>
+                <span class="text-muted small">รายการ</span>
+            </div>
+            <a href="javascript:void(0);" class="small text-decoration-none btn-stat-filter mt-1"
+               data-filter="{&quot;period&quot;:&quot;thisWeek&quot;}">
+                ดูรายละเอียด <i class="fa-solid fa-chevron-right" style="font-size:.65em;"></i>
+            </a>
+        </div>
+    </div>
+        <div class="col-6 col-md-4 col-xl">
+        <div class="stat-card h-100 flex-column align-items-start" style="border-left-color:var(--info);">
+            <div class="stat-icon" style="background:rgba(54,185,204,.12);color:var(--info);">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="stat-label text-uppercase-none">เหตุการณ์สำคัญ</div>
+            <div class="d-flex align-items-baseline gap-2">
+                <span class="stat-value">0</span>
+                <span class="text-muted small">รายการ</span>
+            </div>
+            <a href="javascript:void(0);" class="small text-decoration-none btn-stat-filter mt-1"
+               data-filter="{&quot;level&quot;:&quot;critical&quot;}">
+                ดูรายละเอียด <i class="fa-solid fa-chevron-right" style="font-size:.65em;"></i>
+            </a>
+        </div>
+    </div>
+    </div>
+
+
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-12 col-md-6 col-xl-3">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" id="txt_keyword" class="form-control"
+                           placeholder="ค้นหาด้วยคำค้น, ผู้ใช้, การกระทำ...">
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-xl-2">
+                <select id="sel_user" class="form-select">
+                    <option value="">ผู้ใช้งาน: ทั้งหมด</option>
+                                        <option value="120">Piyanuch (pi**********@example.com)</option>
+                                    </select>
+            </div>
+            <div class="col-6 col-md-3 col-xl-2">
+                <select id="sel_action" class="form-select">
+                    <option value="">การกระทำ: ทั้งหมด</option>
+                                        <option value="Update">Update</option>
+                                    </select>
+            </div>
+            <div class="col-6 col-md-3 col-xl-2">
+                <select id="sel_level" class="form-select">
+                    <option value="">ระดับ: ทั้งหมด</option>
+                    <option value="normal">ปกติ</option>
+                    <option value="critical">สำคัญ</option>
+                </select>
+            </div>
+            <div class="col-6 col-md-3 col-xl-2">
+                <select id="sel_period" class="form-select">
+                    <option value="">ช่วงวันที่: ทั้งหมด</option>
+                    <option value="today">วันนี้</option>
+                    <option value="yesterday">เมื่อวาน</option>
+                    <option value="last7Days">7 วันล่าสุด</option>
+                    <option value="thisWeek">สัปดาห์นี้</option>
+                    <option value="thisMonth">เดือนนี้</option>
+                    <option value="lastMonth">เดือนที่แล้ว</option>
+                    <option value="customPeriod">กำหนดเอง</option>
+                </select>
+            </div>
+            <div class="col-12 col-xl-auto d-grid">
+                <button type="button" id="btn_reset" class="btn btn-outline-secondary">
+                    <i class="fa-solid fa-rotate-left"></i> รีเซ็ตตัวกรอง
+                </button>
+            </div>
+        </div>
+
+        
+        <div class="row g-3 mt-1 d-none" id="row_more_filter">
+            <div class="col-6 col-md-3 col-xl-2">
+                <label class="form-label small text-muted mb-1">โมดูล</label>
+                <select id="sel_module" class="form-select">
+                    <option value="">ทั้งหมด</option>
+                                        <option value="News">News</option>
+                                    </select>
+            </div>
+            <div class="col-6 col-md-3 col-xl-2">
+                <label class="form-label small text-muted mb-1">วันที่เริ่ม</label>
+                <input type="text" id="txt_period_start" class="form-control" placeholder="DD/MM/YYYY">
+            </div>
+            <div class="col-6 col-md-3 col-xl-2">
+                <label class="form-label small text-muted mb-1">วันที่สิ้นสุด</label>
+                <input type="text" id="txt_period_end" class="form-control" placeholder="DD/MM/YYYY">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-body">
+        <table id="main_table" class="table table-hover align-middle w-100">
+            <thead>
+                <tr>
+                    <th style="width:46px;">#</th>
+                    <th style="width:160px;">วันที่ / เวลา</th>
+                    <th style="width:230px;">ผู้ใช้งาน</th>
+                    <th style="width:150px;">บทบาท</th>
+                    <th style="width:200px;">การกระทำ</th>
+                    <th>รายละเอียด</th>
+                    <th style="width:130px;">IP Address</th>
+                    <th style="width:96px;">ระดับ</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    $.extend(true, $.fn.dataTable.defaults, { language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."} });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+<script src="/_shared/inline/e7d005b618ca7beb.js"></script>
+
+
+<script src="/_shared/inline/73f5d66d14dcf0ca.js"></script>
+
+<link rel="stylesheet" href="/_shared/a/back/collab/collab.css?v=1792128177">
+    <script>
+        window.MRTA_COLLAB = {"mode":"index","system":"news","key":null,"channel":null,"index":"presence-collab-index.news","openedAt":1792665516,"path":"\/admin\/audit-log","me":{"id":120,"name":"Piyanuch Panyadee","initials":"R","color":"#e11d48"},"ws":{"key":"demo","host":"ws.demo.invalid","port":8080,"tls":false},"authUrl":"\/news\/admin\/collab\/auth","checkUrl":"\/news\/admin\/collab\/check","text":{"here_one":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","here_many":":name \u0e41\u0e25\u0e30\u0e2d\u0e35\u0e01 :n \u0e04\u0e19 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","alone":"\u0e21\u0e35\u0e04\u0e38\u0e13\u0e04\u0e19\u0e40\u0e14\u0e35\u0e22\u0e27\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","joined":":name \u0e40\u0e02\u0e49\u0e32\u0e21\u0e32\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","left":":name \u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27","editing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49","typing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u2026","saved_banner":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27 \u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19.","reload":"\u0e42\u0e2b\u0e25\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14","conflict_title":"\u0e21\u0e35\u0e04\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e1b\u0e41\u0e25\u0e49\u0e27","conflict_text":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19. \u0e2b\u0e25\u0e31\u0e07\u0e08\u0e32\u0e01\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32 \u0e16\u0e49\u0e32\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e15\u0e48\u0e2d \u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48 :name \u0e41\u0e01\u0e49\u0e43\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27\u0e01\u0e31\u0e19\u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e02\u0e35\u0e22\u0e19\u0e17\u0e31\u0e1a","overwrite":"\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","row_editing":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49\u0e44\u0e02\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49","offline":"\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e41\u0e1a\u0e1a real-time \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e22\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e1b\u0e01\u0e15\u0e34 \u0e41\u0e25\u0e30\u0e23\u0e30\u0e1a\u0e1a\u0e22\u0e31\u0e07\u0e01\u0e31\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a\u0e43\u0e2b\u0e49"},"conflict":null};
+    </script>
+    <script src="/_shared/a/back/collab/pusher.min.js"></script>
+    <script src="/_shared/a/back/collab/collab.js?v=1792128554"></script>
+
+
+
+
+<style>
+    /* .stat-label ของธีมบังคับ uppercase ซึ่งกินสระไทย - ปิดเฉพาะการ์ดหน้านี้ */
+    .stat-card .text-uppercase-none { text-transform: none; font-size: 12.5px; }
+    .audit-user-avatar { width: 32px; height: 32px; border-radius: 50%; display: inline-flex;
+        align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff;
+        flex-shrink: 0; object-fit: cover; border: 1px solid var(--border); }
+    .audit-action-icon { width: 26px; height: 26px; border-radius: 7px; display: inline-flex;
+        align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
+    /* ห้ามตัดบรรทัดกลางคอลัมน์สั้น ๆ ไม่งั้นแถวสูงขึ้นและตัวอักษรไทยตกบรรทัด (ตารางเลื่อนแนวนอนได้แทน) */
+    #main_table th, #main_table td { white-space: nowrap; vertical-align: middle; }
+    #main_table td.audit-col-detail { white-space: normal; }
+    .audit-detail { max-width: 460px; }
+    /* แถวเครื่องมือล่างตาราง: ตัว select จำนวนแถวกับเลขหน้าอยู่บรรทัดเดียวกัน ไม่ต้องมี margin ของ DataTables */
+    .audit-table-tools .dataTables_length, .audit-table-tools .dataTables_paginate { margin: 0 !important; }
+    .audit-table-tools .dataTables_length label { margin: 0; display: flex; align-items: center; gap: 6px; }
+    .audit-table-tools .dataTables_length select { width: auto; }
+</style>
+<script>
+$(function () {
+    var isEn = false;
+
+    // ป้ายชื่อ + ไอคอนของแต่ละการกระทำ (คีย์ = ค่า title ที่ Controller::Log() เขียนลง logs)
+    // ไม่มีในนี้ = แสดงข้อความดิบตามที่บันทึกไว้
+    var ACTIONS = {
+        'Insert':                   { th: 'เพิ่มข้อมูล',            icon: 'fa-plus',             color: '#1cc88a' },
+        'Update':                   { th: 'แก้ไขข้อมูล',            icon: 'fa-pen',              color: '#4e73df' },
+        'Update Status':            { th: 'เปลี่ยนสถานะ',           icon: 'fa-toggle-on',        color: '#36b9cc' },
+        'Update in_center status':  { th: 'เปลี่ยนสถานะในศูนย์',      icon: 'fa-building-columns', color: '#36b9cc' },
+        'Update Page Layout':       { th: 'แก้ไขหน้าเว็บ',           icon: 'fa-table-columns',    color: '#4e73df' },
+        'Update Weekly':            { th: 'แก้ไขเวลาทำการ',          icon: 'fa-calendar-week',    color: '#4e73df' },
+        'Delete':                   { th: 'ลบข้อมูล',              icon: 'fa-trash',            color: '#e74a3b' },
+        'Approve Reservation':      { th: 'อนุมัติการจอง',           icon: 'fa-circle-check',     color: '#1cc88a' },
+        'Borrow/Return Transaction':{ th: 'ยืม/คืนทรัพยากร',        icon: 'fa-right-left',       color: '#fd7e14' },
+        'View User List':           { th: 'ดูรายชื่อผู้ใช้',           icon: 'fa-users',            color: '#7c4dff' },
+        'View User Profile':        { th: 'ดูข้อมูลผู้ใช้',           icon: 'fa-id-card',          color: '#7c4dff' },
+        'View threat dashboard':    { th: 'ดูภาพรวมภัยคุกคาม',       icon: 'fa-shield-halved',    color: '#f6c23e' },
+        'View IP threat history':   { th: 'ดูประวัติภัยคุกคามราย IP',  icon: 'fa-magnifying-glass', color: '#f6c23e' }
+    };
+    var ACTION_FALLBACK = { icon: 'fa-circle-dot', color: '#858796' };
+
+    var AVATAR_COLORS = ['#4e73df', '#1cc88a', '#f6c23e', '#e74a3b', '#36b9cc', '#7c4dff', '#fd7e14'];
+    var escapeHtml = function (text) { return $('<div>').text(text == null ? '' : text).html(); };
+
+    var filters = function () {
+        return {
+            keyword:      $('#txt_keyword').val(),
+            user_id:      $('#sel_user').val(),
+            action:       $('#sel_action').val(),
+            level:        $('#sel_level').val(),
+            module:       $('#sel_module').val(),
+            period:       $('#sel_period').val(),
+            period_start: $('#txt_period_start').val(),
+            period_end:   $('#txt_period_end').val()
+        };
+    };
+
+    var table = $('#main_table').DataTable({
+        processing: true, serverSide: true, searching: false, // ใช้ช่องค้นหาของหน้านี้แทนของ DataTables
+        order: [[1, 'desc']],
+        lengthMenu: [10, 25, 50, 100],
+        autoWidth: false, // ให้ความกว้างที่กำหนดไว้ที่ <th> มีผลจริง
+        // จำนวนแถว + เลขหน้าอยู่มุมล่างขวา ข้อความ "แสดง x - y" อยู่ล่างซ้าย
+        dom: '<"table-responsive"t>'
+           + '<"row align-items-center mt-3 g-2"'
+           + '<"col-md-6 text-muted small"i>'
+           + '<"col-md-6 d-flex justify-content-md-end align-items-center gap-2 audit-table-tools"lp>>',
+        ajax: {
+            url: '/news/admin/audit-log/datatable',
+            type: 'POST',
+            data: function (d) { return $.extend(d, { _token: 'demo-token' }, filters()); }
+        },
+        columns: [
+            { data: 'DT_RowIndex', name: 'logs.id', orderable: false },
+            { data: 'created_at', name: 'logs.created_at' },
+            { data: null, name: 'users.name', render: function (row) {
+                var name = row.user_name || '-';
+                // มีรูปโปรไฟล์ใช้รูปจริง / ไม่มีค่อยวาดวงกลมตัวอักษรย่อ (สีคงที่ต่อชื่อเดิม)
+                var avatar;
+                if (row.avatar_url) {
+                    avatar = '<img class="audit-user-avatar" src="' + escapeHtml(row.avatar_url) + '" alt="">';
+                } else {
+                    var color = AVATAR_COLORS[(name.charCodeAt(0) || 0) % AVATAR_COLORS.length];
+                    avatar = '<span class="audit-user-avatar" style="background:' + color + ';">'
+                           + escapeHtml(name.charAt(0).toUpperCase()) + '</span>';
+                }
+                return '<div class="d-flex align-items-center gap-2">' + avatar
+                     + '<div class="lh-sm"><div class="fw-semibold">' + escapeHtml(name) + '</div>'
+                     // TOR 4.3: อีเมลมาจาก server แบบปิดบังแล้ว (HTML ที่ escape แล้ว + ปุ่ม 👁)
+                     + '<div class="text-muted small">' + (row.email_html || '-') + '</div></div></div>';
+            } },
+            { data: 'role_name', name: 'role_name', orderable: false, render: function (d) {
+                return d ? escapeHtml(d) : '<span class="text-muted">-</span>';
+            } },
+            { data: 'title', name: 'logs.title', render: function (d) {
+                var action = ACTIONS[d] || $.extend({ th: d }, ACTION_FALLBACK);
+                // สีพื้นไอคอนใช้ hex 8 หลัก (สีเดียวกัน + alpha) ไม่ต้องแปลงเป็น rgba
+                return '<span class="d-inline-flex align-items-center gap-2 text-nowrap">'
+                     + '<span class="audit-action-icon" style="background:' + action.color + '22;color:' + action.color + ';">'
+                     + '<i class="fa-solid ' + action.icon + '"></i></span>'
+                     + escapeHtml(isEn ? (d || '-') : (action.th || '-')) + '</span>';
+            } },
+            { data: 'description', name: 'logs.description', className: 'audit-col-detail', render: function (d, type, row) {
+                var detail = d || '-';
+                var module = row.module ? '<span class="badge bg-light text-dark border ms-1">' + escapeHtml(row.module) + '</span>' : '';
+                return '<div class="audit-detail text-truncate" title="' + escapeHtml(detail) + '">'
+                     + escapeHtml(detail) + module + '</div>';
+            } },
+            // TOR 4.3: IP ปิดบังจาก server (ip_html) - ค้นหา/เรียงยังใช้ logs.ip
+            { data: 'ip_html', name: 'logs.ip', render: function (d) { return d || '-'; } },
+            { data: 'is_critical', name: 'logs.severity', render: function (isCritical) {
+                return isCritical
+                    ? '<span class="badge bg-danger-subtle text-danger">' + (isEn ? 'Critical' : 'สำคัญ') + '</span>'
+                    : '<span class="badge bg-success-subtle text-success">' + (isEn ? 'Normal' : 'ปกติ') + '</span>';
+            } }
+        ],
+        language: {
+            emptyTable: isEn ? 'No audit records found' : 'ไม่พบรายการบันทึกการกระทำ',
+            zeroRecords: isEn ? 'No audit records found' : 'ไม่พบรายการบันทึกการกระทำ',
+            info: isEn ? 'Showing _START_ - _END_ of _TOTAL_ records' : 'แสดง _START_ - _END_ จาก _TOTAL_ รายการ',
+            infoEmpty: isEn ? 'Showing 0 records' : 'แสดง 0 รายการ',
+            lengthMenu: isEn ? '_MENU_ / page' : '_MENU_ / หน้า',
+            processing: isEn ? 'Loading...' : 'กำลังโหลด...',
+            paginate: { first: '«', last: '»', next: '›', previous: '‹' }
+        }
+    });
+
+    var reload = function () { table.ajax.reload(); };
+
+    $('#sel_user, #sel_action, #sel_level, #sel_module').on('change', reload);
+    $('#txt_period_start, #txt_period_end').on('change', reload);
+
+    // พิมพ์แล้วรอให้หยุดก่อนค่อยยิง ไม่ต้องยิงทุกตัวอักษร
+    var keywordTimer;
+    $('#txt_keyword').on('keyup', function () {
+        clearTimeout(keywordTimer);
+        keywordTimer = setTimeout(reload, 400);
+    });
+
+    $('#sel_period').on('change', function () {
+        var isCustom = $(this).val() === 'customPeriod';
+        if (isCustom) $('#row_more_filter').removeClass('d-none');
+        // กำหนดเอง: รอให้กรอกวันที่ก่อน ไม่ต้อง reload ทันที
+        if (!isCustom) reload();
+    });
+
+    $('#btn_more_filter').on('click', function () { $('#row_more_filter').toggleClass('d-none'); });
+
+    $('#btn_reset').on('click', function () {
+        $('#txt_keyword, #txt_period_start, #txt_period_end').val('');
+        $('#sel_user, #sel_action, #sel_level, #sel_module, #sel_period').val('');
+        reload();
+    });
+
+    // กดการ์ดสถิติ = ตั้งตัวกรองให้ตรงกับการ์ดนั้นแล้วโหลดตารางใหม่
+    $('.btn-stat-filter').on('click', function () {
+        var wanted = $(this).data('filter') || {};
+        $('#btn_reset').trigger('click');
+        if (wanted.period) $('#sel_period').val(wanted.period);
+        if (wanted.level)  $('#sel_level').val(wanted.level);
+        reload();
+        $('html, body').animate({ scrollTop: $('#main_table').offset().top - 120 }, 250);
+    });
+
+    $('#btn_export').on('click', function () {
+        window.location = '/news/admin/audit-log/export?' + $.param(filters());
+    });
+});
+</script>
+<script>
+    function logout() {
+        event.preventDefault();
+        Swal.fire({
+            title: "\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e23\u0e30\u0e1a\u0e1a?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: "\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e23\u0e30\u0e1a\u0e1a",
+            cancelButtonText: "\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01",
+            confirmButtonColor: '#e74a3b'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#logout_form').submit();
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

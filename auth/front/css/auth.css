@@ -1,0 +1,817 @@
+/*
+|--------------------------------------------------------------------------
+| auth.css - หน้าตาของทุกหน้าใน resources/views/auth
+|--------------------------------------------------------------------------
+| ไฟล์เดียวจบ: login / register / forgot / reset / confirm / verify / 2FA
+| ใช้ร่วมกับ header.css (top nav) และ front/color/main.css (ตัวแปรสี)
+|
+| กติกาของไฟล์นี้
+|   1. ห้าม hardcode ค่าสี - ใช้ var(--bs-*) จาก front/color/main.css เท่านั้น
+|      ถ้าวันหนึ่งลูกค้าเปลี่ยนสีองค์กร แก้ไฟล์ตัวแปรที่เดียวแล้วจบ
+|   2. ห้ามเขียน style ของหน้า auth ไว้ในไฟล์ blade เด็ดขาด
+|      ของเดิมมี <style> ฝังในหน้า 2FA ทำให้หน้านั้นหลุดแพตเทิร์นไปหน้าเดียว
+|   3. ทุก selector ขึ้นต้นด้วย .auth-* ไม่ชนกับ css ตัวอื่นของเว็บ
+*/
+
+/* ══ ตัวแปรเฉพาะหน้า auth ══
+   รวมค่าที่ต้องปรับบ่อยไว้ที่เดียว เปลี่ยนพื้นหลัง = แก้บรรทัดเดียว */
+:root {
+    --auth-hero-bg: url("../image/bg/bg-login.png");
+
+    /* ── ขนาดของสองบล็อกหลัก ──
+       ต้องเป็นสัดส่วนของจอ ไม่ใช่ px ตายตัว เพราะ mockup วาดบนจอ 1920
+       การ์ดกว้าง 557px = 29% ของจอ / โลโก้กว้าง 591px = 31% ของจอ
+       ถ้าใส่เป็น px ตายตัว พอเปิดบนจอ 1440 การ์ดจะกลายเป็น 39% ของจอ
+       คือใหญ่กว่าที่ออกแบบไว้หนึ่งในสาม และโลโก้จะไปทับหน้าคนในรูป */
+    --auth-card-w: clamp(340px, 29vw, 557px);
+    --auth-brand-w: clamp(280px, 31vw, 591px);
+
+    /* ระยะจากใต้ top nav ถึงหัวโลโก้/หัวการ์ด
+       ใช้ vh เพื่อให้จอเตี้ยลงระยะก็หดตามเอง ไม่ดันการ์ดตกจอ */
+    --auth-offset-top: clamp(48px, 18vh, 195px);
+
+    --auth-field-h: 52px;
+    --auth-radius: 6px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   1. พื้นหลัง + การวางตัวซ้าย/ขวา
+   ══════════════════════════════════════════════════════════════════ */
+
+.auth-hero {
+    position: relative;
+    overflow: hidden;
+
+    /* ความสูงเอาค่ามากสุดของสองอย่าง (ยังเป็น min-height ไม่ใช่ height
+       หน้า register การ์ดสูงกว่านี้ ต้องยืดตามได้ ไม่งั้นฟอร์มโดน overflow ตัดหาย)
+
+         100vh - 100px  = อย่างน้อยเต็มจอใต้ top nav
+         56.25vw        = สูงเท่าสัดส่วนของรูปเอง (1920x1080 → 9/16 = 56.25%)
+
+       ตัวหลังคือตัวที่ทำให้ "เลื่อนลงไปดูรูปเต็มใบได้" - ถ้าตรึงไว้แค่ 100vh
+       รูปจะถูก cover ตัดขอบล่างทิ้งถาวร และหน้าจะไม่มีอะไรให้เลื่อนเลย */
+    min-height: max(calc(100vh - 100px), 56.25vw);
+
+    display: flex;
+
+    /* ชิดบน ไม่ใช่กึ่งกลาง - mockup วางโลโก้กับการ์ดไว้ครึ่งบน แล้วปล่อยครึ่งล่าง
+       ให้เป็นตัวคนในรูปพื้นหลัง ถ้าจัดกึ่งกลางแนวตั้ง โลโก้จะลงไปทับหน้าคนพอดี */
+    align-items: flex-start;
+
+    /* พื้นสีทึบรองไว้ กันจังหวะที่รูปยังโหลดไม่เสร็จแล้วตัวหนังสือขาวลอยบนพื้นขาว */
+    background-color: var(--bs-primary-500);
+
+    padding: 0 0 40px;
+}
+
+/* รูปพื้นหลังวางเป็นชั้นแยก เพื่อคุมตำแหน่งแนวตั้งได้อิสระจากเนื้อหาในการ์ด
+
+   จุดสำคัญ: ยึด "ขอบบนของรูป" ไว้ที่ใต้ top nav พอดี (top:0 + position center top)
+   ห้ามดันรูปขึ้นไปซ่อนใต้ nav เพราะหัวรูปเป็นส่วนที่มีเนื้อหา (แถบขาว + โลโก้)
+   ถ้าดันขึ้นไป nav จะกินส่วนนั้นหายไปเลย
+   ส่วนที่ยอมให้ถูกตัดคือขอบล่างของรูป ซึ่งเป็นพื้นถนน/สถานี ไม่มีอะไรสำคัญ */
+.auth-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+
+    background-image: var(--auth-hero-bg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+.auth-hero-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+
+    /* ขอบซ้าย-ขวาเป็นสัดส่วนของจอเหมือนกัน (mockup เว้นซ้าย 195px บนจอ 1920 = 10.2%)
+       ถ้าใช้ค่าคงที่ พอจอแคบลงโลโก้จะไปติดขอบซ้ายจนดูอึดอัด */
+    padding: var(--auth-offset-top) clamp(24px, 10.2vw, 200px) 0;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--auth-card-w);
+
+    /* ชิดบนทั้งสองคอลัมน์ - mockup วางหัวโลโก้กับหัวการ์ดไว้ระดับเดียวกัน */
+    align-items: start;
+    gap: 40px;
+}
+
+/* ── ซ้าย: โลโก้ต้อนรับ ── */
+
+/* ยกโลโก้ขึ้นกว่าหัวการ์ดเล็กน้อย ไม่ได้เรียงระดับเดียวกันเป๊ะ
+   เพราะครึ่งล่างซ้ายเป็นตัวคนในรูปพื้นหลัง ยิ่งลงมายิ่งไปทับหมวก
+   ผูกกับ --auth-offset-top เพื่อให้ยุบตามกันเวลาจอเตี้ย ไม่หลุดขอบบน */
+.auth-hero-brand {
+    margin-top: calc(var(--auth-offset-top) * -0.28);
+
+    /* เยื้องขวาให้พ้นแผ่นขาวทแยงที่อยู่ในรูปพื้นหลัง ไม่งั้นตัว W ของ Welcome
+       จะจมหายไปในแผ่นขาว (ขอบทแยงอยู่ราว 13% ของความกว้างจอตรงระดับความสูงนี้) */
+    margin-left: clamp(0px, 5vw, 100px);
+}
+
+.auth-hero-brand img {
+    display: block;
+    width: var(--auth-brand-w);
+    max-width: 100%;
+    height: auto;
+}
+
+/* ── ขวา: การ์ด ── */
+.auth-hero-form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2. การ์ดฟอร์ม
+   ══════════════════════════════════════════════════════════════════ */
+
+.auth-card {
+    width: 100%;
+    background: var(--bs-white);
+    border-radius: 14px;
+    padding: 38px 40px 42px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .22);
+
+    /* การ์ดอาจสูงเกินจอในหน้า register - ให้เลื่อนในตัวการ์ด
+       ไม่ใช่ดันพื้นหลังยืดจนคนหาย ซึ่งเสียภาพจากรูปพื้นหลัง */
+    color: var(--bs-primary-900);
+}
+
+/* หน้าที่ฟิลด์เยอะ (register) ใช้การ์ดกว้างขึ้นแต่โครงเดิมทุกอย่าง */
+.auth-card-wide {
+    max-width: 100%;
+}
+
+/* หัวการ์ด: แถบแดงตั้ง + ตัวหนาน้ำเงินเข้ม
+   ใช้ ::before แทนการวาง <span> ในทุกหน้า จะได้ไม่มีหน้าไหนลืมใส่ */
+.auth-card-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 0 0 24px;
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--bs-primary-500);
+}
+
+.auth-card-title::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 7px;
+    height: 1.15em;
+    border-radius: 2px;
+    background: var(--bs-secondary-900);
+}
+
+/* คำอธิบายใต้หัวข้อ (หน้า confirm / verify / 2FA) */
+.auth-lead {
+    margin: -12px 0 22px;
+    font-size: .95rem;
+    line-height: 1.65;
+    color: var(--bs-gray-900);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3. ช่องกรอก
+   ══════════════════════════════════════════════════════════════════ */
+
+.auth-field {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.auth-card .form-control {
+    height: var(--auth-field-h);
+    padding: 0 16px;
+    font-size: 1rem;
+    color: var(--bs-primary-900);
+    background: var(--bs-white);
+    border: 1px solid var(--bs-gray-500);
+    border-radius: var(--auth-radius);
+    box-shadow: none;
+}
+
+.auth-card textarea.form-control {
+    height: auto;
+    padding: 12px 16px;
+}
+
+.auth-card .form-control::placeholder {
+    color: var(--bs-gray-700);
+    opacity: 1;
+}
+
+.auth-card .form-control:focus {
+    border-color: var(--bs-primary-500);
+    box-shadow: 0 0 0 3px rgba(0, 39, 119, .12);
+}
+
+.auth-card .form-control:disabled,
+.auth-card .form-control[readonly] {
+    background: var(--bs-gray-100);
+    color: var(--bs-gray-900);
+}
+
+.auth-card .form-control.is-invalid {
+    border-color: var(--bs-status-error);
+    background-image: none;   /* ไอคอนของ bootstrap ทับปุ่มลูกตาพอดี */
+}
+
+/* ปุ่มลูกตาเปิด/ปิดรหัสผ่าน - ชิดขวาในช่อง */
+.auth-eye {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: var(--auth-field-h);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--bs-gray-900);
+}
+
+.auth-eye:hover {
+    color: var(--bs-primary-500);
+}
+
+/* กันตัวอักษรวิ่งไปใต้ปุ่มลูกตา */
+.auth-field-password .form-control {
+    padding-right: 48px;
+}
+
+/* ข้อความช่วยใต้ช่อง เช่น เงื่อนไขรหัสผ่าน */
+.auth-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: .82rem;
+    line-height: 1.5;
+    color: var(--bs-gray-900);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   4. แถว "จำบัญชี" + "ลืมรหัสผ่าน"
+   ══════════════════════════════════════════════════════════════════ */
+
+.auth-row-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 4px 0 22px;
+}
+
+.auth-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    font-size: .95rem;
+    color: var(--bs-primary-900);
+    margin: 0;
+}
+
+/* ช่องติ๊กวาดเอง: กล่องขาวขอบเทา + เครื่องหมายถูกสีแดงตอนติ๊ก
+   ไม่ใช้ accent-color เพราะ safari รุ่นเก่ายังไม่รองรับ แล้วจะได้ติ๊กสีฟ้าเริ่มต้น */
+.auth-check input {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    border: 2px solid var(--bs-gray-500);
+    border-radius: 4px;
+    background: var(--bs-white);
+    cursor: pointer;
+    position: relative;
+}
+
+.auth-check input:checked {
+    border-color: var(--bs-secondary-900);
+}
+
+.auth-check input:checked::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border: solid var(--bs-secondary-900);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.auth-check input:focus-visible {
+    outline: 2px solid var(--bs-primary-500);
+    outline-offset: 2px;
+}
+
+/* ลิงก์ในการ์ด (ลืมรหัสผ่าน / สมัครสมาชิก / ย้อนกลับ) */
+.auth-link {
+    color: var(--bs-primary-300);
+    text-decoration: underline;
+    font-size: .95rem;
+}
+
+.auth-link:hover {
+    color: var(--bs-primary-500);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5. ปุ่ม
+   ══════════════════════════════════════════════════════════════════ */
+
+.auth-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 56px;
+    padding: 12px 20px;
+
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--bs-white);
+    text-decoration: none;
+
+    background: var(--bs-primary-500);
+    border: 0;
+    border-radius: var(--auth-radius);
+    cursor: pointer;
+    transition: background-color .15s ease;
+}
+
+.auth-submit:hover,
+.auth-submit:focus {
+    background: var(--bs-primary-700);
+    color: var(--bs-white);
+}
+
+/* ปุ่มรอง เช่น "ยกเลิก" หรือ "ปิดใช้งาน 2FA" */
+.auth-submit-outline {
+    background: var(--bs-white);
+    color: var(--bs-primary-500);
+    border: 1px solid var(--bs-primary-500);
+}
+
+.auth-submit-outline:hover,
+.auth-submit-outline:focus {
+    background: var(--bs-primary-500);
+    color: var(--bs-white);
+}
+
+.auth-submit-danger {
+    background: var(--bs-secondary-900);
+}
+
+.auth-submit-danger:hover,
+.auth-submit-danger:focus {
+    background: var(--bs-secondary-700);
+}
+
+/* ปุ่มสองตัวเรียงข้างกัน (หน้า verify email) */
+.auth-btn-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.auth-btn-row > * {
+    flex: 1 1 180px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   6. บรรทัดล่างการ์ด
+   ══════════════════════════════════════════════════════════════════ */
+
+.auth-foot {
+    margin-top: 22px;
+    text-align: center;
+    font-size: .95rem;
+    color: var(--bs-gray-900);
+}
+
+.auth-divider {
+    height: 1px;
+    margin: 26px 0 20px;
+    background: var(--bs-gray-500);
+    border: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   7. กล่องข้อความ (สำเร็จ / ผิดพลาด / เตือน)
+   ══════════════════════════════════════════════════════════════════ */
+
+.auth-alert {
+    margin-bottom: 18px;
+    padding: 12px 16px;
+    border-radius: var(--auth-radius);
+    border-left: 4px solid transparent;
+    font-size: .92rem;
+    line-height: 1.6;
+}
+
+.auth-alert-success {
+    background: #E8F5EE;
+    border-left-color: var(--bs-status-success);
+    color: #145c39;
+}
+
+.auth-alert-error {
+    background: #FDECEE;
+    border-left-color: var(--bs-status-error);
+    color: #8d1d26;
+}
+
+.auth-alert-warning {
+    background: #FFF6E0;
+    border-left-color: var(--bs-status-warning);
+    color: #7a5600;
+}
+
+.auth-alert-info {
+    background: #E7F2FE;
+    border-left-color: var(--bs-status-info);
+    color: #10457c;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   8. ของเฉพาะหน้า 2FA - ใช้โครงการ์ดเดียวกับหน้าอื่นทุกอย่าง
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ช่องกรอก OTP 6 หลัก */
+.auth-otp {
+    text-align: center;
+    letter-spacing: .5em;
+    font-size: 1.5rem !important;
+    font-weight: 600;
+    text-indent: .5em;   /* ชดเชย letter-spacing ที่ห้อยท้ายตัวสุดท้าย */
+}
+
+/* กล่อง QR - พื้นขาวเสมอ ไม่งั้น QR สแกนไม่ติดถ้าพื้นหลังเป็นสี */
+.auth-qr {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    margin-bottom: 22px;
+    background: var(--bs-white);
+    border: 1px solid var(--bs-gray-500);
+    border-radius: var(--auth-radius);
+}
+
+.auth-qr svg {
+    width: 190px;
+    height: 190px;
+}
+
+/* รายการ recovery code */
+.auth-codes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.auth-code {
+    padding: 8px;
+    text-align: center;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .9rem;
+    color: var(--bs-primary-900);
+    background: var(--bs-white);
+    border: 1px solid var(--bs-gray-500);
+    border-radius: 4px;
+    user-select: all;
+}
+
+.auth-badge {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: .82rem;
+    font-weight: 500;
+    color: var(--bs-white);
+    background: var(--bs-gray-900);
+}
+
+.auth-badge-on {
+    background: var(--bs-status-success);
+}
+
+/* แท็บสลับ Authenticator / Recovery code */
+.auth-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--bs-gray-500);
+}
+
+.auth-tabs .nav-link {
+    padding: 10px 16px;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    background: none;
+    font-size: .95rem;
+    color: var(--bs-gray-900);
+}
+
+.auth-tabs .nav-link.active {
+    color: var(--bs-primary-500);
+    font-weight: 600;
+    border-bottom-color: var(--bs-secondary-900);
+    background: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   8.1 เข้าสู่ระบบด้วยผู้ให้บริการภายนอก (Azure AD / ThaID)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* เส้นคั่น "หรือ" ระหว่างฟอร์มรหัสผ่านกับปุ่มผู้ให้บริการ */
+.auth-or {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 22px 0 16px;
+    font-size: .9rem;
+    color: var(--bs-gray-700);
+}
+
+.auth-or::before,
+.auth-or::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--bs-gray-500);
+}
+
+.auth-idp-list {
+    display: grid;
+    gap: 10px;
+}
+
+/* ปุ่มผู้ให้บริการ - กรอบขาวแบบปุ่มรอง ให้ปุ่ม "เข้าสู่ระบบ" หลักยังเด่นที่สุด */
+.auth-idp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: var(--auth-field-h);
+    padding: 10px 16px;
+
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--bs-primary-900);
+    text-decoration: none;
+
+    background: var(--bs-white);
+    border: 1px solid var(--bs-gray-500);
+    border-radius: var(--auth-radius);
+    cursor: pointer;
+    transition: border-color .15s ease, background-color .15s ease;
+}
+
+.auth-idp:hover,
+.auth-idp:focus {
+    color: var(--bs-primary-900);
+    border-color: var(--bs-primary-500);
+    background: var(--bs-gray-100);
+}
+
+.auth-idp-icon {
+    flex: 0 0 auto;
+    font-size: 1.15rem;
+    color: var(--bs-primary-500);
+}
+
+/* หน้า "บัญชีที่เชื่อมต่อ" */
+.auth-idp-row {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--bs-gray-500);
+}
+
+.auth-idp-row:last-of-type {
+    border-bottom: 0;
+}
+
+.auth-idp-row-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.auth-idp-row-head .auth-badge {
+    margin-bottom: 0;
+}
+
+.auth-idp-row .auth-hint {
+    margin: 0 0 10px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   9. จอเล็ก
+   ══════════════════════════════════════════════════════════════════
+   ต่ำกว่า 1200px การ์ดกับโลโก้เบียดกันจนอ่านไม่ออก เปลี่ยนเป็นเรียงบนล่าง
+   โดยให้การ์ดอยู่บน (คนเข้ามาหน้านี้เพื่อกรอกฟอร์ม ไม่ใช่มาดูโลโก้) */
+
+@media (max-width: 1199.98px) {
+    .auth-hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+        gap: 32px;
+        padding: 32px 32px 0;
+    }
+
+    /* เรียงบนล่างแล้วให้การ์ดขึ้นก่อน - คนเข้าหน้านี้มาเพื่อกรอกฟอร์ม ไม่ใช่มาดูโลโก้ */
+    .auth-hero-brand {
+        order: 2;
+        width: 100%;
+        max-width: 480px;
+        /* เรียงบนล่างแล้วไม่มีแผ่นขาวทแยงให้หลบ คืนค่าทั้งสองแกน */
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .auth-hero-brand img {
+        width: 100%;
+    }
+
+    .auth-hero-form {
+        order: 1;
+        justify-content: center;
+        width: 100%;
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    /* top nav เตี้ยลงเหลือ 70px บนจอเล็ก (header.css)
+       จอแคบไม่ต้องบังคับให้สูงตามสัดส่วนรูป เพราะ 56.25vw จะเตี้ยกว่าจอมาก
+       ปล่อยให้ cover ตัดข้างแทน แล้วความสูงคุมด้วยเนื้อหาในการ์ด */
+    .auth-hero {
+        min-height: calc(100vh - 70px);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .auth-hero {
+        padding: 28px 0;
+        /* จอแคบมากรูปพื้นหลังจะเห็นแต่ท้องฟ้า ขยับไปทางซ้ายให้เห็นตัวคน */
+        background-position: 28% center;
+    }
+
+    .auth-hero-inner {
+        padding: 0 16px;
+        gap: 26px;
+    }
+
+    .auth-card {
+        padding: 26px 20px 30px;
+        border-radius: 12px;
+    }
+
+    .auth-card-title {
+        font-size: 1.65rem;
+        margin-bottom: 18px;
+    }
+
+    .auth-hero-brand {
+        max-width: 100%;
+    }
+
+    /* จอแคบ ปุ่มเรียงซ้อนเต็มความกว้างอ่านง่ายกว่าบีบให้อยู่แถวเดียว */
+    .auth-btn-row > * {
+        flex: 1 1 100%;
+    }
+
+    .auth-codes {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ── มือถือแนวตั้ง: ไม่ต้องมีโลโก้ต้อนรับ ──
+   พื้นที่แนวตั้งมีน้อย พอวางโลโก้ต่อท้ายการ์ด มันจะไปจมอยู่ใต้แถบคุกกี้
+   (แถบคุกกี้เป็น position:fixed สูงเกือบ 180px บนจอแคบ) คือเห็นครึ่งเดียวตลอด
+   ข้อความต้อนรับไม่ใช่สิ่งที่ต้องมีเพื่อล็อกอิน ตัดออกดีกว่าโชว์ครึ่ง ๆ
+   แยกเป็น media query ของตัวเอง ไม่รวมกับ max-width ข้างบน เพราะจอกว้างเท่ากัน
+   แต่ตะแคงนอนยังมีที่พอให้โลโก้อยู่ได้ */
+@media (max-width: 575.98px) and (orientation: portrait) {
+    .auth-hero-brand {
+        display: none;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   เอกสารยืนยันตัวตน (หน้าสมัคร register.blade.php): เลือก บัตรประชาชน | หนังสือเดินทาง + ช่องเลข
+   ตัวเลือกเป็น radio จริง (ซ่อนตัวกล่อง วาดจุดเองด้วย currentColor - โหมดคอนทราสต์สูงยังเห็นว่าเลือกอันไหน)
+   ══════════════════════════════════════════════════════════════════ */
+.auth-iddoc {
+    min-width: 0;
+    padding: 0;
+    border: 0;
+}
+
+.auth-legend {
+    float: none;
+    width: auto;
+    margin: 0 0 8px;
+    padding: 0;
+    font-size: .95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--bs-primary-900);
+}
+
+.auth-seg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.auth-seg-opt {
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+}
+
+.auth-seg-opt input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.auth-seg-opt span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 6px 8px;
+    border: 1px solid var(--bs-gray-500);
+    border-radius: var(--auth-radius);
+    background: var(--bs-white);
+    color: var(--bs-primary-900);
+    font-size: .95rem;
+    line-height: 1.3;
+    text-align: center;
+    white-space: nowrap;   /* การ์ดแคบ - "บัตรประชาชน" ไม่ตัดกลางคำ */
+    transition: border-color .15s, background-color .15s;
+}
+
+/* จุดแบบ radio: ว่าง = วงกลมเส้นขอบ / เลือก = มีจุดทึบตรงกลาง */
+.auth-seg-opt span::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+}
+
+.auth-seg-opt:hover span {
+    border-color: var(--bs-primary-500);
+}
+
+.auth-seg-opt input:checked + span {
+    border-color: var(--bs-primary-500);
+    background: rgba(0, 39, 119, .06);
+    box-shadow: inset 0 0 0 1px var(--bs-primary-500);
+}
+
+.auth-seg-opt input:checked + span::before {
+    box-shadow: inset 0 0 0 3px var(--bs-white);
+    background: currentColor;
+}
+
+.auth-seg-opt input:focus-visible + span {
+    outline: 2px solid var(--bs-primary-500);
+    outline-offset: 2px;
+}
+
+/* เลขบัตร/หนังสือเดินทาง: ตัวเลขห่างนิดหน่อยอ่านง่าย */
+.auth-iddoc #id_number {
+    letter-spacing: .04em;
+}

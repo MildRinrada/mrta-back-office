@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><script>window.__DEMO={"sys": "portal", "path": "/admin/qa/faq", "landing": false, "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-portal.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คำถามที่พบบ่อย (FAQ) | MRTA Learning Center</title>
+    <script>
+        (function(){var m=document.cookie.match(/adminkit_theme=([^;]+)/);if(m)document.documentElement.setAttribute('data-bs-theme',m[1]);})();
+    </script>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778366" rel="stylesheet">
+<link href="/portal/back/theme_metronic/css/components.css?v=1792123906" rel="stylesheet">
+
+<link href="/portal/back/theme_metronic/css/admin-ui.css?v=1792121947" rel="stylesheet">
+
+<link href="/portal/back/theme_metronic/css/sidebar-mrta.css?v=1792640351" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+
+
+<style>
+    .fq-count { margin-left: 8px; padding: 2px 10px; border-radius: 999px; background: var(--surface); color: var(--text-2); font-size: 12px; font-weight: 500; vertical-align: middle; }
+    .fq-hint { margin: 0 0 14px; color: var(--text-2); font-size: 13px; }
+    .fq-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 14px; }
+    .fq-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .fq-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border: 1px solid var(--border); border-radius: 999px; background: var(--card); color: var(--text-1); font-size: 13px; cursor: pointer; transition: background .15s, border-color .15s, color .15s; }
+    .fq-chip:hover { border-color: var(--pri); color: var(--pri); }
+    .fq-chip.is-on { background: var(--pri); border-color: var(--pri); color: #fff; }
+    .fq-chip b { font-weight: 600; opacity: .75; }
+    /* ไอคอนครอบด้วย span - fontawesome.min.js เปลี่ยน <i> เป็น <svg> CSS ที่เล็ง i จึงไม่โดน (ไอคอนเคยหลุดไปอยู่เหนือช่อง) */
+    .fq-search { position: relative; display: block; flex: 0 1 260px; margin: 0; }
+    .fq-search-ico { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); display: inline-flex; color: var(--text-3); font-size: 13px; line-height: 1; pointer-events: none; }
+    .fq-search input { padding-left: 32px; height: 34px; font-size: 13px; }
+
+    .fq-list { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .fq-row { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto auto; align-items: center; gap: 14px; padding: 14px 16px; background: var(--card); }
+    .fq-row + .fq-row { border-top: 1px solid var(--border); }
+    .fq-row[hidden], .fq-empty[hidden] { display: none; }
+    .fq-row:hover { background: var(--surface); }
+    .fq-row.is-off .fq-main { opacity: .55; }
+    .fq-sort { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: var(--surface); color: var(--text-2); font-size: 12.5px; font-weight: 600; }
+    .fq-q { display: inline-flex; align-items: flex-start; gap: 8px; color: var(--text-1); font-size: 14px; font-weight: 600; line-height: 1.5; text-decoration: none; }
+    a.fq-q:hover { color: var(--pri); }
+    .fq-q-ico { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; margin-top: 1px; border-radius: 6px; background: color-mix(in srgb, var(--pri) 12%, transparent); color: var(--pri); font-size: 11px; font-weight: 700; }
+    .fq-a { margin: 4px 0 0 28px; color: var(--text-2); font-size: 12.5px; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .fq-cat { display: inline-block; margin: 6px 0 0 28px; padding: 1px 9px; border-radius: 6px; background: var(--surface); color: var(--text-2); font-size: 11.5px; }
+    .fq-cat.is-none { font-style: italic; }
+    .fq-switch { display: flex; align-items: center; gap: 8px; margin: 0; padding: 0; min-height: 0; white-space: nowrap; }
+    .fq-switch .form-check-input { float: none; width: 40px; height: 22px; margin: 0; cursor: pointer; }
+    .fq-switch .form-check-input:checked { background-color: var(--pri); border-color: var(--pri); }
+    .fq-switch .form-check-label { font-size: 12.5px; color: var(--text-2); cursor: pointer; min-width: 64px; }
+    .fq-actions { display: flex; gap: 4px; }
+    .fq-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); color: var(--text-2); font-size: 13px; text-decoration: none; transition: background .15s, color .15s, border-color .15s; }
+    .fq-btn:hover { border-color: var(--pri); color: var(--pri); }
+    .fq-btn.is-danger:hover { border-color: var(--danger, #e74a3b); color: var(--danger, #e74a3b); }
+    .fq-empty { padding: 40px 16px; text-align: center; color: var(--text-2); font-size: 13.5px; }
+    .fq-empty i { display: block; margin-bottom: 10px; font-size: 30px; color: var(--text-3); }
+    .fq-empty .btn { margin-top: 12px; }
+
+    @media (max-width: 767.98px) {
+        .fq-row { grid-template-columns: 36px minmax(0, 1fr); }
+        .fq-switch, .fq-actions { grid-column: 2; }
+        .fq-search { flex-basis: 100%; }
+    }
+</style>
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/portal/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/portal/front/image/logo/logo-footer.svg?v=1790050893" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    
+    <div class="nav-item">
+        <a href="/portal/admin" class="nav-link  startpreload">
+            <i class="fa-solid fa-house"></i>
+            <span>ภาพรวมสถิติ</span>
+        </a>
+    </div>
+    <div class="nav-item">
+    <a href="/portal/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+    
+    <div class="nav-heading">จัดการ</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-regular fa-comments"></i>
+        <span>ถาม-ตอบ &amp; ความคิดเห็น</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        
+                <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ถาม-ตอบ (Q&amp;A)</div>
+                <a href="/portal/admin/qa" class="nav-link  startpreload">
+            <i class="fa-solid fa-list-check"></i> คิวกลั่นกรองคำถามและคำตอบ
+        </a>
+        <a href="/portal/admin/qa/category" class="nav-link  startpreload">
+            <i class="fa-solid fa-folder-open"></i> จัดการหมวดหมู่คำถาม
+        </a>
+        <a href="/portal/admin/qa/archive" class="nav-link  startpreload">
+            <i class="fa-solid fa-box-archive"></i> ปิดคำถาม / จัดเก็บ
+        </a>
+                
+                <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ความคิดเห็นจากผู้ใช้</div>
+                                        <a href="/portal/admin/manage/comment" class="nav-link  startpreload">
+                <i class="fa-regular fa-comment"></i> ความคิดเห็น
+            </a>
+                                                    <a href="/portal/admin/manage/customer-review" class="nav-link  startpreload">
+                <i class="fa-regular fa-comment-dots"></i> รีวิวจากผู้ใช้
+            </a>
+                        </div>
+</div>
+
+
+<div class="nav-item">
+        <a href="/portal/admin/qa/faq" class="nav-link active startpreload">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>คำถามที่พบบ่อย (FAQ)</span>
+    </a>
+    </div>
+    <div class="nav-heading mt-2">USER &amp; PERMISSION</div>
+
+
+
+
+
+    <div class="nav-item">
+        <a href="/portal/admin/role" class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>สิทธิ์และบทบาทผู้ใช้งาน</span>
+        </a>
+    </div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/user-group" class="nav-link  startpreload">
+        <i class="fa-solid fa-users-gear"></i>
+        <span>กลุ่มผู้ใช้งาน</span>
+    </a>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-user"></i>
+        <span>ผู้ใช้งานและสิทธิ์</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/portal/admin/user" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> บัญชีผู้ใช้
+        </a>
+        <a href="/portal/admin/user/requests" class="nav-link  startpreload">
+            <i class="fa-solid fa-user-clock"></i> คำขอสมัครและการยืนยันอีเมล
+        </a>
+        <a href="/portal/admin/user/directory" class="nav-link  startpreload">
+            <i class="fa-solid fa-network-wired"></i> เชื่อมต่อ LDAP / AD / SSO
+        </a>
+        <a href="/portal/admin/user/mfa" class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i> ตั้งค่า MFA สำหรับทีมหลังบ้าน
+        </a>
+    </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-sitemap"></i>
+        <span>จัดการหน่วยงาน</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/portal/admin/department" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> หน่วยงานทั้งหมด
+        </a>
+        <a href="/portal/admin/department/sync" class="nav-link  startpreload">
+            <i class="fa-solid fa-arrows-rotate"></i> ซิงค์จาก AD/LDAP
+        </a>
+        <a href="/portal/admin/department/settings" class="nav-link  startpreload">
+            <i class="fa-solid fa-gear"></i> ตั้งค่าการซิงค์อัตโนมัติ
+        </a>
+        <a href="/portal/admin/department/logs" class="nav-link  startpreload">
+            <i class="fa-solid fa-clock-rotate-left"></i> ประวัติการซิงค์ (Log)
+        </a>
+    </div>
+</div>
+    <div class="nav-item">
+    <a href="/portal/admin/notifications" class="nav-link  startpreload">
+        <i class="fa-solid fa-bell"></i>
+        <span>การแจ้งเตือน</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">SETTING</div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/banner" class="nav-link  startpreload">
+        <i class="fa-solid fa-image"></i>
+        <span>แบนเนอร์</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    
+        <a href="/portal/admin/about-us" class="nav-link  startpreload">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>หน้าเกี่ยวกับเรา</span>
+    </a>
+    </div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/system-setting" class="nav-link  startpreload">
+        <i class="fa-solid fa-gear"></i>
+        <span>ตั้งค่าระบบ</span>
+    </a>
+</div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/translation" class="nav-link  startpreload">
+        <i class="fa-solid fa-language"></i>
+        <span>จัดการคำแปล</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">รายงาน</div>
+
+<div class="nav-item">
+    <a href="/portal/admin/report/statistics" class="nav-link  startpreload">
+        <i class="fa-solid fa-chart-column"></i>
+        <span>รายงานสถิติ</span>
+    </a>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>ผู้ใช้งาน &amp; Engagement</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การเยี่ยมชมเว็บ</div>
+        <a href="/portal/admin/report/user/visitor-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-globe"></i> ประวัติการเยี่ยมชมเว็บ
+        </a>
+        <a href="/portal/admin/report/user/visitor-log-by-user"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-user-clock"></i> การเยี่ยมชมแยกตามสมาชิก
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การเข้าสู่ระบบ</div>
+        <a href="/portal/admin/report/user/login-summary"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-right-to-bracket"></i> สรุปการเข้าสู่ระบบรายเดือน
+        </a>
+        <a href="/portal/admin/report/user/access-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i> บันทึกการเข้าสู่ระบบ
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การคลิกใช้งาน</div>
+        <a href="/portal/admin/report/user/logs-clicks"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-computer-mouse"></i> บันทึกการคลิกใช้งาน
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การวิเคราะห์</div>
+        <a href="/portal/admin/report/user/user-retention"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-repeat"></i> สถิติสมาชิกที่กลับมาใช้งาน
+        </a>
+        <a href="/portal/admin/report/user/session-depth"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-layer-group"></i> สถิติการใช้งานต่อครั้ง
+        </a>
+
+    </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>ตรวจสอบและ Compliance</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">บันทึกระบบ</div>
+        <a href="/portal/admin/report/audit/email-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-envelope-circle-check"></i> ประวัติการส่งอีเมล
+        </a>
+
+        
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ข้อมูลส่วนบุคคล (PDPA)</div>
+        <a href="/portal/admin/report/audit/pdpa-access-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-lock"></i> บันทึกการเข้าถึงข้อมูลส่วนบุคคล
+        </a>
+
+    </div>
+</div>
+    <div class="nav-item">
+    <a href="/portal/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+        </nav>    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <link rel="stylesheet" href="/_shared/inline/cfcd662ce6b1c449.css">
+<header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ -</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/portal/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        <!-- Notification Dropdown
+             แท็บ "แจ้งเตือน" = admin_notifications ของผู้ใช้ทุกระบบในเครือ (Workflow อนุมัติเนื้อหา TOR 3.5.4) - ผู้ใช้หลังบ้านทุกคน
+             แท็บ "ความปลอดภัย" = IP เสี่ยงสูง เฉพาะ Super Admin (สิทธิ์เดียวกับหน้า admin/security/threats)
+             แท็บเกินกำหนด/การจองเดิมเป็นงานยืม-คืนของ belib ถอดออกพร้อมโมดูลจัดการทรัพยากรแล้ว -->
+                <div class="dropdown noti-dropdown" id="notiDropdown">
+            <button class="topbar-btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="การแจ้งเตือน">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge-count" id="notiCount" style="display:none;">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end shadow-sm">
+                <div class="header-dropdown justify-content-between">
+                    <span class="header-txt-noti">การแจ้งเตือน</span>
+                    <a href="#" id="notiReadAll" class="text-decoration-none" style="font-size:12px;display:none;">
+                        <i class="fa-solid fa-check-double"></i> อ่านทั้งหมด
+                    </a>
+                </div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="notiInboxTab" data-bs-toggle="tab" data-bs-target="#notiInbox" type="button" role="tab">
+                            แจ้งเตือน
+                            <span class="badge bg-primary ms-1" id="countInbox" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                                    </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="notiInbox" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-solid fa-globe" style="width:16px;"></i> Portal
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/portal/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title">    <i class="fa-solid fa-circle-question"></i> คำถามที่พบบ่อย (FAQ)
+</div>
+            <div class="d-flex gap-2">
+                    <a href="/portal/qa#qa-faq" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> ดูบนหน้าเว็บ
+    </a>
+            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="card">
+            
+                                    <div class="card-header">
+                <h5>
+                                                รายการคำถามที่พบบ่อย
+            <span class="fq-count">แสดง 8 จาก 9 ข้อ</span>
+                                        </h5>
+                <div class="d-flex flex-wrap gap-2">
+                                <a href="/portal/admin/qa/faq/create" class="btn btn-sm btn-primary startpreload">
+            <i class="fa-solid fa-plus"></i> เพิ่มคำถามที่พบบ่อย
+        </a>
+                                        </div>
+            </div>
+                        <div class="card-body">
+                
+
+<p class="fq-hint">แสดงในกล่อง &quot;คำถามที่พบบ่อย (FAQ)&quot; ของหน้าถาม-ตอบ ตามหมวดและลำดับ (น้อยไปมาก) - ปิดใช้งานแล้วไม่แสดงบนหน้าเว็บ</p>
+
+    <div class="fq-toolbar">
+        <div class="fq-chips" role="group" aria-label="หมวดหมู่">
+            <button type="button" class="fq-chip is-on" data-cat="*" aria-pressed="true">ทั้งหมด <b>9</b></button>
+                            <button type="button" class="fq-chip" data-cat="7" aria-pressed="false">การเดินทางและบริการ <b>2</b></button>
+                            <button type="button" class="fq-chip" data-cat="8" aria-pressed="false">โครงการและการก่อสร้าง <b>1</b></button>
+                            <button type="button" class="fq-chip" data-cat="9" aria-pressed="false">การจัดซื้อจัดจ้าง <b>1</b></button>
+                            <button type="button" class="fq-chip" data-cat="10" aria-pressed="false">ตั๋วโดยสารและสิทธิประโยชน์ <b>1</b></button>
+                            <button type="button" class="fq-chip" data-cat="11" aria-pressed="false">การร้องเรียนและแจ้งเตือน <b>1</b></button>
+                            <button type="button" class="fq-chip" data-cat="12" aria-pressed="false">เทคโนโลยีและนวัตกรรม <b>2</b></button>
+                            <button type="button" class="fq-chip" data-cat="" aria-pressed="false">ไม่มีหมวด <b>1</b></button>
+                    </div>
+        <label class="fq-search">
+            <span class="fq-search-ico" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <span class="visually-hidden">ค้นหาคำถาม/คำตอบ</span>
+            <input type="search" class="form-control" id="fq-search" placeholder="ค้นหาคำถาม/คำตอบ" autocomplete="off">
+        </label>
+    </div>
+
+    <div class="fq-list" id="fq-list">
+                    <div class="fq-row is-off" data-cat=""
+                 data-text="test 1.test test">
+                <span class="fq-sort" title="ลำดับ">1</span>
+
+                <div class="fq-main">
+                                            <a href="/portal/admin/qa/faq/1/edit" class="fq-q startpreload"><span class="fq-q-ico" aria-hidden="true">?</span><span>test</span></a>
+                                        <p class="fq-a">1.test test</p>
+                    <span class="fq-cat is-none"><i class="fa-regular fa-folder me-1" aria-hidden="true"></i>ไม่มีหมวด</span>
+                </div>
+
+                                    <form action="/portal/admin/qa/faq/1/status" method="POST" class="m-0 js-fq-status">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                        <div class="form-check form-switch fq-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="fq-st-1" >
+                            <label class="form-check-label" for="fq-st-1">ซ่อน</label>
+                        </div>
+                    </form>
+                
+                <div class="fq-actions">
+                                            <a href="/portal/admin/qa/faq/1/edit" class="fq-btn startpreload" title="แก้ไข" aria-label="แก้ไข"><i class="fa-solid fa-pen"></i></a>
+                                                                <form action="/portal/admin/qa/faq/1/delete" method="POST" class="m-0" data-confirm="test">
+                            <input type="hidden" name="_token" value="demo-token" autocomplete="off">                            <button type="submit" class="fq-btn is-danger" title="ลบ" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </form>
+                                    </div>
+            </div>
+                    <div class="fq-row " data-cat="7"
+                 data-text="ศูนย์การเรียนรู้เปิดให้บริการวันและเวลาใด เปิดให้บริการวันอังคาร-วันอาทิตย์ เวลา 09:00-16:00 น. ปิดทุกวันจันทร์และวันหยุดนักขัตฤกษ์บางวัน ตรวจสอบวันปิดทำการได้ที่หน้าจองเข้าชม">
+                <span class="fq-sort" title="ลำดับ">1</span>
+
+                <div class="fq-main">
+                                            <a href="/portal/admin/qa/faq/2/edit" class="fq-q startpreload"><span class="fq-q-ico" aria-hidden="true">?</span><span>ศูนย์การเรียนรู้เปิดให้บริการวันและเวลาใด</span></a>
+                                        <p class="fq-a">เปิดให้บริการวันอังคาร-วันอาทิตย์ เวลา 09:00-16:00 น. ปิดทุกวันจันทร์และวันหยุดนักขัตฤกษ์บางวัน ตรวจสอบวันปิดทำการได้ที่หน้าจองเข้าชม</p>
+                    <span class="fq-cat "><i class="fa-regular fa-folder me-1" aria-hidden="true"></i>การเดินทางและบริการ</span>
+                </div>
+
+                                    <form action="/portal/admin/qa/faq/2/status" method="POST" class="m-0 js-fq-status">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                        <div class="form-check form-switch fq-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="fq-st-2" checked>
+                            <label class="form-check-label" for="fq-st-2">แสดงบนหน้าเว็บ</label>
+                        </div>
+                    </form>
+                
+                <div class="fq-actions">
+                                            <a href="/portal/admin/qa/faq/2/edit" class="fq-btn startpreload" title="แก้ไข" aria-label="แก้ไข"><i class="fa-solid fa-pen"></i></a>
+                                                                <form action="/portal/admin/qa/faq/2/delete" method="POST" class="m-0" data-confirm="ศูนย์การเรียนรู้เปิดให้บริการวันและเวลาใด">
+                            <input type="hidden" name="_token" value="demo-token" autocomplete="off">                            <button type="submit" class="fq-btn is-danger" title="ลบ" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </form>
+                                    </div>
+            </div>
+                    <div class="fq-row " data-cat="7"
+                 data-text="เข้าชมศูนย์การเรียนรู้มีค่าใช้จ่ายหรือไม่ ไม่มีค่าใช้จ่าย ทั้งการเข้าชมแบบบุคคลทั่วไปและหมู่คณะ แต่หมู่คณะควรจองรอบเวลาล่วงหน้า">
+                <span class="fq-sort" title="ลำดับ">2</span>
+
+                <div class="fq-main">
+                                            <a href="/portal/admin/qa/faq/3/edit" class="fq-q startpreload"><span class="fq-q-ico" aria-hidden="true">?</span><span>เข้าชมศูนย์การเรียนรู้มีค่าใช้จ่ายหรือไม่</span></a>
+                                        <p class="fq-a">ไม่มีค่าใช้จ่าย ทั้งการเข้าชมแบบบุคคลทั่วไปและหมู่คณะ แต่หมู่คณะควรจองรอบเวลาล่วงหน้า</p>
+                    <span class="fq-cat "><i class="fa-regular fa-folder me-1" aria-hidden="true"></i>การเดินทางและบริการ</span>
+                </div>
+
+                                    <form action="/portal/admin/qa/faq/3/status" method="POST" class="m-0 js-fq-status">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                        <div class="form-check form-switch fq-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="fq-st-3" checked>
+                            <label class="form-check-label" for="fq-st-3">แสดงบนหน้าเว็บ</label>
+                        </div>
+                    </form>
+                
+                <div class="fq-actions">
+                                            <a href="/portal/admin/qa/faq/3/edit" class="fq-btn startpreload" title="แก้ไข" aria-label="แก้ไข"><i class="fa-solid fa-pen"></i></a>
+                                                                <form action="/portal/admin/qa/faq/3/delete" method="POST" class="m-0" data-confirm="เข้าชมศูนย์การเรียนรู้มีค่าใช้จ่ายหรือไม่">
+                            <input type="hidden" name="_token" value="demo-token" autocomplete="off">                            <button type="submit" class="fq-btn is-danger" title="ลบ" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </form>
+                                    </div>
+            </div>
+                    <div class="fq-row " data-cat="10"
+                 data-text="นักเรียนนักศึกษาได้รับส่วนลดค่าโดยสารหรือไม่ นักเรียนนักศึกษาที่มีอายุตามเกณฑ์ได้รับส่วนลดเมื่อใช้บัตรโดยสารประเภทนักเรียนนักศึกษา ลงทะเบียนได้ที่ห้องจำหน่ายบัตรโดยสาร">
+                <span class="fq-sort" title="ลำดับ">3</span>
+
+                <div class="fq-main">
+                                            <a href="/portal/admin/qa/faq/4/edit" class="fq-q startpreload"><span class="fq-q-ico" aria-hidden="true">?</span><span>นักเรียนนักศึกษาได้รับส่วนลดค่าโดยสารหรือไม่</span></a>
+                                        <p class="fq-a">นักเรียนนักศึกษาที่มีอายุตามเกณฑ์ได้รับส่วนลดเมื่อใช้บัตรโดยสารประเภทนักเรียนนักศึกษา ลงทะเบียนได้ที่ห้องจำหน่ายบัตรโดยสาร</p>
+                    <span class="fq-cat "><i class="fa-regular fa-folder me-1" aria-hidden="true"></i>ตั๋วโดยสารและสิทธิประโยชน์</span>
+                </div>
+
+                                    <form action="/portal/admin/qa/faq/4/status" method="POST" class="m-0 js-fq-status">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                        <div class="form-check form-switch fq-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="fq-st-4" checked>
+                            <label class="form-check-label" for="fq-st-4">แสดงบนหน้าเว็บ</label>
+                        </div>
+                    </form>
+                
+                <div class="fq-actions">
+                                            <a href="/portal/admin/qa/faq/4/edit" class="fq-btn startpreload" title="แก้ไข" aria-label="แก้ไข"><i class="fa-solid fa-pen"></i></a>
+                                                                <form action="/portal/admin/qa/faq/4/delete" method="POST" class="m-0" data-confirm="นักเรียนนักศึกษาได้รับส่วนลดค่าโดยสารหรือไม่">
+                            <input type="hidden" name="_token" value="demo-token" autocomplete="off">                            <button type="submit" class="fq-btn is-danger" title="ลบ" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </form>
+                                    </div>
+            </div>
+                    <div class="fq-row " data-cat="12"
+                 data-text="สมัครสมาชิกเพื่อใช้งานระบบต่าง ๆ ได้อย่างไร กดปุ่มเข้าสู่ระบบมุมขวาบน แล้วเลือกสมัครสมาชิก กรอกข้อมูลและยืนยันอีเมล จากนั้นใช้บัญชีเดียวได้ทุกระบบของศูนย์การเรียนรู้">
+                <span class="fq-sort" title="ลำดับ">4</span>
+
+                <div class="fq-main">
+                                            <a href="/portal/admin/qa/faq/5/edit" class="fq-q startpreload"><span class="fq-q-ico" aria-hidden="true">?</span><span>สมัครสมาชิกเพื่อใช้งานระบบต่าง ๆ ได้อย่างไร</span></a>
+                                        <p class="fq-a">กดปุ่มเข้าสู่ระบบมุมขวาบน แล้วเลือกสมัครสมาชิก กรอกข้อมูลและยืนยันอีเมล จากนั้นใช้บัญชีเดียวได้ทุกระบบของศูนย์การเรียนรู้</p>
+                    <span class="fq-cat "><i class="fa-regular fa-folder me-1" aria-hidden="true"></i>เทคโนโลยีและนวัตกรรม</span>
+                </div>
+
+                                    <form action="/portal/admin/qa/faq/5/status" method="POST" class="m-0 js-fq-status">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                        <div class="form-check form-switch fq-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="fq-st-5" checked>
+                            <label class="form-check-label" for="fq-st-5">แสดงบนหน้าเว็บ</label>
+                        </div>
+                    </form>
+                
+                <div class="fq-actions">
+                                            <a href="/portal/admin/qa/faq/5/edit" class="fq-btn startpreload" title="แก้ไข" aria-label="แก้ไข"><i class="fa-solid fa-pen"></i></a>
+                                                                <form action="/portal/admin/qa/faq/5/delete" method="POST" class="m-0" data-confirm="สมัครสมาชิกเพื่อใช้งานระบบต่าง ๆ ได้อย่างไร">
+                            <input type="hidden" name="_token" value="demo-token" autocomplete="off">                            <button type="submit" class="fq-btn is-danger" title="ลบ" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </form>
+                                    </div>
+            </div>
+                    <div class="fq-row " data-cat="12"
+                 data-text="ยืมหนังสืออิเล็กทรอนิกส์ได้ครั้งละกี่เล่ม สมาชิกยืมได้ตามสิทธิ์ที่กำหนดในระบบ e-library และต่ออายุการยืมได้หากไม่มีผู้จองคิวต่อ ดูรายการที่ยืมอยู่ได้ที่เมนูชั้นหนังสือของฉัน">
+                <span class="fq-sort" title="ลำดับ">5</span>
+
+                <div class="fq-main">
+                                            <a href="/portal/admin/qa/faq/6/edit" class="fq-q startpreload"><span class="fq-q-ico" aria-hidden="true">?</span><span>ยืมหนังสืออิเล็กทรอนิกส์ได้ครั้งละกี่เล่ม</span></a>
+                                        <p class="fq-a">สมาชิกยืมได้ตามสิทธิ์ที่กำหนดในระบบ e-Library และต่ออายุการยืมได้หากไม่มีผู้จองคิวต่อ ดูรายการที่ยืมอยู่ได้ที่เมนูชั้นหนังสือของฉัน</p>
+                    <span class="fq-cat "><i class="fa-regular fa-folder me-1" aria-hidden="true"></i>เทคโนโลยีและนวัตกรรม</span>
+                </div>
+
+                                    <form action="/portal/admin/qa/faq/6/status" method="POST" class="m-0 js-fq-status">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                        <div class="form-check form-switch fq-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="fq-st-6" checked>
+                            <label class="form-check-label" for="fq-st-6">แสดงบนหน้าเว็บ</label>
+                        </div>
+                    </form>
+                
+                <div class="fq-actions">
+                                            <a href="/portal/admin/qa/faq/6/edit" class="fq-btn startpreload" title="แก้ไข" aria-label="แก้ไข"><i class="fa-solid fa-pen"></i></a>
+                                                                <form action="/portal/admin/qa/faq/6/delete" method="POST" class="m-0" data-confirm="ยืมหนังสืออิเล็กทรอนิกส์ได้ครั้งละกี่เล่ม">
+                            <input type="hidden" name="_token" value="demo-token" autocomplete="off">                            <button type="submit" class="fq-btn is-danger" title="ลบ" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </form>
+                                    </div>
+            </div>
+                    <div class="fq-row " data-cat="11"
+                 data-text="แจ้งเรื่องร้องเรียนหรือข้อเสนอแนะได้ทางใด แจ้งได้ที่หน้าติดต่อเรา ศูนย์บริการลูกค้า หรือตั้งคำถามในหน้าถาม-ตอบนี้ เจ้าหน้าที่จะตอบกลับโดยเร็ว">
+                <span class="fq-sort" title="ลำดับ">6</span>
+
+                <div class="fq-main">
+                                            <a href="/portal/admin/qa/faq/7/edit" class="fq-q startpreload"><span class="fq-q-ico" aria-hidden="true">?</span><span>แจ้งเรื่องร้องเรียนหรือข้อเสนอแนะได้ทางใด</span></a>
+                                        <p class="fq-a">แจ้งได้ที่หน้าติดต่อเรา ศูนย์บริการลูกค้า หรือตั้งคำถามในหน้าถาม-ตอบนี้ เจ้าหน้าที่จะตอบกลับโดยเร็ว</p>
+                    <span class="fq-cat "><i class="fa-regular fa-folder me-1" aria-hidden="true"></i>การร้องเรียนและแจ้งเตือน</span>
+                </div>
+
+                                    <form action="/portal/admin/qa/faq/7/status" method="POST" class="m-0 js-fq-status">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                        <div class="form-check form-switch fq-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="fq-st-7" checked>
+                            <label class="form-check-label" for="fq-st-7">แสดงบนหน้าเว็บ</label>
+                        </div>
+                    </form>
+                
+                <div class="fq-actions">
+                                            <a href="/portal/admin/qa/faq/7/edit" class="fq-btn startpreload" title="แก้ไข" aria-label="แก้ไข"><i class="fa-solid fa-pen"></i></a>
+                                                                <form action="/portal/admin/qa/faq/7/delete" method="POST" class="m-0" data-confirm="แจ้งเรื่องร้องเรียนหรือข้อเสนอแนะได้ทางใด">
+                            <input type="hidden" name="_token" value="demo-token" autocomplete="off">                            <button type="submit" class="fq-btn is-danger" title="ลบ" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </form>
+                                    </div>
+            </div>
+                    <div class="fq-row " data-cat="8"
+                 data-text="ติดตามความก้าวหน้าโครงการก่อสร้างได้ที่ไหน ติดตามได้จากหน้าข่าวสารและกิจกรรม ซึ่งเผยแพร่ความคืบหน้า ประกาศปิดเบี่ยงจราจร และกิจกรรมรับฟังความคิดเห็นของแต่ละโครงการ">
+                <span class="fq-sort" title="ลำดับ">7</span>
+
+                <div class="fq-main">
+                                            <a href="/portal/admin/qa/faq/8/edit" class="fq-q startpreload"><span class="fq-q-ico" aria-hidden="true">?</span><span>ติดตามความก้าวหน้าโครงการก่อสร้างได้ที่ไหน</span></a>
+                                        <p class="fq-a">ติดตามได้จากหน้าข่าวสารและกิจกรรม ซึ่งเผยแพร่ความคืบหน้า ประกาศปิดเบี่ยงจราจร และกิจกรรมรับฟังความคิดเห็นของแต่ละโครงการ</p>
+                    <span class="fq-cat "><i class="fa-regular fa-folder me-1" aria-hidden="true"></i>โครงการและการก่อสร้าง</span>
+                </div>
+
+                                    <form action="/portal/admin/qa/faq/8/status" method="POST" class="m-0 js-fq-status">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                        <div class="form-check form-switch fq-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="fq-st-8" checked>
+                            <label class="form-check-label" for="fq-st-8">แสดงบนหน้าเว็บ</label>
+                        </div>
+                    </form>
+                
+                <div class="fq-actions">
+                                            <a href="/portal/admin/qa/faq/8/edit" class="fq-btn startpreload" title="แก้ไข" aria-label="แก้ไข"><i class="fa-solid fa-pen"></i></a>
+                                                                <form action="/portal/admin/qa/faq/8/delete" method="POST" class="m-0" data-confirm="ติดตามความก้าวหน้าโครงการก่อสร้างได้ที่ไหน">
+                            <input type="hidden" name="_token" value="demo-token" autocomplete="off">                            <button type="submit" class="fq-btn is-danger" title="ลบ" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </form>
+                                    </div>
+            </div>
+                    <div class="fq-row " data-cat="9"
+                 data-text="ผู้ประกอบการต้องลงทะเบียนก่อนเสนอราคาหรือไม่ ผู้ประกอบการต้องลงทะเบียนในระบบจัดซื้อจัดจ้างภาครัฐก่อน จึงจะสามารถดาวน์โหลดเอกสารและยื่นเสนอราคาได้">
+                <span class="fq-sort" title="ลำดับ">8</span>
+
+                <div class="fq-main">
+                                            <a href="/portal/admin/qa/faq/9/edit" class="fq-q startpreload"><span class="fq-q-ico" aria-hidden="true">?</span><span>ผู้ประกอบการต้องลงทะเบียนก่อนเสนอราคาหรือไม่</span></a>
+                                        <p class="fq-a">ผู้ประกอบการต้องลงทะเบียนในระบบจัดซื้อจัดจ้างภาครัฐก่อน จึงจะสามารถดาวน์โหลดเอกสารและยื่นเสนอราคาได้</p>
+                    <span class="fq-cat "><i class="fa-regular fa-folder me-1" aria-hidden="true"></i>การจัดซื้อจัดจ้าง</span>
+                </div>
+
+                                    <form action="/portal/admin/qa/faq/9/status" method="POST" class="m-0 js-fq-status">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                        <div class="form-check form-switch fq-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="fq-st-9" checked>
+                            <label class="form-check-label" for="fq-st-9">แสดงบนหน้าเว็บ</label>
+                        </div>
+                    </form>
+                
+                <div class="fq-actions">
+                                            <a href="/portal/admin/qa/faq/9/edit" class="fq-btn startpreload" title="แก้ไข" aria-label="แก้ไข"><i class="fa-solid fa-pen"></i></a>
+                                                                <form action="/portal/admin/qa/faq/9/delete" method="POST" class="m-0" data-confirm="ผู้ประกอบการต้องลงทะเบียนก่อนเสนอราคาหรือไม่">
+                            <input type="hidden" name="_token" value="demo-token" autocomplete="off">                            <button type="submit" class="fq-btn is-danger" title="ลบ" aria-label="ลบ"><i class="fa-regular fa-trash-can"></i></button>
+                        </form>
+                                    </div>
+            </div>
+                <div class="fq-empty" id="fq-nomatch" hidden><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>ไม่พบรายการที่ตรงกับตัวกรอง</div>
+    </div>
+
+            </div>
+        </div>
+
+            </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    // pageLength = "จำนวนรายการต่อหน้า" ที่หน้าตั้งค่าระบบ - ตารางในหลังบ้านไม่ตั้ง pageLength เองแล้ว ให้ตามค่านี้ทั้งหมด
+    $.extend(true, $.fn.dataTable.defaults, {
+        language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."},
+        pageLength: 25
+    });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+
+<script>
+// สวิตช์ของ includes/form_switch: กดสวิตช์ → click radio ตัวที่ตรง (ค่าที่ส่ง/สคริปต์เดิมที่อ่าน radio ทำงานเหมือนเดิม)
+(function () {
+    function sync(box) {
+        if (!box) return;
+        var on = box.querySelector('.fsw-radio').checked;
+        var label = box.querySelector('.fsw-state');
+        box.querySelector('.fsw-proxy').checked = on;
+        box.classList.toggle('is-on', on);
+        if (label) label.textContent = on ? label.dataset.on : label.dataset.off;
+    }
+    window.fswSync = function (root) { (root || document).querySelectorAll('[data-fsw]').forEach(sync); };
+    document.addEventListener('change', function (e) {
+        var el = e.target;
+        if (!el.classList) return;
+        if (el.classList.contains('fsw-proxy')) {
+            var box = el.closest('[data-fsw]');
+            var target = box.querySelectorAll('.fsw-radio')[el.checked ? 0 : 1];
+            if (target && !target.checked) target.click();
+            sync(box);
+        } else if (el.classList.contains('fsw-radio')) {
+            sync(el.closest('[data-fsw]'));
+        }
+    });
+    document.addEventListener('reset', function (e) { setTimeout(function () { window.fswSync(e.target); }, 0); });
+})();
+</script>
+<script src="/_shared/inline/0978f1b846f5754d.js"></script>
+
+<link rel="stylesheet" href="/_shared/a/back/collab/collab.css?v=1792128162">
+    <script>
+        window.MRTA_COLLAB = {"mode":"index","system":"portal","key":null,"channel":null,"index":"presence-collab-index.portal","openedAt":1792665521,"path":"\/admin\/qa\/faq","me":{"id":120,"name":"Piyanuch Panyadee","initials":"R","color":"#e11d48"},"ws":{"key":"demo","host":"ws.demo.invalid","port":8080,"tls":false},"authUrl":"\/portal\/admin\/collab\/auth","checkUrl":"\/portal\/admin\/collab\/check","text":{"here_one":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","here_many":":name \u0e41\u0e25\u0e30\u0e2d\u0e35\u0e01 :n \u0e04\u0e19 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","alone":"\u0e21\u0e35\u0e04\u0e38\u0e13\u0e04\u0e19\u0e40\u0e14\u0e35\u0e22\u0e27\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","joined":":name \u0e40\u0e02\u0e49\u0e32\u0e21\u0e32\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","left":":name \u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27","editing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49","typing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u2026","saved_banner":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27 \u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19.","reload":"\u0e42\u0e2b\u0e25\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14","conflict_title":"\u0e21\u0e35\u0e04\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e1b\u0e41\u0e25\u0e49\u0e27","conflict_text":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19. \u0e2b\u0e25\u0e31\u0e07\u0e08\u0e32\u0e01\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32 \u0e16\u0e49\u0e32\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e15\u0e48\u0e2d \u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48 :name \u0e41\u0e01\u0e49\u0e43\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27\u0e01\u0e31\u0e19\u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e02\u0e35\u0e22\u0e19\u0e17\u0e31\u0e1a","overwrite":"\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","row_editing":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49\u0e44\u0e02\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49","offline":"\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e41\u0e1a\u0e1a real-time \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e22\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e1b\u0e01\u0e15\u0e34 \u0e41\u0e25\u0e30\u0e23\u0e30\u0e1a\u0e1a\u0e22\u0e31\u0e07\u0e01\u0e31\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a\u0e43\u0e2b\u0e49"},"conflict":null};
+    </script>
+    <script src="/_shared/a/back/collab/pusher.min.js"></script>
+    <script src="/_shared/a/back/collab/collab.js?v=1792128553"></script>
+
+<div class="modal fade" id="scReauthModal" tabindex="-1" aria-labelledby="scReauthTitle" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content" id="scReauthForm" novalidate>
+            <div class="modal-header">
+                <h5 class="modal-title" id="scReauthTitle"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> ยืนยันตัวตนอีกครั้ง</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ยกเลิก"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-3" id="scReauthIntro">รายการนี้มีผลกับความปลอดภัยของระบบ กรุณายืนยันตัวตนก่อน (ใช้ได้ 5 นาที)</p>
+                <div class="mb-2" id="scReauthPwGroup">
+                    <label class="form-label" for="scReauthPassword">รหัสผ่าน</label>
+                    <input type="password" class="form-control" id="scReauthPassword" autocomplete="current-password">
+                </div>
+                <div class="text-center text-muted small my-2" id="scReauthOr">หรือ</div>
+                <div class="mb-2" id="scReauthCodeGroup">
+                    <label class="form-label" for="scReauthCode">รหัส 2FA 6 หลัก</label>
+                    <input type="text" class="form-control" id="scReauthCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="\d{6}">
+                </div>
+                <div class="alert alert-warning py-2 mb-0 d-none" id="scReauthNoMethod">บัญชีนี้ยืนยันด้วยรหัสผ่านในระบบไม่ได้ (เข้าด้วย AD / SSO) กรุณาเปิด 2FA ก่อน</div>
+                <div class="text-danger small mt-2" id="scReauthError" role="alert" aria-live="assertive"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">ยกเลิก</button>
+                <button type="submit" class="btn btn-primary" id="scReauthSubmit">ยืนยัน</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/_shared/inline/88bef9f02d46dfb7.js"></script>
+
+
+
+
+<script>
+(function () {
+    var list = document.getElementById('fq-list');
+
+    // กรองตามหมวด (ชิป) + คำค้น ในหน้า
+    if (list) {
+        var cat = '*';
+        var search = document.getElementById('fq-search');
+        var apply = function () {
+            var q = search.value.trim().toLowerCase();
+            var shown = 0;
+            list.querySelectorAll('.fq-row').forEach(function (row) {
+                var ok = (cat === '*' || row.dataset.cat === cat) && (q === '' || row.dataset.text.indexOf(q) !== -1);
+                row.hidden = ! ok;
+                if (ok) shown++;
+            });
+            document.getElementById('fq-nomatch').hidden = shown > 0;
+        };
+        document.querySelectorAll('.fq-chip').forEach(function (chip) {
+            chip.addEventListener('click', function () {
+                cat = chip.dataset.cat;
+                document.querySelectorAll('.fq-chip').forEach(function (c) {
+                    c.classList.toggle('is-on', c === chip);
+                    c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+                });
+                apply();
+            });
+        });
+        search.addEventListener('input', apply);
+    }
+
+    // สวิตช์แสดง/ซ่อน - ajax (ผิดพลาด = คืนสวิตช์กลับ)
+    var LABEL = { on: "\u0e41\u0e2a\u0e14\u0e07\u0e1a\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e40\u0e27\u0e47\u0e1a", off: "\u0e0b\u0e48\u0e2d\u0e19" };
+    document.querySelectorAll('.js-fq-status').forEach(function (form) {
+        var input = form.querySelector('input[type=checkbox]');
+        input.addEventListener('change', function () {
+            input.disabled = true;
+            fetch(form.action, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest', 'X-CSRF-TOKEN': form.querySelector('[name=_token]').value },
+            })
+                .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+                .then(function (res) {
+                    input.checked = res.active;
+                    form.querySelector('label').textContent = res.active ? LABEL.on : LABEL.off;
+                    form.closest('.fq-row').classList.toggle('is-off', ! res.active);
+                    Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: res.message, showConfirmButton: false, timer: 2000 });
+                })
+                .catch(function () {
+                    input.checked = ! input.checked;
+                    Swal.fire({ toast: true, position: 'top-end', icon: 'error', title: "\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e2a\u0e16\u0e32\u0e19\u0e30\u0e44\u0e21\u0e48\u0e2a\u0e33\u0e40\u0e23\u0e47\u0e08 \u0e01\u0e23\u0e38\u0e13\u0e32\u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48", showConfirmButton: false, timer: 2500 });
+                })
+                .finally(function () { input.disabled = false; });
+        });
+    });
+
+    // ยืนยันก่อนลบ - ใช้ text (ไม่ใช่ html) คำถามจึงไม่ถูกตีความเป็น html
+    document.querySelectorAll('form[data-confirm]').forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: "\u0e25\u0e1a\u0e04\u0e33\u0e16\u0e32\u0e21\u0e17\u0e35\u0e48\u0e1e\u0e1a\u0e1a\u0e48\u0e2d\u0e22\u0e19\u0e35\u0e49?",
+                text: form.dataset.confirm,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#e74a3b',
+                cancelButtonColor: '#636e72',
+                confirmButtonText: "\u0e25\u0e1a",
+                cancelButtonText: "\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01",
+                reverseButtons: true,
+            }).then(function (result) {
+                if (result.isConfirmed) { Preloader.show(); form.submit(); }
+            });
+        });
+    });
+})();
+</script>
+<script src="/_shared/inline/fc839f8fc1f6a789.js"></script>
+
+</body>
+</html>

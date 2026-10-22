@@ -1,0 +1,83 @@
+/* =============================================================================
+   Autocomplete dropdown - cover thumbnail + badge colors
+   Scoped to .ac-cover / .ac-text - does NOT touch other cover CSS
+   ============================================================================= */
+
+/* Cover thumbnail wrapper */
+.ac-cover {
+    width: 38px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #e8eaf6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ac-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* News without cover -> dark gradient + newspaper icon */
+.ac-cover.ac-cover-news {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 55%, #37474f 100%);
+}
+.ac-cover.ac-cover-news i {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: .85rem;
+}
+
+/* Text block (badge + title + subtitle stacked vertically) */
+.ac-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+}
+
+/* Override horizontal-flow defaults from header.css */
+.ac-text .ac-title {
+    flex: unset;
+    min-width: unset;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ac-text .ac-sub {
+    max-width: unset;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Badge colors - 2 types only */
+.badge-pm-product { background: var(--bs-secondary-900); color: #fff;width: fit-content; }
+.badge-pm-news    { background: var(--bs-secondary-900); color: #fff;width: fit-content; }
+/* Searching... state shown while user is still typing */
+.ac-searching {
+    padding: .75rem .85rem;
+    font-size: .85rem;
+    color: #90a4ae;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0 auto;
+}
+.ac-searching i {
+    animation: ac-spin .8s linear infinite;
+}
+@keyframes ac-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
