@@ -19,6 +19,7 @@
     var HOME = '/portal/admin';
 
     var MSG_SAVED = 'บันทึกเรียบร้อย (เวอร์ชันทดลอง: ข้อมูลไม่ถูกบันทึกจริง)';
+    var MSG_LOGOUT = 'เวอร์ชันทดลองไม่มีการออกจากระบบ';
     var MSG_NA = 'หน้านี้ไม่มีในเวอร์ชันทดลอง';
     var MSG_FRONT = 'เวอร์ชันทดลองนี้มีเฉพาะหลังบ้าน';
     var MSG_FILE = 'การส่งออก/ดาวน์โหลดไฟล์ใช้ได้ในระบบจริง';
@@ -364,19 +365,11 @@
         return o ? String(o.value).toUpperCase() : m;
     }
 
-    function isLoginPage() {
-        return D.landing || location.pathname === '/' || /^\/auth\/login(\/|$)/.test(location.pathname);
-    }
-
     function simulateSubmit(f) {
-        if (isLoginPage()) {
-            location.href = HOME;
-            return;
-        }
         var action = f.getAttribute('action');
         var loc = toLocal(action || location.href);
         if (loc && /\/(logout|signout)(\/|$)/i.test(loc.path)) {
-            location.href = '/';
+            toast(MSG_LOGOUT); // อยู่หน้าเดิม: เว็บทดลองมีแต่หลังบ้าน ไม่มีหน้าเข้าสู่ระบบ
             return;
         }
         if (formMethod(f) === 'GET') {
@@ -423,7 +416,7 @@
         var p = loc.path;
         if (/\/(logout|signout)(\/|$)/i.test(p)) {
             e.preventDefault();
-            location.href = '/';
+            toast(MSG_LOGOUT);
             return;
         }
         if (hasExt(p)) {

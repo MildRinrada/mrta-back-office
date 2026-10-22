@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/portal/admin", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",

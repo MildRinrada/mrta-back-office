@@ -34,15 +34,13 @@ async def main():
         page.on('pageerror', lambda e: errors.append(f'{page.url[len(BASE):]}: {str(e)[:120]}'))
         page.on('dialog', lambda d: asyncio.ensure_future(d.dismiss()))
 
-        # 1) เข้าสู่ระบบ
+        # 0) หน้าแรกของเว็บ = หลังบ้าน portal
         await page.goto(BASE + '/')
-        await page.fill('input[type=password]', 'demo1234')
-        user_input = page.locator('input[name=email], input[name=username], input[name=login]').first
-        await user_input.fill('admin@example.com')
-        await page.locator('form button[type=submit], form input[type=submit]').first.click()
         await page.wait_for_load_state('load')
-        ok('login → หน้าแรกหลังบ้าน', page.url.endswith('/portal/admin'), page.url[len(BASE):])
-        await page.screenshot(path=str(SHOTS / '01-after-login.png'))
+        ok('หน้าแรก → หลังบ้าน portal', page.url.endswith('/portal/admin'), page.url[len(BASE):])
+        await page.screenshot(path=str(SHOTS / '01-home.png'))
+        r = await ctx.request.get(BASE + '/auth/login')
+        ok('ไม่มีหน้าบ้าน (หน้า login)', r.status == 404, f'/auth/login → {r.status}')
 
         # 2) ตารางผู้ใช้: แถว / ค้นหา / ดูข้อมูลเต็ม
         await page.goto(BASE + '/portal/admin/user')
@@ -129,18 +127,23 @@ async def main():
             t = await toast_text(page)
             ok('ลิงก์หน้าบ้าน → แจ้งว่ามีเฉพาะหลังบ้าน', page.url.endswith('/portal/admin') and 'หลังบ้าน' in t, t)
 
-        # 7) ออกจากระบบ → หน้าแรก
-        out = page.locator('.sb-logout, a[href*="logout"], form[action*="logout"] button').first
-        if await out.count():
+        # 7) ออกจากระบบ: ทุกระบบต้องอยู่หน้าเดิม (ไม่พาไปหน้าบ้าน / หน้า login)
+        for home in ['/portal/admin', '/auth/admin/reward', '/belib/admin/dashboard', '/booking/admin', '/knowledge/admin',
+                     '/learnext/admin/dashboard', '/news/admin']:
+            await page.goto(BASE + home)
+            await page.wait_for_timeout(800)
+            out = page.locator('.sb-logout, a[href*="logout"], form[action*="logout"] button, :is(a,button):has-text("ออกจากระบบ")').first
+            if not await out.count():
+                ok(f'พบปุ่มออกจากระบบ {home}', False)
+                continue
             await out.click(force=True)
             await page.wait_for_timeout(700)
             confirm = page.locator('.swal2-confirm:visible')
             if await confirm.count():
                 await confirm.click()
-            await page.wait_for_timeout(1500)
-            ok('ออกจากระบบ → หน้าเข้าสู่ระบบ', page.url.rstrip('/') == BASE, page.url)
-        else:
-            ok('พบปุ่มออกจากระบบ', False)
+            await page.wait_for_timeout(1200)
+            t = await toast_text(page)
+            ok(f'ออกจากระบบ {home} → อยู่หน้าเดิม', page.url.endswith(home) and 'ออกจากระบบ' in t, f'{page.url[len(BASE):]} toast="{t}"')
 
         await b.close()
         print('page errors:', errors[:10])

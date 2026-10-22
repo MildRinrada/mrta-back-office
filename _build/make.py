@@ -22,7 +22,6 @@ SRC = Path(r'C:\XAMPP 8.5')
 PHP = Path(os.environ.get('USERPROFILE', '')) / '.config/herd/bin/php85/php.exe'
 APPS = {'auth': 'mrta-auth', 'belib': 'mrta-belib', 'booking': 'mrta-booking-2', 'knowledge': 'mrta-knowledge',
         'learnext': 'mrta-learnext', 'news': 'mrta-news', 'portal': 'mrta-portal'}
-GUEST = {'auth': '/login'}  # หน้าที่เปิดแบบยังไม่ล็อกอิน (หน้าแรกของเว็บทดลอง)
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--uid', default='120')
@@ -36,7 +35,7 @@ raw.mkdir(parents=True, exist_ok=True)
 
 for sys_, app in APPS.items():
     shutil.rmtree(raw / sys_, ignore_errors=True)
-    cmd = [str(PHP), str(HERE / 'capture.php'), str(SRC / app), sys_, a.uid, str(raw), GUEST.get(sys_, '')]
+    cmd = [str(PHP), str(HERE / 'capture.php'), str(SRC / app), sys_, a.uid, str(raw), '']  # '' = ไม่เก็บหน้าบ้าน (มีเฉพาะหลังบ้าน)
     if a.seeds:
         cmd.append(a.seeds)
     with open(raw / f'{sys_}.log', 'w', encoding='utf-8') as log:

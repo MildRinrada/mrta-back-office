@@ -27,6 +27,7 @@ SRC = Path(r'C:\XAMPP 8.5')
 APPS = {'auth': 'mrta-auth', 'belib': 'mrta-belib', 'booking': 'mrta-booking-2', 'knowledge': 'mrta-knowledge',
         'learnext': 'mrta-learnext', 'news': 'mrta-news', 'portal': 'mrta-portal'}
 SYS_ALT = '|'.join(APPS)
+HOME = '/portal/admin'  # หน้าแรกของเว็บทดลอง
 OK_STYLE = {'booking': 'success'}  # ระบบที่ JS ส่วนใหญ่เช็ก status === 'success' (ที่เหลือเช็ก 200)
 TINY_SRC = 'back/theme_metronic/vendor/tinymce_8.3.2'
 MAX_ASSET = 8 * 1024 * 1024
@@ -265,8 +266,8 @@ def ok_style(html, sys_):
     return 'success' if a > b else (200 if b > a else OK_STYLE.get(sys_, 200))
 
 
-def inject(html, sys_, path, landing=False, style=200):
-    cfg = json.dumps({'sys': sys_, 'path': path, 'landing': landing, 'okStyle': style})
+def inject(html, sys_, path, style=200):
+    cfg = json.dumps({'sys': sys_, 'path': path, 'okStyle': style})
     tags = ('<meta name="robots" content="noindex, nofollow">'
             f'<script>window.__DEMO={cfg};</script>'
             '<script src="/_demo/pages.js"></script>'
@@ -396,6 +397,8 @@ def main():
         n_page = n_data = 0
         for e in man['entries']:
             path, kind = e['p'], e.get('kind')
+            if e.get('g'):
+                continue  # หน้าบ้าน (login / สมัครสมาชิก) ไม่อยู่ในเว็บทดลอง - มีเฉพาะหลังบ้าน
             if kind == 'redirect':
                 loc = e['loc']
                 redirs[f'/{sys_}{path}'.rstrip('/')] = f'/{sys_}{loc}' if loc.startswith('/') else rewrite_urls(loc, sys_)
@@ -434,12 +437,8 @@ def main():
                 n_data += 1
                 continue
             rel = page_file(sys_, path).relative_to(SITE).as_posix()
-            page_meta[rel] = (sys_, path, False, ok_style(html, sys_))
+            page_meta[rel] = (sys_, path, ok_style(html, sys_))
             page_html[rel] = html
-            if e.get('g') and sys_ == 'auth' and path == '/login':
-                page_html['index.html'] = html
-                page_meta['index.html'] = ('auth', '/login', True, 200)
-                pages['/'] = 1
             pages[f'/{sys_}{path}'.rstrip('/')] = 1
             n_page += 1
         stats[sys_] = (n_page, n_data)
@@ -453,10 +452,10 @@ def main():
 
     # ---- 3) เขียนไฟล์
     for rel, html in page_html.items():
-        sys_, path, landing, style = page_meta[rel]
+        sys_, path, style = page_meta[rel]
         out = SITE / rel
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(inject(html, sys_, path, landing, style), encoding='utf-8')
+        out.write_text(inject(html, sys_, path, style), encoding='utf-8')
     for rel, body in data_text.items():
         out = SITE / rel
         out.parent.mkdir(parents=True, exist_ok=True)
@@ -468,6 +467,9 @@ def main():
         out = page_file(sys_, src[len(sys_) + 1:])
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(redirect_stub(target), encoding='utf-8')
+    # หน้าแรกของเว็บทดลอง = หลังบ้าน portal (vercel.json redirect ให้ด้วย ไฟล์นี้ใช้ตอนเปิดในเครื่อง)
+    (SITE / 'index.html').write_text(redirect_stub(HOME), encoding='utf-8')
+    redirs['/'] = HOME
 
     demo = SITE / '_demo'
     (demo / 'pages.js').write_text(
@@ -483,14 +485,14 @@ def main():
              and not (k.isdigit() and len(k) < 6) and not any(k in f for f in fakes)]
     leftovers = {}
     for f in SITE.rglob('*'):
-        if not f.is_file() or f.suffix not in ('.html', '.json', '.js', '.css') or '_build' in f.parts or 'tinymce_8.3.2' in f.parts:
+        if not f.is_file() or f.suffix not in ('.html', '.json', '.js', '.css') or {'_build', '.git', 'tinymce_8.3.2'} & set(f.parts):
             continue
         t = f.read_text(encoding='utf-8', errors='ignore')
         for k in reals:
             if k in t:
                 leftovers.setdefault(k, []).append(f.relative_to(SITE).as_posix())
 
-    files = [f for f in SITE.rglob('*') if f.is_file() and '_build' not in f.parts]
+    files = [f for f in SITE.rglob('*') if f.is_file() and not {'_build', '.git'} & set(f.parts)]
     print('pages/data per system:', stats)
     print(f'pages {len(pages)}, redirects {len(redirs)}, assets {len(copied)}, missing {len(missing)}')
     print(f'site size {sum(f.stat().st_size for f in files) / 1048576:.1f} MB, files {len(files)}')
