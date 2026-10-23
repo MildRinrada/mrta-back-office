@@ -380,6 +380,11 @@ def main():
     AVATARS.extend(a for a in d.get('avatars', []) if a)
     scrub = Scrub(d)
 
+    # ผลดิบต้องครบทุกระบบก่อน ไม่งั้นห้ามแตะเว็บเดิม (เช่น MySQL ไม่ได้เปิด capture ล้มหมด)
+    lacking = [s for s in APPS if not (RAW / s / 'manifest.json').is_file()]
+    if lacking:
+        sys.exit('ผลดิบไม่ครบ: ' + ', '.join(lacking) + ' - ไม่ได้แก้ไขเว็บเดิม')
+
     # ล้างผลรอบก่อน (คงไฟล์ที่เขียนมือ: _build, _demo/demo.*, 404.html, vercel.json)
     for name in list(APPS) + ['_data', '_shared']:
         shutil.rmtree(SITE / name, ignore_errors=True)

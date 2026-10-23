@@ -89,6 +89,17 @@
     transform: translateY(-6px);
 }
 
+/* ส่วนที่โหลดด้วย AJAX แต่ไม่มีข้อมูลในเวอร์ชันทดลอง */
+.demo-na {
+    margin: 12px 0;
+    padding: 24px 16px;
+    border: 1px dashed #c9d3e6;
+    border-radius: 8px;
+    color: #5b6780;
+    font: 500 14px/1.6 "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+    text-align: center;
+}
+
 /* แถบยอมรับคุกกี้ของหน้าบ้าน: สคริปต์มาจากเซิร์ฟเวอร์จริง ปุ่มกดไม่ได้ในเวอร์ชันทดลอง */
 .cookie-nav,
 #cookieSidebar {

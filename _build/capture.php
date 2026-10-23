@@ -107,7 +107,7 @@ function matchRoute(string $method, string $path)
     }
 }
 
-function enqueue(string $method, string $path, string $why, bool $guest = false, array $params = [], bool $seed = false): void
+function enqueue(string $method, string $path, string $why, bool $guest = false, array $params = [], bool $seed = false, int $limit = PER_ROUTE): void
 {
     global $seen, $perRoute, $queue, $manifest;
     $path = '/' . ltrim(preg_replace('~[?#].*$~', '', $path), '/');
@@ -142,7 +142,7 @@ function enqueue(string $method, string $path, string $why, bool $guest = false,
     $ru = $method . ' ' . $route->uri();
     if (! $seed && str_contains($route->uri(), '{')) {
         $perRoute[$ru] = ($perRoute[$ru] ?? 0) + 1;
-        if ($perRoute[$ru] > PER_ROUTE) {
+        if ($perRoute[$ru] > $limit) {
             return;
         }
     }
@@ -297,20 +297,16 @@ function rowsByPath(): array
     return $acc;
 }
 
-/** route GET admin ที่มีพารามิเตอร์ตัวเดียว: เอาค่า id/slug จากแถวข้อมูลของ path ที่ขึ้นต้นเหมือนกันมาเติม */
-function sampleParams(): void
+/** ค่าที่พารามิเตอร์แบบ "ประเภท" รับได้ (ไม่ใช่ id จึงเดาจากแถวข้อมูลไม่ได้) - หน้าโหลดตามที่ผู้ใช้กดเลือก */
+const ENUMS = [
+    'nameform' => ['Assignment', 'Material', 'Video', 'url'], // learnext MaterialsController@content_form
+    'kind' => ['question', 'answer'],                         // portal QaQuestionController@detail
+];
+
+/** ค่า id/slug จากแถวข้อมูลของ path ที่ขึ้นต้นเหมือนกัน ไม่เจอก็ขยับขึ้นไปหมวดที่อยู่เหนือกว่า (เช่น /admin/redemption/load-modal-address → /admin/redemption) */
+function sampleValues(array $rowsByPath, string $prefix, string $param): array
 {
-    global $routes;
-    $rowsByPath = rowsByPath();
-    foreach ($routes->getRoutes() as $route) {
-        if (! in_array('GET', $route->methods(), true) || ! preg_match('~^admin/~', $route->uri())) {
-            continue;
-        }
-        if (! preg_match_all('~\{(\w+)\??\}~', $route->uri(), $pm) || count($pm[1]) !== 1) {
-            continue;
-        }
-        $param = $pm[1][0];
-        $prefix = '/' . rtrim(strstr($route->uri(), '{', true), '/');
+    while (substr_count($prefix, '/') >= 2) {
         $vals = [];
         foreach ($rowsByPath as $p => $rows) {
             if ($p !== $prefix && ! str_starts_with($p, $prefix . '/')) {
@@ -326,8 +322,58 @@ function sampleParams(): void
                 }
             }
         }
-        foreach (array_unique($vals) as $v) {
-            enqueue('GET', '/' . preg_replace('~\{' . $param . '\??\}~', rawurlencode($v), $route->uri()), 'sample');
+        if ($vals) {
+            return array_slice(array_values(array_unique($vals)), 0, PER_ROUTE);
+        }
+        $prefix = substr($prefix, 0, (int) strrpos($prefix, '/'));
+    }
+
+    return [];
+}
+
+/** route GET admin ที่มีพารามิเตอร์: id ไม่เกิน 1 ตัว (เติมจากแถวข้อมูล) + พารามิเตอร์ประเภทใน ENUMS */
+function sampleParams(): void
+{
+    global $routes;
+    $rowsByPath = rowsByPath();
+    foreach ($routes->getRoutes() as $route) {
+        $uri = $route->uri();
+        if (! in_array('GET', $route->methods(), true) || ! preg_match('~^admin/~', $uri) || ! preg_match_all('~\{(\w+)(\?)?\}~', $uri, $pm, PREG_SET_ORDER)) {
+            continue;
+        }
+        $ids = array_values(array_filter($pm, fn ($m) => ! isset(ENUMS[$m[1]])));
+        if (count($ids) > 1) {
+            continue;
+        }
+        $combos = [$uri];
+        foreach ($pm as $m) {
+            if (isset(ENUMS[$m[1]])) {
+                $next = [];
+                foreach ($combos as $c) {
+                    foreach (ENUMS[$m[1]] as $v) {
+                        $next[] = str_replace($m[0], $v, $c);
+                    }
+                }
+                $combos = $next;
+            }
+        }
+        if ($ids) {
+            [$tok, $param, $optional] = [$ids[0][0], $ids[0][1], ($ids[0][2] ?? '') === '?'];
+            $vals = sampleValues($rowsByPath, '/' . rtrim(strstr($uri, '{', true), '/'), $param);
+            $next = [];
+            foreach ($combos as $c) {
+                if ($optional) {
+                    $next[] = rtrim(str_replace('/' . $tok, '', $c), '/');
+                }
+                foreach ($vals as $v) {
+                    $next[] = str_replace($tok, rawurlencode($v), $c);
+                }
+            }
+            $combos = $next;
+        }
+        $limit = PER_ROUTE * max(1, (int) array_product(array_map(fn ($m) => count(ENUMS[$m[1]] ?? [1]), $pm)));
+        foreach ($combos as $c) {
+            enqueue('GET', '/' . $c, 'sample', false, [], false, $limit);
         }
     }
 }

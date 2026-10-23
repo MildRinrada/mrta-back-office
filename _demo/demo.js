@@ -24,6 +24,7 @@
     var MSG_FRONT = 'เวอร์ชันทดลองนี้มีเฉพาะหลังบ้าน';
     var MSG_FILE = 'การส่งออก/ดาวน์โหลดไฟล์ใช้ได้ในระบบจริง';
     var MSG_FILTER = 'เวอร์ชันทดลองแสดงข้อมูลตัวอย่างชุดเดิม';
+    var NA_HTML = '<div class="demo-na">ส่วนนี้ไม่มีข้อมูลในเวอร์ชันทดลอง</div>';
 
     var FILE_EXT = /\.(pdf|xlsx?|docx?|pptx?|zip|csv|epub|mp4|mp3|rar)$/i;
     var UPLOAD = /(upload|image|img|photo|file|media|attach)/i;
@@ -88,7 +89,7 @@
     }
 
     // ---- หาว่าคำขอนี้ตอบอะไร
-    function resolve(method, url, body) {
+    function resolve(method, url, body, accept) {
         var loc = toLocal(url);
         if (!loc || loc.own) return null;
         var p = loc.path;
@@ -105,6 +106,11 @@
         if (method === 'GET' && PAGES[p]) return { kind: 'file', file: p, ct: 'text/html', q: q };
         // คำขอที่ไม่มีข้อมูลเก็บไว้ - check_site.py อ่านไปให้ capture.php เก็บเพิ่ม
         (window.__demoMisses = window.__demoMisses || []).push({ s: s, m: method, p: rest, q: q });
+        // ผู้เรียกรอ HTML ($.load / ฟอร์มย่อย / modal / preview) → ข้อความแจ้ง ไม่ใช่ JSON ที่จะโผล่เป็นตัวหนังสือบนหน้า
+        var a = String(accept || '');
+        if (/^text\/html/i.test(a) || (!/json/i.test(a) && (method === 'GET' ? /\/(load|form|modal|preview|render|partial)(\/|$|-)|load-modal/i : /\/preview(\/|$)/i).test(rest))) {
+            return { kind: 'na-html' };
+        }
         return { kind: method === 'GET' ? 'empty' : 'ok', path: p, q: q };
     }
 
@@ -275,6 +281,7 @@
     /** ผลของคำขอ → Promise<{text, ct}> */
     function produce(r, method) {
         var delay = function (v) { return new Promise(function (ok) { setTimeout(function () { ok(v); }, 120); }); };
+        if (r.kind === 'na-html') return delay({ text: NA_HTML, ct: 'text/html; charset=utf-8' });
         if (r.kind === 'pii') {
             var t = String(r.q.token || '');
             return delay({ text: JSON.stringify({ value: t.indexOf('demo:') === 0 ? b64utf8(t.slice(5)) : '-' }), ct: JSON_CT });
@@ -293,7 +300,9 @@
         window.fetch = function (input, init) {
             var url = typeof input === 'string' ? input : (input && input.url) || String(input);
             var method = String((init && init.method) || (input && input.method) || 'GET').toUpperCase();
-            var r = resolve(method, url, init && init.body);
+            var hd = (init && init.headers) || (input && input.headers) || {};
+            var accept = typeof hd.get === 'function' ? hd.get('Accept') : (hd.Accept || hd.accept);
+            var r = resolve(method, url, init && init.body, accept);
             if (!r) return realFetch(input, init);
             return produce(r, method).then(function (res) {
                 return new Response(res.text, { status: 200, headers: { 'Content-Type': res.ct } });
@@ -305,6 +314,11 @@
     var XP = XMLHttpRequest.prototype;
     var xOpen = XP.open;
     var xSend = XP.send;
+    var xSetHeader = XP.setRequestHeader;
+    XP.setRequestHeader = function (name, value) {
+        if (this.__demo && /^accept$/i.test(name)) this.__demo.accept = String(value);
+        return xSetHeader.apply(this, arguments);
+    };
     XP.open = function (method, url, async) {
         this.__demo = this.__demoSkip ? null : { m: String(method || 'GET').toUpperCase(), url: String(url), async: async !== false };
         return xOpen.apply(this, arguments);
@@ -312,7 +326,7 @@
     XP.send = function (body) {
         var d = this.__demo;
         var xhr = this;
-        var r = d && d.async && resolve(d.m, d.url, body);
+        var r = d && d.async && resolve(d.m, d.url, body, d.accept);
         if (!r) return xSend.apply(this, arguments);
         produce(r, d.m).then(function (res) {
             var text = res.text;

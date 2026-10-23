@@ -41,6 +41,8 @@ for sys_, app in APPS.items():
     with open(raw / f'{sys_}.log', 'w', encoding='utf-8') as log:
         out = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=log, text=True, encoding='utf-8')
     print(out.stdout.strip())
+    if not (raw / sys_ / 'manifest.json').is_file():
+        sys.exit(f'capture {sys_} ล้ม (ดู {raw / (sys_ + ".log")} - เช่น MySQL ไม่ได้เปิด) หยุดก่อน build ไม่ได้แก้ไขเว็บเดิม')
 
 subprocess.run([str(PHP), str(HERE / 'pii_dict.php'), str(SRC / APPS['portal']), str(raw / 'pii.json')], check=True)
 subprocess.run([sys.executable, str(HERE / 'build.py'), str(raw), str(raw / 'pii.json'), str(SITE)], check=True,

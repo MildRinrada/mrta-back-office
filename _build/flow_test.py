@@ -137,11 +137,13 @@ async def main():
                 ok(f'พบปุ่มออกจากระบบ {home}', False)
                 continue
             await out.click(force=True)
-            await page.wait_for_timeout(700)
             confirm = page.locator('.swal2-confirm:visible')
-            if await confirm.count():
+            try:
+                await confirm.wait_for(timeout=3000)
                 await confirm.click()
-            await page.wait_for_timeout(1200)
+            except Exception:
+                pass  # บางระบบไม่ถามยืนยัน
+            await page.wait_for_timeout(800)
             t = await toast_text(page)
             ok(f'ออกจากระบบ {home} → อยู่หน้าเดิม', page.url.endswith(home) and 'ออกจากระบบ' in t, f'{page.url[len(BASE):]} toast="{t}"')
 
