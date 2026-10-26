@@ -312,7 +312,8 @@ function sampleValues(array $rowsByPath, string $prefix, string $param): array
     while (substr_count($prefix, '/') >= 2) {
         $vals = [];
         foreach ($rowsByPath as $p => $rows) {
-            if ($p !== $prefix && ! str_starts_with($p, $prefix . '/')) {
+            // รวม path พหูพจน์ของหมวดเดียวกัน (เช่น /admin/course/... ใช้ id จากรายการ /admin/courses/ajax-get-data)
+            if ($p !== $prefix && ! str_starts_with($p, $prefix . '/') && ! str_starts_with($p, $prefix . 's/')) {
                 continue;
             }
             foreach ($rows as $row) {
@@ -374,7 +375,7 @@ function sampleParams(): void
             }
             $combos = $next;
         }
-        $limit = PER_ROUTE * max(1, (int) array_product(array_map(fn ($m) => count(ENUMS[$m[1]] ?? [1]), $pm)));
+        $limit = (PER_ROUTE + 1) * max(1, (int) array_product(array_map(fn ($m) => count(ENUMS[$m[1]] ?? [1]), $pm))); // +1 = แบบไม่มี id (พารามิเตอร์ไม่บังคับ)
         foreach ($combos as $c) {
             enqueue('GET', '/' . $c, 'sample', false, [], false, $limit);
         }
