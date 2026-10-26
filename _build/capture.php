@@ -301,11 +301,14 @@ function rowsByPath(): array
 const ENUMS = [
     'nameform' => ['Assignment', 'Material', 'Video', 'url'], // learnext MaterialsController@content_form
     'kind' => ['question', 'answer'],                         // portal QaQuestionController@detail
+    'step' => ['1', '2', '3', '4', '5'],                      // learnext CourseController@ajaxLoadForm (ขั้นของฟอร์มรายวิชา)
 ];
 
 /** ค่า id/slug จากแถวข้อมูลของ path ที่ขึ้นต้นเหมือนกัน ไม่เจอก็ขยับขึ้นไปหมวดที่อยู่เหนือกว่า (เช่น /admin/redemption/load-modal-address → /admin/redemption) */
 function sampleValues(array $rowsByPath, string $prefix, string $param): array
 {
+    // ตารางที่ path สั้นสุดก่อน = รายการหลักของหมวด (เช่น /admin/course/ajax-get-data มาก่อน /admin/course/step-5/ajax-get-students)
+    uksort($rowsByPath, fn ($x, $y) => substr_count($x, '/') <=> substr_count($y, '/') ?: strcmp($x, $y));
     while (substr_count($prefix, '/') >= 2) {
         $vals = [];
         foreach ($rowsByPath as $p => $rows) {
@@ -418,6 +421,14 @@ while (($queue || $sampled < 3) && $n < MAX_ITEMS) {
     }
     if ($r['body'] === null) {
         $manifest['skipped'][] = "$method $path (file)";
+        continue;
+    }
+    // รูปที่เซิร์ฟเวอร์วาดสด (เช่น ภาพย่อใบประกาศ) - build.py วางเป็นไฟล์ตาม path เดิม
+    if ($method === 'GET' && str_starts_with($entry['ct'], 'image/')) {
+        $entry['kind'] = 'image';
+        $entry['f'] = 'raw/' . sha1('img ' . $path) . '.bin';
+        file_put_contents($out . '/' . $entry['f'], $r['body']);
+        $manifest['entries'][] = $entry;
         continue;
     }
 

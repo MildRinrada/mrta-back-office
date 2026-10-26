@@ -408,6 +408,11 @@ def main():
                 loc = e['loc']
                 redirs[f'/{sys_}{path}'.rstrip('/')] = f'/{sys_}{loc}' if loc.startswith('/') else rewrite_urls(loc, sys_)
                 continue
+            if kind == 'image':  # รูปที่เซิร์ฟเวอร์วาดสด วางตาม path เดิม (ไม่มีนามสกุล เบราว์เซอร์ดูชนิดรูปจากเนื้อไฟล์เอง)
+                out = SITE / sys_ / unquote(path).strip('/')
+                out.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(RAW / sys_ / e['f'], out)
+                continue
             raw = (RAW / sys_ / e['f']).read_text(encoding='utf-8', errors='replace')
             if kind == 'json':
                 try:

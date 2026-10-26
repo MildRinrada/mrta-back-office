@@ -4,12 +4,16 @@
 ใช้: python serve.py [port]   แล้วเปิด http://localhost:8787
 """
 import http.server
+import json
+import re
 import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8787
+REWRITES = [(re.compile(re.sub(r':(\w+)', r'(?P<\1>[^/]+)', r['source'])), r['destination'])
+            for r in json.loads((ROOT / 'vercel.json').read_text(encoding='utf-8')).get('rewrites', [])]
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -35,6 +39,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if cand.is_file():
                 self.path = '/' + cand.relative_to(ROOT).as_posix()
                 return super().send_head()
+        for pattern, dest in REWRITES:  # rewrites ใน vercel.json (ใช้เมื่อไม่มีไฟล์ตรง path เหมือน Vercel)
+            m = pattern.fullmatch(path)
+            if m:
+                cand = ROOT / re.sub(r':(\w+)', lambda x: m.group(x.group(1)), dest).lstrip('/')
+                if cand.is_file():
+                    self.path = '/' + cand.relative_to(ROOT).as_posix()
+                    return super().send_head()
         return self._not_found()
 
     def _not_found(self):

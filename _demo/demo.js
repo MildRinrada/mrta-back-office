@@ -57,8 +57,21 @@
         return { path: p, url: u };
     }
 
+    // learnext แก้ไขรายวิชา: /edit/{id}/step/{ขั้น}/{แท็บ} ใช้หน้าเดียวกับ /edit/{id} (rewrite ใน vercel.json)
+    var COURSE_STEP = /^(\/learnext\/admin\/course\/edit\/\d+)\/step\/([^/]+)(?:\/([^/]+))?$/;
+
     function isPage(p) {
-        return !!(PAGES[p] || REDIR[p]);
+        var m = p.match(COURSE_STEP);
+        return !!(PAGES[p] || REDIR[p] || (m && PAGES[m[1]]));
+    }
+
+    // เปิดส่วนตาม URL (หน้าเปิดรายการแรกเองตอนโหลด แล้วเปลี่ยน URL ไปแล้ว จึงจำค่าไว้ตั้งแต่ตอนนี้)
+    var stepFromUrl = location.pathname.match(COURSE_STEP);
+    if (stepFromUrl) {
+        window.addEventListener('load', function () {
+            var el = document.querySelector('.lxc-item[data-step="' + stepFromUrl[2] + '"][data-tab="' + (stepFromUrl[3] || '1') + '"]:not(.is-disabled)');
+            if (el && typeof window.lxcGo === 'function') window.lxcGo(el, true);
+        });
     }
 
     // ---- พารามิเตอร์ของคำขอ (query + body)

@@ -4,6 +4,10 @@
   "redirects": [
     { "source": "/", "destination": "/portal/admin", "permanent": false }
   ],
+  "rewrites": [
+    { "source": "/learnext/admin/course/edit/:id/step/:step/:tab", "destination": "/learnext/admin/course/edit/:id.html" },
+    { "source": "/learnext/admin/course/edit/:id/step/:step", "destination": "/learnext/admin/course/edit/:id.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
