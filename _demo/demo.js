@@ -70,7 +70,12 @@
     if (stepFromUrl) {
         window.addEventListener('load', function () {
             var el = document.querySelector('.lxc-item[data-step="' + stepFromUrl[2] + '"][data-tab="' + (stepFromUrl[3] || '1') + '"]:not(.is-disabled)');
-            if (el && typeof window.lxcGo === 'function') window.lxcGo(el, true);
+            if (!el || el.classList.contains('is-active') || typeof window.lxcGo !== 'function') return;
+            var go = function () { window.lxcGo(el, true); };
+            // รอส่วนแรกที่หน้าเปิดเองโหลดเสร็จก่อน ไม่งั้นผลที่มาทีหลังทับส่วนที่ต้องการ
+            var $ = window.jQuery;
+            if ($ && $.active > 0) $(document).one('ajaxStop', function () { setTimeout(go, 0); });
+            else go();
         });
     }
 
