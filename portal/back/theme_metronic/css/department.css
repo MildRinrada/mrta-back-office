@@ -35,14 +35,14 @@
 .dp-card-more svg { width: 8px !important; height: 8px !important; margin-left: 3px; }
 
 /* ── แท็บ ── */
-.dp-tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; border-bottom: 1px solid var(--border); scrollbar-width: thin; }
+.dp-tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; border-bottom: 1px solid var(--border); scrollbar-width: thin; }
 .dp-tabs a {
     position: relative; flex-shrink: 0; padding: 16px 30px; font-size: 14px; font-weight: 500; white-space: nowrap;
     color: var(--text-1); text-decoration: none; border-right: 1px solid var(--border);
 }
 .dp-tabs a:hover { color: var(--pri); }
 .dp-tabs a.active { color: var(--pri); font-weight: 600; }
-.dp-tabs a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: var(--pri); border-radius: 3px 3px 0 0; }
+.dp-tabs a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--pri); border-radius: 3px 3px 0 0; }
 
 /* ── พื้นที่ทำงาน: ต้นไม้ | รายการ | ด้านขวา ── */
 .dp-work { display: grid; grid-template-columns: 270px minmax(0, 1fr) 280px; align-items: start; }
@@ -236,3 +236,5 @@ button.dp-chip:disabled { opacity: .45; cursor: default; }
     .dp-kv.is-grid { grid-template-columns: minmax(0, 1fr); }
     .dp-preview-head { flex-direction: column; }
 }
+
+.dp-list .table-responsive { overflow-y: hidden; } /* เลื่อนแนวนอนอย่างเดียว - เนื้อหาเกิน 1px แล้วแถบเลื่อนแนวตั้งโผล่ */

@@ -37,7 +37,7 @@
 .nt-main { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; align-items: start; }
 .nt-side { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
 
-.nt-tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; border-bottom: 1px solid var(--border); padding: 0 16px; scrollbar-width: thin; }
+.nt-tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; border-bottom: 1px solid var(--border); padding: 0 16px; scrollbar-width: thin; }
 .nt-tabs .nav-link {
     position: relative; border: 0; border-radius: 0; background: none; white-space: nowrap;
     padding: 16px 26px; font-size: 14px; font-weight: 500; color: var(--text-1);
@@ -218,3 +218,5 @@
     .nt-filters .form-select, .nt-date { flex: 1 1 100%; }
 }
 @media (max-width: 479.98px) { .nt-cards { grid-template-columns: minmax(0, 1fr); } }
+
+.table-responsive:has(.nt-table) { overflow-y: hidden; } /* เลื่อนแนวนอนอย่างเดียว - เนื้อหาเกิน 1px แล้วแถบเลื่อนแนวตั้งโผล่ */

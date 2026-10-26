@@ -83,3 +83,77 @@
 
 @media (max-width:1200px){.cd-shell{grid-template-columns:170px minmax(0,1fr) 250px;}}
 @media (max-width:992px){.cd-shell{grid-template-columns:1fr;}.cd-palette,.cd-props{position:static;max-height:none;}.cd-stage{min-height:70vh;}}
+
+
+/* ---- ย้ายจาก acfs: ช่องลายเซ็น/ผู้ลงนาม, ลากสลับเลเยอร์, scrollbar, อัปโหลดฟอนต์, หน้าต่างเตรียมรูป ---- */
+.cd-props .row.g-2{margin-top:4px;}
+.cd-props .input-group-text{padding:0 6px;font-size:11px;}
+.cd-layers{position:relative;}
+.cd-layer{user-select:none;touch-action:none;}
+.cd-layer>span{flex:1 1 auto;min-width:0;}
+.cd-layer .cd-layer-grip{margin:0 0 0 6px;color:var(--text-3);opacity:0;cursor:grab;transition:opacity .15s;}
+.cd-layer:hover .cd-layer-grip{opacity:1;}
+.cd-layers.is-sorting,.cd-layers.is-sorting .cd-layer{cursor:grabbing;}
+.cd-layer.is-dragging{opacity:.45;background:var(--surface);}
+.cd-layer-drop{position:absolute;left:4px;right:4px;height:2px;background:var(--pri);border-radius:2px;pointer-events:none;box-shadow:0 0 0 2px color-mix(in srgb, var(--pri) 18%, transparent);}
+.cd-layer-drop::before{content:'';position:absolute;left:-3px;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--pri);}
+/* วันที่เรียนจบ (ตัวอย่าง) + ผู้ลงนามที่ไม่ได้ใช้ ณ วันนั้น (จาง) */
+.cd-field-date{flex:0 0 170px;}
+.cd-item.cd-off{opacity:.22;}
+/* แผงผู้ลงนาม (รูปลายเซ็น + ชื่อ + ตำแหน่ง + ช่วงวันที่) */
+.cd-signer{border:1px solid color-mix(in srgb, var(--pri) 25%, transparent);background:color-mix(in srgb, var(--pri) 4%, transparent);border-radius:var(--radius-sm);padding:10px;margin-bottom:12px;}
+.cd-signer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.cd-signer-head img{max-width:140px;max-height:48px;object-fit:contain;background:#fff;border:1px solid var(--border);border-radius:3px;padding:2px;}
+/* ช่องลายเซ็น: รูปพอดีกรอบไม่ยืด ชิดล่าง (เหมือนตัวเรนเดอร์) + รายชื่อผู้ลงนามในแผงขวา */
+.cd-item.cd-sigslot img{object-fit:contain;object-position:center bottom;}
+.cd-item.cd-noimg{border:1px dashed var(--text-3);background:rgba(162,165,185,.08);}
+.cd-item.cd-noimg img{display:none;}
+.cd-item.cd-noimg::after{content:attr(data-noimg);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--text-3);font-size:12px;font-style:italic;pointer-events:none;}
+.cd-signer-title{font-weight:600;font-size:13px;color:var(--pri);margin-bottom:2px;}
+.cd-signer-row{border:1px solid var(--border);background:#fff;border-radius:var(--radius-sm);padding:8px;margin-bottom:8px;}
+.cd-signer-row.is-active{border-color:#1dc9b7;box-shadow:0 0 0 1px rgba(29,201,183,.35);}
+.cd-signer-row .cd-signer-head{display:flex;align-items:center;margin-bottom:6px;}
+.cd-signer-row .cd-signer-head img{max-width:90px;max-height:34px;margin-left:6px;}
+.cd-signer-no{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--surface);font-size:11px;font-weight:700;color:var(--text-2);}
+.cd-signer-row .btn-group .btn{padding:2px 7px;}
+/* ข้อมูลอัตโนมัติที่ว่างในตัวอย่าง - ป้ายสีเทาขนาดเท่าข้อความจริง เฉพาะหน้าจัดวาง (ใบจริงเว้นว่าง) */
+.cd-text-inner.cd-placeholder{color:var(--text-3)!important;font-style:italic!important;}
+.cd-item.cd-datehidden{outline:1px dashed var(--text-3);}
+.cd-item.cd-datehidden::after{content:attr(data-hidden-label);position:absolute;right:0;bottom:100%;padding:0 4px;font:italic 11px/16px sans-serif;color:#fff;background:var(--text-3);border-radius:3px 3px 0 0;white-space:nowrap;pointer-events:none;}
+/* scrollbar ของแผงต่าง ๆ: บาง โค้งมน สีเดียวกับธีม - ซ่อนจนกว่าจะชี้เมาส์ (ความกว้างคงที่ เนื้อหาไม่ขยับตอนโผล่) */
+/* Firefox: ไม่มี ::-webkit-scrollbar ใช้ค่ามาตรฐาน (Chrome/Edge จะไม่ใช้สไตล์ webkit ด้านล่างถ้ามีค่านี้ จึงแยกไว้) */
+@supports not selector(::-webkit-scrollbar) {
+	.cd-palette,.cd-props,.cd-layers,.cd-stage{scrollbar-width:thin;scrollbar-color:transparent transparent;}
+	.cd-palette:hover,.cd-props:hover,.cd-layers:hover,.cd-stage:hover{scrollbar-color:color-mix(in srgb, var(--pri) 45%, transparent) transparent;}
+}
+.cd-palette::-webkit-scrollbar,.cd-props::-webkit-scrollbar,.cd-layers::-webkit-scrollbar,.cd-stage::-webkit-scrollbar{width:8px;height:8px;background:transparent;}
+.cd-palette::-webkit-scrollbar-button,.cd-props::-webkit-scrollbar-button,.cd-layers::-webkit-scrollbar-button,.cd-stage::-webkit-scrollbar-button{display:none;width:0;height:0;}
+.cd-palette::-webkit-scrollbar-track,.cd-props::-webkit-scrollbar-track,.cd-layers::-webkit-scrollbar-track,.cd-stage::-webkit-scrollbar-track{background:transparent;margin:6px;}
+.cd-palette::-webkit-scrollbar-corner,.cd-props::-webkit-scrollbar-corner,.cd-layers::-webkit-scrollbar-corner,.cd-stage::-webkit-scrollbar-corner{background:transparent;}
+.cd-palette::-webkit-scrollbar-thumb,.cd-props::-webkit-scrollbar-thumb,.cd-layers::-webkit-scrollbar-thumb,.cd-stage::-webkit-scrollbar-thumb{background:transparent;border-radius:8px;border:2px solid transparent;background-clip:padding-box;}
+.cd-palette:hover::-webkit-scrollbar-thumb,.cd-props:hover::-webkit-scrollbar-thumb,.cd-layers:hover::-webkit-scrollbar-thumb,.cd-stage:hover::-webkit-scrollbar-thumb{background-color:color-mix(in srgb, var(--pri) 35%, transparent);}
+.cd-palette::-webkit-scrollbar-thumb:hover,.cd-props::-webkit-scrollbar-thumb:hover,.cd-layers::-webkit-scrollbar-thumb:hover,.cd-stage::-webkit-scrollbar-thumb:hover{background-color:color-mix(in srgb, var(--pri) 70%, transparent);}
+.cd-palette::-webkit-scrollbar-thumb:active,.cd-props::-webkit-scrollbar-thumb:active,.cd-layers::-webkit-scrollbar-thumb:active,.cd-stage::-webkit-scrollbar-thumb:active{background-color:var(--pri);}
+.cd-font-up{font-size:11.5px;}
+/* หน้าต่างเตรียมรูป: ครอป / ลบพื้นหลัง (ลายตารางหมากรุก = ส่วนโปร่งใส) */
+.cd-prep{display:flex;flex-wrap:wrap;gap:16px;}
+.cd-prep-area{flex:1 1 520px;min-width:0;display:flex;align-items:center;justify-content:center;background:#2c2e3e;border-radius:6px;padding:12px;min-height:280px;}
+.cd-prep-wrap{position:relative;line-height:0;overflow:hidden;background-color:#fff;background-image:linear-gradient(45deg,#e4e6ef 25%,transparent 25%),linear-gradient(-45deg,#e4e6ef 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e4e6ef 75%),linear-gradient(-45deg,transparent 75%,#e4e6ef 75%);background-size:16px 16px;background-position:0 0,0 8px,8px -8px,-8px 0;}
+.cd-prep-wrap canvas{display:block;}
+.cd-crop-box{position:absolute;box-shadow:0 0 0 9999px rgba(20,22,35,.55);outline:1.5px solid #fff;cursor:move;touch-action:none;
+	background-image:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35)),linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35)),linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35)),linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.35));
+	background-size:1px 100%,1px 100%,100% 1px,100% 1px;background-position:33.33% 0,66.66% 0,0 33.33%,0 66.66%;background-repeat:no-repeat;}
+.cd-crop-h{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;background:#fff;border:2px solid var(--pri);border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.3);}
+.cd-crop-h[data-h=nw]{left:0;top:0;cursor:nwse-resize;}
+.cd-crop-h[data-h=n]{left:50%;top:0;cursor:ns-resize;}
+.cd-crop-h[data-h=ne]{left:100%;top:0;cursor:nesw-resize;}
+.cd-crop-h[data-h=e]{left:100%;top:50%;cursor:ew-resize;}
+.cd-crop-h[data-h=se]{left:100%;top:100%;cursor:nwse-resize;}
+.cd-crop-h[data-h=s]{left:50%;top:100%;cursor:ns-resize;}
+.cd-crop-h[data-h=sw]{left:0;top:100%;cursor:nesw-resize;}
+.cd-crop-h[data-h=w]{left:0;top:50%;cursor:ew-resize;}
+.cd-crop-box.is-ratio .cd-crop-h[data-h=n],.cd-crop-box.is-ratio .cd-crop-h[data-h=e],.cd-crop-box.is-ratio .cd-crop-h[data-h=s],.cd-crop-box.is-ratio .cd-crop-h[data-h=w]{display:none;}
+.cd-prep-side{flex:0 0 240px;font-size:13px;}
+.cd-prep-tip{color:var(--text-2);margin-bottom:12px;}
+.cd-prep-note{font-size:12px;color:#1dc9b7;min-height:16px;}
+.cd-prep-info{margin-top:14px;padding:8px 10px;border-radius:4px;background:var(--surface);color:var(--text-1);font-size:12px;font-variant-numeric:tabular-nums;}
