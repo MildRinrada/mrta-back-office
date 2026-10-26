@@ -52,7 +52,10 @@
 .qa-more { margin-left: auto; white-space: nowrap; }
 
 /* ── รายการ + แผงรายละเอียด ── */
-.qa-work { display: grid; grid-template-columns: minmax(0, 1fr) 390px; gap: 16px; align-items: start; padding: 12px 18px 18px; }
+/* ไม่จองที่ให้แผงรายละเอียดจนกว่าจะเลือกรายการ (แผงว่าง = .qa-detail-empty) ตารางจะได้กว้างเต็มไม่ต้องเลื่อนแนวนอน */
+.qa-work { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; padding: 12px 18px 18px; }
+.qa-work:has(.qa-detail-empty) .qa-detail { display: none; }
+.qa-work:not(:has(.qa-detail-empty)) { grid-template-columns: minmax(0, 1fr) 390px; }
 /* ตารางเลื่อนแนวนอนได้อย่างเดียว - เนื้อหาสูงเกินกล่อง 1px แล้วแถบเลื่อนแนวตั้งโผล่ทั้งความสูงตาราง */
 .qa-box .table-responsive { overflow-y: hidden; }
 .qa-list-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; min-height: 34px; margin-bottom: 8px; }
@@ -67,9 +70,10 @@
 .qa-table tbody tr { cursor: pointer; }
 .qa-table tbody tr.is-selected td { background: color-mix(in srgb, var(--pri) 7%, var(--card)); }
 .qa-table .form-check-input { margin: 0; cursor: pointer; }
-.qa-title-link { display: block; font-weight: 600; color: var(--pri); text-decoration: none; max-width: 360px; }
+/* ตัดบรรทัดแทนการล็อกความกว้าง คอลัมน์คำถามจึงหดตามจอได้ */
+.qa-title-link { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-weight: 600; color: var(--pri); text-decoration: none; max-width: 360px; min-width: 180px; }
 .qa-title-link:hover { text-decoration: underline; }
-.qa-excerpt { font-size: 11.5px; color: var(--text-2); max-width: 360px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qa-excerpt { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; font-size: 11.5px; color: var(--text-2); max-width: 360px; }
 .qa-kind { display: inline-block; padding: 1px 7px; border-radius: 5px; font-size: 10.5px; font-weight: 600; color: #0e7490; background: rgba(8, 145, 178, .12); vertical-align: 1px; }
 
 .qa-status { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
@@ -144,13 +148,14 @@
 .qa-guide li { margin-bottom: 8px; font-size: 13.5px; line-height: 1.65; }
 
 /* ── จอเล็ก ── */
-@media (max-width: 1399.98px) {
-    .qa-work { grid-template-columns: minmax(0, 1fr) 340px; }
+/* จอไม่กว้างพอให้ตาราง + แผงอยู่คู่กัน: แผงรายละเอียดเป็นแผงลอยด้านขวาทับตาราง (ปิดด้วยปุ่มปิดในแผง) */
+@media (max-width: 1599.98px) {
+    .qa-work:not(:has(.qa-detail-empty)) { grid-template-columns: minmax(0, 1fr); }
+    .qa-detail { position: fixed; top: var(--topbar-h); right: 0; bottom: 0; z-index: 1040; width: min(420px, 100vw); max-height: none;
+        border-radius: 0; border-width: 0 0 0 1px; box-shadow: -12px 0 32px rgba(15, 23, 42, .18); }
 }
 @media (max-width: 1199.98px) {
     .qa-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .qa-work { grid-template-columns: minmax(0, 1fr); }
-    .qa-detail { position: static; max-height: none; }
 }
 @media (max-width: 767.98px) {
     .qa-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
