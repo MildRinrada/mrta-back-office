@@ -1,0 +1,27 @@
+
+.fb-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border, #e3e6f0); }
+.fb-title { margin: 0; font-size: 16px; font-weight: 600; }
+.fb-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.fb-actions .btn { display: inline-flex; align-items: center; gap: 6px; }
+.fb-body { max-width: 860px; }
+.fb-body label { margin-bottom: 6px; font-size: 13px; font-weight: 600; color: var(--text-1, #2d3436); }
+.fb-body .req { color: var(--danger, #e74a3b); margin-left: 2px; }
+.fb-body .form-group { margin-bottom: 18px; }
+.fb-body .form-text { font-size: 12.5px; color: var(--text-2, #636e72); }
+
+.fb-answers { padding: 16px 18px; border: 1px solid var(--border, #e3e6f0); border-radius: 10px; background: var(--card, #fff); }
+.fb-answers-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.fb-answers-head label { margin: 0; }
+#panel_answer_list { counter-reset: fb-ans; }
+#panel_answer_list .row-ans { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+#panel_answer_list .row-ans:not(.tpl-ans) { counter-increment: fb-ans; }
+#panel_answer_list .row-ans::before { content: counter(fb-ans); flex: none; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--surface, #f4f6f9); color: var(--text-2, #636e72); font-size: 12px; font-weight: 600; }
+#panel_answer_list .row-ans .form-control { flex: 1; }
+#panel_answer_list label.error { flex-basis: 100%; margin: 4px 0 0 34px; font-weight: 400; }
+#panel_answer_list .row-ans { flex-wrap: wrap; }
+.fb-ans-del { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; color: var(--text-3, #b2bec3); text-decoration: none !important; }
+.fb-ans-del:hover { background: rgba(231, 74, 59, .08); color: var(--danger, #e74a3b); }
+.fb-ans-add { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 13px; font-weight: 500; text-decoration: none !important; }
+.fb-note { display: flex; gap: 8px; margin-top: 12px; padding: 10px 12px; border-radius: 8px; background: rgba(246, 194, 62, .12); color: var(--text-1, #2d3436); font-size: 12.5px; }
+.fb-note i { margin-top: 2px; color: #d39e00; }
+.fb-weight { max-width: 200px; }

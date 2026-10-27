@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><script>window.__DEMO={"sys": "belib", "path": "/admin/report/digital/cost-per-use", "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-belib.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost per Use | MRTA Digital Library</title>
+    <script>
+        (function(){var m=document.cookie.match(/adminkit_theme=([^;]+)/);if(m)document.documentElement.setAttribute('data-bs-theme',m[1]);})();
+    </script>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778368" rel="stylesheet">
+<link href="/belib/back/theme_metronic/css/components.css?v=1792123906" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/sidebar-mrta.css?v=1792640347" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/img-pick.css?v=1792122835" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/belib/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/_shared/a/back/theme_metronic/image/sidebar/logo.svg" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    
+        <div class="nav-item">
+        <a href="/belib/admin/dashboard" class="nav-link  startpreload">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>ภาพรวมสถิติ</span>
+        </a>
+    </div>
+        <div class="nav-item">
+    <a href="/belib/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+        <div class="nav-heading mt-2">LIBRARY</div>
+<a href="/belib/admin/product-category/library"
+   class="nav-link  startpreload">
+    <i class="fa-solid fa-folder-open"></i> หมวดหมู่
+</a>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fas fa-book"></i>
+        <span>หนังสือ</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+                <a href="/belib/admin/product/book" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/belib/admin/product/book/create" class="nav-link startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fas fa-book"></i>
+        <span>แมกกาซีน</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+                    <a href="/belib/admin/product/magazine/magazine-title" class="nav-link  startpreload">
+                <i class="fa-solid fa-list"></i> หัวแมกกาซีน
+            </a>
+                <a href="/belib/admin/product/magazine" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/belib/admin/product/magazine/create" class="nav-link startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fas fa-compact-disc"></i>
+        <span>ซีดี/ดีวีดี</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+                <a href="/belib/admin/product/cd-dvd" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/belib/admin/product/cd-dvd/create" class="nav-link startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+
+<a href="/belib/admin/library/transaction"
+   class="nav-link  startpreload">
+    <i class="fa-solid fa-right-left"></i> ยืม-คืน
+</a>
+
+
+<a href="/belib/admin/library/booktransaction"
+   class="nav-link  startpreload">
+    <i class="fa-solid fa-book-open-reader"></i> ประวัติการยืม-คืน
+</a>
+
+
+<a href="/belib/admin/library/reservation"
+   class="nav-link  startpreload">
+    <i class="fa-solid fa-bookmark"></i> รายการจอง
+</a>
+
+
+<a href="/belib/admin/library/overdue"
+   class="nav-link  startpreload">
+    <i class="fa-solid fa-triangle-exclamation"></i> หนังสือเกินกำหนด
+</a>
+
+
+<a href="/belib/admin/library/holiday"
+   class="nav-link  startpreload">
+    <i class="fa-solid fa-calendar-xmark"></i> วันหยุด
+</a>
+
+
+<a href="/belib/admin/library/print"
+   class="nav-link  startpreload">
+    <i class="fa-solid fa-print"></i> พิมพ์บาร์โค้ดและสันปก
+</a>
+
+
+
+<div class="nav-heading mt-2">E-LIBRARY</div>
+<a href="/belib/admin/product-category/elibrary"
+   class="nav-link  startpreload">
+    <i class="fa-solid fa-folder-open"></i> หมวดหมู่
+</a>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fas fa-book"></i>
+        <span>อีบุ๊ค</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+                <a href="/belib/admin/product/ebook" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/belib/admin/product/ebook/create" class="nav-link startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fas fa-book"></i>
+        <span>อีแมกกาซีน</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+                    <a href="/belib/admin/product/emagazine/magazine-title" class="nav-link  startpreload">
+                <i class="fa-solid fa-list"></i> หัวแมกกาซีน
+            </a>
+                <a href="/belib/admin/product/emagazine" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/belib/admin/product/emagazine/create" class="nav-link startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fas fa-play-circle"></i>
+        <span>มัลติมีเดีย</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+                <a href="/belib/admin/product/multimedia" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/belib/admin/product/multimedia/create" class="nav-link startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fas fa-book"></i>
+        <span>ดิจิทัลไฟล์</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+                <a href="/belib/admin/product/digital-file" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/belib/admin/product/digital-file/create" class="nav-link startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fas fa-book"></i>
+        <span>ทรัพยากรออนไลน์</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+                <a href="/belib/admin/product/online-resources" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/belib/admin/product/online-resources/create" class="nav-link startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fas fa-book"></i>
+        <span>คลังข้อมูล Mrta</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+                <a href="/belib/admin/product/mrta-archive" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/belib/admin/product/mrta-archive/create" class="nav-link startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+    <div class="nav-heading">อื่นๆ</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fas fa-book"></i>
+        <span>ข่าวสาร &amp; บทความ</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/belib/admin/article" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+                <a href="/belib/admin/article/create" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+            </div>
+</div>
+    <div class="nav-heading">จัดการ</div>
+
+
+<div class="nav-item">
+    <a href="/belib/admin/manage/comment"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-comments"></i>
+        <span>ความคิดเห็น</span>
+    </a>
+</div>
+
+
+<div class="nav-item">
+    <a href="/belib/admin/manage/review"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-star"></i>
+        <span>รีวิว</span>
+    </a>
+</div>
+
+
+<div class="nav-item">
+    <a href="/belib/admin/manage/customer-review"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-comment-dots"></i>
+        <span>รีวิวจากผู้ใช้</span>
+    </a>
+</div>
+    
+    <div class="nav-heading mt-2">MASTER DATA</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-building"></i>
+        <span>สำนักพิมพ์</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/belib/admin/master/publisher" class="nav-link ">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+                <a href="/belib/admin/master/publisher/create" class="nav-link ">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+            </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-building-user"></i>
+        <span>หน่วยงานที่จัดพิมพ์</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/belib/admin/master/publisher-internal" class="nav-link ">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+                <a href="/belib/admin/master/publisher-internal/create" class="nav-link ">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+            </div>
+</div>
+    <div class="nav-heading mt-2">SETTING</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-image"></i>
+        <span>แบนเนอร์</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/belib/admin/banner" class="nav-link ">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/belib/admin/banner/create" class="nav-link ">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+
+    <div class="nav-heading mt-2">รายงาน</div>
+
+            <div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>รายงาน Library</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การยืม-คืน</div>
+        <a href="/belib/admin/report/library/borrow-return-stats"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-chart-column"></i> สถิติการยืม-คืน
+        </a>
+        <a href="/belib/admin/report/library/borrow-return-stats-by-product"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-chart-column"></i> ยืม-คืนแยกตามประเภทหนังสือ
+        </a>
+        <a href="/belib/admin/report/library/product-import"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-file-import"></i> ประวัติการนำเข้าหนังสือ
+        </a>
+        <a href="/belib/admin/report/library/new-item"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-book-medical"></i> หนังสือที่เพิ่งเข้ามาใหม่
+        </a>
+        <a href="/belib/admin/report/library/product-no-activity"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-book-skull"></i> หนังสือที่ไม่มีผู้ยืม
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">เกินกำหนดและค่าปรับ</div>
+        <a href="/belib/admin/report/library/overdue-borrow-return"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-triangle-exclamation"></i> รายชื่อผู้ค้างส่งหนังสือ
+        </a>
+        <a href="/belib/admin/report/library/overdue-stats"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-percent"></i> สถิติการคืนเกินกำหนด
+        </a>
+        <a href="/belib/admin/report/library/fine-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-coins"></i> ประวัติการเก็บค่าปรับ
+        </a>
+        <a href="/belib/admin/report/library/finance-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-money-bill-wave"></i> รายงานรายรับ-รายจ่าย
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">สมาชิก</div>
+        <a href="/belib/admin/report/library/top-reader-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-trophy"></i> สมาชิกที่ยืมมากที่สุด
+        </a>
+        <a href="/belib/admin/report/library/user-download-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-download"></i> ประวัติดาวน์โหลดของสมาชิก
+        </a>
+        <a href="/belib/admin/report/library/reserve"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-bookmark"></i> รายการจองหนังสือ
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ความนิยม</div>
+        <a href="/belib/admin/report/library/top-product-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-star"></i> หนังสือที่ถูกยืมมากที่สุด
+        </a>
+        <a href="/belib/admin/report/library/top-category-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-tags"></i> หมวดหมู่ที่ได้รับความนิยม
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">วิเคราะห์ห้องสมุด</div>
+        <a href="/belib/admin/report/library/waiting-list-efficiency"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-clock-rotate-left"></i> ประสิทธิภาพคิวการจอง
+        </a>
+        <a href="/belib/admin/report/library/renewal-pattern"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-arrows-rotate"></i> สถิติการต่ออายุการยืม
+        </a>
+        <a href="/belib/admin/report/library/collection-age"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-hourglass-half"></i> รายงานอายุหนังสือในคลัง
+        </a>
+
+    </div>
+</div>
+    
+            <div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent active open"
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>รายงาน Digital</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub open">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">สื่อดิจิทัล</div>
+        <a href="/belib/admin/report/digital/add-remove-product"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-arrows-turn-to-dots"></i> ประวัติการเพิ่ม-ลบสื่อ
+        </a>
+        <a href="/belib/admin/report/digital/export-all"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-database"></i> ส่งออกข้อมูลสื่อทั้งหมด
+        </a>
+        <a href="/belib/admin/report/digital/resources-review"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-star-half-stroke"></i> คะแนนรีวิวจากผู้ใช้
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การใช้งานสื่อ</div>
+        <a href="/belib/admin/report/digital/shelf-download-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-download"></i> ประวัติการดาวน์โหลดสื่อ
+        </a>
+        <a href="/belib/admin/report/digital/reserve-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-bookmark"></i> ประวัติการจองสื่อ
+        </a>
+        <a href="/belib/admin/report/digital/top-reader-log-digital"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-trophy"></i> ผู้ใช้งานมากที่สุด
+        </a>
+        <a href="/belib/admin/report/digital/user-download-log-digital"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-user-clock"></i> ประวัติดาวน์โหลดรายบุคคล
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การวิเคราะห์</div>
+        <a href="/belib/admin/report/digital/zero-result-search"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-magnifying-glass-minus"></i> คำค้นที่ไม่พบผลลัพธ์
+        </a>
+        <a href="/belib/admin/report/digital/abandonment-rate"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-person-walking-arrow-right"></i> สถิติผู้ที่ออกจากระบบกลางคัน
+        </a>
+        <a href="/belib/admin/report/digital/never-accessed"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-eye-slash"></i> สื่อที่ไม่มีผู้เปิดอ่าน
+        </a>
+        <a href="/belib/admin/report/digital/license-expiry"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-key"></i> ลิขสิทธิ์ที่ใกล้หมดอายุ
+        </a>
+        <a href="/belib/admin/report/digital/cost-per-use"
+           class="nav-link active startpreload">
+            <i class="fa-solid fa-coins"></i> ความคุ้มค่าของสื่อแต่ละรายการ
+        </a>
+
+    </div>
+</div>
+    
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>ผู้ใช้งาน &amp; Engagement</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การเยี่ยมชมเว็บ</div>
+        <a href="/belib/admin/report/user/visitor-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-globe"></i> ประวัติการเยี่ยมชมเว็บ
+        </a>
+        <a href="/belib/admin/report/user/visitor-log-by-user"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-user-clock"></i> การเยี่ยมชมแยกตามสมาชิก
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การเข้าสู่ระบบ</div>
+        <a href="/belib/admin/report/user/login-summary"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-right-to-bracket"></i> สรุปการเข้าสู่ระบบรายเดือน
+        </a>
+        <a href="/belib/admin/report/user/access-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i> บันทึกการเข้าสู่ระบบ
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การคลิกใช้งาน</div>
+        <a href="/belib/admin/report/user/logs-clicks"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-computer-mouse"></i> บันทึกการคลิกใช้งาน
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การวิเคราะห์</div>
+        <a href="/belib/admin/report/user/user-retention"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-repeat"></i> สถิติสมาชิกที่กลับมาใช้งาน
+        </a>
+        <a href="/belib/admin/report/user/session-depth"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-layer-group"></i> สถิติการใช้งานต่อครั้ง
+        </a>
+
+    </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>ตรวจสอบและ Compliance</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">บันทึกระบบ</div>
+        <a href="/belib/admin/report/audit/email-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-envelope-circle-check"></i> ประวัติการส่งอีเมล
+        </a>
+
+        
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ข้อมูลส่วนบุคคล (PDPA)</div>
+        <a href="/belib/admin/report/audit/pdpa-access-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-lock"></i> บันทึกการเข้าถึงข้อมูลส่วนบุคคล
+        </a>
+
+    </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>สรุปภาพรวม</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ภาพรวมทรัพยากร</div>
+        <a href="/belib/admin/report/summary/resource-status"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-layer-group"></i> สรุปสถานะหนังสือ
+        </a>
+        <a href="/belib/admin/report/summary/circulation-category"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-chart-pie"></i> สถิติการยืมแยกตามหมวดหมู่
+        </a>
+        <a href="/belib/admin/report/summary/reading-completion"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-book-bookmark"></i> อัตราการยืม-คืนครบรอบ
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">พฤติกรรมการค้นหา</div>
+        <a href="/belib/admin/report/summary/search-summary"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-magnifying-glass-chart"></i> คำที่ค้นหาบ่อยที่สุด
+        </a>
+
+    </div>
+</div>
+    
+    </nav>    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <link rel="stylesheet" href="/_shared/inline/cfcd662ce6b1c449.css">
+<header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ 27 ตุลาคม, 2026 9:28:17</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/belib/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        <!-- Notification Dropdown -->
+        <div class="dropdown noti-dropdown" id="notiDropdown">
+            <button class="topbar-btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge-count" id="notiCount" style="display:none;">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end shadow-sm">
+                <div class="header-dropdown">
+                    <span class="header-txt-noti">การแจ้งเตือน</span>
+                </div>
+                <ul class="nav nav-tabs" id="notiTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="notiOverdueTab" data-bs-toggle="tab" data-bs-target="#notiOverdue" type="button" role="tab">
+                            เกินระยะคืน
+                            <span class="badge bg-danger ms-1" id="countOverdue" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="notiReserveTab" data-bs-toggle="tab" data-bs-target="#notiReserve" type="button" role="tab">
+                            รายการจอง
+                            <span class="badge bg-primary ms-1" id="countReserve" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                    
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="notiOverdue" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="notiReserve" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/portal/admin">
+                    <i class="fa-solid fa-globe" style="width:16px;color:var(--text-2);"></i> Portal
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-solid fa-book" style="width:16px;"></i> e-Library
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/belib/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title"><i class="fa-solid fa-chart-bar"></i> Cost per Use
+</div>
+            <div class="d-flex gap-2">
+                            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="card">
+            
+                                    <div class="card-header">
+                <h5>
+                                            <i class="fa-solid fa-clipboard-list"></i> ทั้งหมด
+                                    </h5>
+                <div class="d-flex flex-wrap gap-2">
+                                        <div>
+    <form id="frm_export" method="get" action="/belib/admin/report/digital/cost-per-use/export">
+        <input type='hidden' id='hd_product_main_slug' name='hd_product_main_slug' value=''>
+        <button type="button" id="btn_export" class="btn btn-sm btn-outline-success rp-export">
+	<span class="rp-export-text"><i class="fa-solid fa-file-excel"></i> ส่งออก Excel</span>
+	<span class="rp-export-busy"><span class="spinner-border spinner-border-sm"></span> กำลังเตรียมไฟล์...</span>
+</button>
+	    </form>
+</div>
+                </div>
+            </div>
+                        <div class="card-body">
+                <div class="container-fluid">
+    <div class="card mb-4"><div class="card-body">
+        <div class="row g-3 align-items-end">
+            
+                <div class="col-md-4">
+                    <label class="form-label">ประเภท</label>
+                    <select id="sel_product_main" class="form-select">
+                        <option value="">-- ทั้งหมด --</option>
+                                                <option value="ebook">อีบุ๊ค</option>
+                                                <option value="emagazine">อีแมกกาซีน</option>
+                                                <option value="multimedia">มัลติมีเดีย</option>
+                                                <option value="digital-file">ดิจิทัลไฟล์</option>
+                                                <option value="online-resources">ทรัพยากรออนไลน์</option>
+                                                <option value="mrta-archive">คลังข้อมูล Mrta</option>
+                                            </select>
+                </div>
+            <div class="col-md-2 align-self-end">
+                <button id="btn_search" class="btn btn-primary w-100"><i class="fa fa-search"></i> ค้นหา</button>
+            </div>
+        </div>
+    </div></div>
+    <div class="card"><div class="card-body">
+        <table id="main_table" class="table table-bordered table-hover w-100">
+            <thead><tr><th>#</th><th>ประเภท</th><th>ชื่อทรัพยากร</th><th>การใช้งาน (Shelf)</th><th>Views</th><th>Downloads</th></tr></thead>
+        </table>
+    </div></div>
+</div>
+            </div>
+        </div>
+
+            </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    $.extend(true, $.fn.dataTable.defaults, { language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."} });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+<script src="/_shared/inline/0dfe1de63ecfe525.js"></script>
+
+<script src="/_shared/inline/73f5d66d14dcf0ca.js"></script>
+
+<script src="/_shared/inline/bd1982cceba29d20.js"></script>
+
+<link rel="stylesheet" href="/_shared/a/back/collab/collab.css?v=1792128177">
+    <script>
+        window.MRTA_COLLAB = {"mode":"index","system":"belib","key":null,"channel":null,"index":"presence-collab-index.belib","openedAt":1793068097,"path":"\/admin\/report\/digital\/cost-per-use","me":{"id":120,"name":"Piyanuch Panyadee","initials":"R","color":"#e11d48"},"ws":{"key":"demo","host":"ws.demo.invalid","port":8080,"tls":false},"authUrl":"\/belib\/admin\/collab\/auth","checkUrl":"\/belib\/admin\/collab\/check","text":{"here_one":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","here_many":":name \u0e41\u0e25\u0e30\u0e2d\u0e35\u0e01 :n \u0e04\u0e19 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","alone":"\u0e21\u0e35\u0e04\u0e38\u0e13\u0e04\u0e19\u0e40\u0e14\u0e35\u0e22\u0e27\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","joined":":name \u0e40\u0e02\u0e49\u0e32\u0e21\u0e32\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","left":":name \u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27","editing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49","typing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u2026","saved_banner":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27 \u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19.","reload":"\u0e42\u0e2b\u0e25\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14","conflict_title":"\u0e21\u0e35\u0e04\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e1b\u0e41\u0e25\u0e49\u0e27","conflict_text":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19. \u0e2b\u0e25\u0e31\u0e07\u0e08\u0e32\u0e01\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32 \u0e16\u0e49\u0e32\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e15\u0e48\u0e2d \u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48 :name \u0e41\u0e01\u0e49\u0e43\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27\u0e01\u0e31\u0e19\u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e02\u0e35\u0e22\u0e19\u0e17\u0e31\u0e1a","overwrite":"\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","row_editing":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49\u0e44\u0e02\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49","offline":"\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e41\u0e1a\u0e1a real-time \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e22\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e1b\u0e01\u0e15\u0e34 \u0e41\u0e25\u0e30\u0e23\u0e30\u0e1a\u0e1a\u0e22\u0e31\u0e07\u0e01\u0e31\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a\u0e43\u0e2b\u0e49"},"conflict":null};
+    </script>
+    <script src="/_shared/a/back/collab/pusher.min.js"></script>
+    <script src="/_shared/a/back/collab/collab.js?v=1792128554"></script>
+
+
+
+
+	<script>
+	// หลังสคริปต์ของหน้า submit ฟอร์มแล้ว (ผูกตรงกับปุ่ม = ทำงานก่อน handler นี้) - แสดงสถานะรอ + กันกดซ้ำ
+	$(document).on('click', '.rp-export', function (e) {
+		var btn = this;
+		if (btn.classList.contains('is-busy')) { e.preventDefault(); return; }
+		setTimeout(function () {
+			btn.classList.add('is-busy');
+			btn.disabled = true;
+			setTimeout(function () { btn.classList.remove('is-busy'); btn.disabled = false; }, 5000);
+		}, 0);
+	});
+	</script>
+	<script>
+$(function () {
+    var table = $('#main_table').DataTable({
+        processing:true, serverSide:true,
+        ajax:{ url:'/belib/admin/report/digital/cost-per-use/datatable', type:'POST', data:function(d){ d._token = 'demo-token';
+                d.product_main_slug = $('#sel_product_main').val(); } },
+        columns:[{data:'id_row'},
+            {data:'type'},
+            {data:'name'},
+            {data:'total_use'},
+            {data:'total_view'},
+            {data:'total_download'}],
+    });
+    $('#btn_search').on('click',()=>table.ajax.reload());
+    
+    $('#btn_export').on('click',function(){
+        $('#frm_export input[type=hidden]').each(function(){
+            var id=$(this).attr('id');
+            if(id=='hd_period') $(this).val($('#sel_period, #sel_year').first().val());
+            else if(id=='hd_product_main_slug') $(this).val($('#sel_product_main').val());
+            else if(id=='hd_custom_period_start') $(this).val($('#txt_start').val());
+            else if(id=='hd_custom_period_end') $(this).val($('#txt_end').val());
+            else if(id=='hd_category') $(this).val($('#sel_category').val());
+            else if(id=='hd_device') $(this).val($('#sel_device').val());
+        });
+        $('#frm_export').submit();
+    });
+});
+</script>
+<script src="/_shared/inline/3f75545d6bdfac2a.js"></script>
+
+</body>
+</html>

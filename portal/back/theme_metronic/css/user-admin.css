@@ -1,0 +1,244 @@
+/* หลังบ้าน > ผู้ใช้งานและสิทธิ์ (modules/user/*) - สีอ้างตัวแปรของธีม โหมดมืด/สีธีมตามไปเอง
+   --c = สีประจำการ์ด (style="--c: #xxxxxx") */
+
+/* ── หัวหน้า ── */
+.ua-head-title { font-size: 24px; font-weight: 700; line-height: 1.25; margin: 0 0 4px; color: var(--text-1); }
+.ua-crumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 500; color: var(--text-2); }
+.ua-crumb a { color: var(--text-1); text-decoration: none; }
+.ua-crumb a:hover { color: var(--pri); }
+.ua-crumb svg { width: 9px !important; height: 9px !important; opacity: .55; }
+.ua-btn { padding: 9px 18px; }
+
+.ua-box { min-width: 0; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.ua-muted { font-size: 11.5px; color: var(--text-2); }
+.ua-strong { font-weight: 500; color: var(--text-1); word-break: break-all; }
+.ua-hint { font-size: 12px; color: var(--text-2); margin: 0; }
+.ua-section-title { font-size: 14px; font-weight: 700; color: var(--pri); margin: 0 0 12px; }
+.ua-empty { padding: 40px 20px; text-align: center; font-size: 13px; color: var(--text-2); }
+.ua-empty strong { display: block; margin-bottom: 4px; font-size: 15px; color: var(--text-1); }
+
+/* ── แท็บ (กล่องเหนือการ์ด) ── */
+.ua-tabs { display: flex; flex-wrap: nowrap; gap: 0; overflow-x: auto; overflow-y: hidden; margin-bottom: 16px; scrollbar-width: thin; }
+.ua-tabs a {
+    position: relative; flex: 0 0 auto; min-width: 200px; padding: 13px 24px; text-align: center; font-size: 13.5px; font-weight: 500; white-space: nowrap;
+    color: var(--text-1); text-decoration: none; background: var(--card); border: 1px solid var(--border); margin-left: -1px;
+}
+.ua-tabs a:first-child { margin-left: 0; border-radius: var(--radius) 0 0 var(--radius); }
+.ua-tabs a:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+.ua-tabs a:hover { color: var(--pri); }
+.ua-tabs a.active { z-index: 1; color: var(--pri); font-weight: 600; border: 2px solid var(--pri); border-radius: var(--radius); background: color-mix(in srgb, var(--pri) 4%, var(--card)); }
+.ua-tab-badge { display: inline-block; min-width: 18px; margin-left: 6px; padding: 0 6px; border-radius: 9px; font-size: 11px; font-weight: 700; line-height: 18px; color: #fff; background: #ef4444; }
+
+/* ── การ์ดสถิติ ── */
+.ua-cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px; }
+.ua-card { display: flex; align-items: center; gap: 16px; padding: 20px 18px; text-decoration: none; color: inherit; transition: var(--ease); }
+a.ua-card:hover { border-color: var(--c); }
+.ua-card-icon {
+    flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: #fff; background: var(--c);
+}
+.ua-card-icon svg { width: 22px !important; height: 22px !important; }
+.ua-card-body { min-width: 0; }
+.ua-card-label { display: block; font-size: 13px; font-weight: 600; color: var(--text-1); }
+.ua-card-num { font-size: 28px; font-weight: 700; line-height: 1.2; color: var(--text-1); }
+.ua-card-num-unit { font-size: 13px; font-weight: 600; color: var(--text-1); }
+.ua-card-delta { display: block; margin-top: 4px; font-size: 11.5px; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ua-card-delta b { font-weight: 600; }
+.ua-card-delta .is-up { color: #16a34a; }
+.ua-card-delta .is-down { color: #dc2626; }
+.ua-card-delta svg { width: 9px !important; height: 9px !important; }
+
+/* ── แผงเนื้อหา + ตัวกรอง ── */
+.ua-panel { padding: 16px 18px 18px; }
+.ua-filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.ua-filter { display: flex; flex-direction: column; gap: 4px; min-width: 140px; flex: 0 1 170px; }
+.ua-filter > label { font-size: 12px; font-weight: 500; color: var(--text-1); margin: 0; }
+.ua-filter.is-grow { flex: 1 1 260px; }
+.ua-search { position: relative; }
+.ua-search input { padding-right: 36px; height: 40px; }
+.ua-search svg, .ua-search i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 15px !important; height: 15px !important; color: var(--text-2); pointer-events: none; }
+.ua-filters .form-select { height: 40px; }
+.ua-filter-btns { display: flex; gap: 10px; margin-left: auto; }
+.ua-filter-btns .btn { height: 40px; white-space: nowrap; }
+.ua-date { position: relative; }
+.ua-date input { padding-left: 34px; background: var(--card); cursor: pointer; }
+.ua-date > svg, .ua-date > i { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 14px !important; height: 14px !important; color: var(--text-2); pointer-events: none; z-index: 1; }
+.ua-more-box { padding-top: 12px; }
+
+.ua-list-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 18px 0 6px; }
+.ua-list-title { font-size: 14px; font-weight: 700; color: var(--pri); margin: 0; }
+
+/* ── ตาราง ── */
+/* ตารางต้องพอดีความกว้างหน้าจอ: หัวคอลัมน์/ชื่อ/อีเมล/บทบาทตัดบรรทัดได้ ไม่ดันตารางให้กว้าง
+   ถ้าจอแคบจริง ๆ ให้เลื่อนเฉพาะตัวตาราง (.dt-layout-table) ไม่ใช่ทั้งแถบเลขหน้า */
+.ua-table { font-size: 12.5px; }
+.ua-table thead th { font-size: 12px; font-weight: 600; line-height: 1.35; color: var(--text-1); background: color-mix(in srgb, var(--text-2) 7%, var(--card)); border-bottom: 0; padding: 10px 7px; vertical-align: middle; }
+.ua-table tbody td { padding: 9px 7px; vertical-align: middle; border-color: var(--border); }
+.ua-email { max-width: 200px; font-weight: 500; color: var(--text-1); overflow-wrap: anywhere; }
+.ua-email.ua-muted { font-weight: 400; color: var(--text-2); }
+.ua-panel .dt-layout-table { overflow-x: auto; }
+.ua-panel .dt-layout-row:not(.dt-layout-table) { flex-wrap: wrap; gap: 10px 16px; }
+.ua-panel .dt-info, .ua-panel .dt-length { font-size: 12.5px; color: var(--text-2); }
+.ua-panel .dt-length select { width: auto; height: 34px; padding-top: 4px; padding-bottom: 4px; font-size: 12.5px; }
+.ua-table .form-check-input { margin: 0; cursor: pointer; }
+
+/* ช่องติ๊ก / สวิตช์ / radio ในหน้านี้ - ธีมไม่ได้กำหนด ใช้ขอบของ Bootstrap (#dee2e6) ซึ่งแทบมองไม่เห็นบนพื้นขาว */
+.ua-panel .form-check-input {
+    border: 1.5px solid color-mix(in srgb, var(--text-2) 65%, transparent);
+    background-color: var(--card);
+    cursor: pointer;
+}
+.ua-panel .form-check-input[type="checkbox"]:not([role="switch"]) { width: 18px; height: 18px; border-radius: 4px; }
+.ua-panel .form-check-input:hover { border-color: var(--pri); }
+.ua-panel .form-check-input:focus { border-color: var(--pri); box-shadow: 0 0 0 3px color-mix(in srgb, var(--pri) 20%, transparent); }
+.ua-panel .form-check-input:checked { background-color: var(--pri); border-color: var(--pri); }
+.ua-panel .form-check-input:disabled { opacity: .45; cursor: not-allowed; }
+.ua-table tbody tr:has(.ua-check:checked) td { background: color-mix(in srgb, var(--pri) 6%, var(--card)); }
+.ua-user { display: flex; align-items: center; gap: 8px; min-width: 150px; }
+.ua-avatar { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; object-fit: cover; background: color-mix(in srgb, var(--text-2) 12%, transparent); }
+.ua-user-text { min-width: 0; }
+.ua-name { display: block; max-width: 170px; padding: 0; border: 0; background: none; text-align: left; font-weight: 600; line-height: 1.35; color: var(--pri); overflow-wrap: anywhere; }
+.ua-name:hover { text-decoration: underline; }
+.ua-src { display: inline-block; padding: 0 6px; border-radius: 5px; font-size: 10px; font-weight: 700; color: #0e7490; background: rgba(8, 145, 178, .13); vertical-align: 1px; }
+
+.ua-status { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+.ua-status.is-sm { margin-top: 3px; padding: 1px 7px; font-size: 10.5px; }
+.ua-status.is-active    { color: #15803d; background: rgba(22, 163, 74, .13); }
+.ua-status.is-suspended { color: #c2410c; background: rgba(249, 115, 22, .14); }
+.ua-status.is-pending   { color: #b45309; background: rgba(245, 158, 11, .15); }
+.ua-status.is-rejected  { color: #b91c1c; background: rgba(239, 68, 68, .12); }
+[data-bs-theme="dark"] .ua-status.is-active    { color: #4ade80; }
+[data-bs-theme="dark"] .ua-status.is-suspended { color: #fb923c; }
+[data-bs-theme="dark"] .ua-status.is-pending   { color: #fbbf24; }
+[data-bs-theme="dark"] .ua-status.is-rejected  { color: #f87171; }
+
+.ua-role { display: inline-block; max-width: 150px; margin: 1px 0; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; line-height: 1.35; border: 1px solid transparent; }
+.ua-role.is-purple { color: #6d28d9; background: rgba(124, 58, 237, .1); border-color: rgba(124, 58, 237, .25); }
+.ua-role.is-blue   { color: #1d4ed8; background: rgba(37, 99, 235, .09); border-color: rgba(37, 99, 235, .22); }
+.ua-role.is-green  { color: #15803d; background: rgba(22, 163, 74, .1); border-color: rgba(22, 163, 74, .25); }
+.ua-role.is-amber  { color: #b45309; background: rgba(245, 158, 11, .12); border-color: rgba(245, 158, 11, .3); }
+.ua-role.is-gray   { color: var(--text-2); background: color-mix(in srgb, var(--text-2) 10%, transparent); border-color: color-mix(in srgb, var(--text-2) 22%, transparent); }
+[data-bs-theme="dark"] .ua-role.is-purple { color: #c4b5fd; }
+[data-bs-theme="dark"] .ua-role.is-blue   { color: #93c5fd; }
+[data-bs-theme="dark"] .ua-role.is-green  { color: #86efac; }
+[data-bs-theme="dark"] .ua-role.is-amber  { color: #fcd34d; }
+
+.ua-mfa { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; white-space: nowrap; }
+.ua-mfa svg { width: 12px !important; height: 12px !important; }
+.ua-mfa.is-on   { color: var(--pri); }
+.ua-mfa.is-off  { color: var(--text-2); }
+.ua-mfa.is-warn { color: #d97706; }
+
+.ua-actions { display: flex; gap: 4px; align-items: center; justify-content: flex-end; }
+.ua-actions.is-wrap { flex-wrap: wrap; justify-content: flex-start; }
+.ua-act {
+    width: 30px; height: 30px; padding: 0; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border); background: var(--card); color: var(--pri); text-decoration: none; transition: var(--ease);
+}
+.ua-act:hover { border-color: var(--pri); background: color-mix(in srgb, var(--pri) 8%, var(--card)); }
+.ua-act svg { width: 13px !important; height: 13px !important; }
+.ua-actions .dropdown-item { font-size: 13px; }
+.ua-btn-soft { border: 1px solid var(--border); background: var(--card); color: var(--text-1); font-size: 12px; padding: 4px 10px; }
+.ua-btn-soft:hover { border-color: var(--pri); color: var(--pri); }
+.ua-btn-soft.is-success { color: #15803d; border-color: rgba(22, 163, 74, .35); }
+.ua-btn-soft.is-danger { color: #b91c1c; border-color: rgba(239, 68, 68, .35); }
+
+/* แถบล่าง: ดำเนินการกับที่เลือก + หน้า */
+.ua-panel .dt-layout-row:last-child { margin-top: 14px; align-items: center; }
+.ua-panel .dt-paging .dt-paging-button { min-width: 34px; border-radius: 8px !important; }
+.ua-bulk { display: flex; align-items: center; gap: 10px; }
+.ua-bulk .form-select { width: 200px; height: 38px; }
+.ua-bulk .btn { height: 38px; }
+.ua-bulk-count { font-size: 12px; color: var(--text-2); white-space: nowrap; }
+
+/* ── รายละเอียดผู้ใช้ (modal) ── */
+.ua-d-head { display: flex; align-items: center; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.ua-d-head img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.ua-d-name { font-size: 17px; font-weight: 700; color: var(--text-1); margin: 0 0 4px; word-break: break-word; }
+.ua-d-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; padding-top: 12px; }
+.ua-kv { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 8px 12px; margin: 0; font-size: 13px; }
+.ua-kv dt { font-weight: 400; color: var(--text-2); }
+.ua-kv dd { margin: 0; color: var(--text-1); word-break: break-word; }
+.ua-d-sec { margin-top: 16px; }
+.ua-alert { padding: 9px 12px; border-radius: 8px; font-size: 12.5px; line-height: 1.55; word-break: break-word; }
+.ua-alert.is-warn { color: #92400e; background: rgba(245, 158, 11, .1); border: 1px solid rgba(245, 158, 11, .3); }
+.ua-alert.is-danger { color: #991b1b; background: rgba(239, 68, 68, .09); border: 1px solid rgba(239, 68, 68, .28); }
+.ua-alert.is-info { color: var(--text-1); background: color-mix(in srgb, var(--pri) 7%, var(--card)); border: 1px solid color-mix(in srgb, var(--pri) 25%, transparent); }
+[data-bs-theme="dark"] .ua-alert.is-warn { color: #fcd34d; }
+[data-bs-theme="dark"] .ua-alert.is-danger { color: #fca5a5; }
+.ua-d-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.ua-mini-table { width: 100%; font-size: 12.5px; }
+.ua-mini-table th { font-weight: 600; color: var(--text-2); padding: 6px 8px; border-bottom: 1px solid var(--border); }
+.ua-mini-table td { padding: 6px 8px; border-bottom: 1px solid var(--border); color: var(--text-1); }
+.ua-mini-table .is-fail { color: #dc2626; }
+
+/* ── การตั้งค่า (คำขอสมัคร / AD / MFA) ── */
+.ua-work { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 18px; align-items: start; }
+.ua-side { display: flex; flex-direction: column; gap: 14px; }
+.ua-side-box { border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; background: var(--card); }
+.ua-side-title { font-size: 13.5px; font-weight: 700; color: var(--pri); margin: 0 0 10px; }
+.ua-side-kv { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 7px 10px; margin: 0 0 10px; font-size: 12px; }
+.ua-side-kv dt { font-weight: 400; color: var(--text-2); }
+.ua-side-kv dd { margin: 0; text-align: right; color: var(--text-1); word-break: break-all; }
+.ua-toggles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+.ua-toggle { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border: 1px solid var(--border); border-radius: var(--radius); }
+.ua-toggle .form-check-input { flex-shrink: 0; margin: 2px 0 0; width: 2.4em; height: 1.3em; cursor: pointer; }
+.ua-toggle strong { display: block; font-size: 13px; font-weight: 600; color: var(--text-1); }
+.ua-toggle small { display: block; margin-top: 2px; font-size: 11.5px; line-height: 1.5; color: var(--text-2); }
+.ua-form .form-label { font-size: 13px; }
+.ua-form .form-text, .ua-form .invalid-feedback { margin-top: 4px; font-size: 11.5px; line-height: 1.5; }
+.ua-form .form-text { color: var(--text-2); }
+.ua-form .form-check-label { font-size: 13px; color: var(--text-1); }
+.ua-switch .form-check-label { font-weight: 500; }
+.ua-switch .form-text { margin-top: 1px; }
+.ua-form-actions { display: flex; justify-content: flex-end; gap: 8px; padding-top: 16px; margin-top: 8px; border-top: 1px solid var(--border); }
+.ua-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.ua-chip { display: inline-flex; align-items: center; gap: 4px; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; border: 1px solid var(--border); background: var(--card); color: var(--text-1); cursor: pointer; }
+.ua-chip.is-active { color: #fff; background: var(--pri); border-color: var(--pri); }
+.ua-chip b { font-weight: 700; }
+.ua-roles-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 16px; }
+.ua-stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+.ua-stat { padding: 14px; border: 1px solid var(--border); border-radius: var(--radius); }
+.ua-stat-num { font-size: 24px; font-weight: 700; line-height: 1.2; color: var(--text-1); }
+.ua-stat-label { font-size: 12px; color: var(--text-2); }
+.ua-progress { height: 6px; margin-top: 8px; border-radius: 3px; background: color-mix(in srgb, var(--text-2) 15%, transparent); overflow: hidden; }
+.ua-progress > span { display: block; height: 100%; background: var(--pri); }
+
+/* SSO */
+.ua-systems { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.ua-system { display: flex; gap: 10px; align-items: center; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius); min-width: 0; }
+.ua-system-icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; color: var(--pri); background: color-mix(in srgb, var(--pri) 10%, transparent); }
+.ua-system-icon svg { width: 15px !important; height: 15px !important; }
+.ua-system-text { min-width: 0; flex: 1; }
+.ua-system-text strong { display: block; font-size: 13px; color: var(--text-1); }
+.ua-system-text span { display: block; font-size: 11.5px; color: var(--text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ua-system-state { flex-shrink: 0; font-size: 11.5px; font-weight: 600; color: var(--text-2); white-space: nowrap; }
+.ua-system-state.is-ok { color: #16a34a; }
+.ua-system-state.is-bad { color: #dc2626; }
+.ua-lookup { margin-top: 12px; }
+
+/* ── คู่มือ ── */
+.ua-guide-head { font-size: 14px; font-weight: 700; color: var(--pri); margin: 4px 0 6px; }
+.ua-guide { margin: 0 0 14px; padding-left: 20px; }
+.ua-guide li { margin-bottom: 6px; font-size: 13.5px; line-height: 1.65; }
+
+/* ── จอเล็ก ── */
+@media (max-width: 1499.98px) {
+    .ua-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 1199.98px) {
+    .ua-work { grid-template-columns: minmax(0, 1fr); }
+    .ua-toggles { grid-template-columns: minmax(0, 1fr); }
+    .ua-filter-btns { margin-left: 0; }
+}
+@media (max-width: 767.98px) {
+    .ua-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .ua-card { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px; }
+    .ua-card-icon { width: 44px; height: 44px; }
+    .ua-tabs a { min-width: 0; padding: 12px 16px; }
+    .ua-filter, .ua-filter.is-grow { flex: 1 1 100%; }
+    .ua-d-grid, .ua-roles-grid, .ua-stat-row { grid-template-columns: minmax(0, 1fr); }
+    .ua-kv { grid-template-columns: minmax(0, 1fr); }
+    .ua-bulk { flex-wrap: wrap; }
+    .ua-bulk .form-select { width: 100%; }
+}

@@ -1,0 +1,309 @@
+/* ═══════════════════════════════════════════════════════════════
+   Legacy - คลาสของธีม Metronic + Bootstrap 4 ที่หน้าหลังบ้านเดิมของ learnext ยังใช้
+   ───────────────────────────────────────────────────────────────
+   layout ย้ายมาเป็น AdminKit (Bootstrap 5) ชุดเดียวกับหลังบ้าน portal แล้ว
+   แต่หน้าในโมดูล (modules/*) และ HTML ที่ controller ส่งมาในตารางยังเขียนด้วยคลาสเดิม
+   (kt-portlet / kt-radio / btn-label-brand / mr-2 / badge-success ...) ซึ่ง Bootstrap 5 ไม่รู้จัก
+   ไฟล์นี้แปลงคลาสพวกนั้นให้หน้าตาเหมือนหลังบ้าน portal - ใช้ตัวแปรของ base.css ทั้งหมด (โหมดมืดตามด้วย)
+   หน้าที่เขียนใหม่ด้วยคลาส Bootstrap 5 แล้ว ไม่ได้รับผลจากไฟล์นี้
+═══════════════════════════════════════════════════════════════ */
+
+/* ═══ โครงหน้า: กล่อง portlet อยู่ในการ์ดของ layout อยู่แล้ว - ไม่ต้องซ้อนการ์ดอีกชั้น ═══ */
+.kt-container,
+.kt-grid,
+.kt-grid__item { width: auto; max-width: none; padding: 0; margin: 0; }
+.kt-portlet { background: transparent; border: 0; box-shadow: none; margin: 0; }
+.kt-portlet + .kt-portlet { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); }
+.kt-portlet__body,
+.kt-portlet__body--fit,
+.kt-portlet__body .kt-portlet__body { padding: 0; }
+
+/* หัว portlet = หัวข้อย่อยในการ์ด: ชื่อซ้าย ปุ่มขวา (แบบหัวการ์ดของ portal) */
+.kt-portlet__head {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    min-height: 0; padding: 0 0 12px; margin-bottom: 16px; border-bottom: 1px solid var(--border);
+}
+.kt-portlet__head-label { display: flex; align-items: center; gap: 8px; }
+.kt-portlet__head-title,
+.kt-portlet__head-title h3 { font-size: 15px; font-weight: 600; color: var(--text-1); margin: 0; }
+.kt-portlet__head-toolbar,
+.kt-portlet__head-actions,
+.kt-form__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.kt-portlet__foot {
+    display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px;
+    padding: 16px 0 0; margin-top: 16px; border-top: 1px solid var(--border);
+}
+
+/* ═══ แถวตัวกรองเหนือตาราง (หมวด / ช่วงเวลา / แผนก ...) - กล่องเล็กแบบตัวกรองของ portal ═══ */
+.form-inline-block { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+.form-inline-block > label { font-size: 12px; font-weight: 500; color: var(--text-2) !important; margin: 0; }
+.form-inline-block .form-control,
+.form-inline-block .form-select { font-size: 13px; padding-top: 6px; padding-bottom: 6px; }
+.font-pri { font-family: inherit; }
+
+/* ═══ ฟอร์ม ═══ */
+.form-group { margin-bottom: 16px; }
+.form-group > label,
+.kt-form label:not(.kt-radio):not(.kt-checkbox):not(.form-check-label):not(.btn) {
+    display: inline-block; font-size: 13px; font-weight: 500; color: var(--text-1); margin-bottom: 5px;
+}
+.form-text { display: block; margin-top: 4px; font-size: 14px; color: var(--text-2); }
+.col-form-label { padding-top: 8px; font-size: 13px; font-weight: 500; }
+.la-asterisk { font-size: 9px !important; color: var(--danger); vertical-align: super; }
+.form-row { display: flex; flex-wrap: wrap; margin-left: -6px; margin-right: -6px; }
+.form-row > .col, .form-row > [class*="col-"] { padding-left: 6px; padding-right: 6px; }
+.form-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+
+/* select ที่ใส่คลาส form-control (BS4) ไม่มีลูกศรใน BS5 - ใส่ลูกศรแบบ form-select */
+select.form-control:not([multiple]):not([size]),
+.custom-select {
+    appearance: none; -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23636e72' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat; background-position: right 10px center; background-size: 12px 10px;
+    padding-right: 30px;
+}
+.custom-select {
+    display: block; width: 100%; font-size: 13px; padding: 7px 30px 7px 12px; color: var(--text-1);
+    background-color: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+}
+.custom-select-sm, .form-control-sm { font-size: 12px; padding-top: 4px; padding-bottom: 4px; }
+
+/* input-group ของ BS4 (append / prepend เป็นกล่องห่อ) */
+.input-group-append, .input-group-prepend { display: flex; }
+.input-group-text { font-size: 13px; color: var(--text-2); background: var(--surface); border: 1px solid var(--border); }
+.input-group > .input-group-append > .input-group-text,
+.input-group > .input-group-append > .btn { margin-left: -1px; border-top-left-radius: 0; border-bottom-left-radius: 0; }
+.input-group > .input-group-prepend > .input-group-text,
+.input-group > .input-group-prepend > .btn { margin-right: -1px; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+
+/* radio / checkbox ของ Metronic - ใช้ปุ่มจริงของเบราว์เซอร์ (span ตกแต่งเดิมไม่มี css แล้ว) */
+.kt-radio-inline, .kt-checkbox-inline { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.kt-radio-list, .kt-checkbox-list { display: flex; flex-direction: column; gap: 8px; }
+.kt-radio, .kt-checkbox,
+.custom-control-label { display: inline-flex; align-items: center; gap: 7px; margin: 0; font-size: 13px; font-weight: 400; cursor: pointer; }
+.kt-radio > input, .kt-checkbox > input {
+    position: static; opacity: 1; flex: none; width: 16px; height: 16px; margin: 0; accent-color: var(--pri); cursor: pointer;
+}
+.kt-radio > span, .kt-checkbox > span { display: none; }
+.kt-radio--disabled, .kt-checkbox--disabled { opacity: .6; cursor: not-allowed; }
+.custom-control { display: flex; align-items: center; gap: 7px; min-height: 0; padding-left: 0; }
+.custom-control-input { position: static; opacity: 1; z-index: auto; width: 16px; height: 16px; accent-color: var(--pri); }
+.kt-switch input { width: 34px; height: 18px; accent-color: var(--pri); }
+.kt-switch label > span { display: none; }
+
+/* ═══ หัวข้อย่อย / ส่วนของฟอร์ม ═══ */
+.kt-section, .kt-form__section { margin-bottom: 20px; }
+.kt-section__title, .kt-heading, .kt-form__heading {
+    font-size: 15px; font-weight: 600; color: var(--text-1); margin: 4px 0 12px;
+}
+.kt-heading--sm { font-size: 14px; }
+.kt-heading--lg { font-size: 17px; }
+.kt-section__desc, .kt-section__info { font-size: 13px; color: var(--text-2); margin-bottom: 10px; }
+.kt-separator, .kt-divider { border-top: 1px solid var(--border); margin: 18px 0; }
+.kt-separator--border-dashed { border-top-style: dashed; }
+.kt-space-10 { height: 10px; } .kt-space-20 { height: 20px; }
+
+/* ═══ ปุ่ม ═══ */
+.btn-brand { background: var(--pri); border-color: var(--pri); color: #fff; }
+.btn-brand:hover, .btn-brand:focus { background: var(--pri-hover); border-color: var(--pri-hover); color: #fff; }
+/* ปุ่มบนหัวการ์ด (เพิ่ม / ย้อนกลับ) = btn-sm btn-primary ของ portal */
+.btn-label-brand { background: var(--pri); border-color: var(--pri); color: #fff; padding: 5px 10px; font-size: 12px; }
+.btn-label-brand:hover, .btn-label-brand:focus { background: var(--pri-hover); border-color: var(--pri-hover); color: #fff; }
+.btn-outline-brand { background: var(--card); border: 1px solid var(--pri); color: var(--pri); }
+.btn-outline-brand:hover, .btn-outline-brand:focus { background: var(--pri); color: #fff; }
+.btn-label-success { background: rgba(28, 200, 138, .12); border-color: transparent; color: var(--success-hover); }
+.btn-label-danger  { background: rgba(231, 74, 59, .1);  border-color: transparent; color: var(--danger); }
+.btn-label-warning { background: rgba(246, 194, 62, .15); border-color: transparent; color: #b7860b; }
+.btn-label-info    { background: rgba(54, 185, 204, .12); border-color: transparent; color: #258391; }
+.btn-label-success:hover { background: var(--success); color: #fff; }
+.btn-label-danger:hover  { background: var(--danger);  color: #fff; }
+.btn-label-warning:hover { background: var(--warning); color: #fff; }
+.btn-label-info:hover    { background: var(--info);    color: #fff; }
+.btn-bold { font-weight: 500; }
+.btn-wide { padding-left: 18px; padding-right: 18px; }
+.btn-upper, .kt-font-transform-u { text-transform: none !important; }
+.btn-block { display: flex; justify-content: center; width: 100%; }
+.btn-elevate { box-shadow: none; }
+/* ปุ่มไอคอนในแถวตาราง (เมนู ... / แก้ไข / ลบ) */
+.btn-clean { background: transparent; border-color: transparent; color: var(--text-2); }
+.btn-clean:hover, .btn-clean:focus, .show > .btn-clean { background: var(--surface); color: var(--pri); }
+.btn-icon-md, .btn-icon-sm { width: 30px; height: 30px; padding: 0; justify-content: center; }
+.btn i.la, .btn [class*="flaticon"] { font-size: 16px; line-height: 1; }
+
+/* ═══ ข้อความแจ้ง ═══ */
+.alert { font-size: 13px; border-radius: var(--radius); }
+/* แบบ Metronic: ไอคอน | ข้อความ | ปุ่มปิด เรียงแถวเดียว (alert ธรรมดาที่มีหัวข้อ+ย่อหน้าไม่โดน) */
+.alert:has(> .alert-text), .alert:has(> .alert-icon) { display: flex; align-items: flex-start; gap: 10px; }
+.alert ul { margin: 0; padding-left: 18px; }
+.alert .alert-text { flex: 1; }
+.alert .alert-icon i { font-size: 18px; }
+.alert .alert-close { margin-left: auto; }
+.alert-solid-success, .alert-success { background: #e8f8f1; border: 1px solid #bfeedb; color: #13855c; }
+.alert-solid-danger,  .alert-danger  { background: #fdecea; border: 1px solid #f6c7c2; color: #b02a1f; }
+.alert-solid-warning, .alert-warning { background: #fef7e5; border: 1px solid #f8e3a8; color: #8a6406; }
+.alert-solid-info,    .alert-info    { background: #e7f6f8; border: 1px solid #bfe6ec; color: #1f6f7b; }
+.alert-solid-brand,   .alert-light   { background: #edf1fc; border: 1px solid #cfd9f6; color: #2f4fae; }
+.alert-bold { font-weight: 500; }
+.close { background: none; border: 0; padding: 0 4px; font-size: 18px; line-height: 1; color: inherit; opacity: .6; cursor: pointer; }
+.close:hover { opacity: 1; }
+
+/* ═══ สถานะ / ป้าย ═══ */
+.kt-badge {
+    display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 7px;
+    border-radius: 99px; font-size: 11px; font-weight: 600; line-height: 1; background: var(--surface); color: var(--text-2);
+}
+.kt-badge--dot { min-width: 0; width: 7px; height: 7px; padding: 0; vertical-align: middle; }
+/* สถานะในตาราง (จุด + Active/Inactive) อยู่บรรทัดเดียว - เดิมคอลัมน์แคบแล้วคำหลุดลงบรรทัดใต้จุด */
+td:has(> .kt-badge--dot) { white-space: nowrap; }
+.kt-badge--rounded { border-radius: 4px; }
+.kt-badge--success, .badge-success { background: var(--success); color: #fff; }
+.kt-badge--danger,  .badge-danger  { background: var(--danger);  color: #fff; }
+.kt-badge--warning, .badge-warning { background: var(--warning); color: #fff; }
+.kt-badge--info,    .badge-info    { background: var(--info);    color: #fff; }
+.kt-badge--brand, .kt-badge--primary, .badge-primary { background: var(--pri); color: #fff; }
+.kt-badge--dark, .badge-dark { background: var(--text-1); color: #fff; }
+.badge-secondary, .badge-light { background: var(--surface); color: var(--text-2); }
+.badge-pill { border-radius: 99px; }
+.kt-font-bold, .kt-font-bolder { font-weight: 600 !important; }
+.kt-font-success { color: var(--success) !important; }
+.kt-font-danger  { color: var(--danger) !important; }
+.kt-font-warning { color: #d4a017 !important; }
+.kt-font-info    { color: var(--info) !important; }
+.kt-font-brand, .kt-font-primary { color: var(--pri) !important; }
+.kt-font-dark { color: var(--text-1) !important; }
+.kt-font-muted, .kt-font-light { color: var(--text-2) !important; }
+.kt-font-sm { font-size: 12px !important; }
+.kt-font-lg { font-size: 15px !important; }
+.kt-font-xl { font-size: 18px !important; }
+
+/* ═══ เมนูดรอปดาวน์ในแถวตาราง (kt-nav) ═══ */
+.page .dropdown-menu { font-size: 13px; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 8px 24px rgba(0, 0, 0, .08); padding: 4px 0; }
+.page .dropdown-item { display: flex; align-items: center; gap: 8px; padding: 7px 14px; font-size: 13px; color: var(--text-1); }
+.page .dropdown-item:hover { background: var(--surface); color: var(--pri); }
+.page .dropdown-item i { width: 16px; text-align: center; font-size: 15px; color: var(--text-2); }
+.kt-nav { list-style: none; margin: 0; padding: 4px 0; }
+.kt-nav__item { margin: 0; }
+.kt-nav__link { display: flex; align-items: center; gap: 8px; padding: 7px 14px; font-size: 13px; color: var(--text-1); text-decoration: none; }
+.kt-nav__link:hover { background: var(--surface); color: var(--pri); }
+.kt-nav__link-icon { width: 16px; text-align: center; font-size: 15px; color: var(--text-2); }
+.kt-nav__section, .kt-nav__head { padding: 6px 14px; font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; }
+.kt-nav__separator { border-top: 1px solid var(--border); margin: 4px 0; }
+
+/* ═══ ขั้นตอนของฟอร์ม (wizard v3 / v4) → แถบแท็บแนวนอน ═══ */
+.kt-wizard-v3__nav-items,
+.kt-wizard-v4__nav-items {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 18px; border-bottom: 1px solid var(--border);
+}
+.kt-wizard-v3__nav-item,
+.kt-wizard-v4__nav-item {
+    display: block; flex: 0 0 auto; padding: 10px 14px; margin-bottom: -1px;
+    font-size: 13px; font-weight: 500; color: var(--text-2); text-decoration: none;
+    border-bottom: 2px solid transparent; cursor: pointer;
+}
+.kt-wizard-v3__nav-item:hover,
+.kt-wizard-v4__nav-item:hover { color: var(--pri); }
+.kt-wizard-v3__nav-item[data-ktwizard-state="current"],
+.kt-wizard-v4__nav-item[data-ktwizard-state="current"] { color: var(--pri); border-bottom-color: var(--pri); }
+.kt-wizard-v3__nav-body,
+.kt-wizard-v4__nav-body { display: flex; align-items: center; gap: 8px; padding: 0; }
+.kt-wizard-v3__nav-label > span:first-child,
+.kt-wizard-v4__nav-number {
+    display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; margin-right: 4px;
+    border-radius: 50%; background: var(--surface); color: var(--text-2); font-size: 12px; font-weight: 600;
+}
+[data-ktwizard-state="current"] .kt-wizard-v3__nav-label > span:first-child,
+[data-ktwizard-state="current"] .kt-wizard-v4__nav-number { background: var(--pri); color: #fff; }
+.kt-wizard-v3__nav-bar { display: none; }
+.kt-wizard-v4__nav-label-title { font-size: 13px; font-weight: 500; }
+.kt-wizard-v4__nav-label-desc { font-size: 12px; color: var(--text-3); }
+.kt-wizard-v3__wrapper, .kt-wizard-v4__wrapper { padding: 0; }
+
+/* เนื้อหาของขั้นตอน/ขั้นย่อย: แสดงเฉพาะอันที่เลือกอยู่ (เดิม wizard css ของ Metronic ซ่อนให้ - ไม่โหลดแล้ว
+   ถ้าไม่มีกฎนี้ ทุกขั้นย่อยของขั้นนั้นจะแสดงเรียงต่อกันหมด) */
+[data-ktwizard-type="step-content"]:not([data-ktwizard-state="current"]) { display: none; }
+
+/* ═══ เมนูย่อยของแต่ละขั้นตอน (wizard v2) → เมนูซ้าย + เนื้อหาขวา แบบฟอร์มกลุ่มผู้ใช้ของ portal (.ug-tab-btn) ═══ */
+.kt-wizard-v2 { display: flex; align-items: stretch; }
+.kt-wizard-v2__aside { flex: 0 0 220px; width: 220px; padding: 0 12px 0 0 !important; border-right: 1px solid var(--border); }
+.kt-wizard-v2__nav-items { display: flex; flex-direction: column; gap: 4px; padding-top: 2px; }
+.kt-wizard-v2__nav-item {
+    display: block; padding: 10px 12px; border-radius: 8px; color: var(--text-2); text-decoration: none;
+    cursor: pointer; transition: background .15s, color .15s;
+}
+.kt-wizard-v2__nav-item:hover { background: var(--surface); color: var(--text-1); }
+.kt-wizard-v2__nav-item[data-ktwizard-state="current"] { background: rgba(13, 110, 253, .1); color: #0d6efd; }
+.kt-wizard-v2__nav-body { display: flex; align-items: center; gap: 10px; padding: 0; }
+.kt-wizard-v2__nav-icon { flex: none; width: 18px; text-align: center; color: inherit; }
+.kt-wizard-v2__nav-icon i { font-size: 18px; }
+.kt-wizard-v2__nav-label { min-width: 0; }
+.kt-wizard-v2__nav-label-title { font-size: 13px; font-weight: 500; line-height: 1.3; color: inherit; }
+.kt-wizard-v2__nav-label-desc { display: block; font-size: 11px; font-weight: 400; opacity: .7; }
+.kt-wizard-v2__nav-icon.disabled, .kt-wizard-v2__nav-label-title.disabled { color: var(--text-3) !important; }
+.kt-wizard-v2__wrapper,
+.kt-wizard-v2__wrapper.px-5 { flex: 1; min-width: 0; padding: 0 0 0 24px !important; }
+@media (max-width: 991.98px) {
+    /* จอแคบ: เมนูย่อยขึ้นไปเป็นแถวบนเนื้อหา */
+    .kt-wizard-v2 { flex-direction: column; }
+    .kt-wizard-v2__aside { flex-basis: auto; width: 100%; padding: 0 0 12px !important; margin-bottom: 16px; border-right: 0; border-bottom: 1px solid var(--border); }
+    .kt-wizard-v2__nav-items { flex-direction: row; flex-wrap: wrap; }
+    .kt-wizard-v2__wrapper, .kt-wizard-v2__wrapper.px-5 { padding-left: 0 !important; }
+}
+
+/* ═══ กล่องสรุปบนแดชบอร์ด / หน้ารายงาน (widget) ═══ */
+.kt-widget1__item, .kt-widget4__item {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--border);
+}
+.kt-widget1__item:last-child, .kt-widget4__item:last-child { border-bottom: 0; }
+.kt-widget1__title, .kt-widget4__title { font-size: 13px; font-weight: 500; color: var(--text-1); }
+.kt-widget1__desc, .kt-widget4__title--light { font-size: 12px; color: var(--text-2); }
+.kt-widget1__number, .kt-widget4__number { font-size: 16px; font-weight: 700; color: var(--pri); }
+.kt-widget4__icon i { font-size: 20px; color: var(--pri); }
+.kt-notification-v2__item { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--border); color: var(--text-1); text-decoration: none; }
+.kt-user-card-v2 { display: flex; align-items: center; gap: 10px; }
+.kt-user-card-v2__pic img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+.kt-user-card-v2__name { font-weight: 500; color: var(--text-1); }
+.kt-user-card-v2__desc { font-size: 12px; color: var(--text-2); }
+
+/* ═══ ยูทิลิตีของ Bootstrap 4 ที่ Bootstrap 5 ตัดทิ้ง (ml-* / mr-* / pl-* / pr-* / float-right ...) ═══ */
+.ml-0 { margin-left: 0 !important; }      .mr-0 { margin-right: 0 !important; }
+.ml-1 { margin-left: .25rem !important; } .mr-1 { margin-right: .25rem !important; }
+.ml-2 { margin-left: .5rem !important; }  .mr-2 { margin-right: .5rem !important; }
+.ml-3 { margin-left: 1rem !important; }   .mr-3 { margin-right: 1rem !important; }
+.ml-4 { margin-left: 1.5rem !important; } .mr-4 { margin-right: 1.5rem !important; }
+.ml-5 { margin-left: 3rem !important; }   .mr-5 { margin-right: 3rem !important; }
+.ml-auto { margin-left: auto !important; } .mr-auto { margin-right: auto !important; }
+.pl-0 { padding-left: 0 !important; }      .pr-0 { padding-right: 0 !important; }
+.pl-1 { padding-left: .25rem !important; } .pr-1 { padding-right: .25rem !important; }
+.pl-2 { padding-left: .5rem !important; }  .pr-2 { padding-right: .5rem !important; }
+.pl-3 { padding-left: 1rem !important; }   .pr-3 { padding-right: 1rem !important; }
+.pl-4 { padding-left: 1.5rem !important; } .pr-4 { padding-right: 1.5rem !important; }
+.pl-5 { padding-left: 3rem !important; }   .pr-5 { padding-right: 3rem !important; }
+.float-right { float: right !important; } .float-left { float: left !important; }
+.text-right { text-align: right !important; } .text-left { text-align: left !important; }
+.font-weight-bold { font-weight: 700 !important; } .font-weight-bolder { font-weight: 600 !important; }
+.font-weight-normal { font-weight: 400 !important; } .font-weight-light { font-weight: 300 !important; }
+.no-gutters { --bs-gutter-x: 0; --bs-gutter-y: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* ═══ ไอคอน Line Awesome / Flaticon ให้ขนาดเข้ากับตัวหนังสือ ═══ */
+.la { font-size: 1.15em; vertical-align: -.1em; }
+
+/* ═══ โหมดมืด (html[data-bs-theme="dark"]) - จุดที่ยังเป็นสีตายตัวของธีมเดิม ═══ */
+[data-bs-theme="dark"] .alert-solid-success, [data-bs-theme="dark"] .alert-success { background: rgba(28, 200, 138, .14); border-color: rgba(28, 200, 138, .35); color: #7ee2bb; }
+[data-bs-theme="dark"] .alert-solid-danger,  [data-bs-theme="dark"] .alert-danger  { background: rgba(231, 74, 59, .14);  border-color: rgba(231, 74, 59, .35);  color: #f2a49c; }
+[data-bs-theme="dark"] .alert-solid-warning, [data-bs-theme="dark"] .alert-warning { background: rgba(246, 194, 62, .14); border-color: rgba(246, 194, 62, .35); color: #f6d98a; }
+[data-bs-theme="dark"] .alert-solid-info,    [data-bs-theme="dark"] .alert-info    { background: rgba(54, 185, 204, .14); border-color: rgba(54, 185, 204, .35); color: #8fdbe6; }
+[data-bs-theme="dark"] .alert-solid-brand,   [data-bs-theme="dark"] .alert-light   { background: rgba(78, 115, 223, .14); border-color: rgba(78, 115, 223, .35); color: #b4c4f5; }
+[data-bs-theme="dark"] .btn-label-warning { color: #f6d98a; }
+[data-bs-theme="dark"] .btn-label-info    { color: #8fdbe6; }
+[data-bs-theme="dark"] .btn-label-success { color: #7ee2bb; }
+[data-bs-theme="dark"] .kt-wizard-v2__nav-item[data-ktwizard-state="current"] { background: rgba(78, 115, 223, .22); color: #b4c4f5; }
+/* ยูทิลิตีของ Bootstrap ที่ไม่ตามธีม: กล่อง bg-light / ตัวหนังสือ text-dark / หัวตาราง thead.bg-light ของหน้าเดิม */
+[data-bs-theme="dark"] .bg-light { background-color: var(--surface) !important; color: var(--text-1); }
+[data-bs-theme="dark"] .bg-white { background-color: var(--card) !important; }
+[data-bs-theme="dark"] .text-dark { color: var(--text-1) !important; }
+[data-bs-theme="dark"] .border-light { border-color: var(--border) !important; }
+[data-bs-theme="dark"] .table thead.bg-light th { background-color: var(--surface) !important; color: var(--text-2); }
+[data-bs-theme="dark"] select.form-control:not([multiple]):not([size]),
+[data-bs-theme="dark"] .custom-select { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%238fa4bf' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); }
+[data-bs-theme="dark"] .close { color: var(--text-1); }

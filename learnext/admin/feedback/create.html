@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><script>window.__DEMO={"sys": "learnext", "path": "/admin/feedback/create", "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-learnext.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบประเมิน | MRTA E-Learning</title>
+    <script>
+        (function(){var m=document.cookie.match(/adminkit_theme=([^;]+)/);if(m)document.documentElement.setAttribute('data-bs-theme',m[1]);})();
+    </script>
+    <meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="MRTA LMS Admin">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/learnext/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/learnext/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+<!-- AdminKit CSS -->
+<link href="/learnext/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/learnext/back/theme_metronic/css/layout.css?v=1791778369" rel="stylesheet">
+<link href="/learnext/back/theme_metronic/css/components.css?v=1791197336" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/sidebar-mrta.css?v=1792640350" rel="stylesheet">
+<link href="/learnext/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+<!-- ไอคอนที่หน้าหลังบ้านเดิม (ธีม Metronic) ใช้อยู่: la la-* / flaticon-* / flaticon2-* -->
+<link href="/learnext/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet">
+<link href="/learnext/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet">
+<link href="/learnext/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet">
+
+<!-- คลาสของธีม Metronic + Bootstrap 4 ที่หน้าหลังบ้านเดิมยังใช้ → หน้าตาเดียวกับหลังบ้าน portal -->
+<link href="/learnext/back/theme_metronic/css/legacy.css?v=1791443502" rel="stylesheet">
+
+
+<link href="/learnext/back/theme_metronic/css/admin-ui.css?v=1792125699" rel="stylesheet">
+
+<link rel="stylesheet" href="/_shared/inline/d45db6d51e98a50e.css">
+
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/learnext/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/_shared/a/back/theme_metronic/image/sidebar/logo.svg" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/learnext/client/mrta/images/placeholder/default_avatar.png" alt="" onerror="this.onerror=null;this.src='/learnext/client/mrta/images/placeholder/default_avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    
+    <div class="nav-item">
+        <a href="/learnext/admin/dashboard" class="nav-link  startpreload">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>หน้าแรก</span>
+        </a>
+    </div>
+    <div class="nav-item">
+    <a href="/learnext/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+    <div class="nav-heading mt-2">จัดการรายวิชา</div>
+
+    
+        <div class="nav-item">
+        <a href="/learnext/admin/courses" class="nav-link  startpreload">
+            <i class="fa-solid fa-book-open"></i>
+            <span>รายวิชา</span>
+        </a>
+    </div>
+    
+    
+
+    
+        <div class="nav-item">
+        <a href="/learnext/admin/materials/list" class="nav-link  startpreload">
+            <i class="fa-solid fa-file-video"></i>
+            <span>สื่อการเรียนรู้</span>
+        </a>
+    </div>
+    
+    
+        <div class="nav-item">
+        <a href="/learnext/admin/question-banks" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-question"></i>
+            <span>คลังข้อสอบ</span>
+        </a>
+    </div>
+    
+    
+        <div class="nav-item">
+        <a href="/learnext/admin/feedback" class="nav-link active startpreload">
+            <i class="fa-solid fa-clipboard-list"></i>
+            <span>แบบประเมิน</span>
+        </a>
+    </div>
+        <div class="nav-heading mt-2">แบบสอบถาม</div>
+<div class="nav-item">
+    <a href="/learnext/admin/assignment/question/list" class="nav-link  startpreload">
+        <i class="fa-solid fa-file-pen"></i>
+        <span>รายการแบบสอบถาม</span>
+    </a>
+</div>
+    
+    <div class="nav-heading mt-2">รายงาน</div>
+
+<div class="nav-item">
+    <a href="/learnext/admin/report/user-progress" class="nav-link  startpreload">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>ความก้าวหน้าผู้เรียน</span>
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/learnext/admin/report/certificate" class="nav-link  startpreload">
+        <i class="fa-solid fa-certificate"></i>
+        <span>ใบประกาศนียบัตร</span>
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/learnext/admin/report/feed-back" class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-check"></i>
+        <span>รายงานแบบประเมิน</span>
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/learnext/admin/report/review" class="nav-link  startpreload">
+        <i class="fa-solid fa-star-half-stroke"></i>
+        <span>รายงานรีวิวรายวิชา</span>
+    </a>
+</div>
+
+    
+    <div class="nav-heading mt-2">ตั้งค่า</div>
+
+
+<div class="nav-item">
+    <a href="/learnext/admin/setting/learnext"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-sliders"></i>
+        <span>ตั้งค่า e-Learning</span>
+    </a>
+</div>
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-folder-tree"></i>
+        <span>หมวดหมู่รายวิชา</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/learnext/admin/settings/categories" class="nav-link ">
+            <i class="fa-solid fa-list"></i> หมวดหมู่รายวิชาทั้งหมด
+        </a>
+        <a href="/learnext/admin/settings/category/create" class="nav-link ">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มหมวดหมู่ใหม่
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-shapes"></i>
+        <span>กลุ่มรายวิชา</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/learnext/admin/settings/media-type" class="nav-link ">
+            <i class="fa-solid fa-list"></i> กลุ่มรายวิชาทั้งหมด
+        </a>
+        <a href="/learnext/admin/settings/media-type/create" class="nav-link ">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มกลุ่มรายวิชาใหม่
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-award"></i>
+        <span>ประกาศนียบัตร</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/learnext/admin/settings/certificate" class="nav-link ">
+            <i class="fa-solid fa-list"></i> ประกาศนียบัตรทั้งหมด
+        </a>
+        <a href="/learnext/admin/settings/certificate/create" class="nav-link ">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มประกาศนียบัตรใหม่
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-sitemap"></i>
+        <span>หน่วยงาน</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/learnext/admin/settings/department" class="nav-link ">
+            <i class="fa-solid fa-list"></i> หน่วยงานทั้งหมด
+        </a>
+        <a href="/learnext/admin/settings/department/create" class="nav-link ">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มหน่วยงาน
+        </a>
+    </div>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-link"></i>
+        <span>ลิงค์อ้างอิง</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/learnext/admin/settings/reference-link" class="nav-link ">
+            <i class="fa-solid fa-list"></i> ดูทั้งหมด
+        </a>
+        <a href="/learnext/admin/settings/reference-link/create" class="nav-link ">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรายการ
+        </a>
+    </div>
+</div>
+
+    
+    <div class="nav-heading mt-2">AUDIT</div>
+<div class="nav-item">
+    <a href="/learnext/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+</nav>
+    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <link rel="stylesheet" href="/_shared/inline/cfcd662ce6b1c449.css">
+<header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ 27 ตุลาคม, 2026 9:28:44</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher -->
+        <div class="dropdown">
+            <button class="topbar-btn dropdown-toggle" data-bs-toggle="dropdown" title="เปลี่ยนภาษา / Change Language">
+                                    <span style="font-size:12px;font-weight:600;">TH</span>
+                            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2 active"
+                       href="/learnext/locale/th">
+                        <span style="font-size:13px;font-weight:600;width:20px;">TH</span> ภาษาไทย
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2 "
+                       href="/learnext/locale/en">
+                        <span style="font-size:13px;font-weight:600;width:20px;">EN</span> English
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        <!-- Notification Dropdown (TOR 3.5.4) - Backend\AdminBellController
+             แจ้งเตือน = admin_notifications ของผู้ใช้ทุกระบบในเครือ / รออนุมัติเข้าเรียน + รอตรวจงาน = นับสดเฉพาะหลักสูตรที่ผู้ใช้ดูแล -->
+        <div class="dropdown noti-dropdown" id="notiDropdown">
+            <button class="topbar-btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="การแจ้งเตือน">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge-count" id="notiCount" style="display:none;">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end shadow-sm">
+                <div class="header-dropdown justify-content-between">
+                    <span class="header-txt-noti">การแจ้งเตือน</span>
+                    <a href="#" id="notiReadAll" class="text-decoration-none" style="font-size:12px;display:none;">
+                        <i class="fa-solid fa-check-double"></i> อ่านทั้งหมด
+                    </a>
+                </div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="notiInboxTab" data-bs-toggle="tab" data-bs-target="#notiInbox" type="button" role="tab">
+                            แจ้งเตือน
+                            <span class="badge bg-primary ms-1" id="countInbox" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="notiEnrolTab" data-bs-toggle="tab" data-bs-target="#notiEnrol" type="button" role="tab">
+                            รออนุมัติเข้าเรียน
+                            <span class="badge bg-warning text-dark ms-1" id="countEnrol" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="notiGradeTab" data-bs-toggle="tab" data-bs-target="#notiGrade" type="button" role="tab">
+                            รอตรวจงาน
+                            <span class="badge bg-danger ms-1" id="countGrade" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="notiInbox" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                                        <div class="tab-pane fade " id="notiEnrol" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                                        <div class="tab-pane fade " id="notiGrade" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+
+        <!-- User Dropdown -->
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                
+                                <img src="/learnext/client/mrta/images/placeholder/default_avatar.png" onerror="this.onerror=null;this.src='/learnext/client/mrta/images/placeholder/default_avatar.png'" alt="" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;">
+                    <div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div>
+                    <div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div>
+                </div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/portal/admin">
+                    <i class="fa-solid fa-globe" style="width:16px;color:var(--text-2);"></i> Portal
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;"></i> e-Learning
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2 startpreload" href="/learnext/home" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square" style="width:16px;color:var(--text-2);"></i> ดูหน้าเว็บไซต์
+                    </a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/learnext/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title">แบบประเมิน</div>
+            <div class="d-flex gap-2">
+                            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="card">
+            
+                                    <div class="card-header">
+                <h5>
+                                            <i class="fa-solid fa-circle-plus"></i> เพิ่มใหม่
+                                    </h5>
+                <div class="d-flex flex-wrap gap-2">
+                                        <a href="/learnext/admin/feedback" class="btn btn-outline-secondary btn-sm">
+	<i class="fa-solid fa-arrow-left"></i> ย้อนกลับ
+</a>
+                </div>
+            </div>
+                        <div class="card-body">
+                <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+	
+	
+  	
+	
+	<div class="kt-portlet">
+		<div class="kt-portlet__body">
+			<div class="fb-head">
+				<h3 id="section_title" class="fb-title">
+					สร้างคำถามแบบประเมิน
+				</h3>
+				<div class="fb-actions">
+										<a href="/learnext/admin/feedback" class="btn btn-outline-secondary btn-sm">ยกเลิก</a>
+					<button id="btn_save" type="button" class="btn btn-primary btn-sm" onClick="validate()">
+						<i class="fas fa-check"></i> <span>บันทึก</span>
+					</button>
+				</div>
+			</div>
+
+			<form id="frm_main" class="fb-body" method="POST">
+				<input type="hidden" name="_token" value="demo-token" autocomplete="off">				<input type="hidden" name="_method" value="POST">				<input type="hidden" id="id" name="id" value="">
+
+				<div class="form-group">
+					<label>รายวิชา<span class="req">*</span></label>
+					<select name="course_id" class="form-control custom-select required">
+						<option value="">-- กรุณาเลือกรายวิชา --</option>
+													<option value="1" >Basic Programming Language</option>
+													<option value="5" >BIM สำหรับงานโครงสร้างพื้นฐาน</option>
+													<option value="2" >Leadership Skill</option>
+													<option value="6" >PDPA สำหรับผู้ปฏิบัติงาน</option>
+													<option value="31" >การบริการผู้โดยสารและการจัดการเหตุขัดข้องในสถานี</option>
+													<option value="32" >การบริหารสัญญาและควบคุมงานก่อสร้างโครงการรถไฟฟ้า</option>
+													<option value="4" >การบริหารโครงการก่อสร้างรถไฟฟ้า</option>
+													<option value="33" >การปฐมพยาบาลเบื้องต้นและการช่วยชีวิตขั้นพื้นฐาน (CPR/AED) สำหรับพนักงานสถานี</option>
+													<option value="8" >การสื่อสารอย่างมีประสิทธิภาพในองค์กร</option>
+													<option value="30" >ความปลอดภัยในการปฏิบัติงานบนทางวิ่งรถไฟฟ้า (Track Access Safety)</option>
+													<option value="3" >ความปลอดภัยในงานระบบรางเบื้องต้น</option>
+													<option value="7" >ภาษาอังกฤษเพื่อการบริการผู้โดยสาร</option>
+											</select>
+				</div>
+
+				<div class="form-group">
+					<label>คำถาม<span class="req">*</span></label>
+					<input name="title" type="text" class="form-control required" placeholder="เช่น ท่านพึงพอใจกับเนื้อหาของรายวิชานี้เพียงใด" value="" autocomplete="off" maxlength="255">
+				</div>
+
+				<div class="form-group fb-answers">
+					<div class="fb-answers-head">
+						<label>ตัวเลือกคำตอบ<span class="req">*</span></label>
+						<span class="form-text m-0">อย่างน้อย 2 ตัวเลือก เรียงจากบนลงล่างตามที่ผู้เรียนจะเห็น</span>
+					</div>
+
+					<div id="panel_answer_list">
+						<div class="tpl-ans row-ans d-none">
+							<input type="text" class="form-control required" name="options[]" placeholder="เช่น พึงพอใจมากที่สุด">
+							<a href="javascript:void(0);" class="btn-delete-option fb-ans-del" title="ลบตัวเลือกนี้"><i class="fa fa-times"></i></a>
+						</div>
+
+											</div>
+
+					<a id="btn_add_more_option" class="fb-ans-add" href="javascript:void(0);"><i class="fa fa-plus"></i> เพิ่มตัวเลือก</a>
+
+					<div class="fb-note">
+						<i class="fas fa-exclamation-triangle"></i>
+						<span>หากมีผู้เรียนตอบแบบประเมินข้อนี้แล้ว ไม่ควรลบตัวเลือก เพราะจะทำให้ผลการประเมินเดิมคลาดเคลื่อน</span>
+					</div>
+				</div>
+
+				<div class="form-group mb-0">
+					<label>ลำดับการแสดงผล</label>
+					<input name="weight" type="number" step="1" class="form-control fb-weight" placeholder="เช่น 1" value="" autocomplete="off">
+					<span class="form-text">ตัวเลขน้อยแสดงก่อน เว้นว่างไว้ = เรียงตามลำดับการสร้าง</span>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+            </div>
+        </div>
+
+            </div>
+</div>
+
+
+<!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script src="/_shared/inline/2d2e3f8bb9227dd0.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 — local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/1b9a5fa8535909af.js"></script>
+
+<script src="/_shared/inline/723af149eb14c34a.js"></script>
+<script>
+// สวิตช์เปิด/ปิด (includes/form_switch) - สวิตช์เป็นตัวแทนของ radio ชื่อเดิม 2 ตัวที่ซ่อนอยู่
+// กดสวิตช์ = click radio ตัวที่ตรง (onClick / change เดิมของหน้าทำงานต่อ) แล้วซิงค์สวิตช์+ข้อความตาม radio ที่ถูกเลือกจริง
+(function () {
+    function sync(box) {
+        if (!box) return;
+        var on = box.querySelector('.fsw-radio').checked;
+        var label = box.querySelector('.fsw-state');
+        box.querySelector('.fsw-proxy').checked = on;
+        box.classList.toggle('is-on', on);
+        if (label) label.textContent = on ? label.dataset.on : label.dataset.off;
+    }
+    window.fswSync = function (root) { (root || document).querySelectorAll('[data-fsw]').forEach(sync); };
+    document.addEventListener('change', function (e) {
+        var el = e.target;
+        if (!el.classList) return;
+        if (el.classList.contains('fsw-proxy')) {
+            var box = el.closest('[data-fsw]');
+            var target = box.querySelectorAll('.fsw-radio')[el.checked ? 0 : 1];
+            if (target && !target.checked) target.click();
+            sync(box);
+        } else if (el.classList.contains('fsw-radio')) {
+            sync(el.closest('[data-fsw]'));
+        }
+    });
+    document.addEventListener('reset', function (e) { setTimeout(function () { window.fswSync(e.target); }, 0); });
+})();
+</script>
+<script src="/_shared/inline/f779fdb407ca4a74.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+function validate()
+{
+	$('#frm_main').validate({
+		errorPlacement: function(error, element) {
+			error.insertAfter(element.closest('.row-ans').length ? element.closest('.row-ans').children().last() : element);
+		}
+	});
+	if ($('#frm_main').valid()) {
+		$('#frm_main').attr('action', "/learnext/admin/feedback/store");
+		$('#frm_main').removeAttr('target');
+		save();
+	}
+	else {
+		$('.error:first').focus();
+		return false;
+	}
+}
+
+function save() {
+	$('#btn_save').prop('disabled', 'disabled').find('span').text('กำลังบันทึก...');
+	$('#frm_main').submit();
+}
+
+function preview()
+{
+	$('#frm_main').validate({
+		errorPlacement: function(error, element) {
+			error.insertAfter(element.closest('.row-ans').length ? element.closest('.row-ans').children().last() : element);
+		}
+	});
+	if ($('#frm_main').valid()) {
+		$('#frm_main').attr('action', "/learnext/admin/feedback/preview");
+		$('#frm_main').attr('target', '_blank');
+		$('#frm_main').submit();
+	}
+	else {
+		$('.error:first').focus();
+		return false;
+	}
+}
+
+$(document).ready(function() {
+	$('#panel_answer_list').on('click', '.btn-delete-option', function(e) {
+		e.preventDefault();
+		if ($('#panel_answer_list > .row-ans:visible').length <= 2) {
+			return false;
+		}
+		if (confirm('ต้องการลบตัวเลือกนี้ใช่หรือไม่?')) {
+			$(this).closest('.row-ans').remove();
+		}
+	});
+
+	$('#btn_add_more_option').on('click', function(e) {
+		e.preventDefault();
+		e.stopImmediatePropagation();
+		$('#panel_answer_list > .tpl-ans:first')
+			.clone()
+			.removeClass('tpl-ans d-none')
+			.appendTo('#panel_answer_list');
+		$('#panel_answer_list > .row-ans:last').find(':text:first').val('').focus();
+	});
+
+	// Always start with at least two answer options on a brand new question.
+	while ($('#panel_answer_list > .row-ans:visible').length < 2) {
+		$('#btn_add_more_option').trigger('click');
+	}
+
+	$('#frm_main :text:first').focus();
+});
+</script>
+<script src="/_shared/inline/d43bd804f20de809.js"></script>
+
+</body>
+</html>

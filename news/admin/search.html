@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><script>window.__DEMO={"sys": "news", "path": "/admin/search", "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-news.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบสืบค้นข้อมูล | MRTA Learning Center</title>
+    <script>
+        (function(){var m=document.cookie.match(/adminkit_theme=([^;]+)/);if(m)document.documentElement.setAttribute('data-bs-theme',m[1]);})();
+    </script>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778366" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/components.css?v=1792130116" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/sidebar-mrta.css?v=1792640351" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+<link href="/news/back/theme_metronic/css/img-pick.css?v=1792125284" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/news/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/_shared/a/back/theme_metronic/image/sidebar/logo.svg" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    <div class="nav-item">
+    <a href="/news/admin" class="nav-link  startpreload">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span>ภาพรวม</span>
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/search"
+       class="nav-link active startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+<div class="nav-heading mt-2">เนื้อหา</div>
+
+<div class="nav-item">
+    <a href="/news/admin/news"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-newspaper"></i>
+        <span>ข่าวสาร</span>
+        
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/news/category" class="nav-link  startpreload">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>หมวดข่าว</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    <a href="/news/admin/event"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-calendar"></i>
+        <span>กิจกรรม</span>
+        
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/event/category" class="nav-link  startpreload">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>หมวดกิจกรรม</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    <a href="/news/admin/gallery"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-images"></i>
+        <span>ประมวลภาพ</span>
+        
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/gallery/category" class="nav-link  startpreload">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>หมวดประมวลภาพ</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">ตั้งค่า</div>
+<div class="nav-item">
+    <a href="/news/admin/setting/news" class="nav-link  startpreload">
+        <i class="fa-solid fa-sliders"></i>
+        <span>ตั้งค่าระบบข่าวสาร</span>
+    </a>
+</div>
+    
+    <div class="nav-heading mt-2">AUDIT</div>
+<div class="nav-item">
+    <a href="/news/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+    
+</nav>
+    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ 27 ตุลาคม, 2026 9:29:12</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/news/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/portal/admin">
+                    <i class="fa-solid fa-globe" style="width:16px;color:var(--text-2);"></i> Portal
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-regular fa-newspaper" style="width:16px;"></i> ข่าวสารและกิจกรรม
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/news/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title">    <i class="fa-solid fa-magnifying-glass"></i> ระบบสืบค้นข้อมูล
+</div>
+            <div class="d-flex gap-2">
+                            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="card">
+            <div class="card-header">
+                <h5>    <i class="fa-solid fa-file-lines"></i> ค้นหาแบบ Full-Text ทั้งเนื้อหาและข้อความภายในไฟล์แนบ (HTML, DOC, PPT, XLS, PDF)
+</h5>
+                            <form method="POST" action="/news/admin/search/reindex" class="d-inline" id="as_reindex_form">
+            <input type="hidden" name="_token" value="demo-token" autocomplete="off">            <button type="submit" class="btn btn-sm btn-outline-primary" id="as_reindex_btn">
+                <i class="fa-solid fa-rotate"></i> อัปเดตดัชนี
+            </button>
+        </form>
+                </div>
+            <div class="card-body">
+                <link rel="stylesheet" href="/_shared/inline/3fa827f58dc73cbf.css">
+
+<div class="as-page">
+    
+            <form method="GET" action="/news/admin/search" id="as_form" autocomplete="off" data-no-preload>
+            <div class="as-toolbar">
+                <div class="as-filter as-grow">
+                    <label for="as_q">คำค้นหา</label>
+                    <div class="as-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" name="q" id="as_q" value="" class="form-control" maxlength="200"
+                               placeholder="พิมพ์คำค้นหา… ใช้ &quot;เครื่องหมายคำพูด&quot; เพื่อค้นทั้งวลี" aria-controls="as_results">
+                        <span class="as-spin spinner-border spinner-border-sm" id="as_spin" role="status" hidden><span class="visually-hidden">กำลังค้นหา…</span></span>
+                    </div>
+                </div>
+                <div class="as-filter">
+                    <label for="as_type">ประเภทข้อมูล</label>
+                    <select name="type" id="as_type" class="form-select">
+                        <option value="">ทั้งหมด</option>
+                                                    <option value="news" >ข่าวสาร</option>
+                                                    <option value="event" >กิจกรรม</option>
+                                                    <option value="gallery" >อัลบั้มภาพ</option>
+                                            </select>
+                </div>
+                <div class="as-actions">
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> ค้นหา</button>
+                                    </div>
+            </div>
+
+            <button type="button" class="as-toggle" id="as_toggle" aria-expanded="false" aria-controls="as_more">
+                <i class="fa-solid fa-sliders"></i> ตัวกรองเพิ่มเติม
+                <i class="fa-solid fa-chevron-down ms-1 small" id="as_toggle_icon"></i>
+            </button>
+
+            <div class="as-more" id="as_more"  hidden >
+                <div class="as-toolbar">
+                    <div class="as-filter">
+                        <label for="as_category">หมวดหมู่</label>
+                        <select name="category" id="as_category" class="form-select">
+                            <option value="">ทั้งหมด</option>
+                                                            <option value="กิจกรรมนักศึกษาฝึกงาน" >กิจกรรมนักศึกษาฝึกงาน</option>
+                                                            <option value="กิจกรรมเพื่อสังคม" >กิจกรรมเพื่อสังคม</option>
+                                                            <option value="ข่าวกิจกรรม" >ข่าวกิจกรรม</option>
+                                                            <option value="ข่าวสาร" >ข่าวสาร</option>
+                                                            <option value="ทัศนศึกษา / ดูงาน" >ทัศนศึกษา / ดูงาน</option>
+                                                            <option value="ประกาศ" >ประกาศ</option>
+                                                            <option value="ประชาสัมพันธ์" >ประชาสัมพันธ์</option>
+                                                            <option value="อบรม / สัมมนา" >อบรม / สัมมนา</option>
+                                                    </select>
+                    </div>
+                    <div class="as-filter">
+                        <label for="as_tag">แท็ก</label>
+                        <input type="text" name="tag" id="as_tag" value="" class="form-control" list="as_tag_list" maxlength="100" placeholder="ชื่อแท็ก">
+                        <datalist id="as_tag_list">
+                                                    </datalist>
+                    </div>
+                    <div class="as-filter">
+                        <label for="as_file_type">ชนิดไฟล์แนบ</label>
+                        <select name="file_type" id="as_file_type" class="form-select">
+                            <option value="">ทั้งหมด</option>
+                                                            <option value="pdf" >PDF</option>
+                                                            <option value="doc" >Word (DOC/DOCX)</option>
+                                                            <option value="ppt" >PowerPoint (PPT/PPTX)</option>
+                                                            <option value="xls" >Excel (XLS/XLSX/CSV)</option>
+                                                            <option value="html" >HTML</option>
+                                                    </select>
+                    </div>
+                    <div class="as-filter">
+                        <label for="as_from">ตั้งแต่วันที่</label>
+                        <input type="date" name="from" id="as_from" value="" class="form-control as-date">
+                    </div>
+                    <div class="as-filter">
+                        <label for="as_to">ถึงวันที่</label>
+                        <input type="date" name="to" id="as_to" value="" class="form-control as-date">
+                    </div>
+                    <div class="as-filter">
+                        <label for="as_scope">ค้นหาใน</label>
+                        <select name="scope" id="as_scope" class="form-select">
+                                                            <option value="all" selected>ทั้งหมด</option>
+                                                            <option value="title" >ชื่อเรื่อง</option>
+                                                            <option value="content" >เนื้อหา</option>
+                                                            <option value="files" >ข้อความในไฟล์แนบ</option>
+                                                    </select>
+                    </div>
+                    <div class="as-filter">
+                        <label for="as_sort">เรียงตาม</label>
+                        <select name="sort" id="as_sort" class="form-select">
+                                                            <option value="relevance" selected>ความเกี่ยวข้อง</option>
+                                                            <option value="newest" >ล่าสุด</option>
+                                                            <option value="oldest" >เก่าสุด</option>
+                                                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="as-help"><i class="fa-regular fa-circle-question me-1"></i>ผลการค้นหาแสดงทันทีขณะพิมพ์ ระบบค้นหาคำในชื่อเรื่อง เนื้อหา และข้อความภายในไฟล์แนบ รองรับภาษาไทย คำที่พบจะถูกไฮไลต์ หากพิมพ์หลายคำ ระบบจะแสดงเฉพาะรายการที่พบครบทุกคำ</div>
+        </form>
+
+        
+        <div id="as_results" aria-live="polite" aria-busy="false">
+        <div class="as-summary">
+            <h6>
+                                    ข้อมูลล่าสุด 76 รายการ
+                                                    <span class="fw-normal small text-muted ms-1">(แสดง 1–20)</span>
+                            </h6>
+                            <div class="as-index">
+                    <i class="fa-solid fa-database me-1"></i>ดัชนี 76 รายการ · ไฟล์แนบ 0 ไฟล์
+                                            · อัปเดตล่าสุด 2 สัปดาห์ที่แล้ว
+                                    </div>
+                    </div>
+
+                    <ul class="as-list">
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-newspaper"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/news/41/edit" class="as-title startpreload">ศูนย์การเรียนรู้ รฟม. เปิดให้บริการห้องสมุดดิจิทัลรูปแบบใหม่ ค้นหาและยืมหนังสือได้ทุกที่ทุกเวลา</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">ข่าวสาร</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>ข่าวสาร</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>01/10/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ศูนย์การเรียนรู้ รฟม. ขอเชิญบุคลากรและประชาชนที่สนใจติดตามรายละเอียด พร้อมช่องทางการเข้าร่วมและข้อมูลเพิ่มเติมได้ในข่าวนี้ ศูนย์การเรียนรู้ รฟม. เปิดให้บริการห้องสมุดดิจิทัลรูปแบบใหม่ ค้นหาและยืมหนังสือได้ทุกที่ทุกเวลา ศูนย์การเรียนรู้ รฟม. ขอเชิญบุคลากรและประ …</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-images"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/gallery/91/edit" class="as-title startpreload">กิจกรรมต้อนรับนักศึกษาฝึกงาน ครั้งที่ 89</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">อัลบั้มภาพ</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>กิจกรรมนักศึกษาฝึกงาน</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>29/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ประมวลภาพบรรยากาศกิจกรรมต้อนรับนักศึกษาฝึกงาน ครั้งที่ 89 ณ ศูนย์การเรียนรู้ รฟม. ผู้เข้าร่วมได้แลกเปลี่ยนความรู้และประสบการณ์ด้านระบบขนส่งมวลชนทางราง พร้อมกิจกรรมเวิร์กช็อปและการเยี่ยมชมพื้นที่จริง</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/event/6/edit" class="as-title startpreload">กิจกรรม CSR ปลูกป่าชายเลนเพื่อสิ่งแวดล้อม</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">กิจกรรม</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>28/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">จ.สมุทรสงคราม ร่วมทำความดีเพื่อสังคมและสิ่งแวดล้อม สร้างความยั่งยืนให้ชุมชน</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-newspaper"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/news/42/edit" class="as-title startpreload">รฟม. ร่วมกิจกรรม World Car Free Day 2569 ชวนประชาชนใช้รถไฟฟ้าลดการใช้รถยนต์ส่วนตัว</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">ข่าวสาร</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>ข่าวกิจกรรม</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>27/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">การดำเนินงานครั้งนี้มุ่งพัฒนาคุณภาพการให้บริการ และสร้างการเรียนรู้ร่วมกันระหว่างองค์กร ภาคีเครือข่าย และประชาชน รฟม. ร่วมกิจกรรม World Car Free Day 2569 ชวนประชาชนใช้รถไฟฟ้าลดการใช้รถยนต์ส่วนตัว การดำเนินงานครั้งนี้มุ่งพัฒนาคุณภาพการให้บริการ และสร้างการเรียน …</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/event/5/edit" class="as-title startpreload">สัมมนา &quot;ทิศทางการพัฒนาระบบขนส่งมวลชนแห่งอนาคต&quot;</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">กิจกรรม</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>22/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">หอประชุมใหญ่ อาคาร รฟม. รับฟังวิสัยทัศน์และแนวโน้มการพัฒนาระบบขนส่งมวลชนจากผู้เชี่ยวชาญ</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-newspaper"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/news/43/edit" class="as-title startpreload">MRTA Learning Center เปิดคอร์สออนไลน์ &quot;พื้นฐานระบบขนส่งทางราง&quot; สำหรับบุคลากรและประชาชนทั่วไป</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">ข่าวสาร</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>ข่าวสาร</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>20/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">สรุปสาระสำคัญ กำหนดการ และข้อปฏิบัติที่เกี่ยวข้อง เพื่อให้ผู้ที่เกี่ยวข้องรับทราบและเตรียมความพร้อมได้ทันเวลา MRTA Learning Center เปิดคอร์สออนไลน์ &quot;พื้นฐานระบบขนส่งทางราง&quot; สำหรับบุคลากรและประชาชนทั่วไป สรุปสาระสำคัญ กำหนดการ และข้อปฏิบัติที่เกี่ยวข้อง เพื่อให …</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-images"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/gallery/92/edit" class="as-title startpreload">ปฐมนิเทศและต้อนรับนักศึกษาฝึกงาน รุ่นที่ 89</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">อัลบั้มภาพ</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>กิจกรรมนักศึกษาฝึกงาน</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>20/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ประมวลภาพบรรยากาศปฐมนิเทศและต้อนรับนักศึกษาฝึกงาน รุ่นที่ 89 ณ ศูนย์การเรียนรู้ รฟม. ผู้เข้าร่วมได้แลกเปลี่ยนความรู้และประสบการณ์ด้านระบบขนส่งมวลชนทางราง พร้อมกิจกรรมเวิร์กช็อปและการเยี่ยมชมพื้นที่จริง</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-images"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/gallery/93/edit" class="as-title startpreload">การอบรมความปลอดภัยในการทำงานสำหรับนักศึกษาฝึกงาน</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">อัลบั้มภาพ</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>อบรม / สัมมนา</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>15/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ประมวลภาพบรรยากาศการอบรมความปลอดภัยในการทำงานสำหรับนักศึกษาฝึกงาน ณ ศูนย์การเรียนรู้ รฟม. ผู้เข้าร่วมได้แลกเปลี่ยนความรู้และประสบการณ์ด้านระบบขนส่งมวลชนทางราง พร้อมกิจกรรมเวิร์กช็อปและการเยี่ยมชมพื้นที่จริง</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/event/4/edit" class="as-title startpreload">เวิร์กช็อป &quot;นวัตกรรมเพื่อการพัฒนาระบบราง&quot;</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">กิจกรรม</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>14/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ห้องประชุม 3 อาคาร รฟม. แลกเปลี่ยนความรู้และแนวคิดในการพัฒนานวัตกรรมเพื่ออนาคตของระบบขนส่งมวลชน</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-newspaper"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/news/44/edit" class="as-title startpreload">ประกาศวันหยุดให้บริการศูนย์การเรียนรู้ เนื่องในวันคล้ายวันพระบรมราชสมภพ</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">ข่าวสาร</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>ประกาศ</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>11/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">รฟม. ให้ความสำคัญกับความปลอดภัยและความพึงพอใจของผู้ใช้บริการ จึงจัดให้มีกิจกรรมและการสื่อสารอย่างต่อเนื่อง ประกาศวันหยุดให้บริการศูนย์การเรียนรู้ เนื่องในวันคล้ายวันพระบรมราชสมภพ รฟม. ให้ความสำคัญกับความปลอดภัยและความพึงพอใจของผู้ใช้บริการ จึงจัดให้มีกิจกรรมแล …</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-images"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/gallery/94/edit" class="as-title startpreload">เวิร์กช็อป Digital Skills &amp; Data สำหรับนักศึกษาฝึกงาน</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">อัลบั้มภาพ</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>อบรม / สัมมนา</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>10/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ประมวลภาพบรรยากาศเวิร์กช็อป Digital Skills &amp; Data สำหรับนักศึกษาฝึกงาน ณ ศูนย์การเรียนรู้ รฟม. ผู้เข้าร่วมได้แลกเปลี่ยนความรู้และประสบการณ์ด้านระบบขนส่งมวลชนทางราง พร้อมกิจกรรมเวิร์กช็อปและการเยี่ยมชมพื้นที่จริง</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-images"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/gallery/95/edit" class="as-title startpreload">พบเมนเทอร์และแนะแนวเส้นทางอาชีพ</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">อัลบั้มภาพ</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>กิจกรรมนักศึกษาฝึกงาน</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>07/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ประมวลภาพบรรยากาศพบเมนเทอร์และแนะแนวเส้นทางอาชีพ ณ ศูนย์การเรียนรู้ รฟม. ผู้เข้าร่วมได้แลกเปลี่ยนความรู้และประสบการณ์ด้านระบบขนส่งมวลชนทางราง พร้อมกิจกรรมเวิร์กช็อปและการเยี่ยมชมพื้นที่จริง</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/event/3/edit" class="as-title startpreload">กิจกรรมพัฒนาความรู้ด้านความปลอดภัยในการปฏิบัติงาน</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">กิจกรรม</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>07/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ห้องประชุม 2 อาคาร รฟม. เสริมสร้างความปลอดภัยและความตระหนักรู้ในการทำงานอย่างถูกต้อง</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-newspaper"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/news/45/edit" class="as-title startpreload">รฟม. จัดอบรมความปลอดภัยในการปฏิบัติงานบนพื้นที่ก่อสร้างรถไฟฟ้า ประจำปี 2569</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">ข่าวสาร</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>ข่าวกิจกรรม</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>05/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ศูนย์การเรียนรู้ รฟม. ขอเชิญบุคลากรและประชาชนที่สนใจติดตามรายละเอียด พร้อมช่องทางการเข้าร่วมและข้อมูลเพิ่มเติมได้ในข่าวนี้ รฟม. จัดอบรมความปลอดภัยในการปฏิบัติงานบนพื้นที่ก่อสร้างรถไฟฟ้า ประจำปี 2569 ศูนย์การเรียนรู้ รฟม. ขอเชิญบุคลากรและประชาชนที่สนใจติดตามราย …</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-images"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/gallery/96/edit" class="as-title startpreload">ชาเลนจ์นวัตกรรมร่วมสร้างและนำเสนอผลงาน</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">อัลบั้มภาพ</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>กิจกรรมนักศึกษาฝึกงาน</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>03/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ประมวลภาพบรรยากาศชาเลนจ์นวัตกรรมร่วมสร้างและนำเสนอผลงาน ณ ศูนย์การเรียนรู้ รฟม. ผู้เข้าร่วมได้แลกเปลี่ยนความรู้และประสบการณ์ด้านระบบขนส่งมวลชนทางราง พร้อมกิจกรรมเวิร์กช็อปและการเยี่ยมชมพื้นที่จริง</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-newspaper"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/news/46/edit" class="as-title startpreload">ขั้นตอนการซื้อบัตรโดยสารเที่ยวเดียวผ่านแอปพลิเคชัน สำหรับโครงการไทยช่วยไทยพลัส</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">ข่าวสาร</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>ประชาสัมพันธ์</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>02/09/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">การดำเนินงานครั้งนี้มุ่งพัฒนาคุณภาพการให้บริการ และสร้างการเรียนรู้ร่วมกันระหว่างองค์กร ภาคีเครือข่าย และประชาชน ขั้นตอนการซื้อบัตรโดยสารเที่ยวเดียวผ่านแอปพลิเคชัน สำหรับโครงการไทยช่วยไทยพลัส การดำเนินงานครั้งนี้มุ่งพัฒนาคุณภาพการให้บริการ และสร้างการเรียนรู้ร …</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/event/2/edit" class="as-title startpreload">เยี่ยมชมศูนย์การเรียนรู้และระบบรถไฟฟ้า</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">กิจกรรม</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>30/08/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ศูนย์การเรียนรู้ รฟม. เปิดประสบการณ์เรียนรู้เบื้องหลังการบริหารจัดการระบบรถไฟฟ้า และเทคโนโลยีที่ทันสมัย</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-newspaper"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/news/47/edit" class="as-title startpreload">เปิดรับสมัครนักศึกษาฝึกงานภาคฤดูร้อน ฝ่ายวิศวกรรมและฝ่ายเทคโนโลยีสารสนเทศ</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">ข่าวสาร</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>ประกาศ</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>29/08/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">สรุปสาระสำคัญ กำหนดการ และข้อปฏิบัติที่เกี่ยวข้อง เพื่อให้ผู้ที่เกี่ยวข้องรับทราบและเตรียมความพร้อมได้ทันเวลา เปิดรับสมัครนักศึกษาฝึกงานภาคฤดูร้อน ฝ่ายวิศวกรรมและฝ่ายเทคโนโลยีสารสนเทศ สรุปสาระสำคัญ กำหนดการ และข้อปฏิบัติที่เกี่ยวข้อง เพื่อให้ผู้ที่เกี่ยวข้องรั …</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-images"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/gallery/97/edit" class="as-title startpreload">กิจกรรมอาสาสมัครรักษ์สิ่งแวดล้อมและปลูกป่าชายเลน</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">อัลบั้มภาพ</span>
+                                                                    <span><i class="fa-regular fa-folder"></i>กิจกรรมเพื่อสังคม</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>28/08/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ประมวลภาพบรรยากาศกิจกรรมอาสาสมัครรักษ์สิ่งแวดล้อมและปลูกป่าชายเลน ณ ศูนย์การเรียนรู้ รฟม. ผู้เข้าร่วมได้แลกเปลี่ยนความรู้และประสบการณ์ด้านระบบขนส่งมวลชนทางราง พร้อมกิจกรรมเวิร์กช็อปและการเยี่ยมชมพื้นที่จริง</p>
+                                                                                </div>
+                    </li>
+                                    <li class="as-item">
+                        <div class="as-icon"><i class="fa-regular fa-calendar-check"></i></div>
+                        <div class="as-body">
+                                                            <a href="/news/admin/event/1/edit" class="as-title startpreload">อบรมหลักสูตร &quot;การพัฒนาทักษะด้านการสื่อสารสำหรับพนักงาน รฟม.&quot;</a>
+                                                        <div class="as-meta">
+                                <span class="as-type">กิจกรรม</span>
+                                                                                                    <span><i class="fa-regular fa-calendar"></i>25/08/2026</span>
+                                                                                                    <span class="as-status">เผยแพร่</span>
+                                                            </div>
+                                                                                        <p class="as-snippet">ห้องประชุม 1 อาคาร รฟม. เสริมสร้างทักษะการสื่อสารและการทำงานร่วมกันอย่างมีประสิทธิภาพ</p>
+                                                                                </div>
+                    </li>
+                            </ul>
+                            
+                                <div class="as-pager">
+                    <div class="as-pager-info">แสดง 1–20 จาก 76 รายการ</div>
+                                            <nav aria-label="เลือกหน้าผลการค้นหา">
+                            <ul class="pagination mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" data-no-preload href="#" aria-label="หน้าก่อนหน้า"><i class="fa-solid fa-chevron-left"></i></a>
+                                </li>
+                                                                                                    <li class="page-item active"  aria-current="page" >
+                                        <a class="page-link" data-no-preload href="/news/admin/search?page=1">1</a>
+                                    </li>
+                                                                    <li class="page-item " >
+                                        <a class="page-link" data-no-preload href="/news/admin/search?page=2">2</a>
+                                    </li>
+                                                                    <li class="page-item " >
+                                        <a class="page-link" data-no-preload href="/news/admin/search?page=3">3</a>
+                                    </li>
+                                                                                                                                        <li class="page-item"><a class="page-link" data-no-preload href="/news/admin/search?page=4">4</a></li>
+                                                                <li class="page-item ">
+                                    <a class="page-link" data-no-preload href="/news/admin/search?page=2" aria-label="หน้าถัดไป"><i class="fa-solid fa-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                                    </div>
+                            </div>
+    </div>
+            </div>
+        </div>
+
+            </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    $.extend(true, $.fn.dataTable.defaults, { language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."} });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+<script src="/_shared/inline/e7d005b618ca7beb.js"></script>
+
+
+<script src="/_shared/inline/73f5d66d14dcf0ca.js"></script>
+
+<link rel="stylesheet" href="/_shared/a/back/collab/collab.css?v=1792128177">
+    <script>
+        window.MRTA_COLLAB = {"mode":"index","system":"news","key":null,"channel":null,"index":"presence-collab-index.news","openedAt":1793068152,"path":"\/admin\/search","me":{"id":120,"name":"Piyanuch Panyadee","initials":"R","color":"#e11d48"},"ws":{"key":"demo","host":"ws.demo.invalid","port":8080,"tls":false},"authUrl":"\/news\/admin\/collab\/auth","checkUrl":"\/news\/admin\/collab\/check","text":{"here_one":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","here_many":":name \u0e41\u0e25\u0e30\u0e2d\u0e35\u0e01 :n \u0e04\u0e19 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","alone":"\u0e21\u0e35\u0e04\u0e38\u0e13\u0e04\u0e19\u0e40\u0e14\u0e35\u0e22\u0e27\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","joined":":name \u0e40\u0e02\u0e49\u0e32\u0e21\u0e32\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","left":":name \u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27","editing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49","typing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u2026","saved_banner":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27 \u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19.","reload":"\u0e42\u0e2b\u0e25\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14","conflict_title":"\u0e21\u0e35\u0e04\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e1b\u0e41\u0e25\u0e49\u0e27","conflict_text":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19. \u0e2b\u0e25\u0e31\u0e07\u0e08\u0e32\u0e01\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32 \u0e16\u0e49\u0e32\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e15\u0e48\u0e2d \u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48 :name \u0e41\u0e01\u0e49\u0e43\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27\u0e01\u0e31\u0e19\u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e02\u0e35\u0e22\u0e19\u0e17\u0e31\u0e1a","overwrite":"\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","row_editing":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49\u0e44\u0e02\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49","offline":"\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e41\u0e1a\u0e1a real-time \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e22\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e1b\u0e01\u0e15\u0e34 \u0e41\u0e25\u0e30\u0e23\u0e30\u0e1a\u0e1a\u0e22\u0e31\u0e07\u0e01\u0e31\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a\u0e43\u0e2b\u0e49"},"conflict":null};
+    </script>
+    <script src="/_shared/a/back/collab/pusher.min.js"></script>
+    <script src="/_shared/a/back/collab/collab.js?v=1792128554"></script>
+
+
+
+
+<script src="/_shared/inline/fe049c01dd88a2d2.js"></script>
+<script>
+    function logout() {
+        event.preventDefault();
+        Swal.fire({
+            title: "\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e23\u0e30\u0e1a\u0e1a?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: "\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e23\u0e30\u0e1a\u0e1a",
+            cancelButtonText: "\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01",
+            confirmButtonColor: '#e74a3b'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#logout_form').submit();
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

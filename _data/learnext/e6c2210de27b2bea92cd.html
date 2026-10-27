@@ -1,0 +1,23 @@
+<form id="frm_main" class="lx-form" action="/learnext/admin/materials/store" method="POST">
+	<input type="hidden" name="_token" value="demo-token" autocomplete="off">	<input type="hidden" name="type" value="url">
+	<input type="hidden" name="id_materials_url" value="10">
+
+	<div class="row g-3">
+		<div class="col-12">
+			<label class="form-label" for="txt_title">ชื่อสื่อ<span class="req">*</span></label>
+			<input id="txt_title" name="title" type="text" class="form-control" maxlength="255" required autofocus autocomplete="off" value="เว็บไซต์ รฟม. – ข้อมูลเส้นทางและสถานีรถไฟฟ้า">
+		</div>
+		<div class="col-12">
+			<label class="form-label" for="txt_url">URL<span class="req">*</span></label>
+			<input id="txt_url" name="url_external_url" type="url" class="form-control" required autocomplete="off" placeholder="https://" value="https://www.mrta.co.th">
+			<div class="lx-help"><i class="fa-solid fa-circle-info"></i>ขึ้นต้นด้วย http:// หรือ https://</div>
+		</div>
+	</div>
+
+	<input type="hidden" id="save_option" name="save_option" value="1">
+<div class="lx-form-footer">
+	<span class="lx-footer-note">* จำเป็นต้องกรอก</span>
+	<a href="/learnext/admin/materials/list" class="btn btn-outline-secondary" data-lx-cancel>ยกเลิก</a>
+		<button type="button" id="btn_save" class="btn btn-primary" data-lx-save="1" onclick="lxSubmit(1, this)"><span class="spinner-border"></span><i class="fa-solid fa-check"></i> บันทึก</button>
+</div>
+</form>

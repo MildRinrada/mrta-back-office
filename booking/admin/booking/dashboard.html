@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><script>window.__DEMO={"sys": "booking", "path": "/admin/booking/dashboard", "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-booking.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ภาพรวม | MRTA Learning Center</title>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778367" rel="stylesheet">
+<link href="/booking/back/theme_metronic/css/components.css?v=1792130115" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/sidebar-mrta.css?v=1792640348" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/img-pick.css?v=1792127029" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/booking/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/_shared/a/back/theme_metronic/image/sidebar/logo.svg" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    <div class="nav-item">
+    <a href="/booking/admin/booking/dashboard"
+       class="nav-link active startpreload">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span>ภาพรวม</span>
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/booking/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+<div class="nav-heading">จองเข้าชม</div>
+
+
+<div class="nav-item">
+    <a href="/booking/admin/booking/reservation"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-calendar-check"></i>
+        <span>รายการจองเข้าชม</span>
+    </a>
+</div>
+
+
+<div class="nav-item">
+    <a href="/booking/admin/booking/checkin"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-qrcode"></i>
+        <span>สแกน QR เช็คอิน</span>
+    </a>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-regular fa-clock"></i>
+        <span>ตั้งค่ารอบเข้าชม</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/booking/admin/booking/round" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> รอบเวลาทั้งหมด
+        </a>
+        
+                <a href="/booking/admin/booking/round/create" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มรอบเวลา
+        </a>
+        <a href="/booking/admin/booking/closed-date" class="nav-link  startpreload">
+            <i class="fa-regular fa-calendar-xmark"></i> วันปิดทำการ
+        </a>
+        <a href="/booking/admin/booking/microsoft" class="nav-link  startpreload">
+            <i class="fa-brands fa-microsoft"></i> Microsoft Bookings
+        </a>
+            </div>
+</div>
+
+
+<div class="nav-heading mt-2">กิจกรรมพิเศษ</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-star"></i>
+        <span>จัดการกิจกรรม</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/booking/admin/booking/event" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> กิจกรรมทั้งหมด
+        </a>
+                <a href="/booking/admin/booking/event/create" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มกิจกรรม
+        </a>
+        <a href="/booking/admin/booking/event-category" class="nav-link  startpreload">
+            <i class="fa-solid fa-tags"></i> หมวดหมู่กิจกรรม
+        </a>
+                <a href="/booking/admin/booking/registration" class="nav-link  startpreload">
+            <i class="fa-solid fa-users"></i> ผู้ลงทะเบียน
+        </a>
+    </div>
+</div>
+
+
+<div class="nav-heading mt-2">เนื้อหาหน้าเว็บ</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-regular fa-file-lines"></i>
+        <span>เงื่อนไขและวิธีการจอง</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/booking/admin/booking/document" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> เอกสารทั้งหมด
+        </a>
+                <a href="/booking/admin/booking/document/create" class="nav-link  startpreload">
+            <i class="fa-solid fa-circle-plus"></i> เพิ่มเอกสาร
+        </a>
+            </div>
+</div>
+    <div class="nav-heading mt-2">SETTING</div>
+<div class="nav-item">
+    <a href="/booking/admin/setting/bookings" class="nav-link  startpreload">
+        <i class="fa-solid fa-sliders"></i>
+        <span>ตั้งค่าระบบจอง</span>
+    </a>
+</div>
+    
+    <div class="nav-heading mt-2">AUDIT</div>
+<div class="nav-item">
+    <a href="/booking/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+    
+</nav>
+    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <link rel="stylesheet" href="/_shared/inline/cfcd662ce6b1c449.css">
+<header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ 27 ตุลาคม, 2026 9:28:37</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/booking/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        <!-- Notification Dropdown
+             เข้าชมวันนี้ / ลงทะเบียนใหม่ = งานของระบบจอง (สิทธิ์ booking.reservation.view)
+             แจ้งเตือน = admin_notifications ของผู้ใช้ทุกระบบในเครือ (Workflow อนุมัติเนื้อหา TOR 3.5.4) - ผู้ใช้หลังบ้านทุกคน -->
+                <div class="dropdown noti-dropdown" id="notiDropdown">
+            <button class="topbar-btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="การแจ้งเตือน">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge-count" id="notiCount" style="display:none;">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end shadow-sm">
+                <div class="header-dropdown justify-content-between">
+                    <span class="header-txt-noti">การแจ้งเตือน</span>
+                    <a href="#" id="notiReadAll" class="text-decoration-none" style="font-size:12px;display:none;">
+                        <i class="fa-solid fa-check-double"></i> อ่านทั้งหมด
+                    </a>
+                </div>
+                <ul class="nav nav-tabs" id="notiTabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="notiTodayTab" data-bs-toggle="tab" data-bs-target="#notiToday" type="button" role="tab">
+                            เข้าชมวันนี้
+                            <span class="badge bg-primary ms-1" id="countToday" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="notiRegisterTab" data-bs-toggle="tab" data-bs-target="#notiRegister" type="button" role="tab">
+                            ลงทะเบียนใหม่
+                            <span class="badge bg-success ms-1" id="countRegister" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                                        <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="notiInboxTab" data-bs-toggle="tab" data-bs-target="#notiInbox" type="button" role="tab">
+                            แจ้งเตือน
+                            <span class="badge bg-warning text-dark ms-1" id="countInbox" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                    
+                </ul>
+                <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="notiToday" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="notiRegister" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                                        <div class="tab-pane fade " id="notiInbox" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/portal/admin">
+                    <i class="fa-solid fa-globe" style="width:16px;color:var(--text-2);"></i> Portal
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;"></i> จองเข้าชม
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/booking/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title">    <i class="fa-solid fa-gauge-high"></i> ภาพรวม
+</div>
+            <div class="d-flex gap-2">
+                    <a href="/booking/admin/booking/reservation" class="btn btn-sm btn-primary startpreload">
+        <i class="fa-regular fa-calendar-check"></i> รายการจองทั้งหมด
+    </a>
+            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        
+<div class="row g-3 mb-4">
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card" style="border-left-color:var(--pri);">
+                <div class="stat-icon" style="background:rgba(78,115,223,.1);color:var(--pri);">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div>
+                    <div class="stat-value">0 คน</div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ผู้เข้าชมวันนี้</div>
+                    <div style="font-size:11px;color:var(--text-3);">0 ใบจอง</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card" style="border-left-color:var(--success);">
+                <div class="stat-icon" style="background:rgba(28,200,138,.1);color:var(--success);">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+                <div>
+                    <div class="stat-value">1 ใบ</div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ใบจองล่วงหน้า</div>
+                    <div style="font-size:11px;color:var(--text-3);">นับจากพรุ่งนี้เป็นต้นไป</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card" style="border-left-color:var(--warning);">
+                <div class="stat-icon" style="background:rgba(246,194,62,.1);color:var(--warning);">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+                <div>
+                    <div class="stat-value">19 คน</div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ผู้เข้าชมเดือนนี้</div>
+                    <div style="font-size:11px;color:var(--text-3);">รวมทุกรอบ</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card" style="border-left-color:#6f42c1;">
+                <div class="stat-icon" style="background:rgba(111,66,193,.1);color:#6f42c1;">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div>
+                    <div class="stat-value">1 รายการ</div>
+                    <div style="font-size:12.5px;color:var(--text-2);">กิจกรรมที่เปิดอยู่</div>
+                    <div style="font-size:11px;color:var(--text-3);">ลงทะเบียนแล้ว 3 คน</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="row g-3">
+
+    
+    <div class="col-lg-5">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5><i class="fa-regular fa-clock"></i> รอบเข้าชมวันนี้</h5>
+                <span class="text-muted" style="font-size:12px;">27 ตุลาคม 2569</span>
+            </div>
+            <div class="card-body">
+                                    
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="fw-semibold" style="font-size:13.5px;">09:00 - 10:30 น.</span>
+                            <span class="text-success" style="font-size:12.5px;">
+                                0/20 ที่นั่ง
+                            </span>
+                        </div>
+                        <div class="progress" style="height:7px;">
+                            <div class="progress-bar bg-success" style="width:0%"></div>
+                        </div>
+                    </div>
+                                    
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="fw-semibold" style="font-size:13.5px;">11:00 - 12:30 น.</span>
+                            <span class="text-success" style="font-size:12.5px;">
+                                0/20 ที่นั่ง
+                            </span>
+                        </div>
+                        <div class="progress" style="height:7px;">
+                            <div class="progress-bar bg-success" style="width:0%"></div>
+                        </div>
+                    </div>
+                                    
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="fw-semibold" style="font-size:13.5px;">13:30 - 15:00 น.</span>
+                            <span class="text-success" style="font-size:12.5px;">
+                                0/20 ที่นั่ง
+                            </span>
+                        </div>
+                        <div class="progress" style="height:7px;">
+                            <div class="progress-bar bg-success" style="width:0%"></div>
+                        </div>
+                    </div>
+                                    
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="fw-semibold" style="font-size:13.5px;">15:30 - 17:00 น.</span>
+                            <span class="text-success" style="font-size:12.5px;">
+                                0/20 ที่นั่ง
+                            </span>
+                        </div>
+                        <div class="progress" style="height:7px;">
+                            <div class="progress-bar bg-success" style="width:0%"></div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+    
+    <div class="col-lg-7">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5><i class="fa-solid fa-list-check"></i> ผู้จองเข้าชมวันนี้</h5>
+                <a href="/booking/admin/booking/reservation" class="btn btn-sm btn-light">ดูทั้งหมด</a>
+            </div>
+            <div class="card-body p-0">
+                                    <div class="text-center py-5 text-muted" style="font-size:13px;">
+                        <i class="fa-regular fa-calendar-check d-block mx-auto mb-2" style="font-size:24px;"></i>
+                        ยังไม่มีใบจองสำหรับวันนี้
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+    
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fa-solid fa-star"></i> กิจกรรมพิเศษที่กำลังจะถึง</h5>
+                
+                                <a href="/booking/admin/booking/event" class="btn btn-sm btn-light">จัดการกิจกรรม</a>
+                            </div>
+            <div class="card-body p-0">
+                                    <div class="table-responsive">
+                        <table class="table table-sm table-hover mb-0" style="font-size:13px;">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>กิจกรรม</th><th>วันที่จัด</th><th>สถานที่</th>
+                                    <th class="text-center">ที่นั่ง</th><th>สถานะ</th><th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                    <tr>
+                                        <td class="fw-semibold">อบรมหลักสูตร &quot;การวิเคราะห์ข้อมูลเชิงลึกด้วยเครื่องมือสมัยใหม่&quot;</td>
+                                        <td>22 พฤศจิกายน 2569</td>
+                                        <td>ห้องปฏิบัติการ IT อาคาร รฟม. ชั้น 4</td>
+                                        <td class="text-center">
+                                                                                            <span class="text-success">
+                                                    1/30
+                                                </span>
+                                                                                    </td>
+                                        <td>
+                                            <span class="badge rounded-pill text-bg-success">
+                                                เปิดรับสมัคร
+                                            </span>
+                                        </td>
+                                        <td class="text-end">
+                                                                                        <a class="btn btn-sm btn-light startpreload"
+                                               href="/booking/admin/booking/registration?event=9">
+                                                ผู้ลงทะเบียน
+                                            </a>
+                                                                                    </td>
+                                    </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mt-4 mb-3">
+    <div class="page-title" style="font-size:17px;"><i class="fa-solid fa-chart-column"></i> สถิติการจองและกิจกรรม</div>
+    <div class="d-flex align-items-center flex-wrap gap-2">
+        <select id="ddl_period" class="form-select form-select-sm" style="width:auto;">
+                            <option value="thisMonth">เดือนนี้</option>
+                            <option value="">ทั้งหมด</option>
+                            <option value="today">วันนี้</option>
+                            <option value="last7Days">7 วันล่าสุด</option>
+                            <option value="last30Days">30 วันล่าสุด</option>
+                            <option value="next30Days">30 วันข้างหน้า</option>
+                            <option value="lastMonth">เดือนที่แล้ว</option>
+                            <option value="thisYear">ปีนี้</option>
+                            <option value="customPeriod">กำหนดเอง</option>
+                    </select>
+        <input type="text" id="dp_start" class="form-control form-control-sm js-date js-custom d-none" style="width:130px;" placeholder="ตั้งแต่วันที่" autocomplete="off">
+        <input type="text" id="dp_end" class="form-control form-control-sm js-date js-custom d-none" style="width:130px;" placeholder="ถึงวันที่" autocomplete="off">
+    </div>
+</div>
+<div class="mb-3" style="font-size:12px;color:var(--text-3);">
+    ใบจอง = นับตามวันที่เข้าชม · กิจกรรมและผู้ลงทะเบียน = นับตามวันที่จัดกิจกรรม (ไม่นับที่ยกเลิก)
+</div>
+
+
+<div class="row g-3 mb-3">
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card h-100" style="border-left-color:var(--pri);">
+                <div class="stat-icon" style="background:rgba(78,115,223,.1);color:var(--pri);">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+                <div>
+                    <div class="stat-value"><span data-sum="bookings"><span class="spinner-border spinner-border-sm"></span></span> <small style="font-size:13px;font-family:inherit;font-weight:500;">ใบ</small></div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ใบจองเข้าชม</div>
+                    <div style="font-size:11px;color:var(--text-3);" data-sub="ผู้เข้าชม {visitors} คน">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card h-100" style="border-left-color:var(--success);">
+                <div class="stat-icon" style="background:rgba(28,200,138,.1);color:var(--success);">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+                <div>
+                    <div class="stat-value"><span data-sum="checked_in"><span class="spinner-border spinner-border-sm"></span></span> <small style="font-size:13px;font-family:inherit;font-weight:500;">คน</small></div>
+                    <div style="font-size:12.5px;color:var(--text-2);">เช็คอินเข้าชมแล้ว</div>
+                    <div style="font-size:11px;color:var(--text-3);" data-sub="จากผู้เข้าชม {visitors} คน">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card h-100" style="border-left-color:var(--danger);">
+                <div class="stat-icon" style="background:rgba(231,74,59,.1);color:var(--danger);">
+                    <i class="fa-solid fa-ban"></i>
+                </div>
+                <div>
+                    <div class="stat-value"><span data-sum="cancelled"><span class="spinner-border spinner-border-sm"></span></span> <small style="font-size:13px;font-family:inherit;font-weight:500;">ใบ</small></div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ใบจองที่ยกเลิก</div>
+                    <div style="font-size:11px;color:var(--text-3);" data-sub="{cancel_pct}% ของใบจองทั้งหมด">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card h-100" style="border-left-color:#6f42c1;">
+                <div class="stat-icon" style="background:rgba(111,66,193,.1);color:#6f42c1;">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div>
+                    <div class="stat-value"><span data-sum="events"><span class="spinner-border spinner-border-sm"></span></span> <small style="font-size:13px;font-family:inherit;font-weight:500;">รายการ</small></div>
+                    <div style="font-size:12.5px;color:var(--text-2);">กิจกรรมพิเศษ</div>
+                    <div style="font-size:11px;color:var(--text-3);" data-sub="ผู้ลงทะเบียน {attendees} คน ({registrations} ใบ)">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <h5><i class="fa-solid fa-chart-column"></i> จำนวนผู้เข้าชมและผู้ลงทะเบียนกิจกรรม</h5>
+        <span class="dash-tip" data-tip="ช่วงไม่เกิน 62 วันแสดงรายวัน นอกนั้นแสดงรายเดือน - เลือก &quot;ทั้งหมด&quot; แสดง 12 เดือนล่าสุด"><i class="fa-solid fa-circle-info"></i></span>
+    </div>
+    <div class="card-body chart-wrap">
+        <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+        <div id="chart_trend" style="height:320px;"></div>
+    </div>
+</div>
+
+<div class="row g-3 mb-3">
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header"><h5><i class="fa-solid fa-chart-pie"></i> สถานะใบจอง</h5></div>
+            <div class="card-body chart-wrap">
+                <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+                <div id="chart_status" style="height:300px;"></div>
+            </div>
+        </div>
+    </div>
+            <div class="col-lg-6">
+            <div class="card h-100">
+                <div class="card-header"><h5><i class="fa-solid fa-users"></i> ผู้เข้าชมตามประเภทกลุ่ม</h5></div>
+                <div class="card-body chart-wrap">
+                    <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+                    <div id="chart_groups" style="height:300px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header"><h5><i class="fa-regular fa-clock"></i> ผู้เข้าชมตามรอบเวลา</h5></div>
+            <div class="card-body chart-wrap">
+                <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+                <div id="chart_rounds" style="height:300px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header"><h5><i class="fa-regular fa-calendar"></i> ผู้เข้าชมตามวันในสัปดาห์</h5></div>
+            <div class="card-body chart-wrap">
+                <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+                <div id="chart_weekday" style="height:300px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-7">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5><i class="fa-solid fa-fire"></i> 10 กิจกรรมที่มีผู้ลงทะเบียนมากที่สุด</h5>
+                <span class="dash-tip" data-tip="จำนวนคนที่ลงทะเบียน (ไม่นับที่ยกเลิก) - คลิกแท่งเพื่อดูรายชื่อผู้ลงทะเบียน"><i class="fa-solid fa-circle-info"></i></span>
+            </div>
+            <div class="card-body chart-wrap">
+                <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+                <div id="chart_top_events" class="top-box"></div>
+            </div>
+        </div>
+    </div>
+            <div class="col-lg-5">
+            <div class="card h-100">
+                <div class="card-header"><h5><i class="fa-solid fa-chart-pie"></i> กิจกรรมแยกตามหมวด</h5></div>
+                <div class="card-body chart-wrap">
+                    <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+                    <div id="chart_event_cat" style="height:300px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    $.extend(true, $.fn.dataTable.defaults, { language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."} });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+<script src="/_shared/inline/2dda5ae9c3598f75.js"></script>
+
+
+<script src="/_shared/inline/73f5d66d14dcf0ca.js"></script>
+
+
+
+
+
+
+<style>
+.chart-wrap { position: relative; min-height: 120px; }
+.chart-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--card) 75%, transparent); z-index: 10; }
+.chart-loading.d-none { display: none !important; }
+.chart-empty { display: flex; align-items: center; justify-content: center; height: 100%; color: var(--text-3); font-size: 13px; }
+.dash-tip { cursor: help; color: var(--text-3); }
+.top-box { min-height: 120px; }
+.top-box .chart-empty { height: 120px; }
+</style>
+<script src="/_shared/a/back/theme_metronic/vendor/js/highcharts.js"></script>
+<script>
+$(function () {
+    var STATS_URL = "\/booking\/admin\/dashboard\/stats";
+    var COLORS = ['#4e73df', '#6f42c1', '#1cc88a', '#f6c23e', '#e74a3b', '#36b9cc', '#fd7e14', '#858796', '#20c997', '#d63384'];
+    var STATUS_COLORS = { pending: '#f6c23e', confirmed: '#4e73df', visited: '#1cc88a', cancelled: '#e74a3b' };
+
+    function cssVar(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+
+    // สีกราฟตามธีมสว่าง/มืดของหลังบ้าน (ตัวแปร CSS ของ adminkit.css) - สลับธีมแล้ววาดใหม่ (ดู MutationObserver ด้านล่าง)
+    function applyTheme() {
+        var text = cssVar('--text-1'), muted = cssVar('--text-2'), border = cssVar('--border'), card = cssVar('--card');
+        var axis = { labels: { style: { color: muted } }, title: { style: { color: muted } }, lineColor: border, tickColor: border, gridLineColor: border };
+
+        Highcharts.setOptions({
+            colors: COLORS,
+            chart: { backgroundColor: 'transparent', style: { fontFamily: 'inherit' } },
+            lang: { thousandsSep: ',' },
+            credits: { enabled: false },
+            title: { text: '' },
+            xAxis: axis,
+            yAxis: axis,
+            legend: { itemStyle: { color: text }, itemHoverStyle: { color: muted } },
+            tooltip: { backgroundColor: card, borderColor: border, style: { color: text } },
+            plotOptions: {
+                series: { dataLabels: { color: text, style: { color: text, textOutline: 'none' } } },
+                pie: { borderColor: card, dataLabels: { color: text, style: { color: text, textOutline: 'none' } } },
+            },
+        });
+    }
+    applyTheme();
+
+    $('.dash-tip').each(function () {
+        new bootstrap.Tooltip(this, { title: this.getAttribute('data-tip'), placement: 'left' });
+    });
+
+    if (window.flatpickr) {
+        flatpickr('.js-date', {
+            dateFormat: 'Y-m-d', altInput: true, altFormat: 'j M Y', allowInput: false,
+            locale: (flatpickr.l10ns && flatpickr.l10ns.th) ? 'th' : 'default',
+            onChange: function () { load(); },
+        });
+    }
+
+    // ช่องวันที่ของ flatpickr (altInput) เป็น input ตัวใหม่ - ซ่อน/แสดงทั้งสองตัว
+    function toggleCustom(show) {
+        $('.js-custom').each(function () {
+            $(this).toggleClass('d-none', !show);
+            if (this._flatpickr && this._flatpickr.altInput) $(this._flatpickr.altInput).toggleClass('d-none', !show).css('width', '130px');
+        });
+    }
+    toggleCustom(false);
+
+    $('#ddl_period').on('change', function () {
+        var custom = this.value === 'customPeriod';
+        toggleCustom(custom);
+        if (!custom) load();
+    });
+
+    function fmt(n) { return Number(n || 0).toLocaleString(); }
+
+    function done(id) {
+        $('#' + id).closest('.chart-wrap').find('.chart-loading').addClass('d-none');
+    }
+
+    function empty(id, text) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        Highcharts.charts.forEach(function (c) { if (c && c.renderTo === el) c.destroy(); });
+        el.innerHTML = '<div class="chart-empty">' + (text || 'ไม่มีข้อมูลในช่วงเวลานี้') + '</div>';
+        done(id);
+    }
+
+    function sum(arr) { return arr.reduce(function (a, b) { return a + b; }, 0); }
+
+    function trendChart(data) {
+        var total = data.series.reduce(function (s, x) { return s + sum(x.data); }, 0);
+        if (!total) return empty('chart_trend');
+        Highcharts.chart('chart_trend', {
+            chart: { type: 'column' },
+            xAxis: { categories: data.categories, labels: { style: { fontSize: '11px' } } },
+            yAxis: { min: 0, allowDecimals: false, title: { text: 'คน' } },
+            tooltip: { shared: true },
+            plotOptions: { column: { borderRadius: 3, groupPadding: .12 } },
+            series: data.series,
+        });
+        done('chart_trend');
+    }
+
+    function columnChart(id, data, color, unit) {
+        if (!document.getElementById(id)) return;
+        if (!data || !sum(data.data)) return empty(id);
+        Highcharts.chart(id, {
+            chart: { type: 'column' },
+            xAxis: { categories: data.categories, labels: { style: { fontSize: '12px' } } },
+            yAxis: { min: 0, allowDecimals: false, title: { text: unit } },
+            legend: { enabled: false },
+            tooltip: { pointFormat: '<b>{point.y:,.0f}</b> ' + unit },
+            plotOptions: { column: { borderRadius: 3, color: color, dataLabels: { enabled: true, format: '{point.y:,.0f}' } } },
+            series: [{ name: unit, data: data.data }],
+        });
+        done(id);
+    }
+
+    function pieChart(id, data, unit) {
+        if (!document.getElementById(id)) return;
+        if (!data || !data.length) return empty(id);
+        Highcharts.chart(id, {
+            chart: { type: 'pie' },
+            tooltip: { pointFormat: '<b>{point.y:,.0f}</b> ' + unit + ' ({point.percentage:.1f}%)' },
+            plotOptions: { pie: { innerSize: '55%', dataLabels: { enabled: true, format: '{point.name}: {point.y:,.0f}', style: { fontWeight: 'normal' } } } },
+            series: [{ name: unit, colorByPoint: true, data: data }],
+        });
+        done(id);
+    }
+
+    // แท่งแนวนอน - ชื่อบนแกนบรรทัดเดียว ยาวตัด ... (ชื่อเต็มดูใน tooltip) / คลิกแท่งไปหน้าผู้ลงทะเบียนของกิจกรรมนั้น
+    function topChart(id, data, color) {
+        if (!document.getElementById(id)) return;
+        if (!data || !data.length) return empty(id, 'ยังไม่มีผู้ลงทะเบียนในช่วงเวลานี้');
+        var wide = $('#' + id).width() || 600;
+        Highcharts.chart(id, {
+            chart: { type: 'bar', height: data.length * 40 + 70 },
+            xAxis: {
+                categories: data.map(function (d) { return d.name; }),
+                labels: { style: { fontSize: '13px', color: cssVar('--text-1'), width: Math.round(Math.min(360, wide * .45)) + 'px', whiteSpace: 'nowrap', textOverflow: 'ellipsis' } },
+            },
+            yAxis: { min: 0, allowDecimals: false, title: { text: 'คน' } },
+            legend: { enabled: false },
+            tooltip: {
+                headerFormat: '<span style="font-size:12px">{point.key}</span><br>',
+                pointFormatter: function () {
+                    return 'ลงทะเบียน <b>' + fmt(this.y) + '</b> คน' + (this.capacity ? ' จาก ' + fmt(this.capacity) + ' ที่นั่ง' : ' (ไม่จำกัดที่นั่ง)');
+                },
+            },
+            plotOptions: { bar: { borderRadius: 3, color: color, cursor: 'pointer', pointPadding: .15, groupPadding: .05,
+                dataLabels: { enabled: true, format: '{point.y:,.0f}', style: { fontSize: '12px', fontWeight: '600' } },
+                point: { events: { click: function () { if (this.url) window.location.href = this.url; } } } } },
+            series: [{ name: 'ผู้ลงทะเบียน', data: data }],
+        });
+        done(id);
+    }
+
+    function drawCharts(res) {
+        trendChart(res.trend);
+        pieChart('chart_status', (res.status || []).map(function (s) { return { name: s.name, y: s.y, color: STATUS_COLORS[s.key] }; }), 'ใบ');
+        pieChart('chart_groups', res.groups, 'คน');
+        columnChart('chart_rounds', res.rounds, COLORS[0], 'คน');
+        columnChart('chart_weekday', res.weekday, COLORS[2], 'คน');
+        topChart('chart_top_events', res.top_events, COLORS[1]);
+        pieChart('chart_event_cat', res.event_cat, 'รายการ');
+    }
+
+    // สลับธีม (ปุ่มพระจันทร์/พระอาทิตย์ บน topbar) = ตั้งสีใหม่แล้ววาดจากข้อมูลเดิม ไม่ต้องโหลดใหม่
+    var last = null;
+    new MutationObserver(function () {
+        applyTheme();
+        if (last) drawCharts(last);
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-bs-theme'] });
+
+    var xhr = null;
+    function load() {
+        var period = $('#ddl_period').val();
+        if (period === 'customPeriod' && !$('#dp_start').val() && !$('#dp_end').val()) return;
+
+        $('[data-sum]').html('<span class="spinner-border spinner-border-sm"></span>');
+        $('.chart-loading').removeClass('d-none');
+        if (xhr) xhr.abort();
+
+        xhr = $.post(STATS_URL, {
+            _token: "demo-token",
+            period: period,
+            period_start: $('#dp_start').val(),
+            period_end: $('#dp_end').val(),
+        }).done(function (res) {
+            var s = res.summary;
+            $('[data-sum]').each(function () { $(this).text(fmt(s[this.getAttribute('data-sum')])); });
+            $('[data-sub]').each(function () {
+                $(this).text(this.getAttribute('data-sub').replace(/\{(\w+)\}/g, function (m, k) { return fmt(s[k]); }));
+            });
+            last = res;
+            drawCharts(res);
+        }).fail(function (x) {
+            if (x.statusText === 'abort') return;
+            $('[data-sum]').text('-');
+            $('.chart-wrap [id^="chart_"]').each(function () { empty(this.id, 'โหลดข้อมูลไม่สำเร็จ'); });
+        });
+    }
+
+    load();
+});
+</script>
+<script src="/_shared/inline/ff9481439ad3ce4b.js"></script>
+
+</body>
+</html>

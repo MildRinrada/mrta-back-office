@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><script>window.__DEMO={"sys": "news", "path": "/admin", "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-news.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ภาพรวมข่าวสารและกิจกรรม | MRTA Learning Center</title>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778366" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/components.css?v=1792130116" rel="stylesheet">
+
+<link href="/_shared/a/back/theme_metronic/css/sidebar-mrta.css?v=1792640351" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+<link href="/news/back/theme_metronic/css/img-pick.css?v=1792125284" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/news/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/_shared/a/back/theme_metronic/image/sidebar/logo.svg" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    <div class="nav-item">
+    <a href="/news/admin" class="nav-link active startpreload">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span>ภาพรวม</span>
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+<div class="nav-heading mt-2">เนื้อหา</div>
+
+<div class="nav-item">
+    <a href="/news/admin/news"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-newspaper"></i>
+        <span>ข่าวสาร</span>
+        
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/news/category" class="nav-link  startpreload">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>หมวดข่าว</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    <a href="/news/admin/event"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-calendar"></i>
+        <span>กิจกรรม</span>
+        
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/event/category" class="nav-link  startpreload">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>หมวดกิจกรรม</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    <a href="/news/admin/gallery"
+       class="nav-link  startpreload">
+        <i class="fa-regular fa-images"></i>
+        <span>ประมวลภาพ</span>
+        
+    </a>
+</div>
+<div class="nav-item">
+    <a href="/news/admin/gallery/category" class="nav-link  startpreload">
+        <i class="fa-solid fa-folder-open"></i>
+        <span>หมวดประมวลภาพ</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">ตั้งค่า</div>
+<div class="nav-item">
+    <a href="/news/admin/setting/news" class="nav-link  startpreload">
+        <i class="fa-solid fa-sliders"></i>
+        <span>ตั้งค่าระบบข่าวสาร</span>
+    </a>
+</div>
+    
+    <div class="nav-heading mt-2">AUDIT</div>
+<div class="nav-item">
+    <a href="/news/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+    
+</nav>
+    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ 27 ตุลาคม, 2026 9:29:11</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/news/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/portal/admin">
+                    <i class="fa-solid fa-globe" style="width:16px;color:var(--text-2);"></i> Portal
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-regular fa-newspaper" style="width:16px;"></i> ข่าวสารและกิจกรรม
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/news/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title">    <i class="fa-solid fa-gauge-high"></i> ภาพรวมข่าวสารและกิจกรรม
+</div>
+            <div class="d-flex gap-2">
+                    <a href="/news" class="btn btn-sm btn-light" target="_blank" rel="noopener">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> ดูหน้าเว็บ
+    </a>
+            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        
+
+
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="row g-3 align-items-end">
+            <div class="col-sm-6 col-md-3">
+                <label class="form-label" for="ddl_period">ช่วงเวลา</label>
+                <select id="ddl_period" class="form-select">
+                                            <option value="">ทั้งหมด</option>
+                                            <option value="today">วันนี้</option>
+                                            <option value="last7Days">7 วันล่าสุด</option>
+                                            <option value="last30Days">30 วันล่าสุด</option>
+                                            <option value="thisMonth">เดือนนี้</option>
+                                            <option value="lastMonth">เดือนที่แล้ว</option>
+                                            <option value="thisYear">ปีนี้</option>
+                                            <option value="customPeriod">กำหนดเอง</option>
+                                    </select>
+            </div>
+            <div class="col-sm-6 col-md-2 js-custom d-none">
+                <label class="form-label" for="dp_start">ตั้งแต่วันที่</label>
+                <input type="text" id="dp_start" class="form-control js-date" placeholder="เลือกวันที่" autocomplete="off">
+            </div>
+            <div class="col-sm-6 col-md-2 js-custom d-none">
+                <label class="form-label" for="dp_end">ถึงวันที่</label>
+                <input type="text" id="dp_end" class="form-control js-date" placeholder="เลือกวันที่" autocomplete="off">
+            </div>
+            <div class="col-md text-md-end" style="font-size:12px;color:var(--text-3);">
+                ข่าว = วันที่เผยแพร่ · กิจกรรม = วันเริ่มจัด · อัลบั้ม = วันที่สร้าง
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row g-3 mb-3">
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card h-100" style="border-left-color:var(--pri);">
+                <div class="stat-icon" style="background:rgba(78,115,223,.1);color:var(--pri);">
+                    <i class="fa-regular fa-newspaper"></i>
+                </div>
+                <div>
+                    <div class="stat-value"><span data-sum="news"><span class="spinner-border spinner-border-sm"></span></span> <small style="font-size:13px;font-family:inherit;font-weight:500;">ข่าว</small></div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ข่าวสารที่เผยแพร่</div>
+                    <div style="font-size:11px;color:var(--text-3);" data-sub="เข้าชม {news_views} · แชร์ {news_shares} ครั้ง">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card h-100" style="border-left-color:var(--warning);">
+                <div class="stat-icon" style="background:rgba(246,194,62,.1);color:var(--warning);">
+                    <i class="fa-regular fa-calendar"></i>
+                </div>
+                <div>
+                    <div class="stat-value"><span data-sum="events"><span class="spinner-border spinner-border-sm"></span></span> <small style="font-size:13px;font-family:inherit;font-weight:500;">รายการ</small></div>
+                    <div style="font-size:12.5px;color:var(--text-2);">กิจกรรม (ตามวันจัด)</div>
+                    <div style="font-size:11px;color:var(--text-3);" data-sub="เข้าชม {events_views} ครั้ง">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card h-100" style="border-left-color:#6f42c1;">
+                <div class="stat-icon" style="background:rgba(111,66,193,.1);color:#6f42c1;">
+                    <i class="fa-regular fa-images"></i>
+                </div>
+                <div>
+                    <div class="stat-value"><span data-sum="albums"><span class="spinner-border spinner-border-sm"></span></span> <small style="font-size:13px;font-family:inherit;font-weight:500;">อัลบั้ม</small></div>
+                    <div style="font-size:12.5px;color:var(--text-2);">อัลบั้มประมวลภาพ</div>
+                    <div style="font-size:11px;color:var(--text-3);" data-sub="เข้าชม {albums_views} ครั้ง">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm-6 col-xl-3">
+            <div class="stat-card h-100" style="border-left-color:var(--success);">
+                <div class="stat-icon" style="background:rgba(28,200,138,.1);color:var(--success);">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <div>
+                    <div class="stat-value"><span data-sum="views"><span class="spinner-border spinner-border-sm"></span></span> <small style="font-size:13px;font-family:inherit;font-weight:500;">ครั้ง</small></div>
+                    <div style="font-size:12.5px;color:var(--text-2);">ยอดเข้าชมรวม</div>
+                    <div style="font-size:11px;color:var(--text-3);" data-sub="สะสมของรายการในช่วงเวลานี้">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="card mb-3">
+    <div class="card-header">
+        <h5><i class="fa-solid fa-chart-column"></i> จำนวนที่เผยแพร่ตามช่วงเวลา</h5>
+        <span class="dash-tip" data-tip="ช่วงไม่เกิน 62 วันแสดงรายวัน นอกนั้นแสดงรายเดือน - เลือก &quot;ทั้งหมด&quot; แสดง 12 เดือนล่าสุด"><i class="fa-solid fa-circle-info"></i></span>
+    </div>
+    <div class="card-body chart-wrap">
+        <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+        <div id="chart_trend" style="height:320px;"></div>
+    </div>
+</div>
+
+    <div class="row g-3 mb-3">
+                    <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header"><h5><i class="fa-solid fa-chart-pie"></i> ข่าวสารแยกตามหมวด</h5></div>
+                    <div class="card-body chart-wrap">
+                        <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+                        <div id="chart_news_cat" style="height:300px;"></div>
+                    </div>
+                </div>
+            </div>
+                            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header"><h5><i class="fa-solid fa-chart-pie"></i> กิจกรรมแยกตามหมวด</h5></div>
+                    <div class="card-body chart-wrap">
+                        <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+                        <div id="chart_event_cat" style="height:300px;"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5><i class="fa-solid fa-fire"></i> 10 ข่าวสารที่มีผู้เข้าชมมากที่สุด</h5>
+            <span class="dash-tip" data-tip="ยอดเข้าชมสะสมทั้งหมดของแต่ละรายการ (ระบบไม่ได้เก็บยอดรายวัน) เฉพาะรายการที่เผยแพร่/จัด/สร้างในช่วงเวลาที่เลือก"><i class="fa-solid fa-circle-info"></i></span>
+        </div>
+        <div class="card-body chart-wrap">
+            <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+            <div id="chart_top_news" class="top-box"></div>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-3">
+                    <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5><i class="fa-solid fa-calendar-check"></i> 10 กิจกรรมที่มีผู้เข้าชมมากที่สุด</h5>
+                        <span class="dash-tip" data-tip="ยอดเข้าชมสะสมทั้งหมดของแต่ละรายการ (ระบบไม่ได้เก็บยอดรายวัน) เฉพาะรายการที่เผยแพร่/จัด/สร้างในช่วงเวลาที่เลือก"><i class="fa-solid fa-circle-info"></i></span>
+                    </div>
+                    <div class="card-body chart-wrap">
+                        <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+                        <div id="chart_top_events" class="top-box"></div>
+                    </div>
+                </div>
+            </div>
+                    <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5><i class="fa-solid fa-images"></i> 10 อัลบั้มที่มีผู้เข้าชมมากที่สุด</h5>
+                        <span class="dash-tip" data-tip="ยอดเข้าชมสะสมทั้งหมดของแต่ละรายการ (ระบบไม่ได้เก็บยอดรายวัน) เฉพาะรายการที่เผยแพร่/จัด/สร้างในช่วงเวลาที่เลือก"><i class="fa-solid fa-circle-info"></i></span>
+                    </div>
+                    <div class="card-body chart-wrap">
+                        <div class="chart-loading"><span class="spinner-border text-secondary"></span></div>
+                        <div id="chart_top_albums" class="top-box"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+<div class="row g-3">
+    <div class="col-lg-7">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5><i class="fa-regular fa-newspaper"></i> ข่าวสารล่าสุด</h5>
+                                    <a href="/news/admin/news" class="btn btn-sm btn-light startpreload">จัดการข่าวสาร</a>
+                            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0 dash-table">
+                        <thead>
+                            <tr>
+                                <th>หัวข้อ</th>
+                                <th style="width:120px;">หมวด</th>
+                                <th style="width:110px;">วันที่เผยแพร่</th>
+                                <th class="text-end" style="width:80px;">เข้าชม</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                                            <tr>
+                                    <td class="dash-title">
+                                        <a href="/news/news/41" target="_blank" rel="noopener" title="ศูนย์การเรียนรู้ รฟม. เปิดให้บริการห้องสมุดดิจิทัลรูปแบบใหม่ ค้นหาและยืมหนังสือได้ทุกที่ทุกเวลา">ศูนย์การเรียนรู้ รฟม. เปิดให้บริการห้องสมุดดิจิทัลรูปแบบใหม่ ค้นหาและยืมหนังสือได้ทุกที่ทุกเวลา</a>
+                                    </td>
+                                    <td class="text-truncate">ข่าวสาร</td>
+                                    <td class="text-nowrap">1 ต.ค. 2569</td>
+                                    <td class="text-end">437</td>
+                                </tr>
+                                                            <tr>
+                                    <td class="dash-title">
+                                        <a href="/news/news/42" target="_blank" rel="noopener" title="รฟม. ร่วมกิจกรรม World Car Free Day 2569 ชวนประชาชนใช้รถไฟฟ้าลดการใช้รถยนต์ส่วนตัว">รฟม. ร่วมกิจกรรม World Car Free Day 2569 ชวนประชาชนใช้รถไฟฟ้าลดการใช้รถยนต์ส่วนตัว</a>
+                                    </td>
+                                    <td class="text-truncate">ข่าวกิจกรรม</td>
+                                    <td class="text-nowrap">27 ก.ย. 2569</td>
+                                    <td class="text-end">1,952</td>
+                                </tr>
+                                                            <tr>
+                                    <td class="dash-title">
+                                        <a href="/news/news/43" target="_blank" rel="noopener" title="MRTA Learning Center เปิดคอร์สออนไลน์ &quot;พื้นฐานระบบขนส่งทางราง&quot; สำหรับบุคลากรและประชาชนทั่วไป">MRTA Learning Center เปิดคอร์สออนไลน์ &quot;พื้นฐานระบบขนส่งทางราง&quot; สำหรับบุคลากรและประชาชนทั่วไป</a>
+                                    </td>
+                                    <td class="text-truncate">ข่าวสาร</td>
+                                    <td class="text-nowrap">20 ก.ย. 2569</td>
+                                    <td class="text-end">397</td>
+                                </tr>
+                                                            <tr>
+                                    <td class="dash-title">
+                                        <a href="/news/news/44" target="_blank" rel="noopener" title="ประกาศวันหยุดให้บริการศูนย์การเรียนรู้ เนื่องในวันคล้ายวันพระบรมราชสมภพ">ประกาศวันหยุดให้บริการศูนย์การเรียนรู้ เนื่องในวันคล้ายวันพระบรมราชสมภพ</a>
+                                    </td>
+                                    <td class="text-truncate">ประกาศ</td>
+                                    <td class="text-nowrap">11 ก.ย. 2569</td>
+                                    <td class="text-end">2,849</td>
+                                </tr>
+                                                            <tr>
+                                    <td class="dash-title">
+                                        <a href="/news/news/45" target="_blank" rel="noopener" title="รฟม. จัดอบรมความปลอดภัยในการปฏิบัติงานบนพื้นที่ก่อสร้างรถไฟฟ้า ประจำปี 2569">รฟม. จัดอบรมความปลอดภัยในการปฏิบัติงานบนพื้นที่ก่อสร้างรถไฟฟ้า ประจำปี 2569</a>
+                                    </td>
+                                    <td class="text-truncate">ข่าวกิจกรรม</td>
+                                    <td class="text-nowrap">5 ก.ย. 2569</td>
+                                    <td class="text-end">624</td>
+                                </tr>
+                                                            <tr>
+                                    <td class="dash-title">
+                                        <a href="/news/news/46" target="_blank" rel="noopener" title="ขั้นตอนการซื้อบัตรโดยสารเที่ยวเดียวผ่านแอปพลิเคชัน สำหรับโครงการไทยช่วยไทยพลัส">ขั้นตอนการซื้อบัตรโดยสารเที่ยวเดียวผ่านแอปพลิเคชัน สำหรับโครงการไทยช่วยไทยพลัส</a>
+                                    </td>
+                                    <td class="text-truncate">ประชาสัมพันธ์</td>
+                                    <td class="text-nowrap">2 ก.ย. 2569</td>
+                                    <td class="text-end">2,298</td>
+                                </tr>
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5><i class="fa-regular fa-calendar"></i> กิจกรรมที่ยังไม่จบ</h5>
+                                    <a href="/news/admin/event" class="btn btn-sm btn-light startpreload">จัดการกิจกรรม</a>
+                            </div>
+            <div class="card-body">
+                                    <div class="text-center text-muted py-4">ยังไม่มีกิจกรรมที่กำลังจะจัด</div>
+                            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    $.extend(true, $.fn.dataTable.defaults, { language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."} });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+<script src="/_shared/inline/e7d005b618ca7beb.js"></script>
+
+
+<script src="/_shared/inline/73f5d66d14dcf0ca.js"></script>
+
+
+
+
+
+<style>
+.chart-wrap { position: relative; min-height: 120px; }
+.chart-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--card) 75%, transparent); z-index: 10; }
+.chart-loading.d-none { display: none !important; }
+.chart-empty { display: flex; align-items: center; justify-content: center; height: 100%; color: var(--text-3); font-size: 13px; }
+.dash-tip { cursor: help; color: var(--text-3); }
+/* ตารางข่าวสารล่าสุด - ฟอนต์ขนาดปกติ หัวข้อบรรทัดเดียว (ยาวตัด ... ชี้ดูชื่อเต็ม) */
+.dash-table { table-layout: fixed; font-size: 13.5px; }
+.dash-table th { font-size: 12px; font-weight: 600; color: var(--text-2); background: var(--surface); padding: 10px 16px; white-space: nowrap; }
+.dash-table td { padding: 12px 16px; color: var(--text-2); }
+.dash-title a { display: block; color: var(--text-1); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dash-title a:hover { color: var(--pri); text-decoration: underline; }
+.top-box { min-height: 120px; }
+.top-box .chart-empty { height: 120px; }
+</style>
+<script src="/_shared/a/back/theme_metronic/vendor/js/highcharts.js"></script>
+<script>
+$(function () {
+    var STATS_URL = "\/news\/admin\/dashboard\/stats";
+    var COLORS = ['#4e73df', '#f6c23e', '#6f42c1', '#1cc88a', '#e74a3b', '#36b9cc', '#fd7e14', '#858796', '#20c997', '#d63384'];
+
+    // สีกราฟตามธีมสว่าง/มืดของหลังบ้าน (ตัวแปร CSS ของ adminkit.css) - สลับธีมแล้ววาดใหม่ (ดู MutationObserver ด้านล่าง)
+    function applyTheme() {
+        var css = getComputedStyle(document.documentElement);
+        var v = function (name) { return css.getPropertyValue(name).trim(); };
+        var text = v('--text-1'), muted = v('--text-2'), border = v('--border'), card = v('--card');
+        var axis = { labels: { style: { color: muted } }, title: { style: { color: muted } }, lineColor: border, tickColor: border, gridLineColor: border };
+
+        Highcharts.setOptions({
+            colors: COLORS,
+            chart: { backgroundColor: 'transparent', style: { fontFamily: 'inherit' } },
+            lang: { thousandsSep: ',', noData: 'ไม่มีข้อมูล' },
+            credits: { enabled: false },
+            title: { text: '' },
+            xAxis: axis,
+            yAxis: axis,
+            legend: { itemStyle: { color: text }, itemHoverStyle: { color: muted } },
+            tooltip: { backgroundColor: card, borderColor: border, style: { color: text } },
+            plotOptions: {
+                series: { dataLabels: { color: text, style: { color: text, textOutline: 'none' } } },
+                pie: { borderColor: card, dataLabels: { color: text, style: { color: text, textOutline: 'none' } } },
+            },
+        });
+    }
+    applyTheme();
+
+    $('.dash-tip').each(function () {
+        new bootstrap.Tooltip(this, { title: this.getAttribute('data-tip'), placement: 'left' });
+    });
+
+    if (window.flatpickr) {
+        flatpickr('.js-date', {
+            dateFormat: 'Y-m-d', altInput: true, altFormat: 'j M Y', allowInput: false,
+            locale: (flatpickr.l10ns && flatpickr.l10ns.th) ? 'th' : 'default',
+            onChange: function () { load(); },
+        });
+    }
+
+    $('#ddl_period').on('change', function () {
+        var custom = this.value === 'customPeriod';
+        $('.js-custom').toggleClass('d-none', !custom);
+        if (!custom) load();
+    });
+
+    function fmt(n) { return Number(n || 0).toLocaleString(); }
+
+    function done(id) {
+        $('#' + id).closest('.chart-wrap').find('.chart-loading').addClass('d-none');
+    }
+
+    function empty(id, text) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        if (Highcharts.charts) Highcharts.charts.forEach(function (c) { if (c && c.renderTo === el) c.destroy(); });
+        el.innerHTML = '<div class="chart-empty">' + (text || 'ไม่มีข้อมูลในช่วงเวลานี้') + '</div>';
+        done(id);
+    }
+
+    function trendChart(data) {
+        var total = data.series.reduce(function (s, x) { return s + x.data.reduce(function (a, b) { return a + b; }, 0); }, 0);
+        if (!total) return empty('chart_trend');
+        Highcharts.chart('chart_trend', {
+            chart: { type: 'column' },
+            xAxis: { categories: data.categories, labels: { style: { fontSize: '11px' } } },
+            yAxis: { min: 0, allowDecimals: false, title: { text: 'จำนวน' } },
+            tooltip: { shared: true },
+            plotOptions: { column: { borderRadius: 3, groupPadding: .12 } },
+            series: data.series,
+        });
+        done('chart_trend');
+    }
+
+    function pieChart(id, data) {
+        if (!document.getElementById(id)) return;
+        if (!data || !data.length) return empty(id);
+        Highcharts.chart(id, {
+            chart: { type: 'pie' },
+            tooltip: { pointFormat: '<b>{point.y:,.0f}</b> รายการ ({point.percentage:.1f}%)' },
+            plotOptions: { pie: { innerSize: '55%', dataLabels: { enabled: true, format: '{point.name}: {point.y}', style: { fontWeight: 'normal' } }, showInLegend: false } },
+            series: [{ name: 'จำนวน', colorByPoint: true, data: data }],
+        });
+        done(id);
+    }
+
+    // แท่งแนวนอน / คลิกแท่งเปิดหน้านั้นบนเว็บ
+    // ชื่อบนแกน: บรรทัดเดียว ยาวตัด ... (ชื่อไทยยาว ๆ ตัดหลายบรรทัดแล้วซ้อนกันอ่านไม่ออก) - ชื่อเต็มดูใน tooltip
+    function topChart(id, data, color) {
+        if (!document.getElementById(id)) return;
+        if (!data || !data.length) return empty(id, 'ยังไม่มียอดเข้าชมในช่วงเวลานี้');
+        var wide = $('#' + id).width() || 600;
+        Highcharts.chart(id, {
+            chart: { type: 'bar', height: data.length * 40 + 70 },
+            xAxis: {
+                categories: data.map(function (d) { return d.name; }),
+                labels: { style: { fontSize: '13px', color: getComputedStyle(document.documentElement).getPropertyValue('--text-1').trim(),
+                    width: Math.round(Math.min(360, wide * .45)) + 'px', whiteSpace: 'nowrap', textOverflow: 'ellipsis' } },
+            },
+            yAxis: { min: 0, allowDecimals: false, title: { text: 'ครั้ง' } },
+            legend: { enabled: false },
+            tooltip: { headerFormat: '<span style="font-size:12px">{point.key}</span><br>', pointFormat: 'เข้าชม <b>{point.y:,.0f}</b> ครั้ง' },
+            plotOptions: { bar: { borderRadius: 3, color: color, cursor: 'pointer', pointPadding: .15, groupPadding: .05,
+                dataLabels: { enabled: true, format: '{point.y:,.0f}', style: { fontSize: '12px', fontWeight: '600' } },
+                point: { events: { click: function () { if (this.url) window.open(this.url, '_blank', 'noopener'); } } } } },
+            series: [{ name: 'เข้าชม', data: data }],
+        });
+        done(id);
+    }
+
+    function drawCharts(res) {
+        trendChart(res.trend);
+        pieChart('chart_news_cat', res.news_cat);
+        pieChart('chart_event_cat', res.event_cat);
+        topChart('chart_top_news', res.top_news, COLORS[0]);
+        topChart('chart_top_events', res.top_events, COLORS[1]);
+        topChart('chart_top_albums', res.top_albums, COLORS[2]);
+    }
+
+    // สลับธีม (ปุ่มพระจันทร์/พระอาทิตย์ บน topbar) = ตั้งสีใหม่แล้ววาดจากข้อมูลเดิม ไม่ต้องโหลดใหม่
+    var last = null;
+    new MutationObserver(function () {
+        applyTheme();
+        if (last) drawCharts(last);
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-bs-theme'] });
+
+    var xhr = null;
+    function load() {
+        var period = $('#ddl_period').val();
+        if (period === 'customPeriod' && !$('#dp_start').val() && !$('#dp_end').val()) return;
+
+        $('[data-sum]').html('<span class="spinner-border spinner-border-sm"></span>');
+        $('.chart-loading').removeClass('d-none');
+        if (xhr) xhr.abort();
+
+        xhr = $.post(STATS_URL, {
+            _token: "demo-token",
+            period: period,
+            period_start: $('#dp_start').val(),
+            period_end: $('#dp_end').val(),
+        }).done(function (res) {
+            var s = res.summary;
+            $('[data-sum]').each(function () { $(this).text(fmt(s[this.getAttribute('data-sum')])); });
+            $('[data-sub]').each(function () {
+                var text = this.getAttribute('data-sub').replace(/\{(\w+)\}/g, function (m, k) { return fmt(s[k]); });
+                $(this).text(text || ' ');
+            });
+
+            last = res;
+            drawCharts(res);
+        }).fail(function (x) {
+            if (x.statusText === 'abort') return;
+            $('[data-sum]').text('-');
+            $('.chart-wrap [id^="chart_"]').each(function () { empty(this.id, 'โหลดข้อมูลไม่สำเร็จ'); });
+        });
+    }
+
+    load();
+});
+</script>
+<script>
+    function logout() {
+        event.preventDefault();
+        Swal.fire({
+            title: "\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e23\u0e30\u0e1a\u0e1a?",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: "\u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e23\u0e30\u0e1a\u0e1a",
+            cancelButtonText: "\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01",
+            confirmButtonColor: '#e74a3b'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#logout_form').submit();
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

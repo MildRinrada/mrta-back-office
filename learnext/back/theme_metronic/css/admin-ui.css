@@ -1,0 +1,248 @@
+/* ═══════════════════════════════════════════════════════════════
+   หลังบ้าน learnext — ชุดโครงหน้ารายการ/ฟอร์มแบบเดียวกันทุกโมดูล (lx-*)
+   ใช้ตัวแปรของ adminkit (base.css) ทั้งหมด → รองรับธีมมืดเอง
+   โหลดต่อจาก legacy.css (header_meta) - หน้าที่ย้ายมาใช้โครงนี้แล้วไม่ต้องใช้ kt-portlet อีก
+═══════════════════════════════════════════════════════════════ */
+
+/* ───────── แถบตัวกรอง + ค้นหา (เหนือตาราง) ───────── */
+.lx-toolbar{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 16px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+.lx-toolbar:empty{display:none;}
+.lx-filter{display:flex;flex-direction:column;gap:4px;min-width:180px;}
+.lx-filter>label{font-size:12.5px;font-weight:500;color:var(--text-2);margin:0;}
+.lx-filter .form-select,.lx-filter .form-control{height:36px;font-size:13px;}
+.lx-filter .ts-wrapper .ts-control{min-height:36px!important;}
+.lx-toolbar .lx-grow{flex:1 1 220px;}
+.lx-toolbar .lx-end{margin-left:auto;display:flex;gap:8px;align-items:center;}
+.lx-search{position:relative;}
+.lx-search .form-control{padding-left:34px;height:36px;font-size:13px;}
+.lx-search>i,.lx-search>svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-3);font-size:13px;pointer-events:none;}
+
+/* ───────── ตาราง ───────── */
+.lx-table{width:100%;}
+.lx-table th.lx-col-no{width:56px;text-align:center;}
+.lx-table td.lx-col-no{text-align:center;color:var(--text-2);}
+.lx-table th.lx-col-img{width:120px;}
+.lx-table th.lx-col-status{width:150px;}
+.lx-table th.lx-col-actions,.lx-table td.lx-col-actions{width:110px;text-align:right;white-space:nowrap;}
+.lx-table th.lx-col-num,.lx-table td.lx-col-num{text-align:center;width:90px;}
+.lx-table td.lx-col-date{white-space:nowrap;color:var(--text-2);font-size:12.5px;}
+.lx-table a.lx-title{color:var(--text-1);font-weight:500;text-decoration:none;}
+.lx-table a.lx-title:hover{color:var(--pri);}
+.lx-sub{display:block;font-size:12px;color:var(--text-2);margin-top:2px;}
+.lx-thumb{display:inline-block;width:96px;height:54px;object-fit:cover;border-radius:6px;border:1px solid var(--border);background:var(--surface);}
+.lx-thumb.is-square{width:48px;height:48px;object-fit:contain;padding:2px;}
+.lx-thumb-empty{display:inline-flex;align-items:center;justify-content:center;color:var(--text-3);font-size:18px;}
+.lx-muted{color:var(--text-3);}
+/* ซ่อนช่องค้นหา/จำนวนแถวของ DataTables เมื่อหน้ามีแถบตัวกรองของตัวเอง (ใช้ .lx-search แทน) */
+.lx-hide-dt-search .dt-search{display:none;}
+
+/* ───────── ปุ่มจัดการต่อแถว (ไอคอน) ───────── */
+.lx-actions{display:inline-flex;gap:4px;justify-content:flex-end;}
+.lx-actions .action-btn{width:30px;height:30px;border:1px solid var(--border);background:var(--card);color:var(--text-2);font-size:12.5px;text-decoration:none;}
+.lx-actions .action-btn:hover{background:var(--surface);border-color:var(--text-3);}
+.lx-actions .action-btn.edit:hover{color:var(--pri);border-color:var(--pri);}
+.lx-actions .action-btn.view:hover{color:var(--info);border-color:var(--info);}
+.lx-actions .action-btn.delete:hover{color:var(--danger);border-color:var(--danger);}
+.lx-actions .action-btn.success:hover{color:var(--success);border-color:var(--success);}
+.lx-actions .action-btn:disabled,.lx-actions .action-btn.disabled{opacity:.4;pointer-events:none;}
+.lx-actions .dropdown-menu{min-width:170px;}
+.lx-actions .dropdown-item{display:flex;align-items:center;gap:8px;}
+.lx-actions .dropdown-item i,.lx-actions .dropdown-item svg{width:14px;color:var(--text-2);}
+
+/* ───────── สวิตช์สถานะในตาราง ───────── */
+.lx-switch{display:inline-flex;align-items:center;gap:8px;min-height:24px;margin:0;padding:0;}
+.lx-switch .form-check-input{float:none;margin:0;width:38px;height:21px;cursor:pointer;flex-shrink:0;}
+.lx-switch .form-check-input:checked{background-color:var(--success);border-color:var(--success);}
+.lx-switch .form-check-input:focus{box-shadow:0 0 0 3px color-mix(in srgb,var(--success) 20%,transparent);}
+.lx-switch .lx-switch-text{font-size:12.5px;color:var(--text-2);white-space:nowrap;}
+.lx-switch.is-on .lx-switch-text{color:var(--success);font-weight:500;}
+.lx-switch.is-busy{opacity:.6;pointer-events:none;}
+
+/* ป้ายสถานะ (ใช้ที่ไม่ให้สลับได้) */
+.lx-pill{display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:500;white-space:nowrap;}
+.lx-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;}
+.lx-pill.is-on{background:color-mix(in srgb,var(--success) 14%,transparent);color:var(--success);}
+.lx-pill.is-off{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger);}
+.lx-pill.is-wait{background:color-mix(in srgb,var(--warning) 18%,transparent);color:#9a6b00;}
+.lx-pill.is-neutral{background:var(--surface);color:var(--text-2);}
+[data-bs-theme="dark"] .lx-pill.is-wait{color:var(--warning);}
+
+/* ───────── ฟอร์ม ───────── */
+.lx-form .form-label{font-size:13.5px;font-weight:600;color:var(--text-1);margin-bottom:6px;}
+.lx-form .req{color:var(--danger);margin-left:3px;font-weight:600;}
+.lx-form .form-control,.lx-form .form-select{min-height:38px;font-size:13.5px;}
+.lx-form textarea.form-control{min-height:96px;}
+/* ข้อความช่วย - ใช้ได้ทั้งในฟอร์มและในการ์ดนอกฟอร์ม (เดิมผูกกับ .lx-form อย่างเดียว) */
+.lx-help{font-size:12.5px;color:var(--text-2);margin-top:6px;line-height:1.6;}
+.lx-help i,.lx-help svg{width:14px;margin-right:4px;color:var(--text-3);}
+.lx-form .form-check-label{font-size:13.5px;}
+.lx-form .invalid-feedback{font-size:12.5px;}
+.lx-form .lx-section{margin:8px 0 4px;padding-bottom:8px;border-bottom:1px solid var(--border);font-size:13px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.4px;}
+.lx-form .lx-choices{display:flex;flex-wrap:wrap;gap:8px 20px;min-height:38px;align-items:center;}
+.lx-form .lx-choices .form-check{margin:0;}
+.lx-form .lx-narrow{max-width:320px;}
+
+/* รูปภาพ: กล่องตัวอย่าง + ช่องเลือกไฟล์ (includes/ui/image_input) */
+.lx-img{display:flex;gap:16px;align-items:flex-start;}
+.lx-img-preview{flex:none;width:200px;height:120px;border:1px dashed var(--border);border-radius:8px;background:var(--surface);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.lx-img-preview.is-square{width:120px;height:120px;}
+.lx-img-preview.is-wide{width:280px;height:120px;}
+.lx-img-preview img{max-width:100%;max-height:100%;object-fit:contain;}
+.lx-img-preview .lx-img-empty{display:flex;flex-direction:column;align-items:center;gap:6px;padding:0 8px;color:var(--text-3);font-size:12px;line-height:1.4;text-align:center;}
+.lx-img-preview .lx-img-empty i,.lx-img-preview .lx-img-empty svg{font-size:22px;width:22px;height:22px;}
+.lx-img-preview.has-image .lx-img-empty{display:none;}
+.lx-img-preview:not(.has-image) img{display:none;}
+/* ยังไม่มีรูป แต่ระบบมีภาพเริ่มต้น - แสดงภาพนั้นพร้อมป้ายมุมล่าง */
+.lx-img-preview.is-placeholder::after{content:attr(data-ph-label);position:absolute;left:6px;bottom:6px;padding:1px 8px;border-radius:4px;font-size:11px;line-height:1.6;color:#fff;background:rgba(15,23,42,.6);}
+.lx-img-body{flex:1;min-width:0;}
+.lx-img-body .lx-img-new{display:none;font-size:12.5px;color:var(--success);margin-top:6px;}
+.lx-img-body.is-changed .lx-img-new{display:block;}
+
+/* กล่องรูปที่คลิก/ลากไฟล์มาวางได้ - แทนปุ่ม "Choose File" (ชุดเดียวกับ portal / belib / auth)
+   data-img-pick + includes/ui/img_pick (ปุ่มกล้อง) - สคริปต์ใน includes/script
+     [data-img-pick]   กล่องที่คลิก/วางไฟล์ได้ - มี input[type=file] อยู่ข้างใน หรือใส่ selector: data-img-pick="#id"
+     .img-pick-wrap    กรอบรอบรูปตัวอย่าง (กว้าง-สูงตามรูป) / .is-empty = ยังไม่มีรูป แสดง .img-pick-empty แทน
+     .img-pick-zone    กล่องวางไฟล์แบบไม่มีรูป (ไม่มีตัวอย่าง / หลายไฟล์)
+     .is-pick-off      ปิดชั่วคราว (เช่นฟอร์มอ่านอย่างเดียว)
+   input ซ่อนแบบมองไม่เห็นแต่ยังอยู่ในหน้า (ไม่ใช่ display:none) - ช่องบังคับเลือกยังให้เบราว์เซอร์/jquery.validate เตือนได้ */
+[data-img-pick]{position:relative;cursor:pointer;}
+.img-pick-input{position:absolute !important;left:50%;bottom:0;width:1px !important;height:1px !important;padding:0 !important;border:0 !important;opacity:0;pointer-events:none;}
+/* ชี้เมาส์ = หรี่รูป + ข้อความ / ไอคอนกล้องมีที่ปุ่มมุมขวาล่างที่เดียว */
+.img-pick-hover{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:6px;border-radius:inherit;background:rgba(15,23,42,.45);color:#fff;font-size:12px;line-height:1.4;text-align:center;opacity:0;transition:opacity .15s;pointer-events:none;}
+[data-img-pick]:hover .img-pick-hover,[data-img-pick].is-drop .img-pick-hover{opacity:1;}
+[data-img-pick].is-drop{outline:2px dashed var(--pri);outline-offset:3px;}
+.img-pick-cam{position:absolute;right:6px;bottom:6px;z-index:3;display:flex;align-items:center;justify-content:center;width:30px;height:30px;padding:0;border:2px solid #fff;border-radius:50%;background:var(--pri);color:#fff;font-size:13px;line-height:1;box-shadow:0 2px 6px rgba(15,23,42,.3);cursor:pointer;transition:transform .15s;}
+.img-pick-cam i,.img-pick-cam svg{width:13px;height:13px;}
+.img-pick-cam:hover{transform:scale(1.08);}
+.img-pick-cam:focus-visible{outline:2px solid var(--pri);outline-offset:2px;}
+/* กล่องตัวอย่างของ image_input: ไม่มีรูป = ไม่ต้องหรี่ (ข้อความอยู่ในกล่องแล้ว) */
+.lx-img-preview:not(.has-image) .img-pick-hover{display:none;}
+.lx-img-preview[data-img-pick]:not(.has-image):hover{border-color:var(--pri);}
+/* กล่องจัตุรัส 120px: ข้อความ "คลิกหรือลากรูปมาวาง" ขนาด 12px ตัดคำกลางคำ - ลดลงให้อยู่บรรทัดเดียว */
+.lx-img-preview.is-square .lx-img-empty,.lx-img-preview.is-square .img-pick-hover{font-size:11px;padding-left:4px;padding-right:4px;}
+
+.img-pick-wrap{display:inline-block;vertical-align:top;max-width:100%;border-radius:8px;line-height:0;}
+.img-pick-wrap > img{border-radius:inherit;}
+.img-pick-wrap.is-empty > img{display:none;}
+.img-pick-empty{display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:220px;height:124px;max-width:100%;padding:8px;border:2px dashed var(--border);border-radius:8px;color:var(--text-2);font-size:12px;line-height:1.4;text-align:center;transition:border-color .15s;}
+.img-pick-empty > i,.img-pick-empty > svg{font-size:22px;width:22px;height:22px;color:var(--text-3);}
+.img-pick-wrap.is-empty .img-pick-empty{display:flex;}
+.img-pick-wrap.is-empty .img-pick-hover{display:none;}
+.img-pick-wrap.is-empty:hover .img-pick-empty,.img-pick-wrap.is-empty.is-drop .img-pick-empty{border-color:var(--pri);}
+
+.img-pick-zone{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:110px;padding:16px;border:2px dashed var(--border);border-radius:10px;color:var(--text-2);font-size:13px;text-align:center;transition:border-color .15s,background-color .15s;}
+.img-pick-zone > i,.img-pick-zone > svg{font-size:22px;width:22px;height:22px;color:var(--pri);}
+.img-pick-zone:hover,.img-pick-zone.is-drop{border-color:var(--pri);background:rgba(78,115,223,.06);outline:0;}
+.img-pick-zone .img-pick-file{font-size:12px;font-weight:500;word-break:break-all;}
+.img-pick-zone .img-pick-file:empty{display:none;}
+
+[data-img-pick].is-pick-off,fieldset:disabled [data-img-pick]{cursor:default;}
+[data-img-pick].is-pick-off .img-pick-cam,[data-img-pick].is-pick-off .img-pick-hover,fieldset:disabled .img-pick-cam,fieldset:disabled .img-pick-hover{display:none;}
+/* ปิดชั่วคราว + ยังไม่มีรูป: เหลือแค่ไอคอน (ข้อความ "คลิกหรือลาก" ไม่จริงตอนนี้) */
+[data-img-pick].is-pick-off .img-pick-empty{font-size:0;gap:0;}
+[data-img-pick].is-pick-off:hover .img-pick-empty{border-color:var(--border);}
+
+/* ท้ายฟอร์ม: ยกเลิก / บันทึก ชิดขวาเสมอ (includes/ui/form_footer) */
+.lx-form-footer{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-top:24px;padding-top:16px;border-top:1px solid var(--border);}
+.lx-form-footer .lx-footer-note{margin-right:auto;font-size:12.5px;color:var(--text-2);}
+.lx-form-footer .btn{min-width:110px;justify-content:center;}
+.lx-form-footer .btn .spinner-border{width:14px;height:14px;border-width:2px;margin-right:6px;display:none;}
+.lx-form-footer .btn.is-busy .spinner-border{display:inline-block;}
+
+/* ───────── หัวการ์ด: จำนวนรายการ / ปุ่มด้านขวา ───────── */
+.card-header .lx-count{font-size:12px;font-weight:500;color:var(--text-2);background:var(--surface);border-radius:999px;padding:2px 10px;margin-left:8px;}
+.card-header .btn{white-space:nowrap;}
+
+/* ───────── กล่องว่าง ───────── */
+.lx-empty{padding:40px 16px;text-align:center;color:var(--text-2);}
+.lx-empty i,.lx-empty svg{font-size:28px;width:28px;height:28px;color:var(--text-3);margin-bottom:10px;}
+
+/* ───────── จอเล็ก ───────── */
+@media (max-width:767.98px){
+    .lx-filter{min-width:0;flex:1 1 100%;}
+    .lx-toolbar .lx-end{margin-left:0;width:100%;}
+    .lx-img{flex-direction:column;}
+    .lx-form-footer{flex-wrap:wrap;}
+    .lx-form-footer .lx-footer-note{width:100%;margin-bottom:6px;}
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ตัวแก้ไขหลักสูตร (modules/course/form) - เมนูซ้ายชั้นเดียวแบ่งกลุ่ม + เนื้อหาขวา
+   เนื้อหาแต่ละขั้นยังเป็นไฟล์เดิม (form_step_1..5) โหลดด้วย ajax - เมนูย่อยของไฟล์เดิม (.kt-wizard-v2__aside) ซ่อนไว้
+═══════════════════════════════════════════════════════════════ */
+.lxc{display:flex;gap:24px;align-items:flex-start;}
+/* เมนูสูงกว่าจอ (จอเตี้ย/ซูม) เลื่อนในตัวเองได้ - ซ่อนแถบเลื่อน แต่ยังเลื่อนด้วยล้อเมาส์/ทัชแพด/นิ้วได้
+   เลื่อนจนสุดเมนูแล้วหน้าเลื่อนต่อ (ไม่กั้น overscroll) เมนูจึงขึ้นไปติดขอบบนและเห็นรายการสุดท้ายครบ */
+.lxc-nav{flex:0 0 236px;width:236px;position:sticky;top:76px;max-height:calc(100vh - 92px);overflow-y:auto;scrollbar-width:none;}
+.lxc-nav::-webkit-scrollbar{display:none;}
+.lxc-group{margin-bottom:14px;}
+.lxc-group-title{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--text-3);padding:0 12px 6px;}
+.lxc-item{display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border:0;border-radius:8px;background:transparent;color:var(--text-2);font-size:13.5px;font-weight:500;text-align:left;text-decoration:none;cursor:pointer;transition:background .15s,color .15s;}
+.lxc-item i,.lxc-item svg{width:18px;text-align:center;font-size:14px;flex:none;color:var(--text-3);}
+.lxc-item:hover{background:var(--surface);color:var(--text-1);}
+.lxc-item.is-active{background:color-mix(in srgb,var(--pri) 12%,transparent);color:var(--pri);}
+.lxc-item.is-active i,.lxc-item.is-active svg{color:var(--pri);}
+.lxc-item.is-disabled{opacity:.45;cursor:not-allowed;}
+.lxc-item .lxc-badge{margin-left:auto;font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--surface);color:var(--text-2);}
+.lxc-item.is-active .lxc-badge{background:var(--pri);color:#fff;}
+.lxc-note{margin:4px 12px 0;font-size:12px;color:var(--text-3);line-height:1.5;}
+.lxc-body{flex:1;min-width:0;}
+.lxc-body #main_content_area{min-height:360px;}
+/* ซ่อนเมนูย่อยของไฟล์ขั้นตอนเดิม - เมนูซ้ายของตัวแก้ไขทำหน้าที่แทน */
+.lxc .kt-wizard-v2__aside{display:none!important;}
+.lxc .kt-wizard-v2__wrapper,.lxc .kt-wizard-v2__wrapper.px-5{padding:0!important;}
+.lxc .kt-wizard-v2{display:block;}
+/* หัวข้อของแต่ละขั้น (legacy.css ไม่มี --md) */
+.lxc .kt-heading--md{display:flex;align-items:center;gap:10px;margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:15px;font-weight:600;color:var(--text-1);}
+.lxc .kt-heading--md .fa-info-circle{color:var(--text-3);font-size:13px;}
+.lxc .th-sec,.lxc .th-pri{font-family:inherit;}
+.lxc .fs-16{font-size:14px!important;}
+.lxc .form-group>label,.lxc .form-group>.d-block>label{font-size:13.5px;font-weight:600;color:var(--text-1);margin-bottom:6px;}
+.lxc .form-group>label .fa-info-circle{color:var(--text-3);margin-left:4px;cursor:help;}
+.lxc .form-text{color:var(--text-2);}
+.lxc .form-group .kt-select2,.lxc .ts-wrapper{min-width:0;}
+.lxc .btn-update-form-step{min-width:120px;}
+.lxc .alert.bg-label-danger{background:color-mix(in srgb,var(--danger) 10%,transparent);border:1px solid color-mix(in srgb,var(--danger) 30%,transparent);color:var(--danger);}
+/* ป้ายสถานะในหัวการ์ด */
+.lxc-status{margin-left:10px;}
+.popover{font-size:13px;max-width:360px;}
+.popover ul{margin:0;padding-left:18px;}
+@media (max-width:991.98px){
+    .lxc{flex-direction:column;}
+    .lxc-nav{position:static;width:100%;flex-basis:auto;display:flex;flex-wrap:wrap;gap:4px 16px;max-height:none;overflow:visible;}
+    .lxc-group{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;}
+    .lxc-group-title{width:100%;}
+    .lxc-item{width:auto;}
+}
+
+/* ═══ ฟอร์มสื่อการเรียนรู้: การ์ดเลือกประเภท / กล่องไฟล์ปัจจุบัน ═══ */
+.lx-type-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.lx-type-card{position:relative;display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:var(--card);cursor:pointer;transition:border-color .15s,box-shadow .15s;}
+.lx-type-card input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer;}
+.lx-type-card .lx-type-icon{flex:none;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--surface);color:var(--pri);font-size:17px;}
+.lx-type-card .lx-type-name{font-size:14px;font-weight:600;color:var(--text-1);line-height:1.3;}
+.lx-type-card .lx-type-desc{font-size:12px;color:var(--text-2);margin-top:3px;line-height:1.4;}
+.lx-type-card:hover{border-color:var(--text-3);}
+.lx-type-card:has(input:checked){border-color:var(--pri);box-shadow:0 0 0 3px color-mix(in srgb,var(--pri) 15%,transparent);}
+.lx-type-card:has(input:checked) .lx-type-icon{background:var(--pri);color:#fff;}
+.lx-type-card:has(input:disabled){cursor:default;opacity:.55;}
+.lx-type-card:has(input:disabled:checked){opacity:1;}
+.lx-file{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--surface);font-size:13px;color:var(--text-1);text-decoration:none;max-width:100%;}
+.lx-file i,.lx-file svg{color:var(--pri);font-size:16px;flex:none;}
+.lx-file .lx-file-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.lx-file .lx-file-size{color:var(--text-2);font-size:12px;flex:none;}
+.lx-file:hover{border-color:var(--pri);color:var(--pri);}
+.lx-subcard{border:1px solid var(--border);border-radius:10px;padding:16px;background:var(--card);}
+.lx-subcard + .lx-subcard{margin-top:12px;}
+.lx-subcard-title{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13.5px;font-weight:600;color:var(--text-1);margin-bottom:12px;}
+.lx-subcard.is-off{opacity:.45;pointer-events:none;}
+/* แท็บในฟอร์ม (ใบประกาศหลักสูตรภายนอก) */
+.lx-tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:20px;}
+.lx-tabs .nav-link{border:0;border-bottom:2px solid transparent;border-radius:0;padding:10px 16px;font-size:13.5px;font-weight:500;color:var(--text-2);background:transparent;display:inline-flex;align-items:center;gap:8px;}
+.lx-tabs .nav-link:hover{color:var(--pri);}
+.lx-tabs .nav-link.active{color:var(--pri);border-bottom-color:var(--pri);}
+.lx-tabs .nav-link.disabled{opacity:.5;}
+.lx-tabs .lx-badge{display:inline-flex;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--surface);color:var(--text-2);font-size:11px;font-weight:600;align-items:center;justify-content:center;}
+.lx-tabs .nav-link.active .lx-badge{background:var(--pri);color:#fff;}
+.lx-empty{padding:28px 16px;text-align:center;color:var(--text-2);font-size:13.5px;border:1px dashed var(--border);border-radius:10px;background:var(--surface);}
+.lx-empty i,.lx-empty svg{display:block;margin:0 auto 8px;font-size:22px;color:var(--text-3);}

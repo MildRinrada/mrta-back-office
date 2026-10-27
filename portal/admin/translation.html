@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><script>window.__DEMO={"sys": "portal", "path": "/admin/translation", "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-portal.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จัดการคำแปล | MRTA Learning Center</title>
+    <script>
+        (function(){var m=document.cookie.match(/adminkit_theme=([^;]+)/);if(m)document.documentElement.setAttribute('data-bs-theme',m[1]);})();
+    </script>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778366" rel="stylesheet">
+<link href="/portal/back/theme_metronic/css/components.css?v=1792123906" rel="stylesheet">
+
+<link href="/portal/back/theme_metronic/css/admin-ui.css?v=1792121947" rel="stylesheet">
+
+<link href="/portal/back/theme_metronic/css/sidebar-mrta.css?v=1792640351" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+
+
+<style>
+    .tr-intro{color:var(--text-2);font-size:13px;margin:-4px 0 14px;}
+    .tr-notice{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:10px;margin-bottom:16px;font-size:13.5px;
+        background:color-mix(in srgb,var(--warning) 14%,transparent);border:1px solid color-mix(in srgb,var(--warning) 45%,transparent);}
+    .tr-notice i{color:#9a6b00;font-size:18px;margin-top:2px;}
+    [data-bs-theme="dark"] .tr-notice i{color:var(--warning);}
+    .tr-notice code{font-size:12.5px;}
+    .tr-stats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;}
+    .tr-stat{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:999px;padding:3px 12px;font-size:12.5px;color:var(--text-2);background:var(--card);cursor:pointer;}
+    .tr-stat strong{color:var(--text-1);font-weight:600;}
+    .tr-stat.is-active{border-color:var(--pri);color:var(--pri);}
+    .tr-stat .dot{width:8px;height:8px;border-radius:50%;background:var(--text-3);}
+    .tr-stat.is-edited .dot{background:var(--success);}
+    .lx-table td{vertical-align:top;}
+    .tr-group{display:inline-block;font-size:12.5px;font-weight:500;color:var(--text-1);background:var(--surface);border-radius:6px;padding:1px 8px;}
+    .tr-group-file{display:block;margin-top:3px;font-size:11px;color:var(--text-2);font-family:var(--bs-font-monospace);}
+    .tr-key{font-size:12px;color:var(--text-1);background:transparent;padding:0;word-break:break-all;}
+    .tr-val{white-space:pre-line;word-break:break-word;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:13px;}
+    .tr-edited{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--success);margin-top:2px;}
+    .tr-edited i{font-size:9px;}
+    /* แถวที่แก้แล้ว: แถบเขียวซ้าย / ช่องภาษาที่แก้: ป้าย + ปุ่มคืนค่าเดิมเฉพาะภาษานั้น + ค่าเดิมตัวจาง */
+    tr.tr-row-edited > td:first-child{box-shadow:inset 3px 0 0 var(--success);}
+    .tr-edited-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:4px;}
+    .tr-reset-one{display:inline-flex;align-items:center;gap:4px;padding:1px 8px;border:1px solid var(--border);border-radius:999px;background:var(--card);color:var(--danger);font-size:11.5px;line-height:1.6;cursor:pointer;}
+    .tr-reset-one:hover{border-color:var(--danger);}
+    .tr-orig{margin-top:3px;font-size:11.5px;color:var(--text-2);word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+    .tr-status-langs{margin-top:3px;font-size:11.5px;color:var(--text-2);}
+    .tr-toolbar{flex-wrap:wrap;align-items:flex-end;}
+    .tr-clear{white-space:nowrap;}
+    #main-table th.tr-col-group{width:160px;}
+    #main-table th.tr-col-key{width:22%;}
+    #main-table th.tr-col-status{width:120px;}
+    /* modal แก้ไข */
+    .tr-key-head{font-family:var(--bs-font-monospace);font-size:12.5px;color:var(--text-2);word-break:break-all;}
+    .tr-lang{border:1px solid var(--border);border-radius:10px;padding:14px;background:var(--card);}
+    .tr-lang + .tr-lang{margin-top:12px;}
+    .tr-lang-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;}
+    .tr-lang-head label{font-weight:600;margin:0;}
+    .tr-lang textarea{font-size:13.5px;min-height:76px;}
+    .tr-ref{margin-top:10px;background:var(--surface);border-radius:8px;padding:8px 10px;font-size:12.5px;}
+    .tr-ref-label{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--text-2);font-size:11.5px;margin-bottom:2px;}
+    .tr-ref-text{white-space:pre-line;word-break:break-word;color:var(--text-1);}
+    .tr-ref-text.is-none{color:var(--text-3);font-style:italic;}
+    .tr-hints{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px;font-size:12px;color:var(--text-2);}
+    .tr-chip{font-family:var(--bs-font-monospace);font-size:11.5px;border-radius:6px;padding:0 6px;background:color-mix(in srgb,var(--pri) 10%,transparent);color:var(--pri);}
+    .tr-chip.is-bad{background:color-mix(in srgb,var(--danger) 12%,transparent);color:var(--danger);}
+    .tr-warn{margin-top:6px;font-size:12px;color:#9a6b00;}
+    [data-bs-theme="dark"] .tr-warn{color:var(--warning);}
+    .tr-warn:empty{display:none;}
+    .tr-error{margin-top:6px;font-size:12px;color:var(--danger);}
+    .tr-error:empty{display:none;}
+    /* modal นำเข้า */
+    .tr-imp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px;}
+    .tr-imp-num{border:1px solid var(--border);border-radius:8px;padding:8px 10px;}
+    .tr-imp-num strong{display:block;font-size:18px;color:var(--text-1);}
+    .tr-imp-num span{font-size:12px;color:var(--text-2);}
+    .tr-imp-num.is-bad strong{color:var(--danger);}
+    .tr-imp-list{margin:8px 0 0;padding-left:18px;font-size:12.5px;max-height:180px;overflow:auto;}
+</style>
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/portal/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/portal/front/image/logo/logo-footer.svg?v=1790050893" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    
+    <div class="nav-item">
+        <a href="/portal/admin" class="nav-link  startpreload">
+            <i class="fa-solid fa-house"></i>
+            <span>ภาพรวมสถิติ</span>
+        </a>
+    </div>
+    <div class="nav-item">
+    <a href="/portal/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+    
+    <div class="nav-heading">จัดการ</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-regular fa-comments"></i>
+        <span>ถาม-ตอบ &amp; ความคิดเห็น</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        
+                <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ถาม-ตอบ (Q&amp;A)</div>
+                <a href="/portal/admin/qa" class="nav-link  startpreload">
+            <i class="fa-solid fa-list-check"></i> คิวกลั่นกรองคำถามและคำตอบ
+        </a>
+        <a href="/portal/admin/qa/category" class="nav-link  startpreload">
+            <i class="fa-solid fa-folder-open"></i> จัดการหมวดหมู่คำถาม
+        </a>
+        <a href="/portal/admin/qa/archive" class="nav-link  startpreload">
+            <i class="fa-solid fa-box-archive"></i> ปิดคำถาม / จัดเก็บ
+        </a>
+                
+                <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ความคิดเห็นจากผู้ใช้</div>
+                                        <a href="/portal/admin/manage/comment" class="nav-link  startpreload">
+                <i class="fa-regular fa-comment"></i> ความคิดเห็น
+            </a>
+                                                    <a href="/portal/admin/manage/customer-review" class="nav-link  startpreload">
+                <i class="fa-regular fa-comment-dots"></i> รีวิวจากผู้ใช้
+            </a>
+                        </div>
+</div>
+
+
+<div class="nav-item">
+        <a href="/portal/admin/qa/faq" class="nav-link  startpreload">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>คำถามที่พบบ่อย (FAQ)</span>
+    </a>
+    </div>
+    <div class="nav-heading mt-2">USER &amp; PERMISSION</div>
+
+
+
+
+
+    <div class="nav-item">
+        <a href="/portal/admin/role" class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>สิทธิ์และบทบาทผู้ใช้งาน</span>
+        </a>
+    </div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/user-group" class="nav-link  startpreload">
+        <i class="fa-solid fa-users-gear"></i>
+        <span>กลุ่มผู้ใช้งาน</span>
+    </a>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-user"></i>
+        <span>ผู้ใช้งานและสิทธิ์</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/portal/admin/user" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> บัญชีผู้ใช้
+        </a>
+        <a href="/portal/admin/user/requests" class="nav-link  startpreload">
+            <i class="fa-solid fa-user-clock"></i> คำขอสมัครและการยืนยันอีเมล
+        </a>
+        <a href="/portal/admin/user/directory" class="nav-link  startpreload">
+            <i class="fa-solid fa-network-wired"></i> เชื่อมต่อ LDAP / AD / SSO
+        </a>
+        <a href="/portal/admin/user/mfa" class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i> ตั้งค่า MFA สำหรับทีมหลังบ้าน
+        </a>
+    </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-sitemap"></i>
+        <span>จัดการหน่วยงาน</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/portal/admin/department" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> หน่วยงานทั้งหมด
+        </a>
+        <a href="/portal/admin/department/sync" class="nav-link  startpreload">
+            <i class="fa-solid fa-arrows-rotate"></i> ซิงค์จาก AD/LDAP
+        </a>
+        <a href="/portal/admin/department/settings" class="nav-link  startpreload">
+            <i class="fa-solid fa-gear"></i> ตั้งค่าการซิงค์อัตโนมัติ
+        </a>
+        <a href="/portal/admin/department/logs" class="nav-link  startpreload">
+            <i class="fa-solid fa-clock-rotate-left"></i> ประวัติการซิงค์ (Log)
+        </a>
+    </div>
+</div>
+    <div class="nav-item">
+    <a href="/portal/admin/notifications" class="nav-link  startpreload">
+        <i class="fa-solid fa-bell"></i>
+        <span>การแจ้งเตือน</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">SETTING</div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/banner" class="nav-link  startpreload">
+        <i class="fa-solid fa-image"></i>
+        <span>แบนเนอร์</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    
+        <a href="/portal/admin/about-us" class="nav-link  startpreload">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>หน้าเกี่ยวกับเรา</span>
+    </a>
+    </div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/system-setting" class="nav-link  startpreload">
+        <i class="fa-solid fa-gear"></i>
+        <span>ตั้งค่าระบบ</span>
+    </a>
+</div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/translation" class="nav-link active startpreload">
+        <i class="fa-solid fa-language"></i>
+        <span>จัดการคำแปล</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">รายงาน</div>
+
+<div class="nav-item">
+    <a href="/portal/admin/report/statistics" class="nav-link  startpreload">
+        <i class="fa-solid fa-chart-column"></i>
+        <span>รายงานสถิติ</span>
+    </a>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>ผู้ใช้งาน &amp; Engagement</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การเยี่ยมชมเว็บ</div>
+        <a href="/portal/admin/report/user/visitor-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-globe"></i> ประวัติการเยี่ยมชมเว็บ
+        </a>
+        <a href="/portal/admin/report/user/visitor-log-by-user"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-user-clock"></i> การเยี่ยมชมแยกตามสมาชิก
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การเข้าสู่ระบบ</div>
+        <a href="/portal/admin/report/user/login-summary"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-right-to-bracket"></i> สรุปการเข้าสู่ระบบรายเดือน
+        </a>
+        <a href="/portal/admin/report/user/access-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i> บันทึกการเข้าสู่ระบบ
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การคลิกใช้งาน</div>
+        <a href="/portal/admin/report/user/logs-clicks"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-computer-mouse"></i> บันทึกการคลิกใช้งาน
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การวิเคราะห์</div>
+        <a href="/portal/admin/report/user/user-retention"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-repeat"></i> สถิติสมาชิกที่กลับมาใช้งาน
+        </a>
+        <a href="/portal/admin/report/user/session-depth"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-layer-group"></i> สถิติการใช้งานต่อครั้ง
+        </a>
+
+    </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>ตรวจสอบและ Compliance</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">บันทึกระบบ</div>
+        <a href="/portal/admin/report/audit/email-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-envelope-circle-check"></i> ประวัติการส่งอีเมล
+        </a>
+
+        
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ข้อมูลส่วนบุคคล (PDPA)</div>
+        <a href="/portal/admin/report/audit/pdpa-access-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-lock"></i> บันทึกการเข้าถึงข้อมูลส่วนบุคคล
+        </a>
+
+    </div>
+</div>
+    <div class="nav-item">
+    <a href="/portal/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+        </nav>    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <link rel="stylesheet" href="/_shared/inline/cfcd662ce6b1c449.css">
+<header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ -</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/portal/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        <!-- Notification Dropdown
+             แท็บ "แจ้งเตือน" = admin_notifications ของผู้ใช้ทุกระบบในเครือ (Workflow อนุมัติเนื้อหา TOR 3.5.4) - ผู้ใช้หลังบ้านทุกคน
+             แท็บ "ความปลอดภัย" = IP เสี่ยงสูง เฉพาะ Super Admin (สิทธิ์เดียวกับหน้า admin/security/threats)
+             แท็บเกินกำหนด/การจองเดิมเป็นงานยืม-คืนของ belib ถอดออกพร้อมโมดูลจัดการทรัพยากรแล้ว -->
+                <div class="dropdown noti-dropdown" id="notiDropdown">
+            <button class="topbar-btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="การแจ้งเตือน">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge-count" id="notiCount" style="display:none;">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end shadow-sm">
+                <div class="header-dropdown justify-content-between">
+                    <span class="header-txt-noti">การแจ้งเตือน</span>
+                    <a href="#" id="notiReadAll" class="text-decoration-none" style="font-size:12px;display:none;">
+                        <i class="fa-solid fa-check-double"></i> อ่านทั้งหมด
+                    </a>
+                </div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="notiInboxTab" data-bs-toggle="tab" data-bs-target="#notiInbox" type="button" role="tab">
+                            แจ้งเตือน
+                            <span class="badge bg-primary ms-1" id="countInbox" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                                    </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="notiInbox" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-solid fa-globe" style="width:16px;"></i> Portal
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/portal/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title"><i class="fa-solid fa-language"></i> จัดการคำแปล</div>
+            <div class="d-flex gap-2">
+                            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        <div class="card">
+            
+                                    <div class="card-header">
+                <h5>
+                                            <i class="fa-solid fa-clipboard-list"></i> คำแปลทั้งหมด<span class="lx-count" id="lx_count"></span>                                    </h5>
+                <div class="d-flex flex-wrap gap-2">
+                                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#trImportModal"><i class="fa-solid fa-file-import"></i> นำเข้า Excel</button>
+        <a href="/portal/admin/translation/export" class="btn btn-sm btn-outline-success" id="trExport" data-no-preload><i class="fa-solid fa-file-excel"></i> ส่งออก Excel</a>
+                                    </div>
+            </div>
+                        <div class="card-body">
+                <p class="tr-intro">แก้ข้อความภาษาไทย/อังกฤษของเว็บไซต์โดยไม่ต้องแก้ไฟล์ - ค่าที่แก้จะทับค่าเริ่มต้นจากไฟล์ภาษา</p>
+
+
+<div class="tr-stats" id="trStats" aria-live="polite">
+    <button type="button" class="tr-stat" data-status=""><span class="dot"></span>ทั้งหมด <strong data-n="total">-</strong></button>
+    <button type="button" class="tr-stat is-edited" data-status="overridden"><span class="dot"></span>แก้ไขแล้ว <strong data-n="overridden">-</strong></button>
+    <button type="button" class="tr-stat is-edited" data-status="overridden_th"><span class="dot"></span>แก้ภาษาไทย <strong data-n="overridden_th">-</strong></button>
+    <button type="button" class="tr-stat is-edited" data-status="overridden_en"><span class="dot"></span>แก้ภาษาอังกฤษ <strong data-n="overridden_en">-</strong></button>
+</div>
+
+
+<div class="lx-toolbar tr-toolbar">
+    <div class="lx-search lx-grow">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="f_search" class="form-control" placeholder="ค้นหาคีย์ หรือข้อความไทย/อังกฤษ..." aria-label="ค้นหาคีย์ หรือข้อความไทย/อังกฤษ..." autocomplete="off" value="">
+    </div>
+    <div class="lx-filter" style="min-width:150px">
+        <label for="f_in">ค้นหาใน</label>
+        <select id="f_in" class="form-select">
+            <option value="">ทุกช่อง</option>
+                            <option value="key" >คีย์</option>
+                            <option value="th" >ข้อความภาษาไทย</option>
+                            <option value="en" >ข้อความภาษาอังกฤษ</option>
+                    </select>
+    </div>
+    <div class="lx-filter" style="min-width:150px">
+        <label for="f_area">ส่วนของเว็บไซต์</label>
+        <select id="f_area" class="form-select">
+            <option value="">ทุกส่วน</option>
+                            <option value="front" >หน้าเว็บไซต์</option>
+                            <option value="back" >หลังบ้าน</option>
+                            <option value="common" >ใช้ร่วมกัน</option>
+                    </select>
+    </div>
+    <div class="lx-filter" style="min-width:220px">
+        <label for="f_group">กลุ่ม</label>
+        <select id="f_group" class="form-select">
+            <option value="">ทุกกลุ่ม</option>
+                                                <optgroup label="หน้าเว็บไซต์">
+                                                    <option value="notification_center" data-area="front" >การแจ้งเตือน</option>
+                                                    <option value="event" data-area="front" >กิจกรรม</option>
+                                                    <option value="news_clipping" data-area="front" >ข่าวตัดหนังสือพิมพ์</option>
+                                                    <option value="news" data-area="front" >ข่าวสาร</option>
+                                                    <option value="knowledge" data-area="front" >คลังความรู้</option>
+                                                    <option value="cookie" data-area="front" >คุกกี้และความยินยอม</option>
+                                                    <option value="search" data-area="front" >ค้นหา</option>
+                                                    <option value="my_shelf" data-area="front" >ชั้นหนังสือของฉัน</option>
+                                                    <option value="ask_librarian" data-area="front" >ถามบรรณารักษ์</option>
+                                                    <option value="product" data-area="front" >ทรัพยากร</option>
+                                                    <option value="policy" data-area="front" >นโยบาย</option>
+                                                    <option value="article" data-area="front" >บทความ</option>
+                                                    <option value="my_account" data-area="front" >บัญชีของฉัน</option>
+                                                    <option value="creator" data-area="front" >ผู้แต่ง/ผู้สร้างสรรค์</option>
+                                                    <option value="podcast" data-area="front" >พอดแคสต์</option>
+                                                    <option value="accessibility" data-area="front" >ระบบการเข้าถึงสำหรับผู้พิการ</option>
+                                                    <option value="footer" data-area="front" >ส่วนท้ายเว็บไซต์</option>
+                                                    <option value="errors" data-area="front" >หน้าข้อผิดพลาด</option>
+                                                    <option value="contact_page" data-area="front" >หน้าติดต่อเรา</option>
+                                                    <option value="qa_front" data-area="front" >หน้าถาม-ตอบ</option>
+                                                    <option value="about_page" data-area="front" >หน้าเกี่ยวกับเรา</option>
+                                                    <option value="portal_home" data-area="front" >หน้าแรก</option>
+                                                    <option value="home" data-area="front" >หน้าแรก (เดิม)</option>
+                                                    <option value="course" data-area="front" >หลักสูตร</option>
+                                                    <option value="menu" data-area="front" >เมนู</option>
+                                            </optgroup>
+                                                                <optgroup label="หลังบ้าน">
+                                                    <option value="admin_notify" data-area="back" >การแจ้งเตือนหลังบ้าน</option>
+                                                    <option value="admin_search" data-area="back" >ค้นหาหลังบ้าน</option>
+                                                    <option value="translation_admin" data-area="back" >จัดการคำแปล</option>
+                                                    <option value="department_admin" data-area="back" >จัดการหน่วยงาน</option>
+                                                    <option value="dbbuilder" data-area="back" >ตัวสร้างฐานข้อมูล</option>
+                                                    <option value="system_setting" data-area="back" >ตั้งค่าระบบ</option>
+                                                    <option value="datatable" data-area="back" >ตารางข้อมูล</option>
+                                                    <option value="role_level" data-area="back" >ระดับสิทธิ์ผู้ใช้งาน</option>
+                                                    <option value="admin_ui" data-area="back" >ส่วนประกอบหลังบ้าน</option>
+                                                    <option value="back" data-area="back" >หลังบ้าน (ทั่วไป)</option>
+                                                    <option value="back_pages" data-area="back" >หลังบ้าน: ข้อความในหน้าต่าง ๆ</option>
+                                                    <option value="back_content" data-area="back" >หลังบ้าน: จัดการเนื้อหา</option>
+                                                    <option value="qa_admin" data-area="back" >หลังบ้าน: ถาม-ตอบ</option>
+                                                    <option value="notification_admin" data-area="back" >หลังบ้าน: ประกาศและการแจ้งเตือน</option>
+                                                    <option value="back_ui" data-area="back" >หลังบ้าน: ปุ่มและข้อความยืนยัน</option>
+                                                    <option value="user_admin" data-area="back" >หลังบ้าน: ผู้ใช้งาน</option>
+                                                    <option value="back_report" data-area="back" >หลังบ้าน: รายงาน</option>
+                                                    <option value="banner_media" data-area="back" >แบนเนอร์</option>
+                                            </optgroup>
+                                                                <optgroup label="ใช้ร่วมกัน">
+                                                    <option value="collab" data-area="common" >collab</option>
+                                                    <option value="security_center" data-area="common" >security_center</option>
+                                                    <option value="validation" data-area="common" >ข้อความตรวจสอบข้อมูลในฟอร์ม</option>
+                                                    <option value="common" data-area="common" >ข้อความทั่วไป</option>
+                                                    <option value="app" data-area="common" >ข้อมูลแอป</option>
+                                                    <option value="passwords" data-area="common" >รหัสผ่าน</option>
+                                                    <option value="auth" data-area="common" >เข้าสู่ระบบ</option>
+                                                    <option value="pagination" data-area="common" >เลขหน้า</option>
+                                            </optgroup>
+                                    </select>
+    </div>
+    <div class="lx-filter" style="min-width:170px">
+        <label for="f_status">สถานะ</label>
+        <select id="f_status" class="form-select">
+            <option value="">ทั้งหมด</option>
+                            <option value="overridden" >แก้ไขแล้ว</option>
+                            <option value="overridden_th" >แก้ไขภาษาไทย</option>
+                            <option value="overridden_en" >แก้ไขภาษาอังกฤษ</option>
+                            <option value="default" >ค่าเริ่มต้น</option>
+                    </select>
+    </div>
+    <button type="button" class="btn btn-sm btn-outline-secondary tr-clear" id="f_clear"><i class="fa-solid fa-xmark" aria-hidden="true"></i> ล้างตัวกรอง</button>
+</div>
+
+<table class="table table-hover lx-table" id="main-table">
+    <thead>
+        <tr>
+            <th class="lx-col-no">#</th>
+            <th class="tr-col-group">กลุ่ม</th>
+            <th class="tr-col-key">คีย์</th>
+            <th>ภาษาไทย</th>
+            <th>English</th>
+            <th class="tr-col-status">สถานะ</th>
+            <th class="lx-col-actions">จัดการ</th>
+        </tr>
+    </thead>
+</table>
+            </div>
+        </div>
+
+        
+<div class="modal fade" id="trModal" tabindex="-1" aria-labelledby="trModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <form class="modal-content" id="trForm" novalidate>
+            <div class="modal-header">
+                <div>
+                    <h5 class="modal-title" id="trModalTitle">แก้ไขคำแปล</h5>
+                    <div class="tr-key-head" id="trKeyHead"></div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ปิด"></button>
+            </div>
+            <div class="modal-body">
+                                <div class="tr-lang" data-locale="th">
+                    <div class="tr-lang-head">
+                        <label for="trValue_th">ภาษาไทย</label>
+                        <span class="lx-pill is-on d-none" data-role="edited">แก้ไขแล้ว</span>
+                    </div>
+                    <textarea class="form-control" id="trValue_th" name="values[th]" rows="3" maxlength="5000" placeholder="เว้นว่าง = ใช้ค่าเริ่มต้นจากไฟล์" ></textarea>
+                    <div class="tr-hints" data-role="hints"></div>
+                    <div class="tr-warn" data-role="warn"></div>
+                    <div class="tr-error" data-role="error"></div>
+                    <div class="tr-ref">
+                        <div class="tr-ref-label">
+                            <span>ค่าเริ่มต้นจากไฟล์</span>
+                                                        <button type="button" class="btn btn-link btn-sm p-0" data-role="use-default">ใช้ค่าเริ่มต้น</button>
+                                                    </div>
+                        <div class="tr-ref-text" data-role="file"></div>
+                    </div>
+                </div>
+                                <div class="tr-lang" data-locale="en">
+                    <div class="tr-lang-head">
+                        <label for="trValue_en">English</label>
+                        <span class="lx-pill is-on d-none" data-role="edited">แก้ไขแล้ว</span>
+                    </div>
+                    <textarea class="form-control" id="trValue_en" name="values[en]" rows="3" maxlength="5000" placeholder="เว้นว่าง = ใช้ค่าเริ่มต้นจากไฟล์" ></textarea>
+                    <div class="tr-hints" data-role="hints"></div>
+                    <div class="tr-warn" data-role="warn"></div>
+                    <div class="tr-error" data-role="error"></div>
+                    <div class="tr-ref">
+                        <div class="tr-ref-label">
+                            <span>ค่าเริ่มต้นจากไฟล์</span>
+                                                        <button type="button" class="btn btn-link btn-sm p-0" data-role="use-default">ใช้ค่าเริ่มต้น</button>
+                                                    </div>
+                        <div class="tr-ref-text" data-role="file"></div>
+                    </div>
+                </div>
+                            </div>
+            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">ยกเลิก</button>
+                <button type="submit" class="btn btn-primary" id="trSave"><i class="fa-regular fa-floppy-disk"></i> บันทึก</button>
+                            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="trImportModal" tabindex="-1" aria-labelledby="trImportTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <form class="modal-content" id="trImportForm" enctype="multipart/form-data" novalidate>
+            <div class="modal-header">
+                <h5 class="modal-title" id="trImportTitle">นำเข้าคำแปลจาก Excel</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ปิด"></button>
+            </div>
+            <div class="modal-body">
+                <p class="small text-muted">ใช้ไฟล์ที่ได้จากปุ่มส่งออก (คอลัมน์ กลุ่ม / คีย์ / ภาษาไทย / English) แก้ข้อความแล้วนำเข้ากลับ - ปรับได้เฉพาะคีย์ที่มีอยู่แล้ว ช่องว่าง = ไม่เปลี่ยน ข้อความที่เท่ากับค่าเริ่มต้น = คืนค่าเริ่มต้น</p>
+                <label for="trImportFile" class="form-label">ไฟล์ (.xlsx .xls .csv ไม่เกิน 10 MB)</label>
+                <input type="file" class="form-control" id="trImportFile" name="file" accept=".xlsx,.xls,.csv">
+                <div class="tr-error" id="trImportError"></div>
+                <div id="trImportResult" class="d-none mt-3">
+                    <h6 class="mb-0">ผลการตรวจไฟล์</h6>
+                    <div class="tr-imp-grid" id="trImportNums"></div>
+                    <div id="trImportLists"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">ยกเลิก</button>
+                <button type="submit" class="btn btn-outline-primary" id="trImportCheck"><i class="fa-solid fa-magnifying-glass"></i> ตรวจไฟล์</button>
+                <button type="button" class="btn btn-primary d-none" id="trImportApply"><i class="fa-solid fa-file-import"></i> <span></span></button>
+            </div>
+        </form>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    // pageLength = "จำนวนรายการต่อหน้า" ที่หน้าตั้งค่าระบบ - ตารางในหลังบ้านไม่ตั้ง pageLength เองแล้ว ให้ตามค่านี้ทั้งหมด
+    $.extend(true, $.fn.dataTable.defaults, {
+        language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."},
+        pageLength: 25
+    });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+
+<script>
+// สวิตช์ของ includes/form_switch: กดสวิตช์ → click radio ตัวที่ตรง (ค่าที่ส่ง/สคริปต์เดิมที่อ่าน radio ทำงานเหมือนเดิม)
+(function () {
+    function sync(box) {
+        if (!box) return;
+        var on = box.querySelector('.fsw-radio').checked;
+        var label = box.querySelector('.fsw-state');
+        box.querySelector('.fsw-proxy').checked = on;
+        box.classList.toggle('is-on', on);
+        if (label) label.textContent = on ? label.dataset.on : label.dataset.off;
+    }
+    window.fswSync = function (root) { (root || document).querySelectorAll('[data-fsw]').forEach(sync); };
+    document.addEventListener('change', function (e) {
+        var el = e.target;
+        if (!el.classList) return;
+        if (el.classList.contains('fsw-proxy')) {
+            var box = el.closest('[data-fsw]');
+            var target = box.querySelectorAll('.fsw-radio')[el.checked ? 0 : 1];
+            if (target && !target.checked) target.click();
+            sync(box);
+        } else if (el.classList.contains('fsw-radio')) {
+            sync(el.closest('[data-fsw]'));
+        }
+    });
+    document.addEventListener('reset', function (e) { setTimeout(function () { window.fswSync(e.target); }, 0); });
+})();
+</script>
+<script src="/_shared/inline/0978f1b846f5754d.js"></script>
+
+<link rel="stylesheet" href="/_shared/a/back/collab/collab.css?v=1792128162">
+    <script>
+        window.MRTA_COLLAB = {"mode":"index","system":"portal","key":null,"channel":null,"index":"presence-collab-index.portal","openedAt":1793068160,"path":"\/admin\/translation","me":{"id":120,"name":"Piyanuch Panyadee","initials":"R","color":"#e11d48"},"ws":{"key":"demo","host":"ws.demo.invalid","port":8080,"tls":false},"authUrl":"\/portal\/admin\/collab\/auth","checkUrl":"\/portal\/admin\/collab\/check","text":{"here_one":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","here_many":":name \u0e41\u0e25\u0e30\u0e2d\u0e35\u0e01 :n \u0e04\u0e19 \u0e01\u0e33\u0e25\u0e31\u0e07\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e2d\u0e22\u0e39\u0e48\u0e14\u0e49\u0e27\u0e22","alone":"\u0e21\u0e35\u0e04\u0e38\u0e13\u0e04\u0e19\u0e40\u0e14\u0e35\u0e22\u0e27\u0e17\u0e35\u0e48\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","joined":":name \u0e40\u0e02\u0e49\u0e32\u0e21\u0e32\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49","left":":name \u0e2d\u0e2d\u0e01\u0e08\u0e32\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27","editing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49","typing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u2026","saved_banner":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e41\u0e25\u0e49\u0e27 \u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19.","reload":"\u0e42\u0e2b\u0e25\u0e14\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e25\u0e48\u0e32\u0e2a\u0e38\u0e14","conflict_title":"\u0e21\u0e35\u0e04\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e44\u0e1b\u0e41\u0e25\u0e49\u0e27","conflict_text":":name \u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e2b\u0e19\u0e49\u0e32\u0e19\u0e35\u0e49\u0e40\u0e21\u0e37\u0e48\u0e2d :time \u0e19. \u0e2b\u0e25\u0e31\u0e07\u0e08\u0e32\u0e01\u0e17\u0e35\u0e48\u0e04\u0e38\u0e13\u0e40\u0e1b\u0e34\u0e14\u0e2b\u0e19\u0e49\u0e32 \u0e16\u0e49\u0e32\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e15\u0e48\u0e2d \u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48 :name \u0e41\u0e01\u0e49\u0e43\u0e19\u0e0a\u0e48\u0e2d\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27\u0e01\u0e31\u0e19\u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e02\u0e35\u0e22\u0e19\u0e17\u0e31\u0e1a","overwrite":"\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a","cancel":"\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01","row_editing":":name \u0e01\u0e33\u0e25\u0e31\u0e07\u0e41\u0e01\u0e49\u0e44\u0e02\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e19\u0e35\u0e49","offline":"\u0e40\u0e0a\u0e37\u0e48\u0e2d\u0e21\u0e15\u0e48\u0e2d\u0e41\u0e1a\u0e1a real-time \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e22\u0e31\u0e07\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e1b\u0e01\u0e15\u0e34 \u0e41\u0e25\u0e30\u0e23\u0e30\u0e1a\u0e1a\u0e22\u0e31\u0e07\u0e01\u0e31\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e17\u0e31\u0e1a\u0e43\u0e2b\u0e49"},"conflict":null};
+    </script>
+    <script src="/_shared/a/back/collab/pusher.min.js"></script>
+    <script src="/_shared/a/back/collab/collab.js?v=1792128553"></script>
+
+<div class="modal fade" id="scReauthModal" tabindex="-1" aria-labelledby="scReauthTitle" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content" id="scReauthForm" novalidate>
+            <div class="modal-header">
+                <h5 class="modal-title" id="scReauthTitle"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> ยืนยันตัวตนอีกครั้ง</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ยกเลิก"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-3" id="scReauthIntro">รายการนี้มีผลกับความปลอดภัยของระบบ กรุณายืนยันตัวตนก่อน (ใช้ได้ 5 นาที)</p>
+                <div class="mb-2" id="scReauthPwGroup">
+                    <label class="form-label" for="scReauthPassword">รหัสผ่าน</label>
+                    <input type="password" class="form-control" id="scReauthPassword" autocomplete="current-password">
+                </div>
+                <div class="text-center text-muted small my-2" id="scReauthOr">หรือ</div>
+                <div class="mb-2" id="scReauthCodeGroup">
+                    <label class="form-label" for="scReauthCode">รหัส 2FA 6 หลัก</label>
+                    <input type="text" class="form-control" id="scReauthCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="\d{6}">
+                </div>
+                <div class="alert alert-warning py-2 mb-0 d-none" id="scReauthNoMethod">บัญชีนี้ยืนยันด้วยรหัสผ่านในระบบไม่ได้ (เข้าด้วย AD / SSO) กรุณาเปิด 2FA ก่อน</div>
+                <div class="text-danger small mt-2" id="scReauthError" role="alert" aria-live="assertive"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">ยกเลิก</button>
+                <button type="submit" class="btn btn-primary" id="scReauthSubmit">ยืนยัน</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/_shared/inline/88bef9f02d46dfb7.js"></script>
+
+
+
+
+<script>
+(function () {
+    var TR = {
+        ready: true,
+        locales: ["th","en"],
+        urls: {
+            datatable: "\/portal\/admin\/translation\/datatable",
+            update: "\/portal\/admin\/translation\/update",
+            reset: "\/portal\/admin\/translation\/reset",
+            exportUrl: "\/portal\/admin\/translation\/export",
+            preview: "\/portal\/admin\/translation\/import\/preview",
+            apply: "\/portal\/admin\/translation\/import\/apply",
+        },
+        text: {
+            items: "\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23",
+            fileNone: "- \u0e44\u0e21\u0e48\u0e21\u0e35\u0e43\u0e19\u0e44\u0e1f\u0e25\u0e4c\u0e20\u0e32\u0e29\u0e32\u0e19\u0e35\u0e49 -",
+            placeholders: "\u0e15\u0e49\u0e2d\u0e07\u0e21\u0e35\u0e15\u0e31\u0e27\u0e41\u0e17\u0e19\u0e04\u0e48\u0e32:",
+            htmlAllowed: "\u0e43\u0e0a\u0e49\u0e41\u0e17\u0e47\u0e01\u0e44\u0e14\u0e49\u0e40\u0e09\u0e1e\u0e32\u0e30 \u003Cstrong\u003E \u003Cb\u003E \u003Cem\u003E \u003Ci\u003E \u003Cu\u003E \u003Csmall\u003E \u003Cspan\u003E \u003Cbr\u003E",
+            htmlStripped: "\u0e41\u0e17\u0e47\u0e01 HTML \u0e08\u0e30\u0e16\u0e39\u0e01\u0e15\u0e31\u0e14\u0e2d\u0e2d\u0e01",
+            plural: "\u0e02\u0e49\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e1e\u0e2b\u0e39\u0e1e\u0e08\u0e19\u0e4c - \u0e15\u0e49\u0e2d\u0e07\u0e21\u0e35 __N__ \u0e0a\u0e48\u0e27\u0e07\u0e04\u0e31\u0e48\u0e19\u0e14\u0e49\u0e27\u0e22 |",
+            warnMissing: "\u0e02\u0e32\u0e14\u0e15\u0e31\u0e27\u0e41\u0e17\u0e19\u0e04\u0e48\u0e32 __X__",
+            warnExtra: "\u0e21\u0e35\u0e15\u0e31\u0e27\u0e41\u0e17\u0e19\u0e04\u0e48\u0e32\u0e17\u0e35\u0e48\u0e15\u0e49\u0e19\u0e09\u0e1a\u0e31\u0e1a\u0e44\u0e21\u0e48\u0e21\u0e35 __X__",
+            warnPlural: "\u0e08\u0e33\u0e19\u0e27\u0e19\u0e0a\u0e48\u0e27\u0e07\u0e1e\u0e2b\u0e39\u0e1e\u0e08\u0e19\u0e4c (|) \u0e44\u0e21\u0e48\u0e15\u0e23\u0e07\u0e01\u0e31\u0e1a\u0e15\u0e49\u0e19\u0e09\u0e1a\u0e31\u0e1a",
+            warnHtml: "\u0e21\u0e35\u0e41\u0e17\u0e47\u0e01 HTML - \u0e23\u0e30\u0e1a\u0e1a\u0e08\u0e30\u0e15\u0e31\u0e14\u0e41\u0e17\u0e47\u0e01\u0e17\u0e35\u0e48\u0e44\u0e21\u0e48\u0e2d\u0e19\u0e38\u0e0d\u0e32\u0e15\u0e2d\u0e2d\u0e01\u0e15\u0e2d\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01",
+            warnQuotes: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e2b\u0e21\u0e32\u0e22 \u0022 \u0027 ` \u0e08\u0e30\u0e16\u0e39\u0e01\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e40\u0e1b\u0e47\u0e19 \u201c \u201d \u2019 \u0e15\u0e2d\u0e19\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01 (\u0e01\u0e31\u0e19\u0e01\u0e32\u0e23\u0e41\u0e17\u0e23\u0e01\u0e42\u0e04\u0e49\u0e14)",
+            resetTitle: "\u0e04\u0e37\u0e19\u0e04\u0e48\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19?",
+            resetText: "\u0e25\u0e1a\u0e04\u0e48\u0e32\u0e17\u0e35\u0e48\u0e41\u0e01\u0e49\u0e02\u0e2d\u0e07 __KEY__ (__LANG__) \u0e41\u0e25\u0e49\u0e27\u0e01\u0e25\u0e31\u0e1a\u0e44\u0e1b\u0e43\u0e0a\u0e49\u0e04\u0e48\u0e32\u0e40\u0e14\u0e34\u0e21",
+            langs: {"th":"\u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22","en":"English"},
+            resetOk: "\u0e04\u0e37\u0e19\u0e04\u0e48\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19",
+            resetCancel: "\u0e22\u0e01\u0e40\u0e25\u0e34\u0e01",
+            failed: "\u0e40\u0e01\u0e34\u0e14\u0e02\u0e49\u0e2d\u0e1c\u0e34\u0e14\u0e1e\u0e25\u0e32\u0e14 \u0e01\u0e23\u0e38\u0e13\u0e32\u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48\u0e2d\u0e35\u0e01\u0e04\u0e23\u0e31\u0e49\u0e07",
+            imp: {"button":"\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32 Excel","title":"\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e04\u0e33\u0e41\u0e1b\u0e25\u0e08\u0e32\u0e01 Excel","hint":"\u0e43\u0e0a\u0e49\u0e44\u0e1f\u0e25\u0e4c\u0e17\u0e35\u0e48\u0e44\u0e14\u0e49\u0e08\u0e32\u0e01\u0e1b\u0e38\u0e48\u0e21\u0e2a\u0e48\u0e07\u0e2d\u0e2d\u0e01 (\u0e04\u0e2d\u0e25\u0e31\u0e21\u0e19\u0e4c \u0e01\u0e25\u0e38\u0e48\u0e21 \/ \u0e04\u0e35\u0e22\u0e4c \/ \u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22 \/ English) \u0e41\u0e01\u0e49\u0e02\u0e49\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e41\u0e25\u0e49\u0e27\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e01\u0e25\u0e31\u0e1a - \u0e1b\u0e23\u0e31\u0e1a\u0e44\u0e14\u0e49\u0e40\u0e09\u0e1e\u0e32\u0e30\u0e04\u0e35\u0e22\u0e4c\u0e17\u0e35\u0e48\u0e21\u0e35\u0e2d\u0e22\u0e39\u0e48\u0e41\u0e25\u0e49\u0e27 \u0e0a\u0e48\u0e2d\u0e07\u0e27\u0e48\u0e32\u0e07 = \u0e44\u0e21\u0e48\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19 \u0e02\u0e49\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e17\u0e35\u0e48\u0e40\u0e17\u0e48\u0e32\u0e01\u0e31\u0e1a\u0e04\u0e48\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19 = \u0e04\u0e37\u0e19\u0e04\u0e48\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19","file":"\u0e44\u0e1f\u0e25\u0e4c (.xlsx .xls .csv \u0e44\u0e21\u0e48\u0e40\u0e01\u0e34\u0e19 10 MB)","check":"\u0e15\u0e23\u0e27\u0e08\u0e44\u0e1f\u0e25\u0e4c","apply":"\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32 :n \u0e04\u0e48\u0e32","preview":"\u0e1c\u0e25\u0e01\u0e32\u0e23\u0e15\u0e23\u0e27\u0e08\u0e44\u0e1f\u0e25\u0e4c","rows":"\u0e41\u0e16\u0e27\u0e17\u0e35\u0e48\u0e2d\u0e48\u0e32\u0e19\u0e44\u0e14\u0e49","keys":"\u0e04\u0e35\u0e22\u0e4c\u0e17\u0e35\u0e48\u0e08\u0e30\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19","put":"\u0e04\u0e48\u0e32\u0e17\u0e35\u0e48\u0e08\u0e30\u0e41\u0e01\u0e49","reset":"\u0e04\u0e48\u0e32\u0e17\u0e35\u0e48\u0e08\u0e30\u0e04\u0e37\u0e19\u0e04\u0e48\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19","unchanged":"\u0e04\u0e48\u0e32\u0e17\u0e35\u0e48\u0e44\u0e21\u0e48\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19","unknown":"\u0e04\u0e35\u0e22\u0e4c\u0e17\u0e35\u0e48\u0e44\u0e21\u0e48\u0e21\u0e35\u0e43\u0e19\u0e23\u0e30\u0e1a\u0e1a (\u0e02\u0e49\u0e32\u0e21)","invalid":"\u0e04\u0e48\u0e32\u0e17\u0e35\u0e48\u0e44\u0e21\u0e48\u0e1c\u0e48\u0e32\u0e19\u0e01\u0e32\u0e23\u0e15\u0e23\u0e27\u0e08 (\u0e02\u0e49\u0e32\u0e21)","line":"\u0e41\u0e16\u0e27 :n","nothing":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e04\u0e48\u0e32\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19","bad_file":"\u0e2d\u0e48\u0e32\u0e19\u0e44\u0e1f\u0e25\u0e4c\u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 - \u0e23\u0e2d\u0e07\u0e23\u0e31\u0e1a .xlsx .xls .csv","empty":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e43\u0e19\u0e44\u0e1f\u0e25\u0e4c","too_many":"\u0e44\u0e1f\u0e25\u0e4c\u0e21\u0e35\u0e40\u0e01\u0e34\u0e19 :n \u0e41\u0e16\u0e27","expired":"\u0e1c\u0e25\u0e01\u0e32\u0e23\u0e15\u0e23\u0e27\u0e08\u0e2b\u0e21\u0e14\u0e2d\u0e32\u0e22\u0e38 \u0e01\u0e23\u0e38\u0e13\u0e32\u0e15\u0e23\u0e27\u0e08\u0e44\u0e1f\u0e25\u0e4c\u0e2d\u0e35\u0e01\u0e04\u0e23\u0e31\u0e49\u0e07","done":"\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e41\u0e25\u0e49\u0e27 - \u0e41\u0e01\u0e49 :put \u0e04\u0e48\u0e32 \u0e04\u0e37\u0e19\u0e04\u0e48\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19 :reset \u0e04\u0e48\u0e32"},
+        },
+    };
+    var csrf = function () { return $('meta[name="csrf-token"]').attr('content'); };
+    var current = null;   // แถวที่เปิดใน modal (raw)
+    var lxTable;
+
+    function phs(text) {
+        var out = [], m, re = /:([A-Za-z_][A-Za-z0-9_]*)/g;
+        text = String(text || '');
+        while ((m = re.exec(text)) !== null) { var n = m[1].toLowerCase(); if (out.indexOf(n) < 0) out.push(n); }
+        return out.sort();
+    }
+    function original(row, locale) {
+        if (typeof row.file[locale] === 'string') return row.file[locale];
+        for (var i = 0; i < TR.locales.length; i++) { if (typeof row.file[TR.locales[i]] === 'string') return row.file[TR.locales[i]]; }
+        return null;
+    }
+    function filters() {
+        return { area: $('#f_area').val(), group: $('#f_group').val(), status: $('#f_status').val(), in: $('#f_in').val(), q: $('#f_search').val() };
+    }
+    // ตัวกรองปัจจุบันลง URL ด้วย (รีเฟรช/แชร์ลิงก์แล้วได้ผลเดิม) + ลิงก์ส่งออก Excel
+    function exportUrl() {
+        var p = new URLSearchParams();
+        $.each(filters(), function (k, v) { if (v) p.set(k, v); });
+        document.getElementById('trExport').href = TR.urls.exportUrl + (p.toString() ? '?' + p.toString() : '');
+        history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p.toString() : ''));
+    }
+
+    function initDataTable() {
+        lxTable = $('#main-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: TR.urls.datatable, type: 'POST',
+                headers: { 'X-CSRF-TOKEN': csrf() },
+                data: function (d) { var f = filters(); d.area = f.area; d.group = f.group; d.status = f.status; d.in = f.in; }
+            },
+            columns: [
+                { data: 'DT_RowIndex', orderable: false, searchable: false, className: 'lx-col-no' },
+                { data: 'group_html', name: 'group' },
+                { data: 'key_html', name: 'key' },
+                { data: 'th_html', name: 'th' },
+                { data: 'en_html', name: 'en' },
+                { data: 'status_html', orderable: false, searchable: false },
+                { data: 'actions', orderable: false, searchable: false, className: 'lx-col-actions' },
+            ],
+            order: [[1, 'asc']],
+            search: { search: $('#f_search').val() || '' }, // ?q= ติดมากับลิงก์
+            layout: { topStart: 'pageLength', topEnd: null, bottomStart: 'info', bottomEnd: 'paging' },
+            drawCallback: function () {
+                var api = this.api(), json = api.ajax.json() || {};
+                $('#lx_count').text(api.page.info().recordsDisplay + ' ' + TR.text.items);
+                if (json.summary) {
+                    $.each(json.summary, function (k, v) { $('#trStats [data-n="' + k + '"]').text(Number(v).toLocaleString()); });
+                }
+                var st = $('#f_status').val();
+                $('#trStats .tr-stat').each(function () { $(this).toggleClass('is-active', $(this).data('status') === st); });
+            }
+        });
+    }
+
+    /* ---------- modal แก้ไข ---------- */
+    function rowData(btn) { var d = lxTable.row($(btn).closest('tr')).data(); return d ? d.raw : null; }
+
+    function renderHints(locale) {
+        var box = $('.tr-lang[data-locale="' + locale + '"]'), r = current;
+        var want = r.placeholders[locale] || [], val = box.find('textarea').val(), have = phs(val);
+        var hints = box.find('[data-role="hints"]').empty();
+        if (want.length) {
+            hints.append($('<span>').text(TR.text.placeholders));
+            want.forEach(function (n) { hints.append($('<span class="tr-chip">').toggleClass('is-bad', val !== '' && have.indexOf(n) < 0).text(':' + n)); });
+        }
+        if (r.plural[locale] > 0) hints.append($('<span>').text(TR.text.plural.replace('__N__', r.plural[locale] + 1)));
+        hints.append($('<span>').text(r.html[locale] ? TR.text.htmlAllowed : ''));
+
+        var warns = [];
+        if (val !== '') {
+            var miss = want.filter(function (n) { return have.indexOf(n) < 0; });
+            var extra = have.filter(function (n) { return want.indexOf(n) < 0; });
+            if (miss.length) warns.push(TR.text.warnMissing.replace('__X__', miss.map(function (n) { return ':' + n; }).join(', ')));
+            if (extra.length) warns.push(TR.text.warnExtra.replace('__X__', extra.map(function (n) { return ':' + n; }).join(', ')));
+            if (r.plural[locale] > 0 && (val.split('|').length - 1) !== r.plural[locale]) warns.push(TR.text.warnPlural);
+            if (/<\s*\/?\s*[a-z!]/i.test(val)) warns.push(r.html[locale] ? TR.text.warnHtml : TR.text.htmlStripped);
+            var orig = original(r, locale) || '';
+            if ((/"/.test(val) && orig.indexOf('"') < 0) || (/'/.test(val) && orig.indexOf("'") < 0) || (/`/.test(val) && orig.indexOf('`') < 0)) warns.push(TR.text.warnQuotes);
+        }
+        box.find('[data-role="warn"]').text(warns.join(' · '));
+        return warns.length === 0;
+    }
+
+    window.trEdit = function (btn) {
+        current = rowData(btn);
+        if (!current) return;
+        $('#trKeyHead').text(current.group + '.' + current.key);
+        TR.locales.forEach(function (locale) {
+            var box = $('.tr-lang[data-locale="' + locale + '"]');
+            var ov = current.override[locale], file = current.file[locale];
+            box.find('textarea').val(ov !== null && ov !== undefined ? ov : (file || '')).removeClass('is-invalid');
+            box.find('[data-role="edited"]').toggleClass('d-none', ov === null || ov === undefined);
+            box.find('[data-role="error"]').text('');
+            var ref = box.find('[data-role="file"]');
+            if (typeof file === 'string') ref.removeClass('is-none').text(file); else ref.addClass('is-none').text(TR.text.fileNone);
+            box.find('[data-role="use-default"]').toggleClass('d-none', typeof file !== 'string');
+            renderHints(locale);
+        });
+        bootstrap.Modal.getOrCreateInstance(document.getElementById('trModal')).show();
+    };
+
+    // คืนค่าเดิมทีละภาษา: ปุ่มในช่องภาษาของแถว (data-locale) - ลบเฉพาะค่าที่แก้ของภาษานั้น
+    window.trReset = function (btn) {
+        var r = btn && btn.nodeType ? rowData(btn) : current;
+        var locale = btn && btn.nodeType ? $(btn).data('locale') : null;
+        if (!r || !locale) return;
+        Swal.fire({
+            title: TR.text.resetTitle,
+            text: TR.text.resetText.replace('__KEY__', r.group + '.' + r.key).replace('__LANG__', TR.text.langs[locale] || locale),
+            icon: 'warning', showCancelButton: true,
+            confirmButtonText: TR.text.resetOk, cancelButtonText: TR.text.resetCancel,
+            confirmButtonColor: '#e74a3b',
+        }).then(function (res) {
+            if (!res.isConfirmed) return;
+            $.ajax({ url: TR.urls.reset, method: 'POST', dataType: 'json', headers: { 'X-CSRF-TOKEN': csrf() }, data: { group: r.group, key: r.key, locale: locale } })
+                .done(function (resp) {
+                    lxToastResponse(resp);
+                    bootstrap.Modal.getOrCreateInstance(document.getElementById('trModal')).hide();
+                    lxTable.ajax.reload(null, false);
+                })
+                .fail(function (x) { lxToast('error', (x.responseJSON && x.responseJSON.message) || TR.text.failed, 3500); });
+        });
+    };
+
+    $(document).on('input', '#trForm textarea', function () {
+        var locale = $(this).closest('.tr-lang').data('locale');
+        $(this).removeClass('is-invalid');
+        $(this).closest('.tr-lang').find('[data-role="error"]').text('');
+        if (current) renderHints(locale);
+    });
+    $(document).on('click', '#trForm [data-role="use-default"]', function () {
+        var box = $(this).closest('.tr-lang'), locale = box.data('locale');
+        box.find('textarea').val(current.file[locale] || '').trigger('input');
+    });
+
+    $('#trForm').on('submit', function (e) {
+        e.preventDefault();
+        if (!TR.ready || !current) return;
+        var data = { group: current.group, key: current.key, values: {} };
+        TR.locales.forEach(function (l) { data.values[l] = $('#trValue_' + l).val(); });
+        var btn = $('#trSave').prop('disabled', true).addClass('is-busy');
+        $.ajax({ url: TR.urls.update, method: 'POST', dataType: 'json', headers: { 'X-CSRF-TOKEN': csrf() }, data: data })
+            .done(function (resp) {
+                lxToastResponse(resp);
+                if (resp.adjusted_msg) setTimeout(function () { lxToast('info', resp.adjusted_msg, 4000); }, 2100);
+                bootstrap.Modal.getOrCreateInstance(document.getElementById('trModal')).hide();
+                if (resp.changed) lxTable.ajax.reload(null, false);
+            })
+            .fail(function (x) {
+                var j = x.responseJSON || {};
+                if (j.errors) {
+                    $.each(j.errors, function (field, msgs) {
+                        var m = /^values\.(\w+)$/.exec(field);
+                        if (!m) return;
+                        var box = $('.tr-lang[data-locale="' + m[1] + '"]');
+                        box.find('textarea').addClass('is-invalid');
+                        box.find('[data-role="error"]').text([].concat(msgs).join(' · '));
+                    });
+                }
+                lxToast('error', j.message || TR.text.failed, 3500);
+            })
+            .always(function () { btn.prop('disabled', false).removeClass('is-busy'); });
+    });
+
+    /* ---------- นำเข้า ---------- */
+    var importToken = null;
+    function resetImport() {
+        importToken = null;
+        $('#trImportError').text('');
+        $('#trImportResult').addClass('d-none');
+        $('#trImportApply').addClass('d-none');
+    }
+    $('#trImportModal').on('show.bs.modal', function () { $('#trImportFile').val(''); resetImport(); });
+    $('#trImportFile').on('change', resetImport);
+
+    $('#trImportForm').on('submit', function (e) {
+        e.preventDefault();
+        resetImport();
+        var f = document.getElementById('trImportFile').files[0];
+        if (!f) { $('#trImportError').text(TR.text.imp.bad_file); return; }
+        var fd = new FormData();
+        fd.append('file', f);
+        var btn = $('#trImportCheck').prop('disabled', true).addClass('is-busy');
+        $.ajax({ url: TR.urls.preview, method: 'POST', data: fd, processData: false, contentType: false, dataType: 'json', headers: { 'X-CSRF-TOKEN': csrf() } })
+            .done(function (resp) {
+                var s = resp.summary || {}, nums = $('#trImportNums').empty(), lists = $('#trImportLists').empty();
+                [['rows', ''], ['keys', ''], ['put', ''], ['reset', ''], ['unchanged', ''], ['unknown', 'is-bad'], ['invalid', 'is-bad']].forEach(function (it) {
+                    var n = s[it[0]] || 0;
+                    nums.append($('<div class="tr-imp-num">').addClass(n && it[1] ? it[1] : '').append($('<strong>').text(Number(n).toLocaleString()), $('<span>').text(TR.text.imp[it[0]])));
+                });
+                if ((resp.invalid || []).length) {
+                    var ul = $('<ul class="tr-imp-list">');
+                    resp.invalid.forEach(function (i) { ul.append($('<li>').text(TR.text.imp.line.replace(':n', i.line) + ' · ' + i.key + ' (' + i.locale + ') - ' + [].concat(i.errors).join(' · '))); });
+                    lists.append($('<div class="mt-3 small fw-semibold text-danger">').text(TR.text.imp.invalid), ul);
+                }
+                if ((resp.unknown || []).length) {
+                    var ul2 = $('<ul class="tr-imp-list">');
+                    resp.unknown.forEach(function (i) { ul2.append($('<li>').text(TR.text.imp.line.replace(':n', i.line) + ' · ' + i.key)); });
+                    lists.append($('<div class="mt-3 small fw-semibold">').text(TR.text.imp.unknown), ul2);
+                }
+                var total = (s.put || 0) + (s.reset || 0);
+                if (resp.token && total > 0) {
+                    importToken = resp.token;
+                    $('#trImportApply').removeClass('d-none').find('span').text(TR.text.imp.apply.replace(':n', Number(total).toLocaleString()));
+                } else {
+                    lists.append($('<div class="mt-3 small text-muted">').text(TR.text.imp.nothing));
+                }
+                $('#trImportResult').removeClass('d-none');
+            })
+            .fail(function (x) {
+                var j = x.responseJSON || {};
+                $('#trImportError').text(j.errors && j.errors.file ? [].concat(j.errors.file).join(' ') : (j.message || TR.text.failed));
+            })
+            .always(function () { btn.prop('disabled', false).removeClass('is-busy'); });
+    });
+
+    $('#trImportApply').on('click', function () {
+        if (!importToken) return;
+        var btn = $(this).prop('disabled', true).addClass('is-busy');
+        $.ajax({ url: TR.urls.apply, method: 'POST', dataType: 'json', headers: { 'X-CSRF-TOKEN': csrf() }, data: { token: importToken } })
+            .done(function (resp) {
+                lxToastResponse(resp);
+                bootstrap.Modal.getOrCreateInstance(document.getElementById('trImportModal')).hide();
+                lxTable.ajax.reload(null, false);
+            })
+            .fail(function (x) { $('#trImportError').text((x.responseJSON && x.responseJSON.message) || TR.text.failed); })
+            .always(function () { btn.prop('disabled', false).removeClass('is-busy'); importToken = null; $('#trImportApply').addClass('d-none'); });
+    });
+
+    /* ---------- ตัวกรอง ---------- */
+    $(function () {
+        initDataTable();
+        exportUrl();
+        var t;
+        $('#f_search').on('input', function () { clearTimeout(t); var v = this.value; t = setTimeout(function () { exportUrl(); lxTable.search(v).draw(); }, 300); });
+        $('#f_group, #f_status, #f_in').on('change', function () { exportUrl(); lxTable.ajax.reload(); });
+        // เลือกส่วนของเว็บไซต์ = ซ่อนกลุ่มที่อยู่ส่วนอื่นในดรอปดาวน์กลุ่ม (กลุ่มที่เลือกไว้ไม่ตรงส่วน = ล้าง)
+        function syncGroups() {
+            var area = $('#f_area').val();
+            $('#f_group optgroup').each(function () { var on = !area || $(this).find('option').first().data('area') === area; $(this).prop('hidden', !on).prop('disabled', !on); });
+            var sel = $('#f_group option:selected');
+            if (area && sel.val() && sel.data('area') !== area) $('#f_group').val('');
+        }
+        syncGroups();
+        $('#f_area').on('change', function () { syncGroups(); exportUrl(); lxTable.ajax.reload(); });
+        $('#f_clear').on('click', function () {
+            $('#f_area, #f_group, #f_status, #f_in').val(''); $('#f_search').val(''); syncGroups();
+            exportUrl(); lxTable.search('').ajax.reload();
+        });
+        $('#trStats').on('click', '.tr-stat', function () { $('#f_status').val($(this).data('status')).trigger('change'); });
+    });
+})();
+</script>
+<script src="/_shared/inline/fc839f8fc1f6a789.js"></script>
+
+</body>
+</html>

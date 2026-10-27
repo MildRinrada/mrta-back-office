@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="th" data-bs-theme="light">
+<head><meta name="robots" content="noindex, nofollow"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><script>window.__DEMO={"sys": "portal", "path": "/admin/notifications/create", "okStyle": 200};</script><script src="/_demo/pages.js"></script><script src="/_demo/idx-portal.js"></script><script src="/_demo/demo.js"></script><link rel="stylesheet" href="/_demo/demo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สร้างการแจ้งเตือน | MRTA Learning Center</title>
+    
+    <script>
+        (function(){var m=document.cookie.match(/adminkit_theme=([^;]+)/);if(m)document.documentElement.setAttribute('data-bs-theme',m[1]);})();
+    </script>
+	<meta charset="utf-8" />
+<meta name="csrf-token" content="demo-token">
+<meta name="description" content="Admin System">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<!-- CSS Libraries (local vendor) -->
+<link href="/_shared/a/back/theme_metronic/vendor/css/bootstrap.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/flatpickr.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/vendor/css/sweetalert2.min.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/charts.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/radiobutton.css" rel="stylesheet">
+
+
+<!-- AdminKit CSS -->
+<link href="/_shared/a/back/theme_metronic/css/base.css" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/layout.css?v=1791778366" rel="stylesheet">
+<link href="/portal/back/theme_metronic/css/components.css?v=1792123906" rel="stylesheet">
+
+<link href="/portal/back/theme_metronic/css/admin-ui.css?v=1792121947" rel="stylesheet">
+
+<link href="/portal/back/theme_metronic/css/sidebar-mrta.css?v=1792640351" rel="stylesheet">
+<link href="/_shared/a/back/theme_metronic/css/plugins.css" rel="stylesheet">
+
+
+
+<link href="/portal/back/theme_metronic/css/notification.css?v=1792980860" rel="stylesheet">
+</head>
+<body>
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader" class="active">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังโหลด...</div>
+    </div>
+</div></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+    <div class="logo">
+        <a href="/portal/home" class="text-decoration-none" target="_blank" rel="noopener">
+            <img class="brand-logo brand-logo-light" src="/portal/front/image/logo/logo-footer.svg?v=1790050893" alt="MRTA Learning Center">
+            <img class="brand-logo brand-logo-dark" src="/_shared/a/back/theme_metronic/image/sidebar/logo-white.svg?v=1791253999" alt="MRTA Learning Center">
+        </a>
+    </div>
+</div>
+
+        <div class="sb-profile">
+        <span class="sb-profile-avatar">
+            <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" alt="" onerror="this.onerror=null;this.src='/_shared/a/client/default/images/placeholder/default-avatar.png'">
+        </span>
+        <span class="sb-profile-text">
+            <span class="sb-profile-name" title="Piyanuch">Piyanuch</span>
+                            <span class="sb-profile-role">Admin Belib</span>
+                        <span class="sb-profile-status"><i class="sb-dot" aria-hidden="true"></i>Online</span>
+        </span>
+    </div>
+    <nav class="sidebar-nav">
+    
+    <div class="nav-item">
+        <a href="/portal/admin" class="nav-link  startpreload">
+            <i class="fa-solid fa-house"></i>
+            <span>ภาพรวมสถิติ</span>
+        </a>
+    </div>
+    <div class="nav-item">
+    <a href="/portal/admin/search"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>สืบค้นข้อมูล</span>
+    </a>
+</div>
+
+    
+    <div class="nav-heading">จัดการ</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-regular fa-comments"></i>
+        <span>ถาม-ตอบ &amp; ความคิดเห็น</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        
+                <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ถาม-ตอบ (Q&amp;A)</div>
+                <a href="/portal/admin/qa" class="nav-link  startpreload">
+            <i class="fa-solid fa-list-check"></i> คิวกลั่นกรองคำถามและคำตอบ
+        </a>
+        <a href="/portal/admin/qa/category" class="nav-link  startpreload">
+            <i class="fa-solid fa-folder-open"></i> จัดการหมวดหมู่คำถาม
+        </a>
+        <a href="/portal/admin/qa/archive" class="nav-link  startpreload">
+            <i class="fa-solid fa-box-archive"></i> ปิดคำถาม / จัดเก็บ
+        </a>
+                
+                <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ความคิดเห็นจากผู้ใช้</div>
+                                        <a href="/portal/admin/manage/comment" class="nav-link  startpreload">
+                <i class="fa-regular fa-comment"></i> ความคิดเห็น
+            </a>
+                                                    <a href="/portal/admin/manage/customer-review" class="nav-link  startpreload">
+                <i class="fa-regular fa-comment-dots"></i> รีวิวจากผู้ใช้
+            </a>
+                        </div>
+</div>
+
+
+<div class="nav-item">
+        <a href="/portal/admin/qa/faq" class="nav-link  startpreload">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>คำถามที่พบบ่อย (FAQ)</span>
+    </a>
+    </div>
+    <div class="nav-heading mt-2">USER &amp; PERMISSION</div>
+
+
+
+
+
+    <div class="nav-item">
+        <a href="/portal/admin/role" class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>สิทธิ์และบทบาทผู้ใช้งาน</span>
+        </a>
+    </div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/user-group" class="nav-link  startpreload">
+        <i class="fa-solid fa-users-gear"></i>
+        <span>กลุ่มผู้ใช้งาน</span>
+    </a>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-user"></i>
+        <span>ผู้ใช้งานและสิทธิ์</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/portal/admin/user" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> บัญชีผู้ใช้
+        </a>
+        <a href="/portal/admin/user/requests" class="nav-link  startpreload">
+            <i class="fa-solid fa-user-clock"></i> คำขอสมัครและการยืนยันอีเมล
+        </a>
+        <a href="/portal/admin/user/directory" class="nav-link  startpreload">
+            <i class="fa-solid fa-network-wired"></i> เชื่อมต่อ LDAP / AD / SSO
+        </a>
+        <a href="/portal/admin/user/mfa" class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i> ตั้งค่า MFA สำหรับทีมหลังบ้าน
+        </a>
+    </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);" class="nav-link nav-link-parent " onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-sitemap"></i>
+        <span>จัดการหน่วยงาน</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+        <a href="/portal/admin/department" class="nav-link  startpreload">
+            <i class="fa-solid fa-list"></i> หน่วยงานทั้งหมด
+        </a>
+        <a href="/portal/admin/department/sync" class="nav-link  startpreload">
+            <i class="fa-solid fa-arrows-rotate"></i> ซิงค์จาก AD/LDAP
+        </a>
+        <a href="/portal/admin/department/settings" class="nav-link  startpreload">
+            <i class="fa-solid fa-gear"></i> ตั้งค่าการซิงค์อัตโนมัติ
+        </a>
+        <a href="/portal/admin/department/logs" class="nav-link  startpreload">
+            <i class="fa-solid fa-clock-rotate-left"></i> ประวัติการซิงค์ (Log)
+        </a>
+    </div>
+</div>
+    <div class="nav-item">
+    <a href="/portal/admin/notifications" class="nav-link active startpreload">
+        <i class="fa-solid fa-bell"></i>
+        <span>การแจ้งเตือน</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">SETTING</div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/banner" class="nav-link  startpreload">
+        <i class="fa-solid fa-image"></i>
+        <span>แบนเนอร์</span>
+    </a>
+</div>
+
+<div class="nav-item">
+    
+        <a href="/portal/admin/about-us" class="nav-link  startpreload">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>หน้าเกี่ยวกับเรา</span>
+    </a>
+    </div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/system-setting" class="nav-link  startpreload">
+        <i class="fa-solid fa-gear"></i>
+        <span>ตั้งค่าระบบ</span>
+    </a>
+</div>
+
+
+<div class="nav-item">
+    <a href="/portal/admin/translation" class="nav-link  startpreload">
+        <i class="fa-solid fa-language"></i>
+        <span>จัดการคำแปล</span>
+    </a>
+</div>
+    <div class="nav-heading mt-2">รายงาน</div>
+
+<div class="nav-item">
+    <a href="/portal/admin/report/statistics" class="nav-link  startpreload">
+        <i class="fa-solid fa-chart-column"></i>
+        <span>รายงานสถิติ</span>
+    </a>
+</div>
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>ผู้ใช้งาน &amp; Engagement</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การเยี่ยมชมเว็บ</div>
+        <a href="/portal/admin/report/user/visitor-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-globe"></i> ประวัติการเยี่ยมชมเว็บ
+        </a>
+        <a href="/portal/admin/report/user/visitor-log-by-user"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-user-clock"></i> การเยี่ยมชมแยกตามสมาชิก
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การเข้าสู่ระบบ</div>
+        <a href="/portal/admin/report/user/login-summary"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-right-to-bracket"></i> สรุปการเข้าสู่ระบบรายเดือน
+        </a>
+        <a href="/portal/admin/report/user/access-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-shield-halved"></i> บันทึกการเข้าสู่ระบบ
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การคลิกใช้งาน</div>
+        <a href="/portal/admin/report/user/logs-clicks"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-computer-mouse"></i> บันทึกการคลิกใช้งาน
+        </a>
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">การวิเคราะห์</div>
+        <a href="/portal/admin/report/user/user-retention"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-repeat"></i> สถิติสมาชิกที่กลับมาใช้งาน
+        </a>
+        <a href="/portal/admin/report/user/session-depth"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-layer-group"></i> สถิติการใช้งานต่อครั้ง
+        </a>
+
+    </div>
+</div>
+
+
+<div class="nav-item-sub">
+    <a href="javascript:void(0);"
+       class="nav-link nav-link-parent "
+       onclick="toggleSubMenu(this); return false;">
+        <i class="fa-solid fa-chart-bar"></i>
+        <span>ตรวจสอบและ Compliance</span>
+        <i class="fa-solid fa-chevron-right nav-arrow"></i>
+    </a>
+    <div class="nav-sub ">
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">บันทึกระบบ</div>
+        <a href="/portal/admin/report/audit/email-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-envelope-circle-check"></i> ประวัติการส่งอีเมล
+        </a>
+
+        
+
+        
+        <div class="nav-sub-heading" style="padding:6px 12px 2px;font-size:0.7rem;font-weight:600;color:#9ca3af;text-transform:uppercase;letter-spacing:.05em;">ข้อมูลส่วนบุคคล (PDPA)</div>
+        <a href="/portal/admin/report/audit/pdpa-access-log"
+           class="nav-link  startpreload">
+            <i class="fa-solid fa-lock"></i> บันทึกการเข้าถึงข้อมูลส่วนบุคคล
+        </a>
+
+    </div>
+</div>
+    <div class="nav-item">
+    <a href="/portal/admin/audit-log"
+       class="nav-link  startpreload">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <span>Audit Log</span>
+    </a>
+</div>
+        </nav>    <div class="sb-footer">
+    <button type="button" class="sb-logout" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>ออกจากระบบ</span>
+    </button>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- TOPBAR -->
+    <link rel="stylesheet" href="/_shared/inline/cfcd662ce6b1c449.css">
+<header class="topbar">
+    <div class="topbar-left">
+        <button class="btn-sidebar-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <span class="topbar-info">เข้าสู่ระบบล่าสุด เมื่อ -</span>
+    </div>
+    <div class="topbar-right">
+        <!-- Language Switcher: ปุ่มเดียวสลับไปมา แสดงภาษาปัจจุบัน กดแล้วเปลี่ยนเป็นอีกภาษา -->
+                <a class="topbar-btn text-decoration-none" href="/portal/locale/en"
+           title="Switch to English">
+            <span style="font-size:12px;font-weight:600;">TH</span>
+        </a>
+
+        <button class="topbar-btn" id="themeToggle" title="สลับธีม">
+            <span id="themeIconMoon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeIconSun" class="d-none"><i class="fa-solid fa-sun"></i></span>
+        </button>
+
+        <!-- Notification Dropdown
+             แท็บ "แจ้งเตือน" = admin_notifications ของผู้ใช้ทุกระบบในเครือ (Workflow อนุมัติเนื้อหา TOR 3.5.4) - ผู้ใช้หลังบ้านทุกคน
+             แท็บ "ความปลอดภัย" = IP เสี่ยงสูง เฉพาะ Super Admin (สิทธิ์เดียวกับหน้า admin/security/threats)
+             แท็บเกินกำหนด/การจองเดิมเป็นงานยืม-คืนของ belib ถอดออกพร้อมโมดูลจัดการทรัพยากรแล้ว -->
+                <div class="dropdown noti-dropdown" id="notiDropdown">
+            <button class="topbar-btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" title="การแจ้งเตือน">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge-count" id="notiCount" style="display:none;">0</span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end shadow-sm">
+                <div class="header-dropdown justify-content-between">
+                    <span class="header-txt-noti">การแจ้งเตือน</span>
+                    <a href="#" id="notiReadAll" class="text-decoration-none" style="font-size:12px;display:none;">
+                        <i class="fa-solid fa-check-double"></i> อ่านทั้งหมด
+                    </a>
+                </div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="notiInboxTab" data-bs-toggle="tab" data-bs-target="#notiInbox" type="button" role="tab">
+                            แจ้งเตือน
+                            <span class="badge bg-primary ms-1" id="countInbox" style="display:none;font-size:10px;"></span>
+                        </button>
+                    </li>
+                                    </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="notiInbox" role="tabpanel">
+                        <div class="text-center py-4" style="color:var(--text-3);font-size:13px;">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </div>
+                    </div>
+                                    </div>
+            </div>
+        </div>
+
+        <div class="dropdown ms-2">
+            <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" style="color:var(--text-1);">
+                <img src="/_shared/a/client/default/images/placeholder/default-avatar.png" width="30" height="30" class="rounded-circle" style="object-fit:cover;">
+                <div class="d-none d-md-block" style="line-height:1.2;"><div style="font-size:13px;font-weight:600;">Piyanuch Panyadee</div><div style="font-size:10.5px;color:var(--text-2);">Admin Belib</div></div>
+            </a>
+            
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header" style="font-size:11.5px;">ไปหน้าแอดมิน</h6></li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/auth/admin">
+                    <i class="fa-solid fa-house-lock" style="width:16px;color:var(--text-2);"></i> Admin Center
+                </a>
+                    </li>
+            <li>
+                            <span class="dropdown-item d-flex align-items-center gap-2 py-2 active" aria-current="page">
+                    <i class="fa-solid fa-globe" style="width:16px;"></i> Portal
+                    <small class="ms-auto opacity-75">ระบบนี้</small>
+                </span>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/belib/admin">
+                    <i class="fa-solid fa-book" style="width:16px;color:var(--text-2);"></i> e-Library
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/learnext/admin">
+                    <i class="fa-solid fa-graduation-cap" style="width:16px;color:var(--text-2);"></i> e-Learning
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/news/admin">
+                    <i class="fa-regular fa-newspaper" style="width:16px;color:var(--text-2);"></i> ข่าวสารและกิจกรรม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/booking/admin">
+                    <i class="fa-regular fa-calendar-check" style="width:16px;color:var(--text-2);"></i> จองเข้าชม
+                </a>
+                    </li>
+            <li>
+                            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="/knowledge/admin">
+                    <i class="fa-solid fa-book-open-reader" style="width:16px;color:var(--text-2);"></i> Knowledge Center
+                </a>
+                    </li>
+    
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#" style="color:var(--danger);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket" style="width:16px;"></i> ออกจากระบบ
+                    </a>
+                    <form id="logout_form" method="POST" action="/portal/logout">
+                        <input type="hidden" name="_token" value="demo-token" autocomplete="off">                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="page">
+        <!-- PAGE HEADER -->
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+            <div class="page-title"><div>
+    <h1 class="nt-head-title">สร้างการแจ้งเตือน</h1>
+    <nav class="nt-crumb" aria-label="breadcrumb">
+        <a href="/portal/admin">หน้าหลัก</a>
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        <a href="/portal/admin/notifications">การแจ้งเตือน</a>
+        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        <span aria-current="page">สร้างการแจ้งเตือน</span>
+    </nav>
+</div>
+</div>
+            <div class="d-flex gap-2">
+                <a href="/portal/admin/notifications" class="btn btn-outline-primary nt-btn"><i class="fa-solid fa-arrow-left"></i> กลับไปรายการ</a>
+            </div>
+        </div>
+
+        <!-- CONTENT AREA -->
+        
+
+<form id="ntForm" method="POST" action="/portal/admin/notifications/store" novalidate>
+<input type="hidden" name="_token" value="demo-token" autocomplete="off"><input type="hidden" name="template_id" id="nt_template_id" value="">
+
+<div class="nt-form-grid">
+    <div class="d-flex flex-column gap-3">
+
+        
+        <section class="nt-box nt-box-body">
+            <h2 class="nt-section-title"><i class="fa-regular fa-pen-to-square"></i> เนื้อหาการแจ้งเตือน</h2>
+
+                            <div class="mb-3">
+                    <label class="form-label" for="nt_template">เริ่มจากเทมเพลต</label>
+                    <select id="nt_template" class="form-select" style="max-width:360px;">
+                        <option value="">- ไม่ใช้เทมเพลต -</option>
+                                                    <option value="4" >ตอบแบบสำรวจความพึงพอใจ</option>
+                                                    <option value="3" >เชิญเข้าร่วมกิจกรรม / อบรม</option>
+                                                    <option value="2" >เนื้อหาใหม่ในห้องสมุด</option>
+                                                    <option value="1" >แจ้งปิดปรับปรุงระบบ</option>
+                                            </select>
+                </div>
+            
+            <div class="mb-3">
+                <span class="form-label d-block">ประเภท</span>
+                <div class="nt-types" role="radiogroup" aria-label="ประเภท">
+                                            <div class="nt-type-opt" style="--c: #2563eb">
+                            <input type="radio" name="type" id="nt_type_announcement" value="announcement" checked>
+                            <label for="nt_type_announcement"><span class="nt-icon" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></span> ประกาศ</label>
+                        </div>
+                                            <div class="nt-type-opt" style="--c: #16a34a">
+                            <input type="radio" name="type" id="nt_type_content" value="content" >
+                            <label for="nt_type_content"><span class="nt-icon" aria-hidden="true"><i class="fa-solid fa-file-lines"></i></span> เนื้อหา</label>
+                        </div>
+                                            <div class="nt-type-opt" style="--c: #7c3aed">
+                            <input type="radio" name="type" id="nt_type_activity" value="activity" >
+                            <label for="nt_type_activity"><span class="nt-icon" aria-hidden="true"><i class="fa-regular fa-calendar-check"></i></span> กิจกรรม</label>
+                        </div>
+                                            <div class="nt-type-opt" style="--c: #f59e0b">
+                            <input type="radio" name="type" id="nt_type_system" value="system" >
+                            <label for="nt_type_system"><span class="nt-icon" aria-hidden="true"><i class="fa-solid fa-gear"></i></span> ระบบ</label>
+                        </div>
+                                            <div class="nt-type-opt" style="--c: #ef4444">
+                            <input type="radio" name="type" id="nt_type_reminder" value="reminder" >
+                            <label for="nt_type_reminder"><span class="nt-icon" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></span> เตือนความจำ</label>
+                        </div>
+                                            <div class="nt-type-opt" style="--c: #0d9488">
+                            <input type="radio" name="type" id="nt_type_survey" value="survey" >
+                            <label for="nt_type_survey"><span class="nt-icon" aria-hidden="true"><i class="fa-solid fa-circle-info"></i></span> แบบสำรวจ</label>
+                        </div>
+                                            <div class="nt-type-opt" style="--c: #64748b">
+                            <input type="radio" name="type" id="nt_type_report" value="report" >
+                            <label for="nt_type_report"><span class="nt-icon" aria-hidden="true"><i class="fa-solid fa-chart-column"></i></span> รายงาน</label>
+                        </div>
+                                    </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="nt_title">หัวข้อ</label>
+                <input type="text" id="nt_title" name="title" maxlength="150" required class="form-control " value="">
+                            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="nt_message">ข้อความ</label>
+                <textarea id="nt_message" name="message" rows="6" maxlength="5000" required class="form-control "></textarea>
+                                <div class="nt-hint">ขึ้นบรรทัดใหม่ได้ · ใส่ {name} เพื่อแทนด้วยชื่อผู้รับแต่ละคน</div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-8">
+                    <label class="form-label" for="nt_url">ลิงก์ (ไม่บังคับ)</label>
+                    <input type="url" id="nt_url" name="url" maxlength="500" placeholder="https://" class="form-control " value="">
+                                        <div class="nt-hint">แสดงเป็นปุ่มในหน้ารายละเอียดของการแจ้งเตือน</div>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label" for="nt_url_label">ข้อความบนปุ่ม</label>
+                    <input type="text" id="nt_url_label" name="url_label" maxlength="60" class="form-control" value="" placeholder="ดูรายละเอียด">
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="nt-box nt-box-body">
+            <h2 class="nt-section-title"><i class="fa-solid fa-users"></i> กลุ่มเป้าหมาย</h2>
+            <div class="nt-seg mb-3" role="radiogroup" aria-label="กลุ่มเป้าหมาย">
+                                    <div class="form-check">
+                        <input type="radio" name="target_type" id="nt_target_all" value="all" checked>
+                        <label for="nt_target_all">ผู้ใช้งานทั้งหมด</label>
+                    </div>
+                                    <div class="form-check">
+                        <input type="radio" name="target_type" id="nt_target_backend" value="backend" >
+                        <label for="nt_target_backend">เจ้าหน้าที่ / ผู้ดูแลระบบ</label>
+                    </div>
+                                    <div class="form-check">
+                        <input type="radio" name="target_type" id="nt_target_roles" value="roles" >
+                        <label for="nt_target_roles">ตามบทบาท</label>
+                    </div>
+                                    <div class="form-check">
+                        <input type="radio" name="target_type" id="nt_target_groups" value="groups" >
+                        <label for="nt_target_groups">ตามกลุ่มผู้ใช้</label>
+                    </div>
+                                    <div class="form-check">
+                        <input type="radio" name="target_type" id="nt_target_users" value="users" >
+                        <label for="nt_target_users">เลือกผู้ใช้งาน</label>
+                    </div>
+                            </div>
+
+            <div data-target-box="roles"  hidden >
+                <label class="form-label" for="nt_roles">เลือกบทบาท</label>
+                <select id="nt_roles" name="target_ids[]" multiple disabled>
+                                            <option value="4" >[belib] Admin</option>
+                                            <option value="6" >[belib] Member</option>
+                                            <option value="74" >[belib] Content Manager</option>
+                                            <option value="75" >[belib] Editor</option>
+                                            <option value="76" >[belib] Viewer</option>
+                                            <option value="8" >[learnext] Admin</option>
+                                            <option value="9" >[learnext] Course Admin</option>
+                                            <option value="10" >[learnext] Member</option>
+                                            <option value="11" >[learnext] Teacher/Instructor</option>
+                                    </select>
+            </div>
+            <div data-target-box="groups"  hidden >
+                <label class="form-label" for="nt_groups">เลือกกลุ่มผู้ใช้</label>
+                <select id="nt_groups" name="target_ids[]" multiple disabled>
+                                            <option value="4" >test</option>
+                                            <option value="3" >บุคคลภายนอก</option>
+                                            <option value="1" >ผู้บริหาร</option>
+                                            <option value="2" >พนักงาน</option>
+                                    </select>
+            </div>
+            <div data-target-box="users"  hidden >
+                <label class="form-label" for="nt_users">เลือกผู้ใช้งาน</label>
+                <select id="nt_users" name="target_ids[]" multiple disabled>
+                                    </select>
+            </div>
+                        
+            <div id="ntEstimate" class="nt-estimate" role="status"><i class="fa-solid fa-user-group"></i> <span>กำลังนับผู้รับ...</span></div>
+            <div class="nt-hint mt-2">แสดงในกระดิ่งแจ้งเตือนของทุกระบบ (Portal, e-Library, e-Learning, ข่าวสาร, คลังความรู้, ระบบจอง) กดแล้วเปิดหน้ารายละเอียดที่มีข้อความเต็ม</div>
+        </section>
+
+        
+        <section class="nt-box nt-box-body">
+            <h2 class="nt-section-title"><i class="fa-regular fa-paper-plane"></i> การส่ง</h2>
+            <div class="nt-seg mb-3" role="radiogroup" aria-label="การส่ง">
+                                    <div class="form-check">
+                        <input type="radio" name="send_mode" id="nt_mode_now" value="now" checked>
+                        <label for="nt_mode_now">ส่งทันที</label>
+                    </div>
+                                    <div class="form-check">
+                        <input type="radio" name="send_mode" id="nt_mode_later" value="later" >
+                        <label for="nt_mode_later">กำหนดเวลาส่ง</label>
+                    </div>
+                                    <div class="form-check">
+                        <input type="radio" name="send_mode" id="nt_mode_draft" value="draft" >
+                        <label for="nt_mode_draft">บันทึกไว้ก่อน (ยังไม่ส่ง)</label>
+                    </div>
+                            </div>
+
+            <div id="ntScheduleBox" class="mb-3"  hidden >
+                <label class="form-label" for="nt_scheduled_at">วันและเวลาที่ส่ง <span class="nt-muted">(Asia/Bangkok)</span></label>
+                <input type="datetime-local" id="nt_scheduled_at" name="scheduled_at" min="2026-10-27T09:34" style="max-width:260px;"
+                    class="form-control " value="">
+                                <div class="nt-hint">ส่งอัตโนมัติเมื่อถึงเวลา (ต้องตั้ง cron ให้รัน php artisan schedule:run ทุกนาที) - ถ้ายังไม่ได้ตั้ง ระบบจะส่งตอนมีผู้ดูแลเปิดหน้านี้</div>
+            </div>
+
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="1" id="nt_save_template" name="save_template" >
+                <label class="form-check-label" for="nt_save_template">บันทึกเป็นเทมเพลตด้วย</label>
+            </div>
+            <div id="ntTemplateNameBox" class="mb-3"  hidden >
+                <label class="form-label" for="nt_template_name">ชื่อเทมเพลต</label>
+                <input type="text" id="nt_template_name" name="template_name" maxlength="100" style="max-width:360px;"
+                    class="form-control " value="">
+                            </div>
+
+            <div class="nt-form-actions">
+                <a href="/portal/admin/notifications" class="btn btn-light">ยกเลิก</a>
+                <button type="submit" class="btn btn-primary" id="ntSubmit"><i class="fa-regular fa-paper-plane"></i> <span>ส่งการแจ้งเตือน</span></button>
+            </div>
+        </section>
+    </div>
+
+    
+    <aside class="nt-form-side">
+        <section class="nt-box nt-box-body">
+            <h2 class="nt-section-title"><i class="fa-regular fa-bell"></i> ตัวอย่างบนกระดิ่งแจ้งเตือน</h2>
+            <div class="nt-pv-bell">
+                <div class="nt-pv-bell-head"><span>การแจ้งเตือน</span><i class="fa-solid fa-bell" aria-hidden="true"></i></div>
+                <div class="nt-pv-item">
+                    <span class="nt-pv-dot"></span>
+                    <div>
+                        <div class="nt-pv-title" id="pvTitle"></div>
+                        <div class="nt-pv-msg" id="pvSnippet"></div>
+                        <div class="nt-pv-time">เมื่อสักครู่</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="nt-box nt-box-body">
+            <h2 class="nt-section-title"><i class="fa-regular fa-file-lines"></i> ตัวอย่างหน้ารายละเอียด</h2>
+            <div class="nt-pv-page">
+                <div class="nt-pv-page-head">
+                    <span class="nt-icon is-lg" id="pvIcon" aria-hidden="true"></span>
+                    <div>
+                        <span class="nt-badge" id="pvType"></span>
+                        <h4 id="pvPageTitle"></h4>
+                    </div>
+                </div>
+                <div class="nt-pv-body" id="pvBody"></div>
+                <span class="nt-pv-cta" id="pvCta" hidden></span>
+            </div>
+        </section>
+    </aside>
+</div>
+</form>
+    </div>
+</div>
+
+
+
+<!-- PAGE PRELOADER OVERLAY -->
+<div id="page-preloader">
+    <div class="preloader-box">
+        <div class="preloader-spinner"></div>
+        <div class="preloader-text">กำลังดำเนินการ...</div>
+    </div>
+</div><!-- JS Libraries (local vendor) -->
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery-3.7.1.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/bootstrap.bundle.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    // ข้อความในตัว DataTables ตามภาษาที่เลือก — ทุกตารางได้ค่านี้ ถ้าหน้าไหนตั้ง language เองจะทับเฉพาะ key นั้น
+    // pageLength = "จำนวนรายการต่อหน้า" ที่หน้าตั้งค่าระบบ - ตารางในหลังบ้านไม่ตั้ง pageLength เองแล้ว ให้ตามค่านี้ทั้งหมด
+    $.extend(true, $.fn.dataTable.defaults, {
+        language: {"processing":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25...","search":"\u0e04\u0e49\u0e19\u0e2b\u0e32:","lengthMenu":"\u0e41\u0e2a\u0e14\u0e07 _MENU_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e15\u0e48\u0e2d\u0e2b\u0e19\u0e49\u0e32","info":"\u0e41\u0e2a\u0e14\u0e07 _START_ \u0e16\u0e36\u0e07 _END_ \u0e08\u0e32\u0e01 _TOTAL_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoEmpty":"\u0e41\u0e2a\u0e14\u0e07 0 \u0e16\u0e36\u0e07 0 \u0e08\u0e32\u0e01 0 \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23","infoFiltered":"(\u0e01\u0e23\u0e2d\u0e07\u0e08\u0e32\u0e01\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 _MAX_ \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23)","zeroRecords":"\u0e44\u0e21\u0e48\u0e1e\u0e1a\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e17\u0e35\u0e48\u0e04\u0e49\u0e19\u0e2b\u0e32","emptyTable":"\u0e44\u0e21\u0e48\u0e21\u0e35\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25","loadingRecords":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e42\u0e2b\u0e25\u0e14..."},
+        pageLength: 25
+    });
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/tom-select.complete.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/flatpickr-th.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/jquery.validate.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/additional-methods.min.js"></script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/chart.min.js"></script>
+
+<!-- TinyMCE 8.3.2 - local -->
+<script
+    src="/_shared/tinymce_8.3.2/tinymce/js/tinymce/tinymce.min.js">
+</script>
+<script src="/_shared/a/back/theme_metronic/vendor/js/sweetalert2.min.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/lx-export.js"></script>
+
+<script src="/_shared/a/back/theme_metronic/js/pii.js"></script>
+<script defer src="/_shared/a/back/theme_metronic/vendor/js/fontawesome.min.js"></script>
+
+<!-- AdminKit JS -->
+<script src="/_shared/a/back/theme_metronic/js/adminkit.js"></script>
+
+<script src="/_shared/inline/fc606e70c03082cf.js"></script>
+
+<script>
+// สวิตช์ของ includes/form_switch: กดสวิตช์ → click radio ตัวที่ตรง (ค่าที่ส่ง/สคริปต์เดิมที่อ่าน radio ทำงานเหมือนเดิม)
+(function () {
+    function sync(box) {
+        if (!box) return;
+        var on = box.querySelector('.fsw-radio').checked;
+        var label = box.querySelector('.fsw-state');
+        box.querySelector('.fsw-proxy').checked = on;
+        box.classList.toggle('is-on', on);
+        if (label) label.textContent = on ? label.dataset.on : label.dataset.off;
+    }
+    window.fswSync = function (root) { (root || document).querySelectorAll('[data-fsw]').forEach(sync); };
+    document.addEventListener('change', function (e) {
+        var el = e.target;
+        if (!el.classList) return;
+        if (el.classList.contains('fsw-proxy')) {
+            var box = el.closest('[data-fsw]');
+            var target = box.querySelectorAll('.fsw-radio')[el.checked ? 0 : 1];
+            if (target && !target.checked) target.click();
+            sync(box);
+        } else if (el.classList.contains('fsw-radio')) {
+            sync(el.closest('[data-fsw]'));
+        }
+    });
+    document.addEventListener('reset', function (e) { setTimeout(function () { window.fswSync(e.target); }, 0); });
+})();
+</script>
+<script src="/_shared/inline/0978f1b846f5754d.js"></script>
+
+
+<div class="modal fade" id="scReauthModal" tabindex="-1" aria-labelledby="scReauthTitle" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <form class="modal-content" id="scReauthForm" novalidate>
+            <div class="modal-header">
+                <h5 class="modal-title" id="scReauthTitle"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> ยืนยันตัวตนอีกครั้ง</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="ยกเลิก"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-3" id="scReauthIntro">รายการนี้มีผลกับความปลอดภัยของระบบ กรุณายืนยันตัวตนก่อน (ใช้ได้ 5 นาที)</p>
+                <div class="mb-2" id="scReauthPwGroup">
+                    <label class="form-label" for="scReauthPassword">รหัสผ่าน</label>
+                    <input type="password" class="form-control" id="scReauthPassword" autocomplete="current-password">
+                </div>
+                <div class="text-center text-muted small my-2" id="scReauthOr">หรือ</div>
+                <div class="mb-2" id="scReauthCodeGroup">
+                    <label class="form-label" for="scReauthCode">รหัส 2FA 6 หลัก</label>
+                    <input type="text" class="form-control" id="scReauthCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="\d{6}">
+                </div>
+                <div class="alert alert-warning py-2 mb-0 d-none" id="scReauthNoMethod">บัญชีนี้ยืนยันด้วยรหัสผ่านในระบบไม่ได้ (เข้าด้วย AD / SSO) กรุณาเปิด 2FA ก่อน</div>
+                <div class="text-danger small mt-2" id="scReauthError" role="alert" aria-live="assertive"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">ยกเลิก</button>
+                <button type="submit" class="btn btn-primary" id="scReauthSubmit">ยืนยัน</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/_shared/inline/88bef9f02d46dfb7.js"></script>
+
+
+
+
+<script>
+(function () {
+    var csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    var text = {"submit":{"now":"\u0e2a\u0e48\u0e07\u0e01\u0e32\u0e23\u0e41\u0e08\u0e49\u0e07\u0e40\u0e15\u0e37\u0e2d\u0e19","later":"\u0e15\u0e31\u0e49\u0e07\u0e40\u0e27\u0e25\u0e32\u0e2a\u0e48\u0e07","draft":"\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e23\u0e48\u0e32\u0e07"},"estimate":"\u0e08\u0e30\u0e2a\u0e48\u0e07\u0e16\u0e36\u0e07 __N__ \u0e04\u0e19","estimating":"\u0e01\u0e33\u0e25\u0e31\u0e07\u0e19\u0e31\u0e1a\u0e1c\u0e39\u0e49\u0e23\u0e31\u0e1a...","previewName":"\u0e2a\u0e21\u0e0a\u0e32\u0e22","urlDefault":"\u0e14\u0e39\u0e23\u0e32\u0e22\u0e25\u0e30\u0e40\u0e2d\u0e35\u0e22\u0e14","placeholder":"\u0e1e\u0e34\u0e21\u0e1e\u0e4c\u0e0a\u0e37\u0e48\u0e2d\u0e2b\u0e23\u0e37\u0e2d\u0e2d\u0e35\u0e40\u0e21\u0e25\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e04\u0e49\u0e19\u0e2b\u0e32"};
+    var urls = {"estimate":"\/portal\/admin\/notifications\/estimate","users":"\/portal\/admin\/notifications\/users"};
+    var types = {"announcement":{"icon":"fa-solid fa-bullhorn","color":"#2563eb","label":"\u0e1b\u0e23\u0e30\u0e01\u0e32\u0e28"},"content":{"icon":"fa-solid fa-file-lines","color":"#16a34a","label":"\u0e40\u0e19\u0e37\u0e49\u0e2d\u0e2b\u0e32"},"activity":{"icon":"fa-regular fa-calendar-check","color":"#7c3aed","label":"\u0e01\u0e34\u0e08\u0e01\u0e23\u0e23\u0e21"},"system":{"icon":"fa-solid fa-gear","color":"#f59e0b","label":"\u0e23\u0e30\u0e1a\u0e1a"},"reminder":{"icon":"fa-solid fa-triangle-exclamation","color":"#ef4444","label":"\u0e40\u0e15\u0e37\u0e2d\u0e19\u0e04\u0e27\u0e32\u0e21\u0e08\u0e33"},"survey":{"icon":"fa-solid fa-circle-info","color":"#0d9488","label":"\u0e41\u0e1a\u0e1a\u0e2a\u0e33\u0e23\u0e27\u0e08"},"report":{"icon":"fa-solid fa-chart-column","color":"#64748b","label":"\u0e23\u0e32\u0e22\u0e07\u0e32\u0e19"}};
+    var templates = {"4":{"type":"survey","title":"\u0e41\u0e1a\u0e1a\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e04\u0e27\u0e32\u0e21\u0e1e\u0e36\u0e07\u0e1e\u0e2d\u0e43\u0e08\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e23\u0e30\u0e1a\u0e1a","message":"\u0e02\u0e2d\u0e04\u0e27\u0e32\u0e21\u0e23\u0e48\u0e27\u0e21\u0e21\u0e37\u0e2d\u0e15\u0e2d\u0e1a\u0e41\u0e1a\u0e1a\u0e2a\u0e33\u0e23\u0e27\u0e08\u0e04\u0e27\u0e32\u0e21\u0e1e\u0e36\u0e07\u0e1e\u0e2d\u0e43\u0e08 \u0e43\u0e0a\u0e49\u0e40\u0e27\u0e25\u0e32\u0e1b\u0e23\u0e30\u0e21\u0e32\u0e13 3 \u0e19\u0e32\u0e17\u0e35\n\u0e04\u0e27\u0e32\u0e21\u0e04\u0e34\u0e14\u0e40\u0e2b\u0e47\u0e19\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13\u0e0a\u0e48\u0e27\u0e22\u0e43\u0e2b\u0e49\u0e40\u0e23\u0e32\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e44\u0e14\u0e49\u0e14\u0e35\u0e22\u0e34\u0e48\u0e07\u0e02\u0e36\u0e49\u0e19","url":null,"url_label":"\u0e17\u0e33\u0e41\u0e1a\u0e1a\u0e2a\u0e33\u0e23\u0e27\u0e08"},"3":{"type":"activity","title":"\u0e02\u0e2d\u0e40\u0e0a\u0e34\u0e0d\u0e40\u0e02\u0e49\u0e32\u0e23\u0e48\u0e27\u0e21 ...","message":"\u0e02\u0e2d\u0e40\u0e0a\u0e34\u0e0d {name} \u0e40\u0e02\u0e49\u0e32\u0e23\u0e48\u0e27\u0e21 ...\n\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48 ... \u0e40\u0e27\u0e25\u0e32 ... \u0e19.\n\u0e2a\u0e16\u0e32\u0e19\u0e17\u0e35\u0e48 ...","url":null,"url_label":"\u0e25\u0e07\u0e17\u0e30\u0e40\u0e1a\u0e35\u0e22\u0e19"},"2":{"type":"content","title":"\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e2b\u0e19\u0e31\u0e07\u0e2a\u0e37\u0e2d\u0e43\u0e2b\u0e21\u0e48\u0e43\u0e19 e-Library","message":"\u0e21\u0e35\u0e2b\u0e19\u0e31\u0e07\u0e2a\u0e37\u0e2d\u0e41\u0e25\u0e30\u0e40\u0e2d\u0e01\u0e2a\u0e32\u0e23\u0e43\u0e2b\u0e21\u0e48 ... \u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\n\u0e40\u0e02\u0e49\u0e32\u0e44\u0e1b\u0e2d\u0e48\u0e32\u0e19\u0e44\u0e14\u0e49\u0e41\u0e25\u0e49\u0e27\u0e27\u0e31\u0e19\u0e19\u0e35\u0e49\u0e17\u0e35\u0e48 e-Library","url":"\/belib","url_label":"\u0e44\u0e1b\u0e17\u0e35\u0e48 e-Library"},"1":{"type":"system","title":"\u0e41\u0e08\u0e49\u0e07\u0e1b\u0e34\u0e14\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\u0e23\u0e30\u0e1a\u0e1a","message":"\u0e40\u0e23\u0e35\u0e22\u0e19 {name}\n\n\u0e23\u0e30\u0e1a\u0e1a\u0e08\u0e30\u0e1b\u0e34\u0e14\u0e1b\u0e23\u0e31\u0e1a\u0e1b\u0e23\u0e38\u0e07\u0e0a\u0e31\u0e48\u0e27\u0e04\u0e23\u0e32\u0e27\u0e43\u0e19\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48 ... \u0e40\u0e27\u0e25\u0e32 ... - ... \u0e19.\n\u0e02\u0e2d\u0e2d\u0e20\u0e31\u0e22\u0e43\u0e19\u0e04\u0e27\u0e32\u0e21\u0e44\u0e21\u0e48\u0e2a\u0e30\u0e14\u0e27\u0e01","url":null,"url_label":null}};
+    var form = document.getElementById('ntForm');
+
+    function checked(name) { var el = form.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ''; }
+
+    // ── กลุ่มเป้าหมาย: tom-select + นับผู้รับ ──
+    var selects = {
+        roles: new TomSelect('#nt_roles', { plugins: ['remove_button'], maxOptions: 500 }),
+        groups: new TomSelect('#nt_groups', { plugins: ['remove_button'], maxOptions: 500 }),
+        users: new TomSelect('#nt_users', {
+            plugins: ['remove_button'], valueField: 'id', labelField: 'text', searchField: 'text',
+            placeholder: text.placeholder, shouldLoad: function (q) { return q.length >= 2; },
+            // TOR 4.3: ข้อความตัวเลือกมีอีเมลแบบปิดบัง - ผลกรองมาจาก server แล้ว ไม่ต้องกรองซ้ำฝั่ง browser (พิมพ์อีเมลเต็มก็ยังเจอ)
+            score: function () { return function () { return 1; }; },
+            load: function (q, cb) {
+                this.clearOptions();
+                fetch(urls.users + '?q=' + encodeURIComponent(q), { headers: { 'Accept': 'application/json' } })
+                    .then(function (r) { return r.json(); }).then(cb).catch(function () { cb(); });
+            }
+        })
+    };
+
+    function applyTarget() {
+        var target = checked('target_type');
+        Object.keys(selects).forEach(function (key) {
+            var on = key === target;
+            form.querySelector('[data-target-box="' + key + '"]').hidden = !on;
+            // select ที่ซ่อนต้อง disable ไม่งั้น target_ids[] ของกลุ่มอื่นติดไปด้วย
+            if (on) { selects[key].enable(); } else { selects[key].disable(); }
+        });
+        estimate();
+    }
+
+    var estimateTimer;
+    function estimate() {
+        clearTimeout(estimateTimer);
+        var box = document.getElementById('ntEstimate');
+        box.querySelector('span').textContent = text.estimating;
+        estimateTimer = setTimeout(function () {
+            var target = checked('target_type');
+            var ids = selects[target] ? selects[target].getValue() : [];
+            fetch(urls.estimate, {
+                method: 'POST',
+                headers: { 'X-CSRF-TOKEN': csrf, 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                body: JSON.stringify({ target_type: target, target_ids: ids })
+            }).then(function (r) { return r.json(); }).then(function (res) {
+                box.querySelector('span').textContent = text.estimate.replace('__N__', Number(res.count || 0).toLocaleString());
+                box.classList.toggle('is-zero', !res.count);
+            }).catch(function () { box.querySelector('span').textContent = '-'; });
+        }, 300);
+    }
+
+    form.querySelectorAll('input[name="target_type"]').forEach(function (r) { r.addEventListener('change', applyTarget); });
+    Object.keys(selects).forEach(function (key) { selects[key].on('change', estimate); });
+
+    // ── การส่ง ──
+    function applyMode() {
+        var mode = checked('send_mode');
+        document.getElementById('ntScheduleBox').hidden = mode !== 'later';
+        document.querySelector('#ntSubmit span').textContent = text.submit[mode] || text.submit.now;
+    }
+    form.querySelectorAll('input[name="send_mode"]').forEach(function (r) { r.addEventListener('change', applyMode); });
+
+    var saveTpl = document.getElementById('nt_save_template');
+    saveTpl.addEventListener('change', function () {
+        document.getElementById('ntTemplateNameBox').hidden = !saveTpl.checked;
+        if (saveTpl.checked && !document.getElementById('nt_template_name').value) {
+            document.getElementById('nt_template_name').value = document.getElementById('nt_title').value;
+        }
+    });
+
+    // ── ตัวอย่าง ──
+    function snippet(s) {
+        s = s.replace(/\{name\}/g, '').replace(/\s+/g, ' ').trim();
+        return s.length > 120 ? s.slice(0, 119) + '…' : s;
+    }
+    function setIcon(el, meta) {
+        el.style.setProperty('--c', meta.color);
+        el.innerHTML = '<i class="' + meta.icon + '"></i>';   // fontawesome.js แปลง <i> ใหม่เป็น svg เอง
+    }
+    function preview() {
+        var meta = types[checked('type')] || types.announcement;
+        var title = document.getElementById('nt_title').value.trim() || '…';
+        var message = document.getElementById('nt_message').value;
+        var url = document.getElementById('nt_url').value.trim();
+        var label = document.getElementById('nt_url_label').value.trim() || text.urlDefault;
+
+        document.getElementById('pvTitle').textContent = title;
+        document.getElementById('pvSnippet').textContent = snippet(message);
+        document.getElementById('pvPageTitle').textContent = title;
+        document.getElementById('pvBody').textContent = message.replace(/\{name\}/g, text.previewName);
+        var type = document.getElementById('pvType');
+        type.textContent = meta.label;
+        type.style.setProperty('--c', meta.color);
+        setIcon(document.getElementById('pvIcon'), meta);
+        var cta = document.getElementById('pvCta');
+        cta.hidden = !url;
+        cta.textContent = label;
+    }
+    ['nt_title', 'nt_message', 'nt_url', 'nt_url_label'].forEach(function (id) { document.getElementById(id).addEventListener('input', preview); });
+    form.querySelectorAll('input[name="type"]').forEach(function (r) { r.addEventListener('change', preview); });
+
+    // ── เทมเพลต: เติมฟอร์ม ──
+    var tplSelect = document.getElementById('nt_template');
+    if (tplSelect) {
+        tplSelect.addEventListener('change', function () {
+            var tpl = templates[tplSelect.value];
+            document.getElementById('nt_template_id').value = tpl ? tplSelect.value : '';
+            if (!tpl) return;
+            var typeInput = document.getElementById('nt_type_' + tpl.type);
+            if (typeInput) typeInput.checked = true;
+            document.getElementById('nt_title').value = tpl.title || '';
+            document.getElementById('nt_message').value = tpl.message || '';
+            document.getElementById('nt_url').value = tpl.url || '';
+            document.getElementById('nt_url_label').value = tpl.url_label || '';
+            preview();
+        });
+    }
+
+    form.addEventListener('submit', function () {
+        var btn = document.getElementById('ntSubmit');
+        btn.disabled = true;
+        btn.querySelector('span').textContent = '…';
+    });
+
+    applyTarget();
+    applyMode();
+    preview();
+})();
+</script>
+<script src="/_shared/inline/fc839f8fc1f6a789.js"></script>
+
+</body>
+</html>
