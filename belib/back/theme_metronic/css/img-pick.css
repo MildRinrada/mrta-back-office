@@ -1,0 +1,37 @@
+/* ==========================================================================
+   กล่องรูปแบบคลิก / ปุ่มกล้อง / ลากไฟล์มาวาง - แทนปุ่ม "Choose File" ของหลังบ้าน
+   (ชุดเดียวกับ portal: admin-ui.css ส่วน img-pick) - สคริปต์ includes/img_pick_script / ปุ่มกล้อง includes/ui/img_pick
+     [data-img-pick]   กล่องที่คลิก/วางไฟล์ได้ - มี input[type=file] อยู่ข้างใน หรือใส่ selector: data-img-pick="#id"
+     .img-pick-wrap    กรอบรอบรูปตัวอย่าง (กว้าง-สูงตามรูป) / .is-empty = ยังไม่มีรูป แสดง .img-pick-empty แทน
+     .img-pick-zone    กล่องวางไฟล์แบบไม่มีรูป (ขั้นเลือกไฟล์ก่อนตัดรูป ฯลฯ)
+     .is-pick-off      ปิดชั่วคราว (เช่นเลือกปกแบบ URL อยู่)
+   ========================================================================== */
+[data-img-pick]{position:relative;cursor:pointer;}
+.img-pick-input{position:absolute !important;left:50%;bottom:0;width:1px !important;height:1px !important;padding:0 !important;border:0 !important;opacity:0;pointer-events:none;}
+/* ชี้เมาส์ = หรี่รูป + ข้อความ / ไอคอนกล้องมีที่ปุ่มมุมขวาล่างที่เดียว */
+.img-pick-hover{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:6px;border-radius:inherit;background:rgba(15,23,42,.45);color:#fff;font-size:12px;line-height:1.4;text-align:center;opacity:0;transition:opacity .15s;pointer-events:none;}
+[data-img-pick]:hover .img-pick-hover,[data-img-pick].is-drop .img-pick-hover{opacity:1;}
+[data-img-pick].is-drop{outline:2px dashed var(--pri);outline-offset:3px;}
+.img-pick-cam{position:absolute;right:6px;bottom:6px;z-index:3;display:flex;align-items:center;justify-content:center;width:30px;height:30px;padding:0;border:2px solid #fff;border-radius:50%;background:var(--pri);color:#fff;font-size:13px;line-height:1;box-shadow:0 2px 6px rgba(15,23,42,.3);cursor:pointer;transition:transform .15s;}
+.img-pick-cam i,.img-pick-cam svg{width:13px;height:13px;}
+.img-pick-cam:hover{transform:scale(1.08);}
+.img-pick-cam:focus-visible{outline:2px solid var(--pri);outline-offset:2px;}
+
+.img-pick-wrap{display:inline-block;vertical-align:top;max-width:100%;border-radius:8px;line-height:0;}
+.img-pick-wrap > img{border-radius:inherit;}
+.img-pick-wrap.is-empty > img{display:none;}
+.img-pick-empty{display:none;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:220px;height:124px;padding:8px;border:2px dashed var(--border);border-radius:8px;color:var(--text-2);font-size:12px;line-height:1.4;text-align:center;transition:border-color .15s;}
+.img-pick-empty > i,.img-pick-empty > svg{font-size:22px;width:22px;height:22px;color:var(--text-3);}
+.img-pick-wrap.is-empty .img-pick-empty{display:flex;}
+.img-pick-wrap.is-empty .img-pick-hover{display:none;}
+.img-pick-wrap.is-empty:hover .img-pick-empty,.img-pick-wrap.is-empty.is-drop .img-pick-empty{border-color:var(--pri);}
+
+.img-pick-zone{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:110px;padding:16px;border:2px dashed var(--border);border-radius:10px;color:var(--text-2);font-size:13px;text-align:center;transition:border-color .15s,background-color .15s;}
+.img-pick-zone > i,.img-pick-zone > svg{font-size:22px;width:22px;height:22px;color:var(--pri);}
+.img-pick-zone:hover,.img-pick-zone.is-drop{border-color:var(--pri);background:rgba(78,115,223,.06);outline:0;}
+.img-pick-zone .img-pick-file{font-size:12px;font-weight:500;word-break:break-all;}
+
+[data-img-pick].is-pick-off{cursor:default;}
+[data-img-pick].is-pick-off .img-pick-cam,[data-img-pick].is-pick-off .img-pick-hover{display:none;}
+/* ปิดชั่วคราว + ยังไม่มีรูป: เหลือแค่ไอคอน (ข้อความ "คลิกหรือลาก" ไม่จริงตอนนี้) */
+[data-img-pick].is-pick-off .img-pick-empty{font-size:0;gap:0;}

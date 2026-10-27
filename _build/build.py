@@ -266,9 +266,14 @@ def ok_style(html, sys_):
     return 'success' if a > b else (200 if b > a else OK_STYLE.get(sys_, 200))
 
 
+# ไอคอนแท็บ - ทั้ง 7 ระบบใช้ไฟล์เดียวกัน (ระบบจริงเบราว์เซอร์หา /favicon.ico ของแต่ละโดเมนเอง เว็บทดลองต้องวางไว้ที่ root)
+ICON_FILES = ('favicon.ico', 'favicon.svg')
+ICON_TAGS = '<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml">'
+
+
 def inject(html, sys_, path, style=200):
     cfg = json.dumps({'sys': sys_, 'path': path, 'okStyle': style})
-    tags = ('<meta name="robots" content="noindex, nofollow">'
+    tags = ('<meta name="robots" content="noindex, nofollow">' + ICON_TAGS +
             f'<script>window.__DEMO={cfg};</script>'
             '<script src="/_demo/pages.js"></script>'
             f'<script src="/_demo/idx-{sys_}.js"></script>'
@@ -281,7 +286,7 @@ def inject(html, sys_, path, style=200):
 
 def redirect_stub(target):
     t = json.dumps(target)
-    return ('<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">'
+    return ('<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">' + ICON_TAGS +
             f'<meta http-equiv="refresh" content="0;url={target}"><title>กำลังเปิดหน้า</title>'
             f'<script>location.replace({t});</script></head><body></body></html>')
 
@@ -480,6 +485,8 @@ def main():
     # หน้าแรกของเว็บทดลอง = หลังบ้าน portal (vercel.json redirect ให้ด้วย ไฟล์นี้ใช้ตอนเปิดในเครื่อง)
     (SITE / 'index.html').write_text(redirect_stub(HOME), encoding='utf-8')
     redirs['/'] = HOME
+    for name in ICON_FILES:
+        shutil.copyfile(SRC / APPS['portal'] / 'public' / name, SITE / name)
 
     demo = SITE / '_demo'
     (demo / 'pages.js').write_text(
