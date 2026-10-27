@@ -69,6 +69,8 @@
 .cd-empty-props{text-align:center;color:var(--text-3);font-size:12.5px;padding:24px 8px;line-height:1.5;}
 .cd-empty-props i{font-size:26px;display:block;margin-bottom:8px;opacity:.6;}
 .cd-props .btn-group .btn.active{background:var(--pri);border-color:var(--pri);color:#fff;}
+/* กลุ่มปุ่มเต็มความกว้าง (หนา/เอียง/จัดชิด, ลำดับชั้น ฯลฯ) แบ่งที่เท่ากัน - เดิมปุ่มกว้างตามไอคอนจนล้นแผง */
+.cd-props .btn-group.w-100 > .btn{flex:1 1 0;min-width:0;padding-left:0;padding-right:0;}
 .cd-layers{max-height:260px;overflow:auto;border:1px solid var(--border);border-radius:var(--radius-sm);}
 .cd-layer{display:flex;align-items:center;gap:8px;padding:6px 10px;font-size:12.5px;cursor:pointer;border-bottom:1px solid var(--border);}
 .cd-layer:last-child{border-bottom:0;}
@@ -113,9 +115,10 @@
 .cd-signer-row{border:1px solid var(--border);background:#fff;border-radius:var(--radius-sm);padding:8px;margin-bottom:8px;}
 .cd-signer-row.is-active{border-color:#1dc9b7;box-shadow:0 0 0 1px rgba(29,201,183,.35);}
 .cd-signer-row .cd-signer-head{display:flex;align-items:center;margin-bottom:6px;}
-.cd-signer-row .cd-signer-head img{max-width:90px;max-height:34px;margin-left:6px;}
+.cd-signer-row .cd-signer-head img{max-width:70px;max-height:34px;margin-left:6px;}
 .cd-signer-no{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--surface);font-size:11px;font-weight:700;color:var(--text-2);}
-.cd-signer-row .btn-group .btn{padding:2px 7px;}
+/* รูปย่อ + ป้ายสถานะ + ปุ่ม 4 ปุ่ม ต้องพอดีแผงกว้าง 264px (เดิมปุ่มลบล้นขอบ) */
+.cd-signer-row .btn-group .btn{padding:2px 5px;}
 /* ข้อมูลอัตโนมัติที่ว่างในตัวอย่าง - ป้ายสีเทาขนาดเท่าข้อความจริง เฉพาะหน้าจัดวาง (ใบจริงเว้นว่าง) */
 .cd-text-inner.cd-placeholder{color:var(--text-3)!important;font-style:italic!important;}
 .cd-item.cd-datehidden{outline:1px dashed var(--text-3);}
